@@ -1,4 +1,4 @@
-<h1 class="page-header">দেশের তালিকা
+<h1 class="page-header">সঞ্চয় তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('saving1/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
@@ -24,19 +24,19 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
-            <a href="javascript:ajaxLoad('saving1/list?field=Saving1yName&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
-               দেশের নাম
+            <a href="javascript:ajaxLoad('saving1/list?field=CollectionAmount&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+               জমা টাকার পরিমান
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('saving1_field')=='Saving1yName'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('saving1_field')=='CollectionAmount'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('saving1/list?field=Saving1yCode&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
-                দেশের কোড
+            <a href="javascript:ajaxLoad('saving1/list?field=SavingDate&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+                জমাদানের তারিখ
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('saving1_field')=='Saving1yCode'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('saving1_field')=='SavingDate'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
 
@@ -48,8 +48,8 @@
     @foreach($saving1s as $key=>$saving1)
         <tr>
             <td align="center">{{$i++}}</td>
-            <td>{{$saving1->Saving1yName}}</td>
-            <td>{{$saving1->Saving1yCode}}</td>
+            <td>{{$saving1->CollectionAmount}}</td>
+            <td>{{$saving1->SavingDate}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('saving1/update/{{$saving1->id}}')">

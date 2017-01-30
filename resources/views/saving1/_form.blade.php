@@ -1,16 +1,16 @@
 <div class="col-md-12">
-    <div class="form-group required col-md-6" id="form-Saving1yName-error">
-        {!! Form::label("Saving1yName","দেশের নাম",["class"=>"control-label col-md-3"]) !!}
+    <div class="form-group required col-md-6" id="form-CollectionAmount-error">
+        {!! Form::label("CollectionAmount","জমা টাকা",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::text("Saving1yName",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="Saving1yName-error" class="help-block"></span>
+            {!! Form::number("CollectionAmount",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="CollectionAmount-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-Saving1yCode-error">
-        {!! Form::label("Saving1yCode","দেশের কোড",["class"=>"control-label col-md-3"]) !!}
+    <div class="form-group required col-md-6" id="form-SavingDate-error">
+        {!! Form::label("SavingDate","তারিখ",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::text("Saving1yCode",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="Saving1yCode-error" class="help-block"></span>
+            {!! Form::date("SavingDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="SavingDate-error" class="help-block"></span>
         </div>
     </div>
 </div>

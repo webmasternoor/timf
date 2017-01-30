@@ -1,4 +1,4 @@
-<h1 class="page-header">দেশের তালিকা
+<h1 class="page-header">ঋণ তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('investment/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
@@ -24,19 +24,43 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
-            <a href="javascript:ajaxLoad('investment/list?field=InvestmentyName&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
-               দেশের নাম
+            <a href="javascript:ajaxLoad('investment/list?field=Memberid&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
+               সদস্যের আইডি
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('investment_field')=='InvestmentyName'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('investment_field')=='Memberid'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('investment/list?field=InvestmentyCode&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
-                দেশের কোড
+            <a href="javascript:ajaxLoad('investment/list?field=ProductId&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
+                প্রোডাক্ট আইডি
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('investment_field')=='InvestmentyCode'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('investment_field')=='ProductId'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('investment/list?field=SavingAmount&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
+                সঞ্চয় টাকা
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('investment_field')=='SavingAmount'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('investment/list?field=TransactionDate&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
+               পরিশোধের তারিখ
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('investment_field')=='TransactionDate'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('investment/list?field=TransactionEntryDate&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
+               টাকা জমাদানের তারিখ
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('investment_field')=='TransactionEntryDate'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
 
@@ -48,8 +72,11 @@
     @foreach($investments as $key=>$investment)
         <tr>
             <td align="center">{{$i++}}</td>
-            <td>{{$investment->InvestmentyName}}</td>
-            <td>{{$investment->InvestmentyCode}}</td>
+            <td>{{$investment->Memberid}}</td>
+            <td>{{$investment->ProductId}}</td>
+            <td>{{$investment->SavingAmount}}</td>
+            <td>{{$investment->TransactionDate}}</td>
+            <td>{{$investment->TransactionEntryDate}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('investment/update/{{$investment->id}}')">

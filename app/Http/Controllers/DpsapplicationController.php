@@ -17,7 +17,7 @@ class DpsapplicationController extends Controller
     public function getList()
     {
         Session::put('dpsapplication_search', Input::has('ok') ? Input::get('search') : (Session::has('dpsapplication_search') ? Session::get('dpsapplication_search') : ''));
-        Session::put('dpsapplication_field', Input::has('field') ? Input::get('field') : (Session::has('dpsapplication_field') ? Session::get('dpsapplication_field') : 'DpsapplicationyName'));
+        Session::put('dpsapplication_field', Input::has('field') ? Input::get('field') : (Session::has('dpsapplication_field') ? Session::get('dpsapplication_field') : 'id'));
         Session::put('dpsapplication_sort', Input::has('sort') ? Input::get('sort') : (Session::has('dpsapplication_sort') ? Session::get('dpsapplication_sort') : 'asc'));
         $dpsapplications = Dpsapplication::where('id', 'like', '%' . Session::get('dpsapplication_search') . '%')
             ->orderBy(Session::get('dpsapplication_field'), Session::get('dpsapplication_sort'))->paginate(8);
@@ -32,9 +32,9 @@ class DpsapplicationController extends Controller
     public function postUpdate($id)
     {
         $dpsapplication = Dpsapplication::find($id);
-        $rules = ["DpsapplicationyCode" => "required"];
-        if ($dpsapplication->DpsapplicationyName != Input::get('DpsapplicationyName'))
-            $rules += ['DpsapplicationyName' => 'required|unique:dpsapplications'];
+        $rules = ["DpsProductId" => "required"];
+        if ($dpsapplication->DpsAmount != Input::get('DpsAmount'))
+            $rules += ['DpsAmount' => 'required'];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
             return array(
@@ -42,8 +42,9 @@ class DpsapplicationController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }
-        $dpsapplication->DpsapplicationyName = Input::get('DpsapplicationyName');
-        $dpsapplication->DpsapplicationyCode = Input::get('DpsapplicationyCode');
+        $dpsapplication->DpsProductId = Input::get('DpsProductId');
+        $dpsapplication->DpsAmount = Input::get('DpsAmount');
+        $dpsapplication->DpsDepositDate = Input::get('DpsDepositDate');
         $dpsapplication->save();
         return ['url' => 'dpsapplication/list'];
     }
@@ -56,8 +57,8 @@ class DpsapplicationController extends Controller
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
-            "DpsapplicationyName" => "required|unique:dpsapplications",
-            "DpsapplicationyCode" => "required|unique:dpsapplications",
+            "DpsCollection" => "required",
+            "DpsAmount" => "required",
         ]);
         if ($validator->fails()) {
             return array(
@@ -66,8 +67,9 @@ class DpsapplicationController extends Controller
             );
         }
         $dpsapplication = new Dpsapplication();
-        $dpsapplication->DpsapplicationyName = Input::get('DpsapplicationyName');
-        $dpsapplication->DpsapplicationyCode = Input::get('DpsapplicationyCode');
+        $dpsapplication->DpsProductId = Input::get('DpsProductId');
+        $dpsapplication->DpsAmount = Input::get('DpsAmount');
+        $dpsapplication->DpsDepositDate = Input::get('DpsDepositDate');
         $dpsapplication->save();
         return ['url' => 'dpsapplication/list'];
     }

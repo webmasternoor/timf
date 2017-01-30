@@ -1,16 +1,25 @@
 <div class="col-md-12">
-    <div class="form-group required col-md-6" id="form-DpsapplicationyName-error">
-        {!! Form::label("DpsapplicationyName","দেশের নাম",["class"=>"control-label col-md-3"]) !!}
+    <div class="form-group required col-md-6" id="form-DpsProductId-error">
+        {!! Form::label("DpsProductId","প্রোডাক্ট আইডি",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::text("DpsapplicationyName",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="DpsapplicationyName-error" class="help-block"></span>
+            {!! Form::text("DpsProductId",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="DpsProductId-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-DpsapplicationyCode-error">
-        {!! Form::label("DpsapplicationyCode","দেশের কোড",["class"=>"control-label col-md-3"]) !!}
+
+    <div class="form-group required col-md-6" id="form-DpsAmount-error">
+        {!! Form::label("DpsAmount","ব্যালেন্স",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::text("DpsapplicationyCode",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="DpsapplicationyCode-error" class="help-block"></span>
+            {!! Form::number("DpsAmount",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="DpsAmount-error" class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="form-group required col-md-6" id="form-DpsDepositDate-error">
+        {!! Form::label("DpsDepositDate","তারিখ",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::date("DpsDepositDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="DpsDepositDate-error" class="help-block"></span>
         </div>
     </div>
 </div>

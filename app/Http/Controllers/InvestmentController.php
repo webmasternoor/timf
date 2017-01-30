@@ -17,7 +17,7 @@ class InvestmentController extends Controller
     public function getList()
     {
         Session::put('investment_search', Input::has('ok') ? Input::get('search') : (Session::has('investment_search') ? Session::get('investment_search') : ''));
-        Session::put('investment_field', Input::has('field') ? Input::get('field') : (Session::has('investment_field') ? Session::get('investment_field') : 'InvestmentyName'));
+        Session::put('investment_field', Input::has('field') ? Input::get('field') : (Session::has('investment_field') ? Session::get('investment_field') : 'id'));
         Session::put('investment_sort', Input::has('sort') ? Input::get('sort') : (Session::has('investment_sort') ? Session::get('investment_sort') : 'asc'));
         $investments = Investment::where('id', 'like', '%' . Session::get('investment_search') . '%')
             ->orderBy(Session::get('investment_field'), Session::get('investment_sort'))->paginate(8);
@@ -42,8 +42,11 @@ class InvestmentController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }*/
-        $investment->InvestmentyName = Input::get('InvestmentyName');
-        $investment->InvestmentyCode = Input::get('InvestmentyCode');
+        $investment->Memberid = Input::get('Memberid');
+        $investment->SavingAmount = Input::get('SavingAmount');
+        $investment->TransactionDate = Input::get('TransactionDate');
+        $investment->ProductId = Input::get('ProductId');
+        $investment->TransactionEntryDate = Input::get('TransactionEntryDate');
         $investment->save();
         return ['url' => 'investment/list'];
     }
@@ -66,8 +69,11 @@ class InvestmentController extends Controller
             );
         }*/
         $investment = new Investment();
-        $investment->InvestmentyName = Input::get('InvestmentyName');
-        $investment->InvestmentyCode = Input::get('InvestmentyCode');
+        $investment->Memberid = Input::get('Memberid');
+        $investment->SavingAmount = Input::get('SavingAmount');
+        $investment->TransactionDate = Input::get('TransactionDate');
+        $investment->ProductId = Input::get('ProductId');
+        $investment->TransactionEntryDate = Input::get('TransactionEntryDate');
         $investment->save();
         return ['url' => 'investment/list'];
     }

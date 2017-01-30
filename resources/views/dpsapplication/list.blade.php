@@ -1,4 +1,4 @@
-<h1 class="page-header">দেশের তালিকা
+<h1 class="page-header">বিনিয়োগ তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('dpsapplication/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
@@ -24,19 +24,27 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
-            <a href="javascript:ajaxLoad('dpsapplication/list?field=DpsapplicationyName&sort={{Session::get("dpsapplication_sort")=="asc"?"desc":"asc"}}')">
-               দেশের নাম
+            <a href="javascript:ajaxLoad('dpsapplication/list?field=DpsProductId&sort={{Session::get("dpsapplication_sort")=="asc"?"desc":"asc"}}')">
+               প্রোডাক্ট আইডি
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('dpsapplication_field')=='DpsapplicationyName'?(Session::get('dpsapplication_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('dpsapplication_field')=='DpsProductId'?(Session::get('dpsapplication_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('dpsapplication/list?field=DpsapplicationyCode&sort={{Session::get("dpsapplication_sort")=="asc"?"desc":"asc"}}')">
-                দেশের কোড
+            <a href="javascript:ajaxLoad('dpsapplication/list?field=DpsDepositDate&sort={{Session::get("dpsapplication_sort")=="asc"?"desc":"asc"}}')">
+               ব্যালেন্স
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('dpsapplication_field')=='DpsapplicationyCode'?(Session::get('dpsapplication_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('dpsapplication_field')=='DpsDepositDate'?(Session::get('dpsapplication_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('dpsapplication/list?field=DpsAmount&sort={{Session::get("dpsapplication_sort")=="asc"?"desc":"asc"}}')">
+                তারিখ
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('dpsapplication_field')=='DpsAmount'?(Session::get('dpsapplication_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
 
@@ -48,8 +56,9 @@
     @foreach($dpsapplications as $key=>$dpsapplication)
         <tr>
             <td align="center">{{$i++}}</td>
-            <td>{{$dpsapplication->DpsapplicationyName}}</td>
-            <td>{{$dpsapplication->DpsapplicationyCode}}</td>
+            <td>{{$dpsapplication->DpsProductId}}</td>
+            <td>{{$dpsapplication->DpsAmount}}</td>
+            <td>{{$dpsapplication->DpsDepositDate}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('dpsapplication/update/{{$dpsapplication->id}}')">

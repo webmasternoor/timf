@@ -1,18 +1,41 @@
 <div class="col-md-12">
-    <div class="form-group required col-md-6" id="form-InvestmentyName-error">
-        {!! Form::label("InvestmentyName","দেশের নাম",["class"=>"control-label col-md-3"]) !!}
+    <div class="form-group required col-md-6" id="form-ProductId-error">
+        {!! Form::label("ProductId","প্রোডাক্ট আইডি",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::text("InvestmentyName",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="InvestmentyName-error" class="help-block"></span>
+            {!! Form::number("ProductId",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="ProductId-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-InvestmentyCode-error">
-        {!! Form::label("InvestmentyCode","দেশের কোড",["class"=>"control-label col-md-3"]) !!}
+
+    <div class="form-group required col-md-6" id="form-Memberid-error">
+        {!! Form::label("Memberid","সদস্য আইডি",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::text("InvestmentyCode",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="InvestmentyCode-error" class="help-block"></span>
+            {!! Form::number("Memberid",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="Memberid-error" class="help-block"></span>
         </div>
     </div>
+    <div class="form-group required col-md-6" id="form-SavingAmount-error">
+        {!! Form::label("SavingAmount","সঞ্চয় টাকা",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::text("SavingAmount",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="SavingAmount-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-TransactionDate-error">
+        {!! Form::label("TransactionDate","পরিশোধের তারিখ",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::date("TransactionDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="TransactionDate-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-TransactionEntryDate-error">
+        {!! Form::label("TransactionEntryDate","টাকা জমা দানের তারিখ",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::date("TransactionEntryDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="TransactionEntryDate-error" class="help-block"></span>
+        </div>
+    </div>
+
 </div>
 <div class="form-group">
     <div class="col-md-6 col-md-push-3">
