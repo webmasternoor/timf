@@ -27,10 +27,8 @@
         <ul class="dropdown-menu">
             <li><a tabindex="-1" href="{{ url('/savings') }}">অটো ভাউচার</a></li>
             <li><a tabindex="-1" href="{{ url('/investment') }}">ঋণ লেজার</a></li>
-            <li><a tabindex="-1" href="{{ url('/investment') }}">সঞ্চয় লেজার</a></li>
+            <li><a tabindex="-1" href="{{ url('/saving1') }}">সঞ্চয় লেজার</a></li>
             <li><a tabindex="-1" href="{{ url('/investment') }}">ম্যানুয়াল ভাউচার</a></li>
-            <li><a tabindex="-1" href="{{ url('/saving1') }}">Saving Transaction</a></li>
-            <li><a tabindex="-1" href="{{ url('/investment') }}">Investment Transaction</a></li>
             <li><a tabindex="-1" href="{{ url('/dpsapplication') }}">DPS Application</a></li>
         </ul>
     </li>
