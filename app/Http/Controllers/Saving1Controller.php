@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\Saving1;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -26,48 +27,58 @@ class Saving1Controller extends Controller
 
     public function getUpdate($id)
     {
-        return view('saving1.update', ['saving1' => Saving1::find($id)]);
+        $Product_info = Product::lists('ProductName', 'id');
+        return view('saving1.update', ['saving1' => Saving1::find($id)],['Product_info'=>$Product_info]);
     }
 
     public function postUpdate($id)
     {
         $saving1 = Saving1::find($id);
-//        $rules = ["Saving1yCode" => "required"];
-//        if ($saving1->Saving1yName != Input::get('Saving1yName'))
-//            $rules += ['Saving1yName' => 'required|unique:saving1s'];
-//        $validator = Validator::make(Input::all(), $rules);
-//        if ($validator->fails()) {
-//            return array(
-//                'fail' => true,
-//                'errors' => $validator->getMessageBag()->toArray()
-//            );
-//        }
-        $saving1->CollectionAmount = Input::get('CollectionAmount');
-        $saving1->SavingDate = Input::get('SavingDate');
+        $rules = ["ProductId" => "required"];
+        if ($saving1->MemberId != Input::get('MemberId'))
+            $rules += ['MemberId' => 'required'];
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails()) {
+            return array(
+                'fail' => true,
+                'errors' => $validator->getMessageBag()->toArray()
+            );
+        }
+        $saving1->ProductId = Input::get('ProductId');
+        $saving1->MemberId = Input::get('MemberId');
+        $saving1->SavingAmount = Input::get('SavingAmount');
+        $saving1->WithdrawAmount = Input::get('WithdrawAmount');
+        $saving1->TransactionDate = Input::get('TransactionDate');
+        $saving1->EntryDate = Input::get('EntryDate');
         $saving1->save();
         return ['url' => 'saving1/list'];
     }
 
     public function getCreate()
     {
-        return view('saving1.create');
+        $Product_info = Product::lists('ProductName', 'id');
+        return view('saving1.create',compact('Product_info'));
     }
 
     public function postCreate()
     {
-//        $validator = Validator::make(Input::all(), [
-//            "Saving1yName" => "required|unique:saving1s",
-//            "Saving1yCode" => "required|unique:saving1s",
-//        ]);
-//        if ($validator->fails()) {
-//            return array(
-//                'fail' => true,
-//                'errors' => $validator->getMessageBag()->toArray()
-//            );
-//        }
+        $validator = Validator::make(Input::all(), [
+            "ProductId" => "required",
+            "MemberId" => "required",
+        ]);
+        if ($validator->fails()) {
+            return array(
+                'fail' => true,
+                'errors' => $validator->getMessageBag()->toArray()
+            );
+        }
         $saving1 = new Saving1();
-        $saving1->CollectionAmount = Input::get('CollectionAmount');
-        $saving1->SavingDate = Input::get('SavingDate');
+        $saving1->ProductId = Input::get('ProductId');
+        $saving1->MemberId = Input::get('MemberId');
+        $saving1->SavingAmount = Input::get('SavingAmount');
+        $saving1->WithdrawAmount = Input::get('WithdrawAmount');
+        $saving1->TransactionDate = Input::get('TransactionDate');
+        $saving1->EntryDate = Input::get('EntryDate');
         $saving1->save();
         return ['url' => 'saving1/list'];
     }

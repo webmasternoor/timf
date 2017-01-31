@@ -1,6 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Division;
+use App\Thana;
 use DB;
 use App\Ward;
 use App\Union;
@@ -32,8 +35,11 @@ class WardController extends Controller
 
     public function getUpdate($id)
     {
-        $union = Union::all();
-        return view('ward.update', ['ward' => Ward::find($id)],['union' => $union]);
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $Thana = Thana::lists('ThanaName', 'id');
+        $Union = Union::lists('UnionName', 'id');
+        return view('ward.update', ['ward' => Ward::find($id)])->with('Union',$Union)->with('Thana',$Thana)->with('DistrictInfo',$DistrictInfo)->with('DivisionInfo',$DivisionInfo);
     }
 
     public function postUpdate($id)
@@ -51,14 +57,20 @@ class WardController extends Controller
         }
         $ward->WardName = Input::get('WardName');
         $ward->UnionId = Input::get('UnionId');
+        $ward->ThanaId = Input::get('ThanaId');
+        $ward->DistrictId = Input::get('DistrictId');
+        $ward->DivisionId = Input::get('DivisionId');
         $ward->save();
         return ['url' => 'ward/list'];
     }
 
     public function getCreate()
     {
-        $union = Union::all();
-        return view('ward.create',compact('union'));
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $Thana = Thana::lists('ThanaName', 'id');
+        $Union = Union::lists('UnionName', 'id');
+        return view('ward.create')->with('Union',$Union)->with('Thana',$Thana)->with('DistrictInfo',$DistrictInfo)->with('DivisionInfo',$DivisionInfo);
     }
 
     public function postCreate()
@@ -76,6 +88,9 @@ class WardController extends Controller
         $ward = new Ward();
         $ward->WardName = Input::get('WardName');
         $ward->UnionId = Input::get('UnionId');
+        $ward->ThanaId = Input::get('ThanaId');
+        $ward->DistrictId = Input::get('DistrictId');
+        $ward->DivisionId = Input::get('DivisionId');
         $ward->save();
         return ['url' => 'ward/list'];
     }

@@ -39,6 +39,22 @@
                class="glyphicon  {{ Session::get('postoffice_field')=='ThanaName'?(Session::get('postoffice_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
+        <th>
+            <a href="javascript:ajaxLoad('postoffice/list?field=DistrictId&sort={{Session::get("postoffice_sort")=="asc"?"desc":"asc"}}')">
+                জেলা নাম
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('postoffice_field')=='DistrictId'?(Session::get('postoffice_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('postoffice/list?field=DivisionId&sort={{Session::get("postoffice_sort")=="asc"?"desc":"asc"}}')">
+                বিভাগ নাম
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('postoffice_field')=='DivisionId'?(Session::get('postoffice_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
         <th width="140px">অ্যাকশন সমূহ</th>
     </tr>
     </thead>
@@ -52,6 +68,8 @@
             <td align="center">{{$i++}}</td>
             <td>{{$postoffice->PostofficeName}}</td>
             <td>{{$thana_data[$j++]->ThanaName}}</td>
+            <td>{{$postoffice->DistrictId}}</td>
+            <td>{{$postoffice->DivisionId}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('postoffice/update/{{$postoffice->id}}')">

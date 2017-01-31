@@ -13,13 +13,6 @@
             <span id="DivisionNameBangla-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-TestImages-error">
-        {!! Form::label("TestImages","images",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
-            {!! Form::file("TestImages",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="TestImages-error" class="help-block"></span>
-        </div>
-    </div>
 </div>
 <div class="form-group">
     <div class="col-md-6 col-md-push-3">

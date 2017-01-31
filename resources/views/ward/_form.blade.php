@@ -1,12 +1,29 @@
 <div class="col-md-12">
+    <div class="form-group required col-md-6" id="form-DivisionId-error">
+        {!! Form::label("DivisionId","বিভাগের নাম",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::select("DivisionId",$DivisionInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="DivisionId-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-DistrictId-error">
+        {!! Form::label("DistrictId","জেলা",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::select("DistrictId",$DistrictInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="DistrictId-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-ThanaId-error">
+        {!! Form::label("ThanaId","থানার নাম",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::select("ThanaId",$Thana,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="ThanaId-error" class="help-block"></span>
+        </div>
+    </div>
     <div class="form-group required col-md-6" id="form-UnionId-error">
         {!! Form::label("UnionId","ইউনিয়ন/পৌরসভা",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            <select name="UnionId">
-                @foreach($union as $d )
-                    <option value="{{$d->id}}">{{$d->UnionName}}</option>
-                @endforeach
-            </select>
+            {!! Form::select("UnionId",$Union,null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="UnionId-error" class="help-block"></span>
         </div>
     </div>

@@ -35,8 +35,8 @@ class DistrictController extends Controller
 
     public function getUpdate($id)
     {
-        $divi=Division::all();
-        return view('district.update', ['district' => District::find($id)],['divi'=>$divi]);
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        return view('district.update', ['district' => District::find($id)],['DivisionInfo'=>$DivisionInfo]);
     }
 
     public function postUpdate($id)
@@ -64,8 +64,8 @@ class DistrictController extends Controller
 
     public function getCreate()
     {
-        $divi=Division::all();
-        return view('district.create',compact('divi'));
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        return view('district.create',compact('DivisionInfo'));
     }
 
     public function postCreate()

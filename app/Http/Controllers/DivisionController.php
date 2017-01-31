@@ -44,7 +44,6 @@ class DivisionController extends Controller
         }
         $division->DivisionName = Input::get('DivisionName');
         $division->DivisionNameBangla = Input::get('DivisionNameBangla');
-        $division->TestImages = Input::get('TestImages');
         $division->save();
         return ['url' => 'division/list'];
     }
@@ -67,18 +66,12 @@ class DivisionController extends Controller
             );
         }
 
-        $file = Input::file('TestImages');
-       // $input = array('image' => $file);
 
-        $destinationPath = 'uploads/';
-        $filename = (microtime() . $file->getClientOriginalName());
-        Input::file('TestImages')->move($destinationPath, $filename);
         $division = new Division();
 //        $division->file('image')->move($destinationPath, $fileName);
 
         $division->DivisionName = Input::get('DivisionName');
         $division->DivisionNameBangla = Input::get('DivisionNameBangla');
-        $division->TestImages = $filename;
         $division->save();
 
         return ['url' => 'division/list'];

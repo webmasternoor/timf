@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Division;
 use DB;
 use App\Thana;
 use App\District;
@@ -33,8 +34,9 @@ class ThanaController extends Controller
 
     public function getUpdate($id)
     {
-        $district_info=District::all();
-        return view('thana.update', ['thana' => Thana::find($id)],['district_info' => $district_info]);
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        return view('thana.update', ['thana' => Thana::find($id)],['DistrictInfo' => $DistrictInfo],['DivisionInfo' => $DivisionInfo]);
     }
 
     public function postUpdate($id)
@@ -53,6 +55,7 @@ class ThanaController extends Controller
         $thana->ThanaName = Input::get('ThanaName');
         $thana->ThanaNameBangla = Input::get('ThanaNameBangla');
         $thana->DistrictId = Input::get('DistrictId');
+        $thana->DivisionId = Input::get('DivisionId');
 
         $thana->save();
         return ['url' => 'thana/list'];
@@ -60,8 +63,12 @@ class ThanaController extends Controller
 
     public function getCreate()
     {
-        $district_info=District::all();
-        return view('thana.create',compact('district_info'));
+
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        //return view('thana.create',compact('district_info'));
+        return view('thana.create',['DistrictInfo' => $DistrictInfo],['DivisionInfo' => $DivisionInfo]);
+
     }
 
     public function postCreate()
@@ -80,6 +87,7 @@ class ThanaController extends Controller
         $thana = new Thana();
         $thana->ThanaName = Input::get('ThanaName');
         $thana->DistrictId = Input::get('DistrictId');
+        $thana->DivisionId = Input::get('DivisionId');
         $thana->ThanaNameBangla = Input::get('ThanaNameBangla');
         $thana->save();
         return ['url' => 'thana/list'];

@@ -1,8 +1,16 @@
 <div class="col-md-12">
+    <div class="form-group required col-md-6" id="form-Memberid-error">
+        {!! Form::label("Memberid","সদস্য আইডি",["class"=>"control-label col-md-3"]) !!}
+        <div class="col-md-6">
+            {!! Form::text("Memberid",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="Memberid-error" class="help-block"></span>
+        </div>
+    </div>
+
     <div class="form-group required col-md-6" id="form-DpsProductId-error">
         {!! Form::label("DpsProductId","প্রোডাক্ট আইডি",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::text("DpsProductId",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::select("DpsProductId",$Product_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="DpsProductId-error" class="help-block"></span>
         </div>
     </div>

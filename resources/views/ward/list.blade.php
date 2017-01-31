@@ -33,10 +33,34 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('ward/list?field=UnionName&sort={{Session::get("ward_sort")=="asc"?"desc":"asc"}}')">
-                ইউনিয়নের নাম
+                ইউনিয়ন
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('ward_field')=='UnionName'?(Session::get('ward_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('ward/list?field=ThanaId&sort={{Session::get("ward_sort")=="asc"?"desc":"asc"}}')">
+                থানা
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('ward_field')=='ThanaId'?(Session::get('ward_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('ward/list?field=DistrictId&sort={{Session::get("ward_sort")=="asc"?"desc":"asc"}}')">
+                জেলা
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('ward_field')=='DistrictId'?(Session::get('ward_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('ward/list?field=DivisionId&sort={{Session::get("ward_sort")=="asc"?"desc":"asc"}}')">
+               বিভাগ
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('ward_field')=='DivisionId'?(Session::get('ward_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th width="140px">অ্যাকশন সমূহ</th>
@@ -51,6 +75,9 @@
             <td align="center">{{$i++}}</td>
             <td>{{$ward->WardName}}</td>
             <td>{{$union_data[$j++]->UnionName}}</td>
+            <td>{{$ward->ThanaId}}</td>
+            <td>{{$ward->DistrictId}}</td>
+            <td>{{$ward->DivisionId}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('ward/update/{{$ward->id}}')">

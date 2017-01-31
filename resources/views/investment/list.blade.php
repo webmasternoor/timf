@@ -57,7 +57,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('investment/list?field=TransactionEntryDate&sort={{Session::get("investment_sort")=="asc"?"desc":"asc"}}')">
-               টাকা জমাদানের তারিখ
+                এন্ট্রির তারিখ তারিখ
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('investment_field')=='TransactionEntryDate'?(Session::get('investment_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">

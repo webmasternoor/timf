@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Division;
 use DB;
 use App\Postoffice;
 use App\Thana;
@@ -25,7 +27,7 @@ class PostofficeController extends Controller
             ->orderBy(Session::get('postoffice_field'), Session::get('postoffice_sort'))->paginate(8);
         //return view('postoffice.list', ['postoffices' => $postoffices]);
         $thana_data=DB::table('postoffices')
-            ->join('thanas', 'postoffices.ThanaCode', '=', 'thanas.id')
+            ->join('thanas', 'postoffices.ThanaId', '=', 'thanas.id')
             ->select('*')
             ->get();
         return view('postoffice.list', ['postoffices' => $postoffices],['thana_data'=>$thana_data]);
@@ -34,14 +36,16 @@ class PostofficeController extends Controller
 
     public function getUpdate($id)
     {
-        $thana=Thana::all();
-        return view('postoffice.update', ['postoffice' => Postoffice::find($id)],['thana' => $thana]);
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $thana = Thana::lists('ThanaName', 'id');
+        return view('postoffice.update', ['postoffice' => Postoffice::find($id)])->with('thana', $thana)->with('DivisionInfo',$DivisionInfo)->with('DistrictInfo',$DistrictInfo);
     }
 
     public function postUpdate($id)
     {
         $postoffice = Postoffice::find($id);
-        $rules = ["ThanaCode" => "required"];
+        $rules = ["ThanaId" => "required"];
         if ($postoffice->PostofficeName != Input::get('PostofficeName'))
             $rules += ['PostofficeName' => 'required|unique:postoffices'];
         $validator = Validator::make(Input::all(), $rules);
@@ -52,22 +56,26 @@ class PostofficeController extends Controller
             );
         }
         $postoffice->PostofficeName = Input::get('PostofficeName');
-        $postoffice->ThanaCode = Input::get('ThanaCode');
+        $postoffice->ThanaId = Input::get('ThanaId');
+        $postoffice->DivisionId = Input::get('DivisionId');
+        $postoffice->DistrictId = Input::get('DistrictId');
         $postoffice->save();
         return ['url' => 'postoffice/list'];
     }
 
     public function getCreate()
     {
-        $thana=Thana::all();
-        return view('postoffice.create',compact('thana'));
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $thana = Thana::lists('ThanaName', 'id');
+        return view('postoffice.create')->with('thana', $thana)->with('DivisionInfo',$DivisionInfo)->with('DistrictInfo',$DistrictInfo);
     }
 
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
             "PostofficeName" => "required|unique:postoffices",
-            "ThanaCode" => "required"
+            "ThanaId" => "required"
         ]);
         if ($validator->fails()) {
             return array(
@@ -77,7 +85,9 @@ class PostofficeController extends Controller
         }
         $postoffice = new Postoffice();
         $postoffice->PostofficeName = Input::get('PostofficeName');
-        $postoffice->ThanaCode = Input::get('ThanaCode');
+        $postoffice->ThanaId = Input::get('ThanaId');
+        $postoffice->DivisionId = Input::get('DivisionId');
+        $postoffice->DistrictId = Input::get('DistrictId');
         $postoffice->save();
         return ['url' => 'postoffice/list'];
     }

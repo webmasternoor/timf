@@ -1,4 +1,4 @@
-<h1 class="page-header">বিনিয়োগ তালিকা
+<h1 class="page-header">ডিপিএস আবেদন তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('dpsapplication/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
@@ -24,8 +24,16 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
+            <a href="javascript:ajaxLoad('dpsapplication/list?field=Memberid&sort={{Session::get("dpsapplication_sort")=="asc"?"desc":"asc"}}')">
+               সদস্য আইডি
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('dpsapplication_field')=='Memberid'?(Session::get('dpsapplication_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
             <a href="javascript:ajaxLoad('dpsapplication/list?field=DpsProductId&sort={{Session::get("dpsapplication_sort")=="asc"?"desc":"asc"}}')">
-               প্রোডাক্ট আইডি
+                প্রোডাক্ট আইডি
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('dpsapplication_field')=='DpsProductId'?(Session::get('dpsapplication_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -56,6 +64,7 @@
     @foreach($dpsapplications as $key=>$dpsapplication)
         <tr>
             <td align="center">{{$i++}}</td>
+            <td>{{$dpsapplication->Memberid}}</td>
             <td>{{$dpsapplication->DpsProductId}}</td>
             <td>{{$dpsapplication->DpsAmount}}</td>
             <td>{{$dpsapplication->DpsDepositDate}}</td>

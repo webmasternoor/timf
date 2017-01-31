@@ -2,7 +2,7 @@
     <div class="form-group required col-md-6" id="form-ProductId-error">
         {!! Form::label("ProductId","প্রোডাক্ট আইডি",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::number("ProductId",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::select("ProductId",$Product_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="ProductId-error" class="help-block"></span>
         </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="form-group required col-md-6" id="form-TransactionEntryDate-error">
-        {!! Form::label("TransactionEntryDate","টাকা জমা দানের তারিখ",["class"=>"control-label col-md-3"]) !!}
+        {!! Form::label("TransactionEntryDate","এন্ট্রির তারিখ",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
             {!! Form::date("TransactionEntryDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="TransactionEntryDate-error" class="help-block"></span>

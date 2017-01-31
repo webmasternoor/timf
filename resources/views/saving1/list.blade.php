@@ -24,19 +24,52 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
-            <a href="javascript:ajaxLoad('saving1/list?field=CollectionAmount&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
-               জমা টাকার পরিমান
+            <a href="javascript:ajaxLoad('saving1/list?field=MemberId&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+                সদস্যের নাম
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('saving1_field')=='CollectionAmount'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('saving1_field')=='MemberId'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('saving1/list?field=SavingDate&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
-                জমাদানের তারিখ
+            <a href="javascript:ajaxLoad('saving1/list?field=ProductId&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+                প্রোডাক্টের নাম
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('saving1_field')=='SavingDate'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('saving1_field')=='ProductId'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('saving1/list?field=SavingAmount&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+                জমা টাকার পরিমান
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('saving1_field')=='SavingAmount'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('saving1/list?field=WithdrawAmount&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+                উত্তোলনকৃত টাকার পরিমান
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('saving1_field')=='WithdrawAmount'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('saving1/list?field=TransactionDate&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+                লেনদেনের তারিখ
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('saving1_field')=='TransactionDate'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+
+        <th>
+            <a href="javascript:ajaxLoad('saving1/list?field=EntryDate&sort={{Session::get("saving1_sort")=="asc"?"desc":"asc"}}')">
+                এন্ট্রির তারিখ
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('saving1_field')=='EntryDate'?(Session::get('saving1_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
 
@@ -48,8 +81,12 @@
     @foreach($saving1s as $key=>$saving1)
         <tr>
             <td align="center">{{$i++}}</td>
-            <td>{{$saving1->CollectionAmount}}</td>
-            <td>{{$saving1->SavingDate}}</td>
+            <td>{{$saving1->MemberId}}</td>
+            <td>{{$saving1->ProductId}}</td>
+            <td>{{$saving1->SavingAmount}}</td>
+            <td>{{$saving1->WithdrawAmount}}</td>
+            <td>{{$saving1->TransactionDate}}</td>
+            <td>{{$saving1->EntryDate}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('saving1/update/{{$saving1->id}}')">

@@ -1,13 +1,10 @@
 <div class="col-md-12">
     <div class="form-group required col-md-6" id="form-DivisionId-error">
         {!! Form::label("DivisionId","বিভাগের নাম",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-9">
-            <select name="DivisionId" class="form-control">
-                @foreach($divi as $d )
-                    <option value="{{$d->id}}">{{$d->DivisionName}}</option>
-                @endforeach
-            </select>
+        <div class="col-md-6">
+            {!! Form::select("DivisionId",$DivisionInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
         </div>
+        <span id="DivisionId-error" class="help-block"></span>
     </div>
     <div class="form-group required col-md-6" id="form-DistrictName-error">
         {!! Form::label("DistrictName","জেলার নাম",["class"=>"control-label col-md-3"]) !!}

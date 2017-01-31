@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Investment;
+use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +27,8 @@ class InvestmentController extends Controller
 
     public function getUpdate($id)
     {
-        return view('investment.update', ['investment' => Investment::find($id)]);
+        $Product_info = Product::lists('ProductName', 'id');
+        return view('investment.update', ['investment' => Investment::find($id)],['Product_info'=>$Product_info]);
     }
 
     public function postUpdate($id)
@@ -53,7 +55,8 @@ class InvestmentController extends Controller
 
     public function getCreate()
     {
-        return view('investment.create');
+        $Product_info = Product::lists('ProductName', 'id');
+        return view('investment.create',compact('Product_info'));
     }
 
     public function postCreate()

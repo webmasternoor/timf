@@ -33,12 +33,29 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('union/list?field=ThanaName&sort={{Session::get("union_sort")=="asc"?"desc":"asc"}}')">
-                থানার নাম
+                থানা নাম
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('union_field')=='ThanaName'?(Session::get('union_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
+        <th>
+            <a href="javascript:ajaxLoad('union/list?field=DistrictId&sort={{Session::get("union_sort")=="asc"?"desc":"asc"}}')">
+                জেলা নাম
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('union_field')=='DistrictId'?(Session::get('union_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('union/list?field=DivisionId&sort={{Session::get("union_sort")=="asc"?"desc":"asc"}}')">
+                বিভাগ নাম
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('union_field')=='DivisionId'?(Session::get('union_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+
 
         <th width="140px">অ্যাকশন সমূহ</th>
     </tr>
@@ -52,6 +69,8 @@
             <td align="center">{{$i++}}</td>
             <td>{{$union->UnionName}}</td>
             <td>{{$thana_data[$j++]->ThanaName}}</td>
+            <td>{{$union->DistrictId}}</td>
+            <td>{{$union->DivisionId}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('union/update/{{$union->id}}')">

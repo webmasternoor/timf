@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Division;
 use DB;
 use App\Union;
 use App\Thana;
@@ -32,8 +34,10 @@ class UnionController extends Controller
 
     public function getUpdate($id)
     {
-        $thana = Thana::all();
-        return view('union.update', ['union' => Union::find($id)],['thana'=>$thana]);
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $thana = Thana::lists('ThanaName', 'id');
+        return view('union.update', ['union' => Union::find($id)])->with('thana',$thana)->with('DistrictInfo',$DistrictInfo)->with('DivisionInfo',$DivisionInfo);
     }
 
     public function postUpdate($id)
@@ -51,14 +55,18 @@ class UnionController extends Controller
         }
         $union->UnionName = Input::get('UnionName');
         $union->ThanaId = Input::get('ThanaId');
+        $union->DivisionId = Input::get('DivisionId');
+        $union->DistrictId = Input::get('DistrictId');
         $union->save();
         return ['url' => 'union/list'];
     }
 
     public function getCreate()
     {
-        $thana = Thana::all();
-        return view('union.create', compact('thana'));
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $thana = Thana::lists('ThanaName', 'id');
+        return view('union.create')->with('thana',$thana)->with('DistrictInfo',$DistrictInfo)->with('DivisionInfo',$DivisionInfo);
     }
 
     public function postCreate()
@@ -76,6 +84,8 @@ class UnionController extends Controller
         $union = new Union();
         $union->UnionName = Input::get('UnionName');
         $union->ThanaId = Input::get('ThanaId');
+        $union->DivisionId = Input::get('DivisionId');
+        $union->DistrictId = Input::get('DistrictId');
         $union->save();
         return ['url' => 'union/list'];
     }

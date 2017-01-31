@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Dpsapplication;
+use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +27,8 @@ class DpsapplicationController extends Controller
 
     public function getUpdate($id)
     {
-        return view('dpsapplication.update', ['dpsapplication' => Dpsapplication::find($id)]);
+        $Product_info = Product::lists('ProductName', 'id');
+        return view('dpsapplication.update', ['dpsapplication' => Dpsapplication::find($id)],['Product_info' => $Product_info]);
     }
 
     public function postUpdate($id)
@@ -43,6 +45,7 @@ class DpsapplicationController extends Controller
             );
         }
         $dpsapplication->DpsProductId = Input::get('DpsProductId');
+        $dpsapplication->Memberid = Input::get('Memberid');
         $dpsapplication->DpsAmount = Input::get('DpsAmount');
         $dpsapplication->DpsDepositDate = Input::get('DpsDepositDate');
         $dpsapplication->save();
@@ -51,7 +54,8 @@ class DpsapplicationController extends Controller
 
     public function getCreate()
     {
-        return view('dpsapplication.create');
+        $Product_info = Product::lists('ProductName', 'id');
+        return view('dpsapplication.create',compact('Product_info'));
     }
 
     public function postCreate()
@@ -68,6 +72,7 @@ class DpsapplicationController extends Controller
         }
         $dpsapplication = new Dpsapplication();
         $dpsapplication->DpsProductId = Input::get('DpsProductId');
+        $dpsapplication->Memberid = Input::get('Memberid');
         $dpsapplication->DpsAmount = Input::get('DpsAmount');
         $dpsapplication->DpsDepositDate = Input::get('DpsDepositDate');
         $dpsapplication->save();
