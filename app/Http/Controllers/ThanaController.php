@@ -34,7 +34,8 @@ class ThanaController extends Controller
 
     public function getUpdate($id)
     {
-        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DivisionInfo = Division::all();
+       // $DivisionInfo = Division::lists('DivisionName', 'id');
         $DistrictInfo = District::lists('DistrictName', 'id');
         return view('thana.update', ['thana' => Thana::find($id)],['DistrictInfo' => $DistrictInfo],['DivisionInfo' => $DivisionInfo]);
     }
@@ -64,7 +65,8 @@ class ThanaController extends Controller
     public function getCreate()
     {
 
-        $DivisionInfo = Division::lists('DivisionName', 'id');
+//        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $DivisionInfo = Division::all();
         $DistrictInfo = District::lists('DistrictName', 'id');
         //return view('thana.create',compact('district_info'));
         return view('thana.create',['DistrictInfo' => $DistrictInfo],['DivisionInfo' => $DivisionInfo]);
@@ -98,5 +100,12 @@ class ThanaController extends Controller
         Thana::destroy($id);
         return Redirect('thana/list');
     }
+
+//    public function getthana($id)
+//    {
+//        //Thana::destroy($id);
+//        $ThanaName_info = $id;
+//        return '$ThanaName_info';
+//    }
 
 }

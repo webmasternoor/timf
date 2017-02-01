@@ -85,7 +85,7 @@
             <td>{{$brn->BranchCode}}</td>
             <td>{{$area_data[$j++]->AreaName}}</td>
             <td>{{$brn->BranchAddress}}</td>
-            <td>{{$brn->BranchMobile}}</td>
+            <td>{{$brn->BranchMobileNo}}</td>
             <td>{{$brn->BranchEmail}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"

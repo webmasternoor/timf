@@ -49,18 +49,48 @@
             <span id="AreaEmail-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-AreaThanaId-error">
-        {!! Form::label("AreaThanaId","থানার নাম",["class"=>"control-label test col-md-12"]) !!}
+    <div class="form-group required col-md-6" id="form-AreaDivisionId-error">
+        {!! Form::label("AreaDivisionId","বিভাগ",["class"=>"control-label test col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::select("AreaThanaId",$thana_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="AreaThanaId-error" class="help-block"></span>
+            {!! Form::select("AreaDivisionId",$DivisionInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="AreaDivisionId-error" class="help-block"></span>
         </div>
     </div>
+
     <div class="form-group required col-md-6" id="form-AreaDistrictId-error">
-        {!! Form::label("AreaDistrictId","জেলার নাম",["class"=>"control-label test col-md-12"]) !!}
+        {!! Form::label("AreaDistrictId","জেলা",["class"=>"control-label test col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::select("AreaDistrictId",$district_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="AreaDistrictId-error" class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="form-group required col-md-6" id="form-AreaThanaId-error">
+        {!! Form::label("AreaThanaId","থানা",["class"=>"control-label test col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("AreaThanaId",$ThanaInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="AreaThanaId-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-AreaUnionId-error">
+        {!! Form::label("AreaUnionId","ইউনিয়ন",["class"=>"control-label test col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("AreaUnionId",$UnionInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="AreaUnionId-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-AreaWardId-error">
+        {!! Form::label("AreaWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("AreaWardId",$WardInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="AreaWardId-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-AreaPostOfficeId-error">
+        {!! Form::label("AreaPostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("AreaPostOfficeId",$PostOfficeInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="AreaPostOfficeId-error" class="help-block"></span>
         </div>
     </div>
 </div>

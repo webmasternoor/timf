@@ -1,6 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Division;
+use App\Postoffice;
+use App\Union;
+use App\Ward;
 use DB;
 use App\District;
 use App\Thana;
@@ -40,10 +44,19 @@ class AreaController extends Controller
     public function getUpdate($id)
     {
         // $data = Zone::all();
-        $thana_info = Thana::lists('ThanaName', 'id');
-        $district_info = District::lists('DistrictName', 'id');
         $Zone_info = Zone::lists('ZoneName', 'id');
-        return view('area.update',['area' => Area::find($id)])->with('thana_info', $thana_info)->with('district_info',$district_info)->with('Zone_info',$Zone_info);
+        $ThanaInfo = Thana::lists('ThanaName', 'id');
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $UnionInfo = Union::lists('UnionName', 'id');
+        $WardInfo = Ward::lists('WardName', 'id');
+        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
+        $district_info = District::lists('DistrictName', 'id');
+        return view('area.update',['area' => Area::find($id)])->with('Zone_info',$Zone_info)->with('ThanaInfo',$ThanaInfo)->with('district_info',$district_info)->with('DivisionInfo',$DivisionInfo)
+            ->with('UnionInfo',$UnionInfo)->with('PostOfficeInfo',$PostOfficeInfo)->with('WardInfo',$WardInfo);
+//        $thana_info = Thana::lists('ThanaName', 'id');
+//        $district_info = District::lists('DistrictName', 'id');
+//        $Zone_info = Zone::lists('ZoneName', 'id');
+//        return view('area.update',['area' => Area::find($id)])->with('thana_info', $thana_info)->with('district_info',$district_info)->with('Zone_info',$Zone_info);
 
 //        return view('area.update', ['area' => DB::table('areas')
 //            ->leftJoin('zones', 'zones.id', '=', 'zones.id')
@@ -74,6 +87,10 @@ class AreaController extends Controller
         $area->AreaMobileNo = Input::get('AreaMobileNo');
         $area->AreaDistrictId = Input::get('AreaDistrictId');
         $area->AreaThanaId = Input::get('AreaThanaId');
+        $area->AreaDivisionId = Input::get('AreaDivisionId');
+        $area->AreaUnionId = Input::get('AreaUnionId');
+        $area->AreaWardId = Input::get('AreaWardId');
+        $area->AreaPostOfficeId = Input::get('AreaPostOfficeId');
         $area->AreaEmail = Input::get('AreaEmail');
         $area->save();
         return ['url' => 'area/list'];
@@ -101,12 +118,18 @@ class AreaController extends Controller
         //print_r($areas1);
        //
         //var_dump($areas1);
-
         $Zone_info = Zone::lists('ZoneName', 'id');
-        $thana_info = Thana::lists('ThanaName', 'id');
+        $ThanaInfo = Thana::lists('ThanaName', 'id');
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $UnionInfo = Union::lists('UnionName', 'id');
+        $WardInfo = Ward::lists('WardName', 'id');
+        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
         $district_info = District::lists('DistrictName', 'id');
+        return view('area.create')->with('Zone_info',$Zone_info)->with('ThanaInfo',$ThanaInfo)->with('district_info',$district_info)->with('DivisionInfo',$DivisionInfo)
+            ->with('UnionInfo',$UnionInfo)->with('PostOfficeInfo',$PostOfficeInfo)->with('WardInfo',$WardInfo);
+
         //$Zone_info = Zone::lists('ZoneName', 'id');
-        return view('area.create')->with('thana_info', $thana_info)->with('district_info',$district_info)->with('Zone_info',$Zone_info);
+        //return view('area.create')->with('thana_info', $thana_info)->with('district_info',$district_info)->with('Zone_info',$Zone_info);
 
 //       $testData= DB::table('users')
 //            ->join('contacts', 'users.id', '=', 'contacts.user_id')
@@ -142,6 +165,10 @@ class AreaController extends Controller
         $area->AreaMobileNo = Input::get('AreaMobileNo');
         $area->AreaDistrictId = Input::get('AreaDistrictId');
         $area->AreaThanaId = Input::get('AreaThanaId');
+        $area->AreaDivisionId = Input::get('AreaDivisionId');
+        $area->AreaUnionId = Input::get('AreaUnionId');
+        $area->AreaWardId = Input::get('AreaWardId');
+        $area->AreaPostOfficeId = Input::get('AreaPostOfficeId');
         $area->AreaEmail = Input::get('AreaEmail');
         $area->save();
         return ['url' => 'area/list'];

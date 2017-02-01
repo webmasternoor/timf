@@ -1,6 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Division;
+use App\Postoffice;
+use App\Union;
+use App\Ward;
+use App\Zone;
 use DB;
 use App\District;
 use App\Thana;
@@ -40,10 +45,16 @@ class BrnController extends Controller
 
     public function getUpdate($id)
     {
-        $thana_info = Thana::lists('ThanaName', 'id');
-        $district_info = District::lists('DistrictName', 'id');
         $area = Area::lists('AreaName', 'id');
-        return view('brn.update', ['brn' => Brn::find($id)])->with('area',$area)->with('thana_info',$thana_info)->with('district_info',$district_info);
+        $Zone_info = Zone::lists('ZoneName', 'id');
+        $ThanaInfo = Thana::lists('ThanaName', 'id');
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $UnionInfo = Union::lists('UnionName', 'id');
+        $WardInfo = Ward::lists('WardName', 'id');
+        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
+        $district_info = District::lists('DistrictName', 'id');
+        return view('brn.update', ['brn' => Brn::find($id)])->with('area',$area)->with('Zone_info',$Zone_info)->with('ThanaInfo',$ThanaInfo)->with('district_info',$district_info)->with('DivisionInfo',$DivisionInfo)
+            ->with('UnionInfo',$UnionInfo)->with('PostOfficeInfo',$PostOfficeInfo)->with('WardInfo',$WardInfo);
     }
 
     public function postUpdate($id)
@@ -64,18 +75,28 @@ class BrnController extends Controller
         $brn->BranchCode = Input::get('BranchCode');
         $brn->BranchAddress = Input::get('BranchAddress');
         $brn->BranchMobileNo = Input::get('BranchMobileNo');
+        $brn->BranchEmail = Input::get('BranchEmail');
         $brn->BranchDistrictId = Input::get('BranchDistrictId');
         $brn->BranchThanaId = Input::get('BranchThanaId');
+        $brn->BranchDivisionId = Input::get('BranchDivisionId');
+        $brn->BranchUnionId = Input::get('BranchUnionId');
+        $brn->BranchWardId = Input::get('BranchWardId');
+        $brn->BranchPostOfficeId = Input::get('BranchPostOfficeId');
         $brn->save();
         return ['url' => 'brn/list'];
     }
 
     public function getCreate()
-    {
-        $thana_info = Thana::lists('ThanaName', 'id');
+    {$area = Area::lists('AreaName', 'id');
+        $Zone_info = Zone::lists('ZoneName', 'id');
+        $ThanaInfo = Thana::lists('ThanaName', 'id');
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $UnionInfo = Union::lists('UnionName', 'id');
+        $WardInfo = Ward::lists('WardName', 'id');
+        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
         $district_info = District::lists('DistrictName', 'id');
-        $area = Area::lists('AreaName', 'id');
-        return view('brn.create')->with('area',$area)->with('thana_info',$thana_info)->with('district_info',$district_info);
+        return view('brn.create')->with('area',$area)->with('Zone_info',$Zone_info)->with('ThanaInfo',$ThanaInfo)->with('district_info',$district_info)->with('DivisionInfo',$DivisionInfo)
+            ->with('UnionInfo',$UnionInfo)->with('PostOfficeInfo',$PostOfficeInfo)->with('WardInfo',$WardInfo);
     }
 
     public function postCreate()
@@ -96,8 +117,13 @@ class BrnController extends Controller
         $brn->BranchCode = Input::get('BranchCode');
         $brn->BranchAddress = Input::get('BranchAddress');
         $brn->BranchMobileNo = Input::get('BranchMobileNo');
+        $brn->BranchEmail = Input::get('BranchEmail');
         $brn->BranchDistrictId = Input::get('BranchDistrictId');
         $brn->BranchThanaId = Input::get('BranchThanaId');
+        $brn->BranchDivisionId = Input::get('BranchDivisionId');
+        $brn->BranchUnionId = Input::get('BranchUnionId');
+        $brn->BranchWardId = Input::get('BranchWardId');
+        $brn->BranchPostOfficeId = Input::get('BranchPostOfficeId');
         $brn->save();
         return ['url' => 'brn/list'];
     }

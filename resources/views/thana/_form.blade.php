@@ -3,14 +3,19 @@
     <div class="form-group required col-md-6" id="form-DivisionId-error">
         {!! Form::label("DivisionId","বিভাগের নাম",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::select("DivisionId",$DivisionInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {{--{!! Form::select("DivisionId",$DivisionInfo,null,["class"=>"form-control DivisionId required","id"=>"DivisionId"]) !!}--}}
+            <select name="DivisionId" class="DivisionId" id="DivisionId">
+                @foreach($DivisionInfo as $zone_data )
+                    <option value="{{$zone_data->id}}">{{$zone_data->DivisionName}}</option>
+                @endforeach
+            </select>
             <span id="DivisionId-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-6" id="form-DistrictId-error">
         {!! Form::label("DistrictId","জেলা",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::select("DivisionId",$DistrictInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::select("DistrictId",$DistrictInfo,null,["class"=>"form-control required","id"=>"district"]) !!}
             <span id="DistrictId-error" class="help-block"></span>
         </div>
     </div>
@@ -38,6 +43,7 @@
     btn-primary"])!!}
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
     $("#frm").submit(function (event) {
         event.preventDefault();
@@ -80,4 +86,47 @@
         });
         return false;
     });
+
 </script>
+
+<script >
+
+    $(document).ready(function () {
+        $(document).on('change', '.DivisionId', function () {
+            console.log("yes it is change");
+
+            var DivisionId=$(this).val();
+            console.log(DivisionId);
+//            $.ajax({
+//                type: 'get',
+//                url:'{||URL:: to('getDistrict')||}',
+//                data:{'id':DivisionId},
+//                success:function (data) {
+//                    console.log("success");
+//
+//                    console.log(data);
+//                },
+//                error:function () {
+//
+//                }
+//            });
+        });
+    });
+
+</script>
+
+{{--<script >--}}
+
+{{--$('#division').on('change', function(e)--}}
+{{--{--}}
+{{--console.log(e);--}}
+{{--var division_id= e.target.value;--}}
+
+{{--//Ajax;--}}
+{{--$.get('/ajax-division?division_id' + division_id, function (data) {--}}
+{{--//success--}}
+{{--console.log(data);--}}
+{{--});--}}
+{{--});--}}
+
+{{--</script>--}}
