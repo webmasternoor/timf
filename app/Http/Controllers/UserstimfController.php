@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Organization;
 use App\Userstimf;
 use DB;
 use App\Brn;
@@ -28,7 +29,18 @@ class UserstimfController extends Controller
 
     public function getUpdate($id)
     {
-        return view('userstimf.update', ['userstimf' => Userstimf::find($id)]);
+        $GenderInfo = DB::table('genders')->get();
+        $BranchInfo = Brn::lists('BranchName', 'id');
+        $OrganizationInfo=Organization::lists('OrganizationName','id');
+        $zones= DB::table('zones')->get();
+        $areas= DB::table('areas')->get();
+        $designations= DB::table('grades')->get();
+        $StatusInfo = DB::table('Statuss')->get();
+        return view('userstimf.update',['userstimf' => Userstimf::find($id)])
+            ->with('designations', $designations)->with('BranchInfo', $BranchInfo)
+            ->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)
+            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo);
+
     }
 
     public function postUpdate($id)
@@ -76,13 +88,16 @@ class UserstimfController extends Controller
 
     public function getCreate()
     {
-        //$branchs = Brn::lists('BranchName', 'id');
+        $GenderInfo = DB::table('genders')->get();
+        $BranchInfo = Brn::lists('BranchName', 'id');
+        $OrganizationInfo=Organization::lists('OrganizationName','id');
         $zones= DB::table('zones')->get();
         $areas= DB::table('areas')->get();
-        $branchs= DB::table('brns')->get();
+        $StatusInfo = DB::table('Statuss')->get();
+       // $branchs= DB::table('brns')->get();
         $designations= DB::table('grades')->get();
         //$designations = DB::table('designations')-> select('*')->get();
-        return view('userstimf.create')->with('designations', $designations)->with('branchs', $branchs)->with('zones', $zones)->with('areas', $areas);
+        return view('userstimf.create')->with('designations', $designations)->with('BranchInfo', $BranchInfo)->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo);
         //return view('userstimf.create');
     }
 
@@ -98,6 +113,17 @@ class UserstimfController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }*/
+
+        //$nid=Session::get('loan_search1');
+
+        $file = Input::file('photo');
+        // $input = array('image' => $file);
+
+        $destinationPath = 'uploads/';
+        $filename = $file->getClientOriginalName();
+
+        Input::file('photo')->move($destinationPath, $filename);
+
         $userstimf = new Userstimf();
         //$userstimf->UserstimfyName = Input::get('UserstimfyName');
         //$userstimf->UserstimfyCode = Input::get('UserstimfyCode');
@@ -125,6 +151,7 @@ class UserstimfController extends Controller
         $userstimf->photo = Input::get('photo');
         $userstimf->org_id = Input::get('org_id');
         $userstimf->IsActiveDate = Input::get('IsActiveDate');
+        $userstimf->photo = $filename;
         $userstimf->save();
         return ['url' => 'userstimf/list'];
     }
