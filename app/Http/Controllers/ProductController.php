@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Producttype;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +27,8 @@ class ProductController extends Controller
 
     public function getUpdate($id)
     {
-        return view('product.update', ['product' => Product::find($id)]);
+        $ProductInfo = Producttype::lists('ProducttypeyName', 'id');
+        return view('product.update', ['product' => Product::find($id)])->with('ProductInfo',$ProductInfo);
     }
 
     public function postUpdate($id)
@@ -67,7 +69,8 @@ class ProductController extends Controller
 
     public function getCreate()
     {
-        return view('product.create');
+        $ProductInfo = Producttype::lists('ProducttypeyName', 'id');
+        return view('product.create')->with('ProductInfo',$ProductInfo);
     }
 
     public function postCreate()

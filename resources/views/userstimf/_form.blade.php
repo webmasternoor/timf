@@ -1,35 +1,55 @@
 <div class="col-md-12 borderportion">
-    <div class="form-group required col-md-3" id="form-employee_id-error">
+    <div class="form-group required col-md-12" id="form-photo-error">
+        <?php
+        if(!empty($userstimf->photo))
+        {
+        ?>
+
+        <img src="uploads/{{$userstimf->photo}}">
+        <?php
+        }
+        ?>
+    </div>
+    <div class="form-group required col-md-12" id="form-photo-error">
+        {!! Form::label("photo","ছবি",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::file("photo",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="photo-error" class="help-block"></span>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 borderportion">
+    <div class="form-group required col-md-4" id="form-employee_id-error">
         {!! Form::label("employee_id","কর্মকর্তা/কর্মচারী আইডি",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("employee_id",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="employee_id-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-employee_code-error">
+    <div class="form-group required col-md-4" id="form-employee_code-error">
         {!! Form::label("employee_code","কর্মকর্তা/কর্মচারী কোড",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("employee_code",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="employee_code-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-employee_firstname-error">
+    <div class="form-group required col-md-4" id="form-employee_firstname-error">
         {!! Form::label("employee_firstname","নামের প্রথম অংশ",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("employee_firstname",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="employee_firstname-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-employee_lastname-error">
+    <div class="form-group required col-md-4" id="form-employee_lastname-error">
         {!! Form::label("employee_lastname","নামের দ্বিতীয় অংশ",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("employee_lastname",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="employee_lastname-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-designation-error">
+    <div class="form-group required col-md-8" id="form-designation-error">
         {!! Form::label("designation","পদবী",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
+        <div class="col-md-6">
             <select name="designation">
                 @foreach($designations as $designation )
                     <option value="{{$designation->id}}">{{$designation->designation}}</option>
@@ -39,7 +59,7 @@
             <span id="designation-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-ZoneID-error">
+    <div class="form-group required col-md-4" id="form-ZoneID-error">
         {!! Form::label("ZoneID","জোন",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             <select name="ZoneID">
@@ -50,7 +70,7 @@
             <span id="ZoneID-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-AreaID-error">
+    <div class="form-group required col-md-4" id="form-AreaID-error">
         {!! Form::label("AreaID","এরিয়া",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             <select name="AreaID">
@@ -61,7 +81,7 @@
             <span id="AreaID-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-office_id-error">
+    <div class="form-group required col-md-4" id="form-office_id-error">
         {!! Form::label("office_id","অফিস আইডি",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::select("office_id",$BranchInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
@@ -75,28 +95,28 @@
             <span id="address-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-phone1-error">
+    <div class="form-group required col-md-6" id="form-phone1-error">
         {!! Form::label("phone1","ফোন নাম্বার ১",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("phone1",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="phone1-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-phone2-error">
+    <div class="form-group required col-md-6" id="form-phone2-error">
         {!! Form::label("phone2","ফোন নাম্বার ২",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("phone2",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="phone2-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-email-error">
+    <div class="form-group required col-md-6" id="form-email-error">
         {!! Form::label("email","ইমেইল",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::email("email",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="email-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-3" id="form-altemail-error">
+    <div class="form-group required col-md-6" id="form-altemail-error">
         {!! Form::label("altemail","বিকল্প ইমেইল",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::email("altemail",null,["class"=>"form-control required","id"=>"focus"]) !!}
@@ -105,7 +125,7 @@
     </div>
     <div class="form-group required col-md-6" id="form-gender-error">
         {!! Form::label("gender","লিঙ্গ",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
+        <div class="col-md-12">
             <select name="gender">
                 @foreach($GenderInfo as $GenderInfoData )
                     <option value="{{$GenderInfoData->id}}">{{$GenderInfoData->GenderName}}</option>
@@ -116,16 +136,9 @@
     </div>
     <div class="form-group required col-md-6" id="form-status-error">
         {!! Form::label("status","স্ট্যাটাস",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
+        <div class="col-md-12">
             {!! Form::text("status",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="status-error" class="help-block"></span>
-        </div>
-    </div>
-    <div class="form-group required col-md-4" id="form-joiningdate-error">
-        {!! Form::label("joiningdate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
-            {!! Form::date("joiningdate",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="joiningdate-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-4" id="form-birthdate-error">
@@ -135,6 +148,14 @@
             <span id="birthdate-error" class="help-block"></span>
         </div>
     </div>
+    <div class="form-group required col-md-4" id="form-joiningdate-error">
+        {!! Form::label("joiningdate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::date("joiningdate",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="joiningdate-error" class="help-block"></span>
+        </div>
+    </div>
+
     <div class="form-group required col-md-4" id="form-releasedate-error">
         {!! Form::label("releasedate","রিলিজ তারিখ",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
@@ -143,7 +164,7 @@
         </div>
     </div>
     <div class="form-group required col-md-4" id="form-username-error">
-        {!! Form::label("username","ব্যবহারকারীর নাম",["class"=>"control-label col-md-12"]) !!}
+        {!! Form::label("username","ইউজার নাম",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("username",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="username-error" class="help-block"></span>
@@ -152,14 +173,14 @@
     <div class="form-group required col-md-4" id="form-password12-error">
         {!! Form::label("password12","পাসওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::text("password12",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::password("password12",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="password12-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-4" id="form-password122-error">
         {!! Form::label("password122","নিশ্চিত পাসওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::text("password122",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::password("password122",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="password122-error" class="help-block"></span>
         </div>
     </div>
@@ -170,13 +191,7 @@
             <span id="comment-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-4" id="form-photo-error">
-        {!! Form::label("photo","ছবি",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
-            {!! Form::file("photo",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="photo-error" class="help-block"></span>
-        </div>
-    </div>
+
     <div class="form-group required col-md-4" id="form-IsActiveDate-error">
         {!! Form::label("IsActiveDate","সক্রিয়তা",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
@@ -188,20 +203,20 @@
             <span id="IsActiveDate-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-12" id="form-org_id-error">
-        {!! Form::label("org_id","প্রতিষ্ঠানের আইডি",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-4">
+    <div class="form-group required col-md-4" id="form-org_id-error">
+        {!! Form::label("org_id","প্রতিষ্ঠানের আইডি",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             {!! Form::select("org_id",$OrganizationInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="org_id-error" class="help-block"></span>
         </div>
     </div>
-    <!-- <div class="form-group required col-md-6" id="form-createuser-error">
+<!-- <div class="form-group required col-md-6" id="form-createuser-error">
         {!! Form::label("createuser","",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
             {!! Form::text("createuser",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="createuser-error" class="help-block"></span>
-        </div>
-    </div> -->
+        <span id="createuser-error" class="help-block"></span>
+    </div>
+</div> -->
 </div>
 <div class="form-group">
     <div class="col-md-6 col-md-push-3">

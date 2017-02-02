@@ -1,7 +1,7 @@
-<h1 class="page-header">দেশের তালিকা
+<h1 class="page-header">প্রোডাক্ট তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('producttype/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -40,6 +40,24 @@
             </i>
         </th>
 
+        <th>
+            <a href="javascript:ajaxLoad('producttype/list?field=ProducttypeyCode&sort={{Session::get("producttype_sort")=="asc"?"desc":"asc"}}')">
+                কিস্তির সংখ্যা
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('producttype_field')=='ProducttypeyCode'?(Session::get('producttype_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+
+        <th>
+            <a href="javascript:ajaxLoad('producttype/list?field=ProducttypeyCode&sort={{Session::get("producttype_sort")=="asc"?"desc":"asc"}}')">
+                মুনাফার হার
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('producttype_field')=='ProducttypeyCode'?(Session::get('producttype_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+
         <th width="140px">অ্যাকশন সমূহ</th>
     </tr>
     </thead>
@@ -50,6 +68,8 @@
             <td align="center">{{$i++}}</td>
             <td>{{$producttype->ProducttypeyName}}</td>
             <td>{{$producttype->ProducttypeyCode}}</td>
+            <td>{{$producttype->ProductInstallments}}</td>
+            <td>{{$producttype->ProductRate}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('producttype/update/{{$producttype->id}}')">

@@ -44,6 +44,8 @@ class ProducttypeController extends Controller
         }
         $producttype->ProducttypeyName = Input::get('ProducttypeyName');
         $producttype->ProducttypeyCode = Input::get('ProducttypeyCode');
+        $producttype->ProductInstallments = Input::get('ProductInstallments');
+        $producttype->ProductRate = Input::get('ProductRate');
         $producttype->save();
         return ['url' => 'producttype/list'];
     }
@@ -68,6 +70,8 @@ class ProducttypeController extends Controller
         $producttype = new Producttype();
         $producttype->ProducttypeyName = Input::get('ProducttypeyName');
         $producttype->ProducttypeyCode = Input::get('ProducttypeyCode');
+        $producttype->ProductInstallments = Input::get('ProductInstallments');
+        $producttype->ProductRate = Input::get('ProductRate');
         $producttype->save();
         return ['url' => 'producttype/list'];
     }

@@ -79,7 +79,7 @@ class UserstimfController extends Controller
         $userstimf->username = Input::get('username');
         $userstimf->password12 = Input::get('password12');
         $userstimf->comment = Input::get('comment');
-        $userstimf->photo = Input::get('photo');
+        //$userstimf->photo = Input::get('photo');
         $userstimf->org_id = Input::get('org_id');
         $userstimf->IsActiveDate = Input::get('IsActiveDate');
         $userstimf->save();
@@ -148,7 +148,7 @@ class UserstimfController extends Controller
         $userstimf->username = Input::get('username');
         $userstimf->password12 = Input::get('password12');
         $userstimf->comment = Input::get('comment');
-        $userstimf->photo = Input::get('photo');
+        //$userstimf->photo = Input::get('photo');
         $userstimf->org_id = Input::get('org_id');
         $userstimf->IsActiveDate = Input::get('IsActiveDate');
         $userstimf->photo = $filename;

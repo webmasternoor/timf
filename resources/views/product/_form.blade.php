@@ -43,7 +43,7 @@
         <div class="form-group required col-md-4" id="form-ProductType-error">
             {!! Form::label("ProductType"," প্রোডাক্টের ধরণ",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ProductType",['1' => 'By Moazzal', '2' => 'By Mudaraba', '3' => 'By TMSS'])!!}
+                {!! Form::select("ProductType",$ProductInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
                 <span id="ProductType-error" class="help-block"></span>
             </div>
         </div>

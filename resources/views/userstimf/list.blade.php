@@ -1,4 +1,4 @@
-<h1 class="page-header">দেশের তালিকা
+<h1 class="page-header">ব্যবহারকারী তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('userstimf/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
@@ -25,7 +25,7 @@
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Employee ID
+                আইডি
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -33,7 +33,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Employee Code
+                কোড
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -41,7 +41,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Name
+                নাম
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -49,7 +49,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Office ID
+                অফিস আইডি
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -57,7 +57,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Designation
+                পদবী
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -65,7 +65,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Address
+                ঠিকানা
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -73,50 +73,19 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Phone Number1
+                ফোন নাম্বার
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Phone Number2
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+
         <th>
             <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Email
+                ইমেইল
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
-        <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Alternate Email
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
-        <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Gender
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
-        <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
-                Birthdate
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th width="140px">অ্যাকশন সমূহ</th>
@@ -134,11 +103,7 @@
             <td>{{$userstimf->designation}}</td>
             <td>{{$userstimf->address}}</td>
             <td>{{$userstimf->phone1}}</td>
-            <td>{{$userstimf->phone2}}</td>
             <td>{{$userstimf->email}}</td>
-            <td>{{$userstimf->altemail}}</td>
-            <td>{{$userstimf->gender}}</td>
-            <td>{{$userstimf->birthdate}}</td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('userstimf/update/{{$userstimf->id}}')">

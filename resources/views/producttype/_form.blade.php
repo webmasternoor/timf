@@ -1,16 +1,30 @@
 <div class="col-md-12">
     <div class="form-group required col-md-6" id="form-ProducttypeyName-error">
-        {!! Form::label("ProducttypeyName","প্রোডাক্টের নাম",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
+        {!! Form::label("ProducttypeyName","প্রোডাক্টের নাম",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             {!! Form::text("ProducttypeyName",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="ProducttypeyName-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-6" id="form-ProducttypeyCode-error">
-        {!! Form::label("ProducttypeyCode","প্রোডাক্টের কোড",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
+        {!! Form::label("ProducttypeyCode","প্রোডাক্টের কোড",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             {!! Form::text("ProducttypeyCode",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="ProducttypeyCode-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-ProductRate-error">
+        {!! Form::label("ProductRate","মুনাফার হার",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::number("ProductRate",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="ProductRate-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-ProductInstallments-error">
+        {!! Form::label("ProductInstallments","কিস্তির সংখ্যা(মাস)",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::number("ProductInstallments",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="ProductInstallments-error" class="help-block"></span>
         </div>
     </div>
 </div>
