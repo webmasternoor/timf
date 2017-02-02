@@ -27,9 +27,43 @@
             <span id="employee_lastname-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-office_id-error">
-        {!! Form::label("office_id","Office ID",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
+    <div class="form-group required col-md-3" id="form-designation-error">
+        {!! Form::label("designation","Designation",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            <select name="designation">
+                @foreach($designations as $designation )
+                    <option value="{{$designation->id}}">{{$designation->designation}}</option>
+                @endforeach
+            </select>
+        <!-- {!! Form::text("designation",null,["class"=>"form-control required","id"=>"focus"]) !!} -->
+            <span id="designation-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-3" id="form-ZoneID-error">
+        {!! Form::label("ZoneID","Zone",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            <select name="ZoneID">
+                @foreach($zones as $zones12 )
+                    <option value="{{$zones12->id}}">{{$zones12->ZoneName}}</option>
+                @endforeach
+            </select>
+            <span id="ZoneID-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-3" id="form-AreaID-error">
+        {!! Form::label("AreaID","Area",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            <select name="AreaID">
+                @foreach($areas as $areas12 )
+                    <option value="{{$areas12->id}}">{{$areas12->AreaName}}</option>
+                @endforeach
+            </select>
+            <span id="AreaID-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-3" id="form-office_id-error">
+        {!! Form::label("office_id","Office ID",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             <select name="office_id">
                 @foreach($branchs as $branch )
                     <option value="{{$branch->id}}">{{$branch->BranchName}}</option>
@@ -37,18 +71,6 @@
             </select>
             <!-- {!! Form::text("office_id",null,["class"=>"form-control required","id"=>"focus"]) !!} -->
             <span id="office_id-error" class="help-block"></span>
-        </div>
-    </div>
-    <div class="form-group required col-md-6" id="form-designation-error">
-        {!! Form::label("designation","Designation",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
-            <select name="designation">
-                @foreach($designations as $designation )
-                    <option value="{{$designation->id}}">{{$designation->designation}}</option>
-                @endforeach
-            </select>
-            <!-- {!! Form::text("designation",null,["class"=>"form-control required","id"=>"focus"]) !!} -->
-            <span id="designation-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-12" id="form-address-error">

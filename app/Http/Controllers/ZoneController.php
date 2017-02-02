@@ -48,7 +48,7 @@ class ZoneController extends Controller
     public function postUpdate($id)
     {
         $zone = Zone::find($id);
-        $rules = ["ZoneName" => "required"];
+        /*$rules = ["ZoneName" => "required"];
         if ($zone->ZoneName != Input::get('ZoneName'))
             $rules += ['ZoneName' => 'required|unique:zones'];
         $validator = Validator::make(Input::all(), $rules);
@@ -57,7 +57,7 @@ class ZoneController extends Controller
                 'fail' => true,
                 'errors' => $validator->getMessageBag()->toArray()
             );
-        }
+        }*/
         $zone->ZoneName = Input::get('ZoneName');
         $zone->ZoneCode = Input::get('ZoneCode');
         $zone->ZoneAddress = Input::get('ZoneAddress');
@@ -88,7 +88,7 @@ class ZoneController extends Controller
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
-            "ZoneName" => "required|unique:zones"
+            "ZoneName" => "required"
         ]);
         if ($validator->fails()) {
             return array(

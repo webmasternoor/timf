@@ -70,6 +70,7 @@ class BrnController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }*/
+        $brn->ZoneId = Input::get('ZoneId');
         $brn->AreaId = Input::get('AreaId');
         $brn->BranchName = Input::get('BranchName');
         $brn->BranchCode = Input::get('BranchCode');
@@ -87,7 +88,8 @@ class BrnController extends Controller
     }
 
     public function getCreate()
-    {$area = Area::lists('AreaName', 'id');
+    {
+        $area = Area::lists('AreaName', 'id');
         $Zone_info = Zone::lists('ZoneName', 'id');
         $ThanaInfo = Thana::lists('ThanaName', 'id');
         $DivisionInfo = Division::lists('DivisionName', 'id');
@@ -112,6 +114,7 @@ class BrnController extends Controller
             );
         }*/
         $brn = new Brn();
+        $brn->ZoneId = Input::get('ZoneId');
         $brn->AreaId = Input::get('AreaId');
         $brn->BranchName = Input::get('BranchName');
         $brn->BranchCode = Input::get('BranchCode');

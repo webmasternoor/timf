@@ -50,6 +50,8 @@ class UserstimfController extends Controller
         $userstimf->employee_code = Input::get('employee_code');
         $userstimf->employee_firstname = Input::get('employee_firstname');
         $userstimf->employee_lastname = Input::get('employee_lastname');
+        $userstimf->ZoneID = Input::get('ZoneID');
+        $userstimf->AreaID = Input::get('AreaID');
         $userstimf->office_id = Input::get('office_id');
         $userstimf->designation = Input::get('designation');
         $userstimf->address = Input::get('address');
@@ -75,10 +77,12 @@ class UserstimfController extends Controller
     public function getCreate()
     {
         //$branchs = Brn::lists('BranchName', 'id');
+        $zones= DB::table('zones')->get();
+        $areas= DB::table('areas')->get();
         $branchs= DB::table('brns')->get();
         $designations= DB::table('grades')->get();
         //$designations = DB::table('designations')-> select('*')->get();
-        return view('userstimf.create')->with('designations', $designations)->with('branchs', $branchs);
+        return view('userstimf.create')->with('designations', $designations)->with('branchs', $branchs)->with('zones', $zones)->with('areas', $areas);
         //return view('userstimf.create');
     }
 
@@ -101,6 +105,8 @@ class UserstimfController extends Controller
         $userstimf->employee_code = Input::get('employee_code');
         $userstimf->employee_firstname = Input::get('employee_firstname');
         $userstimf->employee_lastname = Input::get('employee_lastname');
+        $userstimf->ZoneID = Input::get('ZoneID');
+        $userstimf->AreaID = Input::get('AreaID');
         $userstimf->office_id = Input::get('office_id');
         $userstimf->designation = Input::get('designation');
         $userstimf->address = Input::get('address');
