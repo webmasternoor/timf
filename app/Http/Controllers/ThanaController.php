@@ -67,7 +67,7 @@ class ThanaController extends Controller
 
 //        $DivisionInfo = Division::lists('DivisionName', 'id');
         $DivisionInfo = Division::all();
-        $DistrictInfo = District::lists('DistrictName', 'id');
+        $DistrictInfo = District::all();
         //return view('thana.create',compact('district_info'));
         return view('thana.create',['DistrictInfo' => $DistrictInfo],['DivisionInfo' => $DivisionInfo]);
 

@@ -8,14 +8,20 @@
                 @foreach($DivisionInfo as $zone_data )
                     <option value="{{$zone_data->id}}">{{$zone_data->DivisionName}}</option>
                 @endforeach
+
             </select>
             <span id="DivisionId-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-6" id="form-DistrictId-error">
         {!! Form::label("DistrictId","জেলা",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
-            {!! Form::select("DistrictId",$DistrictInfo,null,["class"=>"form-control required","id"=>"district"]) !!}
+        <div class="DistrictId col-md-6 ">
+            <select name="DistrictId" class="DistrictId" id="DistrictId">
+                @foreach($DistrictInfo as $Districtdata )
+                <option value="{{$Districtdata->id}}">{{$Districtdata->DistrictName}}</option>
+                @endforeach
+                <option value=""></option>
+            </select>
             <span id="DistrictId-error" class="help-block"></span>
         </div>
     </div>
@@ -89,27 +95,30 @@
 
 </script>
 
-<script >
+<script>
 
     $(document).ready(function () {
         $(document).on('change', '.DivisionId', function () {
-            console.log("yes it is change");
+            //console.log("yes it is change");
 
-            var DivisionId=$(this).val();
-            console.log(DivisionId);
-//            $.ajax({
-//                type: 'get',
-//                url:'{||URL:: to('getDistrict')||}',
-//                data:{'id':DivisionId},
-//                success:function (data) {
-//                    console.log("success");
-//
-//                    console.log(data);
-//                },
-//                error:function () {
-//
-//                }
-//            });
+            var op = " ";
+            var DivisionId = $(this).val();
+            var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#DistrictId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getDistrict',
+                data: {'id': DivisionId},
+                success: function (data) {
+                $.each(data, function (index, subcatObj) {
+                    $('#DistrictId').append('<option value="'+subcatObj.id+'">'+subcatObj.DistrictName +'</option>')
+                });
+                },
+                error: function () {
+
+                }
+            });
         });
     });
 
@@ -117,13 +126,13 @@
 
 {{--<script >--}}
 
-{{--$('#division').on('change', function(e)--}}
+{{--$('#DivisionId').on('change', function(e)--}}
 {{--{--}}
 {{--console.log(e);--}}
 {{--var division_id= e.target.value;--}}
-
+{{--console.log(division_id);--}}
 {{--//Ajax;--}}
-{{--$.get('/ajax-division?division_id' + division_id, function (data) {--}}
+{{--$.get('/ajax-division?division_id=' + division_id, function (data) {--}}
 {{--//success--}}
 {{--console.log(data);--}}
 {{--});--}}

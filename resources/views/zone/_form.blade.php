@@ -40,7 +40,7 @@
         <div class="form-group required col-md-6" id="form-ZoneDivisionId-error">
             {!! Form::label("ZoneDivisionId","বিভাগ",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZoneDivisionId",$DivisionInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                {!! Form::select("ZoneDivisionId",$DivisionInfo,null,["class"=>"form-control required","id"=>"ZoneDivisionId"]) !!}
                 <span id="ZoneDivisionId-error" class="help-block"></span>
             </div>
         </div>
