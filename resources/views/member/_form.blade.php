@@ -32,7 +32,7 @@
                     <div class="form-group col-md-6" id="form-FatherNid-error">
                         {!! Form::label("FatherNid","পিতার জাতীয় পরিচয় পত্র নং",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::file("FatherNid",null,["class"=>"form-control required"]) !!}
+                            {!! Form::text("FatherNid",null,["class"=>"form-control required"]) !!}
                             <span id="FatherNid-error" class="help-block"></span>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                     <div class="form-group col-md-6" id="form-MotherNid-error">
                         {!! Form::label("MotherNid","মায়ের জাতীয় পরিচয় পত্র নং",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::file("MotherNid",null,["class"=>"form-control required"]) !!}
+                            {!! Form::text("MotherNid",null,["class"=>"form-control required"]) !!}
                             <span id="MotherNid-error" class="help-block"></span>
                         </div>
                     </div>

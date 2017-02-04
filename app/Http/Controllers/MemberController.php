@@ -153,14 +153,24 @@ class MemberController extends Controller
         $nid=Session::get('loan_search1');
 
         $file = Input::file('MemberImage');
+        $filefather = Input::file('FatherImage');
+        $filemother = Input::file('MotherImage');
         // $input = array('image' => $file);
 
         $destinationPath = 'uploads/';
         $filename = $nid.$file->getClientOriginalName();
         Input::file('MemberImage')->move($destinationPath, $filename);
 
+        $filenamefather = $nid.$filefather->getClientOriginalName();
+        Input::file('FatherImage')->move($destinationPath, $filenamefather);
+
+        $filenamemother = $nid.$filemother->getClientOriginalName();
+        Input::file('MotherImage')->move($destinationPath, $filenamemother);
+
         $member = new Member();
         $member->Nid = $nid;
+        $member->FatherNid = Input::get('FatherNid');
+        $member->MotherNid = Input::get('MotherNid');
         $member->BusinessName = Input::get('BusinessName');
         $member->BusinessNature = Input::get('BusinessNature');
         $member->BusinessExperience = Input::get('BusinessExperience');
@@ -202,6 +212,8 @@ class MemberController extends Controller
         $member->WeekEnd = Input::get('WeekEnd');
         $member->OrgPermanentEmployee = Input::get('OrgPermanentEmployee');
         $member->MemberImage =$nid."_". $filename;
+        $member->FatherImage =$nid."_". $filenamefather;
+        $member->MotherImage =$nid."_". $filenamemother;
         $member->save();
         return ['url' => 'member/list'];
     }
