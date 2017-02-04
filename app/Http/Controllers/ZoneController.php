@@ -27,6 +27,7 @@ class ZoneController extends Controller
         Session::put('zone_sort', Input::has('sort') ? Input::get('sort') : (Session::has('zone_sort') ? Session::get('zone_sort') : 'asc'));
         $zones = Zone::where('id', 'like', '%' . Session::get('zone_search') . '%')
             ->orderBy(Session::get('zone_field'), Session::get('zone_sort'))->paginate(8);
+
         return view('zone.list', ['zones' => $zones]);
     }
 
@@ -38,26 +39,23 @@ class ZoneController extends Controller
         $WardInfo = Ward::lists('WardName', 'id');
         $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
         $district_info = District::lists('DistrictName', 'id');
-        return view('zone.update',['zone' => Zone::find($id)])->with('ThanaInfo',$ThanaInfo)->with('district_info',$district_info)->with('DivisionInfo',$DivisionInfo)
-            ->with('UnionInfo',$UnionInfo)->with('PostOfficeInfo',$PostOfficeInfo)->with('WardInfo',$WardInfo);
-//        $thana_info = Thana::lists('ThanaName', 'id');
-//        $district_info = District::lists('DistrictName', 'id');
-//        return view('zone.update', ['zone' => Zone::find($id)])->with('thana_info', $thana_info)->with('district_info', $district_info);
+        return view('zone.update', ['zone' => Zone::find($id)])->with('ThanaInfo', $ThanaInfo)->with('district_info', $district_info)->with('DivisionInfo', $DivisionInfo)
+            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo);
     }
 
     public function postUpdate($id)
     {
         $zone = Zone::find($id);
-        /*$rules = ["ZoneName" => "required"];
+        $rules = ["ZoneName" => "required"];
         if ($zone->ZoneName != Input::get('ZoneName'))
-            $rules += ['ZoneName' => 'required|unique:zones'];
+            $rules += ['ZoneName' => 'required'];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
             return array(
                 'fail' => true,
                 'errors' => $validator->getMessageBag()->toArray()
             );
-        }*/
+        }
         $zone->ZoneName = Input::get('ZoneName');
         $zone->ZoneCode = Input::get('ZoneCode');
         $zone->ZoneAddress = Input::get('ZoneAddress');
@@ -81,8 +79,8 @@ class ZoneController extends Controller
         $WardInfo = Ward::lists('WardName', 'id');
         $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
         $district_info = District::lists('DistrictName', 'id');
-        return view('zone.create')->with('ThanaInfo',$ThanaInfo)->with('district_info',$district_info)->with('DivisionInfo',$DivisionInfo)
-            ->with('UnionInfo',$UnionInfo)->with('PostOfficeInfo',$PostOfficeInfo)->with('WardInfo',$WardInfo);
+        return view('zone.create')->with('ThanaInfo', $ThanaInfo)->with('district_info', $district_info)->with('DivisionInfo', $DivisionInfo)
+            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo);
     }
 
     public function postCreate()
