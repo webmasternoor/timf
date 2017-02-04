@@ -66,7 +66,13 @@ Route::controllers([
 
 Route::resource('users', 'UsersController');
 
-Route::get('getDistrict','slectboxController@getDistrict');
+Route::get('getDistrict','SelectBoxController@getDistrict');
+
+Route::get('getThana','SelectBoxController@getThana');
+
+Route::get('getUnion','SelectBoxController@getUnion');
+
+Route::get('getWord','SelectBoxController@getWord');
 //Route::post('areaC1','AreaController@test');
 //Route::get('areaC22','AreaController@GetArray');
 //Route::post('areaC2','AreaController@getData');
