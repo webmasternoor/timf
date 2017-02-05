@@ -169,6 +169,13 @@ class MemberController extends Controller
 
         $member = new Member();
         $member->Nid = $nid;
+
+        $member->ZoneId = Input::get('ZoneId');
+        $member->NameTitle = Input::get('NameTitle');
+        $member->FirstName = Input::get('FirstName');
+        $member->LastName = Input::get('LastName');
+        $member->FamilyName = Input::get('FamilyName');
+
         $member->FatherNid = Input::get('FatherNid');
         $member->MotherNid = Input::get('MotherNid');
         $member->BusinessName = Input::get('BusinessName');

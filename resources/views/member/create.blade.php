@@ -1,3 +1,5 @@
+<h2 class="page-header">নতুন সদস্য যোগ করুন</h2>
+{!! Form::open(["id"=>"frm","class"=>"form-horizontal"]) !!}
 <div class="col-md-12 surveysearch">
 	<h1 class="page-header">Survey Search
 	    <div class="pull-right">
@@ -104,7 +106,15 @@
 	    @foreach($loans as $key=>$loan)
 	        <tr>
 	            <td align="center">{{$i++}}</td>
-	            <td>{{$loan->NameTitle}}&nbsp;{{$loan->FirstName}}&nbsp;{{$loan->LastName}}&nbsp;{{$loan->FamilyName}}</td>
+	            <td>
+					{!! Form::text("NameTitle",null,["class"=>"form-control required"]) !!}
+					<input type="text" name="NameTitle" value="{{$loan->NameTitle}}">
+					<input type="text" name="FirstName" value="{{$loan->FirstName}}">
+					<input type="text" name="LastName" value="{{$loan->LastName}}">
+					<input type="text" name="FamilyName" value="{{$loan->FamilyName}}">
+					<input type="text" name="FullNameBangla" value="{{$loan->FullNameBangla}}">
+					{{--{{$loan->NameTitle}}&nbsp;{{$loan->FirstName}}&nbsp;{{$loan->LastName}}&nbsp;{{$loan->FamilyName}}--}}
+				</td>
 	            <td>{{$loan->Gender}}</td>
 	            <td>{{$loan->Age}}</td>
 	            <td>{{$loan->FatherOrHasbandNAmeTitle}}&nbsp;{{$loan->FatherOrHasbandFirstName}}&nbsp;{{$loan->FatherOrHasbandLastName}}&nbsp;</td>
@@ -126,6 +136,25 @@
 	    @endforeach
 	    </tbody>
 	</table>
+	<div class="col-md-12 ">
+		<div id="exTab2" class="">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#1" data-toggle="tab">শাখার তথ্য</a></li>
+				<li><a href="#2" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
+				<li><a href="#5" data-toggle="tab">পেশা সংক্রান্ত</a></li>
+				<li><a href="#3" data-toggle="tab">পারিবারিক তথ্য</a></li>
+				<li><a href="#4" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>
+			</ul>
+			<div class="tab-content ">
+				<div class="tab-pane active" id="1">
+					<div class="borderportion">
+						<div class="form-group col-md-4" id="form-ZoneId-error">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="pull-right">{!! str_replace('/?','?',$loans->render()) !!}</div>
 	<div class="row">
 	    <i class="col-sm-12">
@@ -133,13 +162,13 @@
 	    </i>
 	</div>
 </div>
+{{--{!! Form::open(["id"=>"frm","class"=>"form-horizontal"]) !!}--}}
+@include("member._form")
+{{--<input type="hidden" name="ZoneId" value="{{$loan->FirstName}}">--}}
+{!! Form::close() !!}
 <script>
     $('.pagination a').on('click', function (event) {
         event.preventDefault();
         ajaxLoad($(this).attr('href'));
     });
 </script>
-<h2 class="page-header">নতুন সদস্য যোগ করুন</h2>
-{!! Form::open(["id"=>"frm","class"=>"form-horizontal"]) !!}
-@include("member._form")
-{!! Form::close() !!}
