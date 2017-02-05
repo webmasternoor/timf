@@ -50,14 +50,14 @@
         <div class="form-group required col-md-4" id="form-ServiceChargeRate-error">
             {!! Form::label("ServiceChargeRate","সার্ভিস চার্জ রেট",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12" id="ServiceChargeRate">
-                {{--{!! Form::number("ServiceChargeRate",null,["class"=>"form-control ServiceChargeRate required","id"=>"ServiceChargeRate1"]) !!}--}}
-                {{--<span id="ServiceChargeRate-error" class="help-block"></span>--}}
+                {!! Form::number("ServiceChargeRate",null,["class"=>"form-control ServiceChargeRate required","id"=>"ServiceChargeRate1"]) !!}
+                <span id="ServiceChargeRate-error" class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-4" id="form-Duration-error">
             {!! Form::label("Duration","মেয়াদ(মাস)",["class"=>"control-label  col-md-12"]) !!}
             <div class="col-md-12" id="Duration">
-                {!! Form::number("Duration",null,["class"=>"form-control Duration required" ,"id"=>"Duration"]) !!}
+                {!! Form::number("Duration",null,["class"=>"form-control Duration required" ,"id"=>"Duration"],['readonly']) !!}
                 <span id="Duration-error" class="help-block"></span>
             </div>
         </div>
@@ -65,7 +65,7 @@
     <div class="col-md-12 form-group">
         <div class="form-group required col-md-6" id="form-MainProductName-error">
             {!! Form::label("MainProductName","মেইন প্রোডাক্টের নাম",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
+            <div class="col-md-12" >
                 {!! Form::text("MainProductName",null,["class"=>"form-control required"]) !!}
                 <span id="MainProductName-error" class="help-block"></span>
             </div>
