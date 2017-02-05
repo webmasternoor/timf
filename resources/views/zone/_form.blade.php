@@ -40,7 +40,7 @@
         <div class="form-group required col-md-6" id="form-ZoneDivisionId-error">
             {!! Form::label("ZoneDivisionId","বিভাগ",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZoneDivisionId",$DivisionInfo,null,["class"=>"form-control required","id"=>"ZoneDivisionId"]) !!}
+                {!! Form::select("ZoneDivisionId",$DivisionInfo,null,["class"=>"form-control DivisionId required","id"=>"DivisionId"]) !!}
                 <span id="ZoneDivisionId-error" class="help-block"></span>
             </div>
         </div>
@@ -48,7 +48,7 @@
         <div class="form-group required col-md-6" id="form-ZoneDistrictId-error">
             {!! Form::label("ZoneDistrictId","জেলা",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZoneDistrictId",$district_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                {!! Form::select("ZoneDistrictId",$district_info,null,["class"=>"form-control DistrictId required","id"=>"DistrictId"]) !!}
                 <span id="ZoneDistrictId-error" class="help-block"></span>
             </div>
         </div>
@@ -56,14 +56,14 @@
         <div class="form-group required col-md-6" id="form-ZoneThanaId-error">
             {!! Form::label("ZoneThanaId","থানা",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZoneThanaId",$ThanaInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                {!! Form::select("ZoneThanaId",$ThanaInfo,null,["class"=>"form-control ThanaId required","id"=>"ThanaId"]) !!}
                 <span id="ZoneThanaId-error" class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-6" id="form-ZoneUnionId-error">
             {!! Form::label("ZoneUnionId","ইউনিয়ন",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZoneUnionId",$UnionInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                {!! Form::select("ZoneUnionId",$UnionInfo,null,["class"=>"form-control UnionId required","id"=>"UnionId"]) !!}
                 <span id="ZoneUnionId-error" class="help-block"></span>
             </div>
         </div>
@@ -77,7 +77,7 @@
         <div class="form-group required col-md-6" id="form-ZoneWardId-error">
             {!! Form::label("ZoneWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZoneWardId",$WardInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                {!! Form::select("ZoneWardId",$WardInfo,null,["class"=>"form-control WordId required","id"=>"WordId"]) !!}
                 <span id="ZoneWardId-error" class="help-block"></span>
             </div>
         </div>
@@ -136,4 +136,100 @@
         });
         return false;
     });
+</script>
+<script>
+
+    $(document).ready(function () {
+        $(document).on('change', '.DivisionId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DivisionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#DistrictId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getDistrict',
+                data: {'id': DivisionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj) {
+                        $('#DistrictId').append('<option value="'+subcatObj.id+'">'+subcatObj.DistrictName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.DistrictId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DistrictId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#ThanaId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getThana',
+                data: {'id': DistrictId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj1) {
+                        $('#ThanaId').append('<option value="'+subcatObj1.id+'">'+subcatObj1.ThanaName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.ThanaId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ThanaId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#UnionId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getUnion',
+                data: {'id': ThanaId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj2) {
+                        $('#UnionId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.UnionName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.UnionId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var UnionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#WordId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getWord',
+                data: {'id': UnionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj2) {
+                        $('#WordId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.WardName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+    });
+
 </script>
