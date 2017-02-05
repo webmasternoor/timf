@@ -38,9 +38,15 @@ class MemberController extends Controller
 
     public function getUpdate($id)
     {
-        $zone = Zone::all();
-        $area = Area::all();
-        $branch = Brn::all();
+        //$zone = Zone::all();
+        //$area = Area::all();
+        //$branch = Brn::all();
+        $Zone_info = Zone::lists('ZoneName', 'id');
+        $Area_info = Area::lists('AreaName', 'id');
+        $Branch_info = Brn::lists('BranchName', 'id');
+        $zone = Zone::lists('ZoneName', 'id');
+        $area = Area::lists('AreaName', 'id');
+        $branch = Brn::lists('BranchName', 'id');
         $Education= '';
         $country=Countr::all();
         $district=District::all();
@@ -48,7 +54,7 @@ class MemberController extends Controller
         $postoffice=Postoffice::all();
         $union=Union::all();
         $word=Ward::all();
-        return view('member.update', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
+        return view('member.update', ['member' => Member::find($id)])->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
             ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
             ->with('union', $union)->with('word', $word);
 

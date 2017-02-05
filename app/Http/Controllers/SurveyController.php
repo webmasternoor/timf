@@ -38,6 +38,9 @@ class SurveyController extends Controller
 
     public function getUpdate($id)
     {
+        $zone = Zone::lists('ZoneName', 'id');
+        $area = Area::lists('AreaName', 'id');
+        $branch = Brn::lists('BranchName', 'id');
         $education= DB::table('educations')->get();
         $country=Countr::all();
         $district=District::all();
