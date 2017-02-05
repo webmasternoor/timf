@@ -5,7 +5,7 @@
 	{!! Form::close() !!}
 	<div class="form-group">
         <div class="col-md-6 col-md-push-4 back">
-            <a href="javascript:ajaxLoad('member/list')" class="btn btn-danger"><i
+            <a href="javascript:ajaxLoad('member/create')" class="btn btn-danger"><i
                         class="glyphicon glyphicon-backward"></i>
                 Back</a>
         </div>
