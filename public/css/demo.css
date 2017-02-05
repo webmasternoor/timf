@@ -133,7 +133,9 @@ div.dataTables_wrapper {
 }
 .panel {
     margin: 0;
+
 }
+div.col-md-12.survey input[type='password'],
 .form-group input.form-control{
   height: 30px;
   width: 100%;
