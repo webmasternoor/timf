@@ -62,7 +62,7 @@
     <div class="form-group required col-md-4" id="form-ZoneID-error">
         {!! Form::label("ZoneID","জোন",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            <select name="ZoneID">
+            <select name="ZoneID" class="ZoneId" id="ZoneId">
                 @foreach($zones as $zones12 )
                     <option value="{{$zones12->id}}">{{$zones12->ZoneName}}</option>
                 @endforeach
@@ -73,7 +73,7 @@
     <div class="form-group required col-md-4" id="form-AreaID-error">
         {!! Form::label("AreaID","এরিয়া",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            <select name="AreaID">
+            <select name="AreaID" class="AreaId" id="AreaId">
                 @foreach($areas as $areas12 )
                     <option value="{{$areas12->id}}">{{$areas12->AreaName}}</option>
                 @endforeach
@@ -84,7 +84,7 @@
     <div class="form-group required col-md-4" id="form-office_id-error">
         {!! Form::label("office_id","অফিস আইডি",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::select("office_id",$BranchInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::select("office_id",$BranchInfo,null,["class"=>"form-control office_id required","id"=>"office_id"]) !!}
             <span id="office_id-error" class="help-block"></span>
         </div>
     </div>
@@ -268,5 +268,55 @@
             }
         });
         return false;
+    });
+
+    $(document).ready(function () {
+
+        $(document).on('change', '.ZoneId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ZoneId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#AreaId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getArea',
+                data: {'id': ZoneId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObjArea) {
+                        $('#AreaId').append('<option value="'+subcatObjArea.id+'">'+subcatObjArea.AreaName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.AreaId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var AreaId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#office_id').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getBranch',
+                data: {'id': AreaId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObjbranch) {
+                        $('#office_id').append('<option value="'+subcatObjbranch.id+'">'+subcatObjbranch.BranchName+'->'+subcatObjbranch.id+'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
     });
 </script>

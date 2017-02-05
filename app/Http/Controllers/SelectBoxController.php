@@ -66,6 +66,42 @@ class SelectBoxController extends Controller
         return response()->json($data);
     }
 
+    public function getPostOffice(Request $request)
+    {
+        $data=DB::table('postoffices')
+            ->select('*')
+            ->where('ThanaCode',$request->id)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function getArea(Request $request)
+    {
+        $data=DB::table('areas')
+            ->select('*')
+            ->where('ZoneId',$request->id)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function getBranch(Request $request)
+    {
+        $data=DB::table('brns')
+            ->select('*')
+            ->where('AreaId',$request->id)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function getProductInfo(Request $request)
+    {
+        $data=DB::table('producttypes')
+            ->select('*')
+            ->where('id',$request->id)
+            ->get();
+        return response()->json($data);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

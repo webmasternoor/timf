@@ -67,13 +67,7 @@
                 <span id="ZoneUnionId-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-6" id="form-ZonePostOfficeId-error">
-            {!! Form::label("ZonePostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::select("ZonePostOfficeId",$PostOfficeInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="ZonePostOfficeId-error" class="help-block"></span>
-            </div>
-        </div>
+
         <div class="form-group required col-md-6" id="form-ZoneWardId-error">
             {!! Form::label("ZoneWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
@@ -81,6 +75,15 @@
                 <span id="ZoneWardId-error" class="help-block"></span>
             </div>
         </div>
+
+        <div class="form-group required col-md-6" id="form-ZonePostOfficeId-error">
+            {!! Form::label("ZonePostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("ZonePostOfficeId",$PostOfficeInfo,null,["class"=>"form-control PostOfficeId required","id"=>"PostOfficeId"]) !!}
+                <span id="ZonePostOfficeId-error" class="help-block"></span>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -137,6 +140,7 @@
         return false;
     });
 </script>
+
 <script>
 
     $(document).ready(function () {
@@ -223,6 +227,29 @@
                 success: function (data) {
                     $.each(data, function (index, subcatObj2) {
                         $('#WordId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.WardName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.ThanaId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ThanaId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            $('#PostOfficeId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getPostOffice',
+                data: {'id': ThanaId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj3) {
+                        $('#PostOfficeId').append('<option value="'+subcatObj3.id+'">'+subcatObj3.PostofficeName +'</option>')
                     });
                 },
                 error: function () {

@@ -73,10 +73,14 @@ Route::get('getThana','SelectBoxController@getThana');
 Route::get('getUnion','SelectBoxController@getUnion');
 
 Route::get('getWord','SelectBoxController@getWord');
-//Route::post('areaC1','AreaController@test');
-//Route::get('areaC22','AreaController@GetArray');
-//Route::post('areaC2','AreaController@getData');
-//Route::get('/','AreaController@getList');
+
+Route::get('getPostOffice','SelectBoxController@getPostOffice');
+
+Route::get('getArea','SelectBoxController@getArea');
+
+Route::get('getBranch','SelectBoxController@getBranch');
+
+Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
 Route::get('{view}', function ($view) {
     if (view()->exists($view)) {

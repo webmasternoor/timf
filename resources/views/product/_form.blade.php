@@ -43,21 +43,21 @@
         <div class="form-group required col-md-4" id="form-ProductType-error">
             {!! Form::label("ProductType"," প্রোডাক্টের ধরণ",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ProductType",$ProductInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                {!! Form::select("ProductType",$ProductInfo,null,["class"=>"form-control ProductType required","id"=>"ProductType"]) !!}
                 <span id="ProductType-error" class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-4" id="form-ServiceChargeRate-error">
             {!! Form::label("ServiceChargeRate","সার্ভিস চার্জ রেট",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::number("ServiceChargeRate",null,["class"=>"form-control required"]) !!}
-                <span id="ServiceChargeRate-error" class="help-block"></span>
+            <div class="col-md-12" id="ServiceChargeRate">
+                {{--{!! Form::number("ServiceChargeRate",null,["class"=>"form-control ServiceChargeRate required","id"=>"ServiceChargeRate1"]) !!}--}}
+                {{--<span id="ServiceChargeRate-error" class="help-block"></span>--}}
             </div>
         </div>
         <div class="form-group required col-md-4" id="form-Duration-error">
-            {!! Form::label("Duration","মেয়াদ(মাস)",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::number("Duration",null,["class"=>"form-control required"]) !!}
+            {!! Form::label("Duration","মেয়াদ(মাস)",["class"=>"control-label  col-md-12"]) !!}
+            <div class="col-md-12" id="Duration">
+                {!! Form::number("Duration",null,["class"=>"form-control Duration required" ,"id"=>"Duration"]) !!}
                 <span id="Duration-error" class="help-block"></span>
             </div>
         </div>
@@ -194,5 +194,31 @@
             }
         });
         return false;
+    });
+
+    $(document).ready(function () {
+        $(document).on('change', '.ProductType', function () {
+            //console.log("yes it is change");
+
+            var ProductType = $(this).val();
+            var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#ServiceChargeRate').empty();
+            $('#Duration').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getProductInfo',
+                data: {'id': ProductType},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj) {
+                        $('#ServiceChargeRate').append('<input type="text" class="form-control" readonly name="ServiceChargeRate" value="'+subcatObj.ProductRate+'">');
+                        $('#Duration').append('<input type="text" class="form-control" readonly name="Duration" value="'+subcatObj.ProductInstallments+'">')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
     });
 </script>
