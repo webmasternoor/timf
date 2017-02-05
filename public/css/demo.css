@@ -222,7 +222,7 @@ div.col-md-12.survey div.surveyview div.col-md-6.col-md-push-4.back{
 .col-md-12.survey div.surveyview select,
 .col-md-12.survey div.surveyview input,
 .col-md-12.survey div.surveyview textarea{
-  pointer-events: none;
+  /*pointer-events: none;*/
   background: #f2f2f2;
 }
 .page-header{
