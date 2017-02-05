@@ -107,7 +107,6 @@
 	        <tr>
 	            <td align="center">{{$i++}}</td>
 	            <td>
-					{!! Form::text("NameTitle",null,["class"=>"form-control required"]) !!}
 					<input type="text" name="NameTitle" value="{{$loan->NameTitle}}">
 					<input type="text" name="FirstName" value="{{$loan->FirstName}}">
 					<input type="text" name="LastName" value="{{$loan->LastName}}">
@@ -136,25 +135,33 @@
 	    @endforeach
 	    </tbody>
 	</table>
+    @foreach($loans as $key=>$loan)
 	<div class="col-md-12 ">
 		<div id="exTab2" class="">
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="#1" data-toggle="tab">শাখার তথ্য</a></li>
-				<li><a href="#2" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
-				<li><a href="#5" data-toggle="tab">পেশা সংক্রান্ত</a></li>
-				<li><a href="#3" data-toggle="tab">পারিবারিক তথ্য</a></li>
-				<li><a href="#4" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>
+				<li class="active"><a href="#11" data-toggle="tab">শাখার তথ্য</a></li>
+				<li><a href="#22" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
+				<li><a href="#55" data-toggle="tab">পেশা সংক্রান্ত</a></li>
+				<li><a href="#33" data-toggle="tab">পারিবারিক তথ্য</a></li>
+				<li><a href="#44" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>
 			</ul>
-			<div class="tab-content ">
-				<div class="tab-pane active" id="1">
-					<div class="borderportion">
-						<div class="form-group col-md-4" id="form-ZoneId-error">
-						</div>
-					</div>
-				</div>
-			</div>
+            <div class="tab-content ">
+                <div class="tab-pane active" id="11">
+                    <div class="borderportion">
+                        <div class="form-group col-md-4" id="form-ZoneId-error">
+                            {!! Form::label("ZoneId","জোন",["class"=>"control-label col-md-12"]) !!}
+                            <div class="col-md-12">
+                                {{--{!! Form::select("ZoneId",$Zone_info,null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
+                                <input class="form-control" type="text" name="NameTitle" value="{{$loan->FirstName}}">
+                                <span id="ZoneId-error" class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
+    @endforeach
 	<div class="pull-right">{!! str_replace('/?','?',$loans->render()) !!}</div>
 	<div class="row">
 	    <i class="col-sm-12">
