@@ -249,18 +249,18 @@
             });
         });
 
-        $(document).on('change', '.ThanaId', function () {
+        $(document).on('change', '.DistrictId', function () {
             //console.log("yes it is change");
 
             var op = " ";
-            var ThanaId = $(this).val();
+            var DistrictId = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
             $('#PostOfficeId').empty();
             $.ajax({
                 type: 'get',
                 url: 'getPostOffice',
-                data: {'id': ThanaId},
+                data: {'id': DistrictId},
                 success: function (data) {
                     $.each(data, function (index, subcatObj3) {
                         $('#PostOfficeId').append('<option value="'+subcatObj3.id+'">'+subcatObj3.PostofficeName +'</option>')
