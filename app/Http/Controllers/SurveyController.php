@@ -1,6 +1,15 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Accommodation;
+use App\Age;
+use App\Education;
+use App\Gender;
+use App\Maritalstatus;
+use App\Nametitle;
+use App\Politicalstatus;
+use App\Profession;
+use App\Year_calendar;
 use DB;
 use App\Post;
 use App\Survey;
@@ -38,54 +47,64 @@ class SurveyController extends Controller
 
     public function getUpdate($id)
     {
-        $zone = Zone::lists('ZoneName', 'id');
-        $area = Area::lists('AreaName', 'id');
-        $branch = Brn::lists('BranchName', 'id');
-        $education= DB::table('educations')->get();
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
-        $Zone_info = Zone::lists('ZoneName', 'id');
-        $Area_info = Area::lists('AreaName', 'id');
-        $Branch_info = Brn::lists('BranchName', 'id');
-        return view('survey.update', ['survey' => Survey::find($id)])->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
-            ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
-            ->with('union', $union)->with('word', $word)->with('education', $education);
+//        $zone = Zone::lists('ZoneName', 'id');
+//        $area = Area::lists('AreaName', 'id');
+//        $branch = Brn::lists('BranchName', 'id');
+        $NameTitle = Nametitle::lists('name','id');
+        $Age = Age::lists('age','id');
+        $PassingYear = Year_calendar::lists('Name','id');
+        $Profession = Profession::lists('name','id');
+        $MaritalStatus = Maritalstatus::lists('name','id');
+        $Accommodation = Accommodation::lists('name','id');
+        $Education = Education::lists('name','id');
+        $PoliticalStatus = Politicalstatus::lists('name','id');
+        $Gender = Gender::lists('GenderName','id');
+        $Country = Countr::lists('CountryName','id');
+        $District = District::lists('DistrictName','id');
+        $Thana = Thana::lists('ThanaName','id');
+        $PostOffice = Postoffice::lists('PostofficeName','id');
+        $Union = Union::lists('UnionName','id');
+        $Word = Ward::lists('WardName','id');
+        $ZoneInfo = Zone::lists('ZoneName', 'id');
+        $AreaInfo = Area::lists('AreaName', 'id');
+        $BranchInfo = Brn::lists('BranchName', 'id');
+        return view('survey.update', ['survey' => Survey::find($id)])->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
+            ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
+            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
+            ->with('Age', $Age)->with('Profession',$Profession)->with('Gender',$Gender)
+            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus);
 
         //return view('survey.update', ['survey' => Survey::find($id)]);
     }
 
     public function getView($id)
     {
-        $education= DB::table('educations')->get();
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
+        $education = DB::table('educations')->get();
+        $country = Countr::all();
+        $district = District::all();
+        $thana = Thana::all();
+        $postoffice = Postoffice::all();
+        $union = Union::all();
+        $word = Ward::all();
         $Zone_info = Zone::lists('ZoneName', 'id');
         $Area_info = Area::lists('AreaName', 'id');
         $Branch_info = Brn::lists('BranchName', 'id');
-        return view('survey.view', ['survey' => Survey::find($id)])->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
-            ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
-            ->with('union', $union)->with('word', $word)->with('education', $education);
+        return view('survey.view', ['survey' => Survey::find($id)])->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)
+            ->with('Area_info', $Area_info)->with('country', $country)->with('district', $district)->with('thana', $thana)
+            ->with('postoffice', $postoffice)->with('union', $union)->with('word', $word)->with('education', $education);
 
         //return view('survey.update', ['survey' => Survey::find($id)]);
     }
 
     public function getViewm($id)
     {
-        $education= DB::table('educations')->get();
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
+        $education = DB::table('educations')->get();
+        $country = Countr::all();
+        $district = District::all();
+        $thana = Thana::all();
+        $postoffice = Postoffice::all();
+        $union = Union::all();
+        $word = Ward::all();
         $Zone_info = Zone::lists('ZoneName', 'id');
         $Area_info = Area::lists('AreaName', 'id');
         $Branch_info = Brn::lists('BranchName', 'id');
@@ -98,13 +117,13 @@ class SurveyController extends Controller
 
     public function getViews($id)
     {
-        $education= DB::table('educations')->get();
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
+        $education = DB::table('educations')->get();
+        $country = Countr::all();
+        $district = District::all();
+        $thana = Thana::all();
+        $postoffice = Postoffice::all();
+        $union = Union::all();
+        $word = Ward::all();
         $Zone_info = Zone::lists('ZoneName', 'id');
         $Area_info = Area::lists('AreaName', 'id');
         $Branch_info = Brn::lists('BranchName', 'id');
@@ -239,22 +258,29 @@ class SurveyController extends Controller
 
     public function getCreate()
     {
-//        $zone = Zone::all();
-       // $area = Area::all();
-       // $branch = Brn::all();
-        $education= DB::table('educations')->get();
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
-        $Zone_info = Zone::lists('ZoneName', 'id');
-        $Area_info = Area::lists('AreaName', 'id');
-        $Branch_info = Brn::lists('BranchName', 'id');
-        return view('survey.create')->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
-            ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
-            ->with('union', $union)->with('word', $word)->with('education', $education);
+        $NameTitle = Nametitle::lists('name','id');
+        $Age = Age::lists('age','id');
+        $PassingYear = Year_calendar::lists('Name','id');
+        $Profession = Profession::lists('name','id');
+        $MaritalStatus = Maritalstatus::lists('name','id');
+        $Accommodation = Accommodation::lists('name','id');
+        $Education = Education::lists('name','id');
+        $PoliticalStatus = Politicalstatus::lists('name','id');
+        $Gender = Gender::lists('GenderName','id');
+        $Country = Countr::lists('CountryName','id');
+        $District = District::lists('DistrictName','id');
+        $Thana = Thana::lists('ThanaName','id');
+        $PostOffice = Postoffice::lists('PostofficeName','id');
+        $Union = Union::lists('UnionName','id');
+        $Word = Ward::lists('WardName','id');
+        $ZoneInfo = Zone::lists('ZoneName', 'id');
+        $AreaInfo = Area::lists('AreaName', 'id');
+        $BranchInfo = Brn::lists('BranchName', 'id');
+        return view('survey.create')->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
+            ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
+            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
+            ->with('Age', $Age)->with('Profession',$Profession)->with('Accommodation',$Accommodation)->with('Gender',$Gender)
+            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus);
 
         /*return view('survey.create')->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
             ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
@@ -325,7 +351,7 @@ class SurveyController extends Controller
         $survey->EarningAssetsByBusinessOrJob = Input::get('EarningAssetsByBusinessOrJob');
         $survey->EarningSourceWithoutBusiness = Input::get('EarningSourceWithoutBusiness');
         $survey->BusinessType = Input::get('BusinessType');
-        $survey->BusinessFrturePlan = Input::get('BusinessFrturePlan');        
+        $survey->BusinessFrturePlan = Input::get('BusinessFrturePlan');
         $survey->FamilyMebmer = Input::get('FamilyMebmer');
         $survey->EarningMale = Input::get('EarningMale');
         $survey->EarningFemale = Input::get('EarningFemale');
@@ -345,7 +371,7 @@ class SurveyController extends Controller
         $survey->NonAgriculturalEarning = Input::get('NonAgriculturalEarning');
         $survey->TotalEarning = Input::get('TotalEarning');
         $survey->TotalExpenditure = Input::get('TotalExpenditure');
-        $survey->NetBalance = Input::get('NetBalance');        
+        $survey->NetBalance = Input::get('NetBalance');
         $survey->TinMadeHouse = Input::get('TinMadeHouse');
         $survey->StrawMadeHouse = Input::get('StrawMadeHouse');
         $survey->BrickMadeHouse = Input::get('BrickMadeHouse');

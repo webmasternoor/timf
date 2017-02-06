@@ -1,7 +1,23 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Accommodation;
+use App\Age;
+use App\Businessleader;
+use App\BusinessPlaceStatus;
+use App\Businesstype;
+use App\Direction;
+use App\Education;
+use App\Gender;
+use App\Licenceauthority;
+use App\Maritalstatus;
+use App\Nametitle;
+use App\OtherSource;
+use App\Ownershiptype;
+use App\Permanentemployee;
+use App\Politicalstatus;
 use App\Post;
+use App\Profession;
 use App\Survey;
 use App\Countr;
 use App\Division;
@@ -10,6 +26,8 @@ use App\Thana;
 use App\Union;
 use App\Postoffice;
 use App\Ward;
+use App\Weekend;
+use App\Year_calendar;
 use App\Zone;
 use App\Area;
 use App\Brn;
@@ -41,22 +59,34 @@ class MemberController extends Controller
         //$zone = Zone::all();
         //$area = Area::all();
         //$branch = Brn::all();
-        $Zone_info = Zone::lists('ZoneName', 'id');
-        $Area_info = Area::lists('AreaName', 'id');
-        $Branch_info = Brn::lists('BranchName', 'id');
-        $zone = Zone::lists('ZoneName', 'id');
-        $area = Area::lists('AreaName', 'id');
-        $branch = Brn::lists('BranchName', 'id');
-        $Education= '';
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
-        return view('member.update', ['member' => Member::find($id)])->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
-            ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
-            ->with('union', $union)->with('word', $word);
+        $zone = Zone::all();
+        $area = Area::all();
+        $branch = Brn::all();
+        $Direction = Direction::lists('name','id');
+        $Accommodation = Accommodation::lists('name','id');
+        $BusinessPlaceStatus = BusinessPlaceStatus::lists('name','id');
+        $Licenceauthority = Licenceauthority::lists('name','id');
+        $OtherSources = Othersource::lists('name','id');
+        $BusinessType = Businesstype::lists('name','id');
+        $OwnershipType = Ownershiptype::lists('name','id');
+        $Weekend = Weekend::lists('name','id');
+        $OrgPermanentEmployee = Permanentemployee::lists('name','id');
+        $BusinessLeader = Businessleader::lists('name','id');
+        $Country = Countr::lists('CountryName','id');
+        $District = District::lists('DistrictName','id');
+        $Thana = Thana::lists('ThanaName','id');
+        $PostOffice = Postoffice::lists('PostofficeName','id');
+        $Union = Union::lists('UnionName','id');
+        $Word = Ward::lists('WardName','id');
+        $ZoneInfo = Zone::lists('ZoneName', 'id');
+        $AreaInfo = Area::lists('AreaName', 'id');
+        $BranchInfo = Brn::lists('BranchName', 'id');
+        return view('member.update', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
+            ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
+            ->with('Union', $Union)->with('Word', $Word)->with('Accommodation',$Accommodation)
+            ->with("Direction",$Direction)->with('BusinessPlaceStatus',$BusinessPlaceStatus)->with('Licenceauthority',$Licenceauthority)
+            ->with('OtherSources',$OtherSources)->with('BusinessType',$BusinessType)->with('OwnershipType',$OwnershipType)
+            ->with('Weekend',$Weekend)->with('OrgPermanentEmployee',$OrgPermanentEmployee)->with('BusinessLeader',$BusinessLeader);
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
@@ -130,17 +160,45 @@ class MemberController extends Controller
         $zone = Zone::all();
         $area = Area::all();
         $branch = Brn::all();
-        $Education= '';
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
+
+        $NameTitle = Nametitle::lists('name','id');
+        $Age = Age::lists('age','id');
+        $PassingYear = Year_calendar::lists('Name','id');
+        $Profession = Profession::lists('name','id');
+        $MaritalStatus = Maritalstatus::lists('name','id');
+        $Education = Education::lists('name','id');
+        $PoliticalStatus = Politicalstatus::lists('name','id');
+        $Gender = Gender::lists('GenderName','id');
+
+        $Direction = Direction::lists('name','id');
+        $Accommodation = Accommodation::lists('name','id');
+        $BusinessPlaceStatus = BusinessPlaceStatus::lists('name','id');
+        $Licenceauthority = Licenceauthority::lists('name','id');
+        $OtherSources = Othersource::lists('name','id');
+        $BusinessType = Businesstype::lists('name','id');
+        $OwnershipType = Ownershiptype::lists('name','id');
+        $Weekend = Weekend::lists('name','id');
+        $OrgPermanentEmployee = Permanentemployee::lists('name','id');
+        $BusinessLeader = Businessleader::lists('name','id');
+        $Country = Countr::lists('CountryName','id');
+        $District = District::lists('DistrictName','id');
+        $Thana = Thana::lists('ThanaName','id');
+        $PostOffice = Postoffice::lists('PostofficeName','id');
+        $Union = Union::lists('UnionName','id');
+        $Word = Ward::lists('WardName','id');
+        $ZoneInfo = Zone::lists('ZoneName', 'id');
+        $AreaInfo = Area::lists('AreaName', 'id');
+        $BranchInfo = Brn::lists('BranchName', 'id');
         return view('member.create')->with('zone', $zone)->with('branch', $branch)->with('area', $area)
-            ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
-            ->with('union', $union)->with('word', $word)->with('loans', $loans);
-        //return view('member.create');
+            ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
+            ->with('Union', $Union)->with('Word', $Word)->with('loans', $loans)->with('Accommodation',$Accommodation)
+            ->with("Direction",$Direction)->with('BusinessPlaceStatus',$BusinessPlaceStatus)->with('Licenceauthority',$Licenceauthority)
+            ->with('OtherSources',$OtherSources)->with('BusinessType',$BusinessType)->with('OwnershipType',$OwnershipType)
+            ->with('Weekend',$Weekend)->with('OrgPermanentEmployee',$OrgPermanentEmployee)->with('BusinessLeader',$BusinessLeader)
+            ->with('ZoneInfo',$ZoneInfo)->with('AreaInfo',$AreaInfo)->with('BranchInfo',$BranchInfo)->with('NameTitle',$NameTitle)
+            ->with('Age',$Age)->with('PassingYear',$PassingYear)->with('Profession',$Profession)->with('MaritalStatus',$MaritalStatus)
+            ->with('Education',$Education)->with('PoliticalStatus',$PoliticalStatus)->with('Gender',$Gender);
+        //return view('member.create')->with;
     }
 
     public function postCreate()

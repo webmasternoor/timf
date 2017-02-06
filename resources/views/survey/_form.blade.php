@@ -18,7 +18,7 @@
                         {{--<option value="{{$zone_data->id}}">{{$zone_data->ZoneName}}</option>--}}
                         {{--@endforeach--}}
                         {{--</select>--}} -->
-                            {!! Form::select("ZoneId",$Zone_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                            {!! Form::select("ZoneId",$ZoneInfo,null,["class"=>"form-control ZoneId required","id"=>"ZoneId"]) !!}
                             <span id="ZoneId-error" class="help-block"></span>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                         {{--<option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>--}}
                         {{--@endforeach--}}
                         {{--</select>--}} -->
-                            {!! Form::select("AreaId",$Area_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                            {!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId required","id"=>"AreaId"]) !!}
                             <span id="AreaId-error" class="help-block"></span>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         {{--<option value="{{$branch_data->id}}">{{$branch_data->BranchName}}</option>--}}
                         {{--@endforeach--}}
                         {{--</select>--}} -->
-                            {!! Form::select("BranchId",$Branch_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
+                            {!! Form::select("BranchId",$BranchInfo,null,["class"=>"form-control BranchId required","id"=>"BranchId"]) !!}
                             <span id="BranchId-error" class="help-block"></span>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     <div class="form-group col-md-3" id="form-NameTitle-error">
                         {!! Form::label("NameTitle","টাইটেল:",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("NameTitle",['1' => 'Mr', '2' => 'Mrs', '3' => 'Mss'])!!}
+                            {!! Form::select("NameTitle",$NameTitle,null,["class"=>"form-control NameTitle required","id"=>"NameTitle"]) !!}
                             <span id="NameTitle-error" class="help-block"></span>
                         </div>
                     </div>
@@ -83,9 +83,9 @@
                             <span id="FamilyName-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-FullNameBangla-error">
+                    <div class="form-group col-md-12" id="form-FullNameBangla-error">
                         {!! Form::label("FullNameBangla","পূর্ণ নাম(বাংলায়)",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             {!! Form::text("FullNameBangla",null,["class"=>"form-control required"]) !!}
                             <span id="FullNameBangla-error" class="help-block"></span>
                         </div>
@@ -93,39 +93,35 @@
                     <div class="form-group col-md-6" id="form-Gender-error">
                         {!! Form::label("Gender","লিঙ্গ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("Gender",['1' => 'Male', '2' => 'Female', '3' => 'Others'])!!}
+                            {!! Form::select("Gender",$Gender,null,["class"=>"form-control Gender required","id"=>"Gender"]) !!}
                             <span id="Gender-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-Age-error">
                         {!! Form::label("Age","বয়স",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("Age",null,["class"=>"form-control required"]) !!}
+                            {!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}
                             <span id="Age-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-Education-error">
                         {!! Form::label("Education","সর্বোচ্চ শিক্ষাগত যোগ্যতা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="Education">
-                                @foreach($education as $education_data )
-                                    <option value="{{$education_data->id}}">{{$education_data->name}}</option>
-                                @endforeach
-                            </select>
+                            {!! Form::select("Education",$Education,null,["class"=>"form-control Education required","id"=>"Education"]) !!}
                             <span id="Education-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-PassingYear-error">
                         {!! Form::label("PassingYear","পাশের বছর",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("PassingYear",['2007', '2008','2009','2010','2011','2012','2013'])!!}
+                            {!! Form::select("PassingYear",$PassingYear,null,["class"=>"form-control PassingYear required","id"=>"PassingYear"]) !!}
                             <span id="PassingYear-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-SpouseProfession-error">
                         {!! Form::label("SpouseProfession","অভিভাবকের পেশা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}
+                            {!! Form::select("SpouseProfession",$Profession,null,["class"=>"form-control SpouseProfession required","id"=>"SpouseProfession"]) !!}
                             <span id="SpouseProfession-error" class="help-block"></span>
                         </div>
                     </div>
@@ -146,7 +142,8 @@
                     <div class="form-group col-md-6" id="form-MaritalStatus-error">
                         {!! Form::label("MaritalStatus","বৈবাহিক অবস্থা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("MaritalStatus",['1' => 'Married Single','2' => 'Married Multiple', '3' => 'Non-Married','4' => 'Widower','5'=>'Widow'])!!}
+                            {{--{!! Form::select("MaritalStatus",['1' => 'Married Single','2' => 'Married Multiple', '3' => 'Non-Married','4' => 'Widower','5'=>'Widow'])!!}--}}
+                            {!! Form::select("MaritalStatus",$MaritalStatus,null,["class"=>"form-control MaritalStatus required","id"=>"MaritalStatus"]) !!}
                             <span id="MaritalStatus-error" class="help-block"></span>
                         </div>
                     </div>
@@ -174,7 +171,7 @@
                     <div class="form-group col-md-6" id="form-PoliticalStatus-error">
                         {!! Form::label("PoliticalStatus","রাজনীতির সাথে জড়িত কি না?",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("PoliticalStatus",['1' => 'Yes', '2' => 'No'])!!}
+                            {!! Form::select("PoliticalStatus",$PoliticalStatus,null,["class"=>"form-control PoliticalStatus required","id"=>"PoliticalStatus"]) !!}
                             <span id="PoliticalStatus-error" class="help-block"></span>
                         </div>
                     </div>
@@ -197,7 +194,7 @@
                     <div class="form-group col-md-3" id="form-WifeNameTitle-error">
                         {!! Form::label("WifeNameTitle","টাইটেল",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("WifeNameTitle",['2' => 'Mrs', '3' => 'Mss'])!!}
+                            {!! Form::select("WifeNameTitle",$NameTitle,null,["class"=>"form-control WifeNameTitle required","id"=>"WifeNameTitle"]) !!}
                             <span id="WifeNameTitle-error" class="help-block"></span>
                         </div>
                     </div>
@@ -225,7 +222,7 @@
                     <div class="form-group col-md-6" id="form-WifeAge-error">
                         {!! Form::label("WifeAge","বয়স",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("WifeAge",['18', '19','20','21','22','30','30'])!!}
+                            {!! Form::select("WifeAge",$Age,null,["class"=>"form-control WifeAge required","id"=>"WifeAge"]) !!}
                             <span id="WifeAge-error" class="help-block"></span>
                         </div>
                     </div>
@@ -239,7 +236,7 @@
                     <div class="form-group col-md-6" id="form-WifeProfession-error">
                         {!! Form::label("WifeProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("WifeProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}
+                            {!! Form::select("WifeProfession",$Profession,null,["class"=>"form-control WifeProfession required","id"=>"WifeProfession"]) !!}
                             <span id="WifeProfession-error" class="help-block"></span>
                         </div>
                     </div>
@@ -259,7 +256,7 @@
                     <div class="form-group col-md-3" id="form-FatherOrHasbandNAmeTitle-error">
                         {!! Form::label("FatherOrHasbandNAmeTitle","টাইটেল",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FatherOrHasbandNAmeTitle",['1' => 'Mr'])!!}
+                            {!! Form::select("FatherOrHasbandNAmeTitle",$NameTitle,null,["class"=>"form-control FatherOrHasbandNAmeTitle required","id"=>"FatherOrHasbandNAmeTitle"]) !!}
                             <span id="FatherOrHasbandNAmeTitle-error" class="help-block"></span>
                         </div>
                     </div>
@@ -288,14 +285,14 @@
                     <div class="form-group col-md-6" id="form-FatherOrHasbandAge-error">
                         {!! Form::label("FatherOrHasbandAge","বয়স",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FatherOrHasbandAge",['18', '19','20','21','22','30','30'])!!}
+                            {!! Form::select("FatherOrHasbandAge",$Profession,null,["class"=>"form-control FatherOrHasbandAge required","id"=>"FatherOrHasbandAge"]) !!}
                             <span id="FatherOrHasbandAge-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-FatherProfession-error">
                         {!! Form::label("FatherProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FatherProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}
+                            {!! Form::select("FatherProfession",$Profession,null,["class"=>"form-control FatherProfession required","id"=>"FatherProfession"]) !!}
                             <span id="FatherProfession-error" class="help-block"></span>
                         </div>
                     </div>
@@ -322,7 +319,7 @@
                     <div class="form-group col-md-3" id="form-MatherNameTitle-error">
                         {!! Form::label("MatherNameTitle","টাইটেল",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("MatherNameTitle",['2' => 'Mrs', '3' => 'Mss'])!!}
+                            {!! Form::select("MatherNameTitle",$NameTitle,null,["class"=>"form-control MatherNameTitle required","id"=>"MatherNameTitle"]) !!}
                             <span id="MatherNameTitle-error" class="help-block"></span>
                         </div>
                     </div>
@@ -352,14 +349,14 @@
                     <div class="form-group col-md-6" id="form-MotherAge-error">
                         {!! Form::label("MotherAge","বয়স",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("MotherAge",['18', '19','20','21','22','30','30'])!!}
+                            {!! Form::select("MotherAge",$Age,null,["class"=>"form-control MotherAge required","id"=>"MotherAge"]) !!}
                             <span id="MotherAge-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-MotherProfession-error">
                         {!! Form::label("MotherProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("MotherProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}
+                            {!! Form::select("MotherProfession",$Profession,null,["class"=>"form-control MotherProfession required","id"=>"MotherProfession"]) !!}
                             <span id="MotherProfession-error" class="help-block"></span>
                         </div>
                     </div>
@@ -387,11 +384,12 @@
                         {!! Form::label("PresentCountry","দেশ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
 
-                            <select name="PresentCountry">
-                                @foreach($country as $country_data )
-                                    <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PresentCountry">--}}
+                                {{--@foreach($country as $country_data )--}}
+                                    {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PresentCountry",$Country,null,["class"=>"form-control PresentCountry required","id"=>"PresentCountry"]) !!}
                             <span id="PresentCountry-error" class="help-block"></span>
                         </div>
                     </div>
@@ -399,11 +397,12 @@
                     <div class="form-group col-md-6" id="form-PresentDistrict-error">
                         {!! Form::label("PresentDistrict","জেলা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PresentDistrict">
-                                @foreach($district as $district_data )
-                                    <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PresentDistrict">--}}
+                                {{--@foreach($district as $district_data )--}}
+                                    {{--<option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PresentDistrict",$District,null,["class"=>"form-control PresentDistrict required","id"=>"PresentDistrict"]) !!}
                             <span id="PresentDistrict-error" class="help-block"></span>
                         </div>
                     </div>
@@ -411,11 +410,8 @@
                     <div class="form-group col-md-6" id="form-PresentThana-error">
                         {!! Form::label("PresentThana","থানা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PresentThana">
-                                @foreach($thana as $thana_data )
-                                    <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
-                                @endforeach
-                            </select>
+                            {!! Form::select("PresentThana",$Thana,null,["class"=>"form-control PresentThana required","id"=>"PresentThana"]) !!}
+
                             <span id="PresentThana-error" class="help-block"></span>
                         </div>
                     </div>
@@ -423,11 +419,12 @@
                     <div class="form-group col-md-6" id="form-PresentUnion-error">
                         {!! Form::label("PresentUnion","ইউনিয়",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PresentUnion">
-                                @foreach($union as $union_data )
-                                    <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PresentUnion">--}}
+                                {{--@foreach($union as $union_data )--}}
+                                    {{--<option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PresentUnion",$Union,null,["class"=>"form-control PresentUnion required","id"=>"PresentUnion"]) !!}
                             <span id="PresentUnion-error" class="help-block"></span>
                         </div>
                     </div>
@@ -435,11 +432,12 @@
                     <div class="form-group col-md-6" id="form-PresentPostOffice-error">
                         {!! Form::label("PresentPostOffice","পোষ্ট অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PresentPostOffice">
-                                @foreach($postoffice as $postoffice_data )
-                                    <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PresentPostOffice">--}}
+                                {{--@foreach($postoffice as $postoffice_data )--}}
+                                    {{--<option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PresentPostOffice",$PostOffice,null,["class"=>"form-control PresentPostOffice required","id"=>"PresentPostOffice"]) !!}
                             <span id="PresentPostOffice-error" class="help-block"></span>
                         </div>
                     </div>
@@ -447,11 +445,12 @@
                     <div class="form-group col-md-6" id="form-PresentWord-error">
                         {!! Form::label("PresentWord","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PresentWord">
-                                @foreach($word as $word_data )
-                                    <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PresentWord">--}}
+                                {{--@foreach($word as $word_data )--}}
+                                    {{--<option value="{{$word_data->id}}">{{$word_data->WordName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PresentWord",$Word,null,["class"=>"form-control PresentWord required","id"=>"PresentWord"]) !!}
                             <span id="PresentWord-error" class="help-block"></span>
                         </div>
                     </div>
@@ -480,11 +479,12 @@
                     <div class="form-group col-md-6" id="form-PermanentCountry-error">
                         {!! Form::label("PermanentCountry","দেশ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PermanentCountry">
-                                @foreach($country as $country_data )
-                                    <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PermanentCountry">--}}
+                                {{--@foreach($country as $country_data )--}}
+                                    {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PermanentCountry",$Country,null,["class"=>"form-control PermanentCountry required","id"=>"PermanentCountry"]) !!}
                             <span id="PermanentCountry-error" class="help-block"></span>
                         </div>
                     </div>
@@ -492,11 +492,12 @@
                     <div class="form-group col-md-6" id="form-PermanentDistrict-error">
                         {!! Form::label("PermanentDistrict","জেলা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PermanentDistrict">
-                                @foreach($district as $district_data )
-                                    <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PermanentDistrict">--}}
+                                {{--@foreach($district as $district_data )--}}
+                                    {{--<option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PermanentDistrict",$District,null,["class"=>"form-control PermanentDistrict required","id"=>"PermanentDistrict"]) !!}
                             <span id="PermanentDistrict-error" class="help-block"></span>
                         </div>
                     </div>
@@ -504,11 +505,12 @@
                     <div class="form-group col-md-6" id="form-PermanentThana-error">
                         {!! Form::label("PermanentThana","থানা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PermanentThana">
-                                @foreach($thana as $thana_data )
-                                    <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PermanentThana">--}}
+                                {{--@foreach($thana as $thana_data )--}}
+                                    {{--<option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PermanentThana",$Thana,null,["class"=>"form-control PermanentThana required","id"=>"PermanentThana"]) !!}
                             <span id="PermanentThana-error" class="help-block"></span>
                         </div>
                     </div>
@@ -516,11 +518,12 @@
                     <div class="form-group col-md-6" id="form-PermanentUnion-error">
                         {!! Form::label("PermanentUnion","ইউনিয়",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PermanentUnion">
-                                @foreach($union as $union_data )
-                                    <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PermanentUnion">--}}
+                                {{--@foreach($union as $union_data )--}}
+                                    {{--<option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PermanentUnion",$Union,null,["class"=>"form-control PermanentUnion required","id"=>"PermanentUnion"]) !!}
                             <span id="PermanentUnion-error" class="help-block"></span>
                         </div>
                     </div>
@@ -528,11 +531,12 @@
                     <div class="form-group col-md-6" id="form-PermanentPostOffice-error">
                         {!! Form::label("PermanentPostOffice","পোষ্ট অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PermanentPostOffice">
-                                @foreach($postoffice as $postoffice_data )
-                                    <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PermanentPostOffice">--}}
+                                {{--@foreach($postoffice as $postoffice_data )--}}
+                                    {{--<option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PermanentPostOffice",$PostOffice,null,["class"=>"form-control PermanentPostOffice required","id"=>"PermanentPostOffice"]) !!}
                             <span id="PermanentPostOffice-error" class="help-block"></span>
                         </div>
                     </div>
@@ -540,11 +544,12 @@
                     <div class="form-group col-md-6" id="form-PermanentWord-error">
                         {!! Form::label("PermanentWord","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            <select name="PermanentWord">
-                                @foreach($word as $word_data )
-                                    <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
-                                @endforeach
-                            </select>
+                            {{--<select name="PermanentWord">--}}
+                                {{--@foreach($word as $word_data )--}}
+                                    {{--<option value="{{$word_data->id}}">{{$word_data->WordName}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PermanentWord",$Word,null,["class"=>"form-control PermanentWord required","id"=>"PermanentWord"]) !!}
                             <span id="PermanentWord-error" class="help-block"></span>
                         </div>
                     </div>
@@ -576,7 +581,7 @@
                     <div class="form-group col-md-6" id="form-CurrentProfession-error">
                         {!! Form::label("CurrentProfession","বর্তমান পেশা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("CurrentProfession",['1' => 'Agriculture', '2' => 'Non-Agriculture', '3'=>'Others'])!!}
+                            {!! Form::select("CurrentProfession",$Profession,null,["class"=>"form-control CurrentProfession required","id"=>"CurrentProfession"]) !!}
                             <span id="CurrentProfession-error" class="help-block"></span>
                         </div>
                     </div>
@@ -584,7 +589,7 @@
                     <div class="form-group col-md-6" id="form-PreviousProfessiion-error">
                         {!! Form::label("PreviousProfessiion","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("PreviousProfessiion",['1' => 'Agriculture', '2' => 'Non-Agriculture', '3'=>'Others'])!!}
+                            {!! Form::select("PreviousProfessiion",$Profession,null,["class"=>"form-control PreviousProfessiion required","id"=>"PreviousProfessiion"]) !!}
                             <span id="PreviousProfessiion-error" class="help-block"></span>
                         </div>
                     </div>
