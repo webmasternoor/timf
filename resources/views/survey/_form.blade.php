@@ -25,11 +25,11 @@
                     <div class="form-group col-md-4" id="form-AreaId-error">
                         {!! Form::label("AreaId","এলাকা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                        <!-- {{--<select name="AreaId">--}}
-                        {{--@foreach($area as $area_data )--}}
-                        {{--<option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>--}}
-                        {{--@endforeach--}}
-                        {{--</select>--}} -->
+                       <select name="AreaId">
+                        @foreach($area as $area_data )
+                        <option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>
+                        @endforeach
+                        </select>
                             {!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId required","id"=>"AreaId"]) !!}
                             <span id="AreaId-error" class="help-block"></span>
                         </div>

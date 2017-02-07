@@ -140,7 +140,7 @@
         @endforeach
         </tbody>
     </table>
-    {!! Form::model($loans,["id"=>"frm","class"=>"form-horizontal"]) !!}
+    {!! Form::model($survey,["id"=>"frm","class"=>"form-horizontal"]) !!}
     {{--@include("survey._form",['survey' => Survey::find($id)])--}}
     @include("survey._form")
     {!! Form::close() !!}

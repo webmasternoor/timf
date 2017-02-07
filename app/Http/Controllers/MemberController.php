@@ -3,11 +3,14 @@ namespace App\Http\Controllers;
 
 use App\Accommodation;
 use App\Age;
+use App\Business_catagory;
 use App\Businessleader;
 use App\BusinessPlaceStatus;
 use App\Businesstype;
+use App\Count;
 use App\Direction;
 use App\Education;
+use App\Familytype;
 use App\Gender;
 use App\Licenceauthority;
 use App\Maritalstatus;
@@ -18,6 +21,7 @@ use App\Permanentemployee;
 use App\Politicalstatus;
 use App\Post;
 use App\Profession;
+use App\Status;
 use App\Survey;
 use App\Countr;
 use App\Division;
@@ -162,13 +166,25 @@ class MemberController extends Controller
         $branch = Brn::all();
 
         $NameTitle = Nametitle::lists('name','id');
+        $nameTitle = Nametitle::all();
         $Age = Age::lists('age','id');
+        $age = Age::all();
         $PassingYear = Year_calendar::lists('Name','id');
+        $passingYear = Year_calendar::all();
         $Profession = Profession::lists('name','id');
+        $profession = Profession::all();
         $MaritalStatus = Maritalstatus::lists('name','id');
+        $maritalStatus = Maritalstatus::all();
         $Education = Education::lists('name','id');
+        $education = Education::all();
         $PoliticalStatus = Politicalstatus::lists('name','id');
+        $politicalStatus = Politicalstatus::all();
+        $BusinessCategory = Business_catagory::all();
         $Gender = Gender::lists('GenderName','id');
+        $gender = Gender::all();
+        $familytype = Familytype::all();
+        $count = Count::all();
+        $status = Status::all();
 
         $Direction = Direction::lists('name','id');
         $Accommodation = Accommodation::lists('name','id');
@@ -181,11 +197,17 @@ class MemberController extends Controller
         $OrgPermanentEmployee = Permanentemployee::lists('name','id');
         $BusinessLeader = Businessleader::lists('name','id');
         $Country = Countr::lists('CountryName','id');
+        $country = Countr::all();
         $District = District::lists('DistrictName','id');
+        $district = District::all();
         $Thana = Thana::lists('ThanaName','id');
+        $thana = Thana::all();
         $PostOffice = Postoffice::lists('PostofficeName','id');
+        $postOffice = Postoffice::all();
         $Union = Union::lists('UnionName','id');
+        $union = Union::all();
         $Word = Ward::lists('WardName','id');
+        $word = Ward::all();
         $ZoneInfo = Zone::lists('ZoneName', 'id');
         $AreaInfo = Area::lists('AreaName', 'id');
         $BranchInfo = Brn::lists('BranchName', 'id');
@@ -197,7 +219,11 @@ class MemberController extends Controller
             ->with('Weekend',$Weekend)->with('OrgPermanentEmployee',$OrgPermanentEmployee)->with('BusinessLeader',$BusinessLeader)
             ->with('ZoneInfo',$ZoneInfo)->with('AreaInfo',$AreaInfo)->with('BranchInfo',$BranchInfo)->with('NameTitle',$NameTitle)
             ->with('Age',$Age)->with('PassingYear',$PassingYear)->with('Profession',$Profession)->with('MaritalStatus',$MaritalStatus)
-            ->with('Education',$Education)->with('PoliticalStatus',$PoliticalStatus)->with('Gender',$Gender);
+            ->with('Education',$Education)->with('PoliticalStatus',$PoliticalStatus)->with('Gender',$Gender)->with('nameTitle',$nameTitle)
+            ->with('age',$age)->with('passingYear',$passingYear)->with('profession',$profession)->with('maritalStatus',$maritalStatus)
+            ->with('education',$education)->with('politicalStatus',$politicalStatus)->with('gender',$gender)->with('country',$country)
+            ->with('district',$district)->with('thana',$thana)->with('postOffice',$postOffice)->with('union',$union)->with('word',$word)
+            ->with('BusinessCategory',$BusinessCategory)->with('familytype',$familytype)->with('count',$count)->with('status',$status);
         //return view('member.create')->with;
     }
 
