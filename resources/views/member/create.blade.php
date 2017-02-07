@@ -109,7 +109,9 @@
                 <td>
                     <select name="ZoneId">
                         @foreach($zone as $zone_data )
+
                             <option value="{{$zone_data->id}}">{{$zone_data->ZoneName}}</option>
+
                         @endforeach
                     </select>
                     <input type="text" name="NameTitle" value="{{$loan->NameTitle}}">
@@ -376,7 +378,7 @@
                             <div class="form-group col-md-6" id="form-Distance-error">
                                 {!! Form::label("Distance","শাখা অফিসের দুরুত্ব (কিঃ মিঃ)",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                {{--<!-- {!! Form::select("Distance", ['1', '2', '3','4', '5', '6'])!!} -->--}}
+                                    {{--<!-- {!! Form::select("Distance", ['1', '2', '3','4', '5', '6'])!!} -->--}}
                                     {{--{!! Form::number("Distance",null,["class"=>"form-control required"]) !!}--}}
                                     <select name="Distance">
                                         @foreach($count as $count_data )
@@ -448,7 +450,8 @@
                                 {!! Form::label("WifeMobileNo","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="WifeMobileNo"
-                                           value="{{$loan->WifeMobileNo}}"><span id="WifeFamilyName-error" class="help-block"></span>
+                                           value="{{$loan->WifeMobileNo}}"><span id="WifeFamilyName-error"
+                                                                                 class="help-block"></span>
                                     {{--{!! Form::number("WifeMobileNo",null,["class"=>"form-control required"]) !!}--}}
                                     <span id="WifeMobileNo-error" class="help-block"></span>
                                 </div>
@@ -900,8 +903,9 @@
                                 {!! Form::label("EarningSourceWithoutBusiness","ব্যবসা ছাড়া আয়ের উৎস থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     {{--<input class="form-control" type="text" name="EarningSourceWithoutBusiness"--}}
-                                           {{--value="{{$loan->EarningSourceWithoutBusiness}}">--}}
-                                    <textarea name="EarningSourceWithoutBusiness" cols="50" rows="3">{{$loan->EarningSourceWithoutBusiness}}</textarea>
+                                    {{--value="{{$loan->EarningSourceWithoutBusiness}}">--}}
+                                    <textarea name="EarningSourceWithoutBusiness" cols="50"
+                                              rows="3">{{$loan->EarningSourceWithoutBusiness}}</textarea>
                                     {{--{!! Form::textarea("EarningSourceWithoutBusiness",null,["class"=>"form-control required"]) !!}--}}
                                     <span id="EarningSourceWithoutBusiness-error" class="help-block"></span>
                                 </div>
@@ -1033,8 +1037,9 @@
                                 {!! Form::label("SickDescripotionOfFamilyMember","পরিবারে কেহ গুরুত্বর অসুস্থ থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     {{--<input class="form-control" type="text" name="SickDescripotionOfFamilyMember"--}}
-                                           {{--value="{{$loan->SickDescripotionOfFamilyMember}}">--}}
-                                    <textarea name="SickDescripotionOfFamilyMember" cols="50" rows="3">{{$loan->SickDescripotionOfFamilyMember}}</textarea>
+                                    {{--value="{{$loan->SickDescripotionOfFamilyMember}}">--}}
+                                    <textarea name="SickDescripotionOfFamilyMember" cols="50"
+                                              rows="3">{{$loan->SickDescripotionOfFamilyMember}}</textarea>
                                     {{--{!! Form::textarea("SickDescripotionOfFamilyMember",null,["class"=>"form-control required"]) !!}--}}
                                     <span id="SickDescripotionOfFamilyMember-error" class="help-block"></span>
                                 </div>
@@ -1043,7 +1048,8 @@
                             <div class="form-group col-md-6" id="form-CaseDescriptionOfFamilyMember-error">
                                 {!! Form::label("CaseDescriptionOfFamilyMember","পরিবারে কেহ কথনও মামলাগ্রুস্থ থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <textarea name="CaseDescriptionOfFamilyMember" cols="50" rows="3">{{$loan->CaseDescriptionOfFamilyMember}}</textarea>
+                                    <textarea name="CaseDescriptionOfFamilyMember" cols="50"
+                                              rows="3">{{$loan->CaseDescriptionOfFamilyMember}}</textarea>
                                     {{--{!! Form::textarea("CaseDescriptionOfFamilyMember",null,["class"=>"form-control required"]) !!}--}}
                                     <span id="CaseDescriptionOfFamilyMember-error" class="help-block"></span>
                                 </div>
@@ -1052,7 +1058,8 @@
                             <div class="form-group col-md-6" id="form-IfAnyMemberInAbroad-error">
                                 {!! Form::label("IfAnyMemberInAbroad","পরিবারে কেহ বিদেশে থাকলে - কোন দেশে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <textarea name="IfAnyMemberInAbroad" cols="50" rows="3">{{$loan->IfAnyMemberInAbroad}}</textarea>
+                                    <textarea name="IfAnyMemberInAbroad" cols="50"
+                                              rows="3">{{$loan->IfAnyMemberInAbroad}}</textarea>
                                     {{--{!! Form::textarea("IfAnyMemberInAbroad",null,["class"=>"form-control required"]) !!}--}}
                                     <span id="IfAnyMemberInAbroad-error" class="help-block"></span>
                                 </div>
@@ -1327,25 +1334,25 @@
                                 </div>
                             </div>
                             {{--<div class="form-group col-md-6" id="form-JoinDate-error">--}}
-                                {{--{!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}--}}
-                                {{--<div class="col-md-12">--}}
-                                    {{--{!! Form::date("JoinDate",null,["class"=>"form-control required"]) !!}--}}
-                                    {{--<span id="JoinDate-error" class="help-block"></span>--}}
-                                {{--</div>--}}
+                            {{--{!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}--}}
+                            {{--<div class="col-md-12">--}}
+                            {{--{!! Form::date("JoinDate",null,["class"=>"form-control required"]) !!}--}}
+                            {{--<span id="JoinDate-error" class="help-block"></span>--}}
+                            {{--</div>--}}
                             {{--</div>--}}
                             {{--<div class="form-group col-md-6" id="form-JoinDate-error">--}}
-                                {{--{!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}--}}
-                                {{--<div class="col-md-12">--}}
-                                    {{--{!! Form::date("JoinDate",null,["class"=>"form-control required"]) !!}--}}
-                                    {{--<span id="JoinDate-error" class="help-block"></span>--}}
-                                {{--</div>--}}
+                            {{--{!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}--}}
+                            {{--<div class="col-md-12">--}}
+                            {{--{!! Form::date("JoinDate",null,["class"=>"form-control required"]) !!}--}}
+                            {{--<span id="JoinDate-error" class="help-block"></span>--}}
+                            {{--</div>--}}
                             {{--</div>--}}
                             {{--<div class="form-group col-md-6" id="form-LastReceivedDate1-error">--}}
-                                {{--{!! Form::label("LastReceivedDate1","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}--}}
-                                {{--<div class="col-md-12">--}}
-                                    {{--{!! Form::date("LastReceivedDate1",null,["class"=>"form-control required"]) !!}--}}
-                                    {{--<span id="LastReceivedDate1-error" class="help-block"></span>--}}
-                                {{--</div>--}}
+                            {{--{!! Form::label("LastReceivedDate1","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}--}}
+                            {{--<div class="col-md-12">--}}
+                            {{--{!! Form::date("LastReceivedDate1",null,["class"=>"form-control required"]) !!}--}}
+                            {{--<span id="LastReceivedDate1-error" class="help-block"></span>--}}
+                            {{--</div>--}}
                             {{--</div>--}}
                         </div>
 

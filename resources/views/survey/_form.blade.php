@@ -30,7 +30,7 @@
                         <option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>
                         @endforeach
                         </select>
-                            {!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId required","id"=>"AreaId"]) !!}
+                            {{--{!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId required","id"=>"AreaId"]) !!}--}}
                             <span id="AreaId-error" class="help-block"></span>
                         </div>
                     </div>

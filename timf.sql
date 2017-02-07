@@ -147,13 +147,18 @@ CREATE TABLE IF NOT EXISTS `areas` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.areas: ~0 rows (approximately)
+-- Dumping data for table timf.areas: ~6 rows (approximately)
 DELETE FROM `areas`;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
 INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaUnionId`, `AreaDivisionId`, `AreaWardId`, `AreaPostOfficeId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
-	(11, NULL, '1', '2', 'aa', '3', '4@gmail.com', '1', 1, 3, 1, 1, 5, 1, '2017-02-02 04:08:07', '2017-02-02 04:08:07');
+	(1, NULL, 'Hemayetpur', '2001', 'aa', '3', 'hsd@gmail.com', '1', 1, 3, 1, 1, 5, 1, '2017-02-02 04:08:07', '2017-02-02 04:08:07'),
+	(2, NULL, 'Savar', '2002', '45', NULL, 'hsd@gmail.com', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(3, NULL, 'Bagmara', '2003', 'fgf', NULL, 'hsd@gmail.com', '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(4, NULL, 'Thengamara', '2004', 'dfgdg', '453', 'hsd@gmail.com', '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(5, NULL, 'sujanogor', '2005', 'dfgfd', '4546', 'hsd@gmail.com', '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(6, NULL, 'rongpur', '2006', 'sedr', '5465', 'hsd@gmail.com', '5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas_feb_1
@@ -250,13 +255,15 @@ CREATE TABLE IF NOT EXISTS `brns` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.brns: ~0 rows (approximately)
+-- Dumping data for table timf.brns: ~3 rows (approximately)
 DELETE FROM `brns`;
 /*!40000 ALTER TABLE `brns` DISABLE KEYS */;
 INSERT INTO `brns` (`id`, `name`, `ZoneId`, `AreaId`, `BranchName`, `BranchCode`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `BranchDivisionId`, `BranchUnionId`, `BranchWardId`, `BranchPostOfficeId`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 1, 11, '1', '1', 'sa', '1', '1@gmail.com', 1, 1, 1, 3, 1, 5, '2017-02-02 04:16:13', '2017-02-02 04:16:13');
+	(1, NULL, 4, 5, 'Dublia', '3001', 'sa', '1', '1@gmail.com', 1, 1, 1, 3, 1, 5, '2017-02-02 04:16:13', '2017-02-02 04:16:13'),
+	(2, NULL, 4, 5, 'Koladi', '3002', 'dfgdg', '123', '1@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(3, NULL, 4, 5, 'Satbaria', '3002', 'dfdg', '12324', '1@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `brns` ENABLE KEYS */;
 
 -- Dumping structure for table timf.brns_feb_1
@@ -722,7 +729,7 @@ CREATE TABLE IF NOT EXISTS `counts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.counts: ~9 rows (approximately)
+-- Dumping data for table timf.counts: ~10 rows (approximately)
 DELETE FROM `counts`;
 /*!40000 ALTER TABLE `counts` DISABLE KEYS */;
 INSERT INTO `counts` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
@@ -6433,11 +6440,11 @@ CREATE TABLE IF NOT EXISTS `zones` (
 DELETE FROM `zones`;
 /*!40000 ALTER TABLE `zones` DISABLE KEYS */;
 INSERT INTO `zones` (`id`, `name`, `ZoneName`, `ZoneEmail`, `ZoneCode`, `ZoneAddress`, `ZoneMobileNo`, `ZoneThanaId`, `ZoneDistrictId`, `ZoneUnionId`, `ZonePostOfficeId`, `ZoneWardId`, `ZoneDivisionId`, `unitprice`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 'Nator12', '', '10151', 'gmnhjkmh', 'we454657', 1, 17, 3, 0, NULL, 1, 0.00, '2017-01-24 06:22:47', '2017-02-01 09:59:15'),
-	(2, NULL, 'rhgfghf', 'dfgfd@fdgdfgj.cfg', 'gfhg', 'gfhgf', '23546', 16, 1, 15, 5, NULL, 1, 0.00, '2017-02-01 09:58:50', '2017-02-01 09:58:50'),
-	(3, NULL, '1', '5@gmail.com', '2', '3', '4', 1, 1, 3, 5, NULL, 1, 0.00, '2017-02-02 03:43:44', '2017-02-02 03:43:44'),
-	(4, NULL, '1', '5@gmail.com', '2', '3', '4', 1, 1, 3, 5, NULL, 1, 0.00, '2017-02-02 03:47:45', '2017-02-02 03:47:45'),
-	(5, NULL, '1', '1@gmail.com', '2', '3', '4', 1, 1, 3, 5, 1, 1, 0.00, '2017-02-02 03:50:48', '2017-02-02 03:50:48');
+	(1, NULL, 'Dhaka', 'dhaka@gmail.com', '1001', 'gmnhjkmh', 'we454657', 1, 17, 3, 0, NULL, 1, 0.00, '2017-01-24 06:22:47', '2017-02-01 09:59:15'),
+	(2, NULL, 'Rajshahi', 'rajshahi@fdgdfgj.cfg', '1002', 'gfhgf', '23546', 16, 1, 15, 5, NULL, 1, 0.00, '2017-02-01 09:58:50', '2017-02-01 09:58:50'),
+	(3, NULL, 'Bogra', 'bogra@gmail.com', '1003', '3', '4', 1, 1, 3, 5, NULL, 1, 0.00, '2017-02-02 03:43:44', '2017-02-02 03:43:44'),
+	(4, NULL, 'Pabna', 'pabna@gmail.com', '1004', '3', '4', 1, 1, 3, 5, NULL, 1, 0.00, '2017-02-02 03:47:45', '2017-02-02 03:47:45'),
+	(5, NULL, 'Rongpur', 'rongpur@gmail.com', '1005', '3', '4', 1, 1, 3, 5, 1, 1, 0.00, '2017-02-02 03:50:48', '2017-02-02 03:50:48');
 /*!40000 ALTER TABLE `zones` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones_feb_1
