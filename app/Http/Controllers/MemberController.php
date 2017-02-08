@@ -198,6 +198,8 @@ class MemberController extends Controller
         $BusinessLeader = Businessleader::lists('name','id');
         $Country = Countr::lists('CountryName','id');
         $country = Countr::all();
+        $division = Division::all();
+        $Division = Division::lists('DivisionName','id');
         $District = District::lists('DistrictName','id');
         $district = District::all();
         $Thana = Thana::lists('ThanaName','id');
@@ -223,7 +225,8 @@ class MemberController extends Controller
             ->with('age',$age)->with('passingYear',$passingYear)->with('profession',$profession)->with('maritalStatus',$maritalStatus)
             ->with('education',$education)->with('politicalStatus',$politicalStatus)->with('gender',$gender)->with('country',$country)
             ->with('district',$district)->with('thana',$thana)->with('postOffice',$postOffice)->with('union',$union)->with('word',$word)
-            ->with('BusinessCategory',$BusinessCategory)->with('familytype',$familytype)->with('count',$count)->with('status',$status);
+            ->with('BusinessCategory',$BusinessCategory)->with('familytype',$familytype)->with('count',$count)->with('status',$status)
+            ->with('division',$division)->with('Division',$Division);
         //return view('member.create')->with;
     }
 

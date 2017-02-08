@@ -54,12 +54,14 @@ class SurveyController extends Controller
         $Age = Age::lists('age','id');
         $PassingYear = Year_calendar::lists('Name','id');
         $Profession = Profession::lists('name','id');
+        $profession = Profession::all();
         $MaritalStatus = Maritalstatus::lists('name','id');
         $Accommodation = Accommodation::lists('name','id');
         $Education = Education::lists('name','id');
         $PoliticalStatus = Politicalstatus::lists('name','id');
         $Gender = Gender::lists('GenderName','id');
         $Country = Countr::lists('CountryName','id');
+        $Division = Division::lists('DivisionName','id');
         $District = District::lists('DistrictName','id');
         $Thana = Thana::lists('ThanaName','id');
         $PostOffice = Postoffice::lists('PostofficeName','id');
@@ -71,8 +73,9 @@ class SurveyController extends Controller
         return view('survey.update', ['survey' => Survey::find($id)])->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
-            ->with('Age', $Age)->with('Profession',$Profession)->with('Gender',$Gender)
-            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus);
+            ->with('Age', $Age)->with('Profession',$Profession)->with('Gender',$Gender)->with('Division',$Division)
+            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus)
+            ->with('profession',$profession);
 
         //return view('survey.update', ['survey' => Survey::find($id)]);
     }
@@ -214,20 +217,20 @@ class SurveyController extends Controller
         $survey->SpouseMobileNo = Input::get('SpouseMobileNo');
         $survey->Distance = Input::get('Distance');
         $survey->CurrentProfession = Input::get('CurrentProfession');
-        $survey->PreviousProfessiion = Input::get('PreviousProfessiion');
-        $survey->DorationOfPreviousProfession = Input::get('DorationOfPreviousProfession');
+        $survey->PreviousProfession = Input::get('PreviousProfession');
+        $survey->DurationOfPreviousProfession = Input::get('DurationOfPreviousProfession');
         $survey->EarningAssetsByBusinessOrJob = Input::get('EarningAssetsByBusinessOrJob');
         $survey->EarningSourceWithoutBusiness = Input::get('EarningSourceWithoutBusiness');
         $survey->BusinessType = Input::get('BusinessType');
-        $survey->BusinessFrturePlan = Input::get('BusinessFrturePlan');
-        $survey->FamilyMebmer = Input::get('FamilyMebmer');
+        $survey->BusinessFuturePlan = Input::get('BusinessFuturePlan');
+        $survey->FamilyMember = Input::get('FamilyMember');
         $survey->EarningMale = Input::get('EarningMale');
         $survey->EarningFemale = Input::get('EarningFemale');
         $survey->EarningPerson = Input::get('EarningPerson');
         $survey->MaleMember = Input::get('MaleMember');
-        $survey->FemaleMenber = Input::get('FemaleMenber');
+        $survey->FemaleMember = Input::get('FemaleMember');
         $survey->FamilyType = Input::get('FamilyType');
-        $survey->SickDescripotionOfFamilyMember = Input::get('SickDescripotionOfFamilyMember');
+        $survey->SickDescriptionOfFamilyMember = Input::get('SickDescriptionOfFamilyMember');
         $survey->CaseDescriptionOfFamilyMember = Input::get('CaseDescriptionOfFamilyMember');
         $survey->IfAnyMemberInAbroad = Input::get('IfAnyMemberInAbroad');
         $survey->CultiviableLand = Input::get('CultiviableLand');
@@ -284,12 +287,14 @@ class SurveyController extends Controller
         $Age = Age::lists('age','id');
         $PassingYear = Year_calendar::lists('Name','id');
         $Profession = Profession::lists('name','id');
+        $profession = Profession::all();
         $MaritalStatus = Maritalstatus::lists('name','id');
         $Accommodation = Accommodation::lists('name','id');
         $Education = Education::lists('name','id');
         $PoliticalStatus = Politicalstatus::lists('name','id');
         $Gender = Gender::lists('GenderName','id');
         $Country = Countr::lists('CountryName','id');
+        $Division = Division::lists('DivisionName','id');
         $District = District::lists('DistrictName','id');
         $Thana = Thana::lists('ThanaName','id');
         $PostOffice = Postoffice::lists('PostofficeName','id');
@@ -302,7 +307,8 @@ class SurveyController extends Controller
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
             ->with('Age', $Age)->with('Profession',$Profession)->with('Accommodation',$Accommodation)->with('Gender',$Gender)
-            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus);
+            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus)
+            ->with('Division',$Division)->with('profession',$profession);
 
         /*return view('survey.create')->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
             ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
@@ -335,7 +341,43 @@ class SurveyController extends Controller
         $survey->Age = Input::get('Age');
         $survey->Education = Input::get('Education');
         $survey->PassingYear = Input::get('PassingYear');
-        $survey->SpouseProfession = Input::get('SpouseProfession');
+
+        $SpouseOtherProfession = Input::get('SpouseOtherProfession');
+        if(!empty($SpouseOtherProfession))
+        {
+            $survey->SpouseProfession = $SpouseOtherProfession;
+        }
+        else
+        {
+            $survey->SpouseProfession = Input::get('SpouseProfession');
+        }
+        $WifeOtherProfession = Input::get('WifeOtherProfession');
+        if(!empty($WifeOtherProfession))
+        {
+            $survey->WifeProfession = $WifeOtherProfession;
+        }
+        else
+        {
+            $survey->WifeProfession = Input::get('WifeProfession');
+        }
+        $FatherOtherProfession = Input::get('FatherOtherProfession');
+        if(!empty($FatherOtherProfession))
+        {
+            $survey->FatherProfession = $FatherOtherProfession;
+        }
+        else
+        {
+            $survey->FatherProfession = Input::get('FatherProfession');
+        }
+        $MotherOtherProfession = Input::get('MotherOtherProfession');
+        if(!empty($MotherOtherProfession))
+        {
+            $survey->MotherProfession = $MotherOtherProfession;
+        }
+        else
+        {
+            $survey->MotherProfession = Input::get('MotherProfession');
+        }
         $survey->MaritalStatus = Input::get('MaritalStatus');
         $survey->PoliticalStatus = Input::get('PoliticalStatus');
         $survey->Nid = Input::get('Nid');
@@ -368,20 +410,20 @@ class SurveyController extends Controller
         $survey->SpouseMobileNo = Input::get('SpouseMobileNo');
         $survey->Distance = Input::get('Distance');
         $survey->CurrentProfession = Input::get('CurrentProfession');
-        $survey->PreviousProfessiion = Input::get('PreviousProfessiion');
-        $survey->DorationOfPreviousProfession = Input::get('DorationOfPreviousProfession');
+        $survey->PreviousProfession = Input::get('PreviousProfession');
+        $survey->DurationOfPreviousProfession = Input::get('DurationOfPreviousProfession');
         $survey->EarningAssetsByBusinessOrJob = Input::get('EarningAssetsByBusinessOrJob');
         $survey->EarningSourceWithoutBusiness = Input::get('EarningSourceWithoutBusiness');
         $survey->BusinessType = Input::get('BusinessType');
-        $survey->BusinessFrturePlan = Input::get('BusinessFrturePlan');
-        $survey->FamilyMebmer = Input::get('FamilyMebmer');
+        $survey->BusinessFuturePlan = Input::get('BusinessFuturePlan');
+        $survey->FamilyMember = Input::get('FamilyMember');
         $survey->EarningMale = Input::get('EarningMale');
         $survey->EarningFemale = Input::get('EarningFemale');
         $survey->EarningPerson = Input::get('EarningPerson');
         $survey->MaleMember = Input::get('MaleMember');
-        $survey->FemaleMenber = Input::get('FemaleMenber');
+        $survey->FemaleMember = Input::get('FemaleMember');
         $survey->FamilyType = Input::get('FamilyType');
-        $survey->SickDescripotionOfFamilyMember = Input::get('SickDescripotionOfFamilyMember');
+        $survey->SickDescriptionOfFamilyMember = Input::get('SickDescriptionOfFamilyMember');
         $survey->CaseDescriptionOfFamilyMember = Input::get('CaseDescriptionOfFamilyMember');
         $survey->IfAnyMemberInAbroad = Input::get('IfAnyMemberInAbroad');
         $survey->CultiviableLand = Input::get('CultiviableLand');

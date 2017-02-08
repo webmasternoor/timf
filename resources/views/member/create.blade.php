@@ -166,7 +166,16 @@
                                 <div class="col-md-12">
                                     <select name="ZoneId">
                                         @foreach($zone as $zone_data )
-                                            <option value="{{$zone_data->id}}">{{$zone_data->ZoneName}}</option>
+                                            @if($loan->ZoneId==$zone_data->id)
+                                                {
+                                                <option value="{{$zone_data->id}}"
+                                                        selected>{{$zone_data->ZoneName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$zone_data->id}}">{{$zone_data->ZoneName}}</option>
+                                                }
+                                            @endif
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("ZoneId",$ZoneInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
@@ -178,7 +187,16 @@
                                 <div class="col-md-12">
                                     <select name="AreaId">
                                         @foreach($area as $area_data )
-                                            <option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>
+                                            @if($loan->AreaId==$area_data->id)
+                                                {
+                                                <option value="{{$area_data->id}}"
+                                                        selected>{{$area_data->AreaName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>
+                                                }
+                                            @endif
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
@@ -190,7 +208,16 @@
                                 <div class="col-md-12">
                                     <select name="BranchId">
                                         @foreach($branch as $branch_data )
-                                            <option value="{{$branch_data->id}}">{{$branch_data->BranchName}}</option>
+                                            @if($loan->BranchId==$branch_data->id)
+                                                {
+                                                <option value="{{$branch_data->id}}"
+                                                        selected>{{$branch_data->BranchName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$branch_data->id}}">{{$branch_data->BranchName}}</option>
+                                                }
+                                            @endif
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("BranchId",$BranchInfo,null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
@@ -211,7 +238,16 @@
                                 <div class="col-md-12">
                                     <select name="NameTitle">
                                         @foreach($nameTitle as $nameTitle_data )
-                                            <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                            @if($loan->NameTitle==$nameTitle_data->id)
+                                                {
+                                                <option value="{{$nameTitle_data->id}}"
+                                                        selected>{{$nameTitle_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                                }
+                                            @endif
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("NameTitle",$NameTitle,null,["class"=>"form-control NameTitle required","id"=>"NameTitle"]) !!}--}}
@@ -258,7 +294,17 @@
                                 <div class="col-md-12">
                                     <select name="Gender">
                                         @foreach($gender as $GenderInfo )
-                                            <option value="{{$GenderInfo->id}}">{{$GenderInfo->GenderName}}</option>
+                                            @if($loan->Gender==$GenderInfo->id)
+                                                {
+                                                <option value="{{$GenderInfo->id}}"
+                                                        selected>{{$GenderInfo->GenderName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$GenderInfo->id}}">{{$GenderInfo->GenderName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$GenderInfo->id}}">{{$GenderInfo->GenderName}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("Gender",$Gender,null,["class"=>"form-control Gender required","id"=>"Gender"]) !!}--}}
@@ -270,7 +316,16 @@
                                 <div class="col-md-12">
                                     <select name="Age">
                                         @foreach($age as $AgeInfo )
-                                            <option value="{{$AgeInfo->id}}">{{$AgeInfo->age}}</option>
+                                            @if($loan->Age==$AgeInfo->id)
+                                                {
+                                                <option value="{{$AgeInfo->id}}" selected>{{$AgeInfo->age}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$AgeInfo->id}}">{{$AgeInfo->age}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$AgeInfo->id}}">{{$AgeInfo->age}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}--}}
@@ -282,7 +337,17 @@
                                 <div class="col-md-12">
                                     <select name="Education">
                                         @foreach($education as $education_data )
-                                            <option value="{{$education_data->id}}">{{$education_data->name}}</option>
+                                            @if($loan->Education==$education_data->id)
+                                                {
+                                                <option value="{{$education_data->id}}"
+                                                        selected>{{$education_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$education_data->id}}">{{$education_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$education_data->id}}">{{$education_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="Education-error" class="help-block"></span>
@@ -293,7 +358,17 @@
                                 <div class="col-md-12">
                                     <select name="PassingYear">
                                         @foreach($passingYear as $passingYear_data )
-                                            <option value="{{$passingYear_data->id}}">{{$passingYear_data->Name}}</option>
+                                            @if($loan->PassingYear==$passingYear_data->id)
+                                                {
+                                                <option value="{{$passingYear_data->id}}"
+                                                        selected>{{$passingYear_data->Name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$passingYear_data->id}}">{{$passingYear_data->Name}}</option>
+                                                }
+                                            @endif
+                                            {{--                                            <option value="{{$passingYear_data->id}}">{{$passingYear_data->Name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("PassingYear",['2007', '2008','2009','2010','2011','2012','2013'])!!}--}}
@@ -302,23 +377,33 @@
                             </div>
                             <div class="form-group col-md-6" id="form-SpouseProfession-error">
                                 {!! Form::label("SpouseProfession","অভিভাবকের পেশা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="SpouseProfession">
+                                <div class="col-md-12 SpouseProfession1" id="SpouseProfession1">
+                                    <select name="SpouseProfession" id="SpouseProfession" class="SpouseProfession">
                                         @foreach($profession as $profession_data )
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            @if($loan->SpouseProfession==$profession_data->name)
+                                                {
+                                                <option value="{{$profession_data->name}}"
+                                                        selected>{{$profession_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                                     <span id="SpouseProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-SpouseOtherProfession-error">
-                                {!! Form::label("SpouseOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("SpouseOtherProfession",null,["class"=>"form-control required"]) !!}
-                                    <span id="SpouseOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-SpouseOtherProfession-error">--}}
+                                {{--{!! Form::label("SpouseOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("SpouseOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                                    {{--<span id="SpouseOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group col-md-6" id="form-SpouseMobileNo-error">
                                 {!! Form::label("SpouseMobileNo","অভিভাবকের মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -367,7 +452,17 @@
                                 <div class="col-md-12">
                                     <select name="PoliticalStatus">
                                         @foreach($politicalStatus as $politicalStatus_data )
-                                            <option value="{{$politicalStatus_data->id}}">{{$politicalStatus_data->name}}</option>
+                                            @if($loan->PoliticalStatus==$politicalStatus_data->id)
+                                                {
+                                                <option value="{{$politicalStatus_data->id}}"
+                                                        selected>{{$politicalStatus_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$politicalStatus_data->id}}">{{$politicalStatus_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$politicalStatus_data->id}}">{{$politicalStatus_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("PoliticalStatus",['1' => 'Yes', '2' => 'No'])!!}--}}
@@ -382,7 +477,17 @@
                                     {{--{!! Form::number("Distance",null,["class"=>"form-control required"]) !!}--}}
                                     <select name="Distance">
                                         @foreach($count as $count_data )
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            @if($loan->Distance==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="Distance-error" class="help-block"></span>
@@ -400,7 +505,17 @@
                                 <div class="col-md-12">
                                     <select name="WifeNameTitle">
                                         @foreach($nameTitle as $nameTitle_data )
-                                            <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                            @if($loan->WifeNameTitle==$nameTitle_data->id)
+                                                {
+                                                <option value="{{$nameTitle_data->id}}"
+                                                        selected>{{$nameTitle_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("WifeNameTitle",$NameTitle,null,["class"=>"form-control WifeNameTitle required","id"=>"WifeNameTitle"]) !!}--}}
@@ -439,7 +554,16 @@
                                 <div class="col-md-12">
                                     <select name="WifeAge">
                                         @foreach($age as $age_data )
-                                            <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                            @if($loan->WifeAge==$age_data->id)
+                                                {
+                                                <option value="{{$age_data->id}}" selected>{{$age_data->age}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$age_data->id}}">{{$age_data->age}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("WifeAge",['18', '19','20','21','22','30','30'])!!}--}}
@@ -458,23 +582,33 @@
                             </div>
                             <div class="form-group col-md-6" id="form-WifeProfession-error">
                                 {!! Form::label("WifeProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="WifeProfession">
+                                <div class="col-md-12 WifeProfession1" id="WifeProfession1">
+                                    <select name="WifeProfession" id="WifeProfession" class="WifeProfession">
                                         @foreach($profession as $profession_data )
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            @if($loan->WifeProfession==$profession_data->name)
+                                                {
+                                                <option value="{{$profession_data->name}}"
+                                                        selected>{{$profession_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("WifeProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                                     <span id="WifeProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-WifeOtherProfession-error">
-                                {!! Form::label("WifeOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("WifeOtherProfession",null,["class"=>"form-control required"]) !!}
-                                    <span id="WifeOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-WifeOtherProfession-error">--}}
+                                {{--{!! Form::label("WifeOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("WifeOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                                    {{--<span id="WifeOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
 
                         <div class="borderportion">
@@ -486,7 +620,17 @@
                                 <div class="col-md-12">
                                     <select name="FatherOrHasbandNAmeTitle">
                                         @foreach($nameTitle as $nameTitle_data )
-                                            <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                            @if($loan->FatherOrHasbandNAmeTitle==$nameTitle_data->id)
+                                                {
+                                                <option value="{{$nameTitle_data->id}}"
+                                                        selected>{{$nameTitle_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("FatherOrHasbandNAmeTitle",$NameTitle,null,["class"=>"form-control FatherOrHasbandNAmeTitle required","id"=>"FatherOrHasbandNAmeTitle"]) !!}--}}
@@ -526,6 +670,15 @@
                                 <div class="col-md-12">
                                     <select name="FatherOrHasbandAge">
                                         @foreach($age as $age_data )
+                                            @if($loan->FatherOrHasbandAge==$age_data->id)
+                                                {
+                                                <option value="{{$age_data->id}}" selected>{{$age_data->age}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                                }
+                                            @endif
                                             <option value="{{$age_data->id}}">{{$age_data->age}}</option>
                                         @endforeach
                                     </select>
@@ -535,23 +688,33 @@
                             </div>
                             <div class="form-group col-md-6" id="form-FatherProfession-error">
                                 {!! Form::label("FatherProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="FatherProfession">
+                                <div class="col-md-12 FatherProfession1" id="FatherProfession1">
+                                    <select name="FatherProfession" class="FatherProfession" id="FatherProfession">
                                         @foreach($profession as $profession_data )
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            @if($loan->FatherProfession==$profession_data->name)
+                                                {
+                                                <option value="{{$profession_data->name}}"
+                                                        selected>{{$profession_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("FatherProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                                     <span id="FatherProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-FatherOtherProfession-error">
-                                {!! Form::label("FatherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("FatherOtherProfession",null,["class"=>"form-control required"]) !!}
-                                    <span id="FatherOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-FatherOtherProfession-error">--}}
+                                {{--{!! Form::label("FatherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("FatherOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                                    {{--<span id="FatherOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group col-md-6" id="form-FatherMobileNo-error">
                                 {!! Form::label("FatherMobileNo","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -572,7 +735,17 @@
                                 <div class="col-md-12">
                                     <select name="MatherNameTitle">
                                         @foreach($nameTitle as $nameTitle_data )
-                                            <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                            @if($loan->MatherNameTitle==$nameTitle_data->id)
+                                                {
+                                                <option value="{{$nameTitle_data->id}}"
+                                                        selected>{{$nameTitle_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("MatherNameTitle",$NameTitle,null,["class"=>"form-control MatherNameTitle required","id"=>"MatherNameTitle"]) !!}--}}
@@ -613,7 +786,16 @@
                                 <div class="col-md-12">
                                     <select name="MotherAge">
                                         @foreach($age as $age_data )
-                                            <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                            @if($loan->MotherAge==$age_data->id)
+                                                {
+                                                <option value="{{$age_data->id}}" selected>{{$age_data->age}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$age_data->id}}">{{$age_data->age}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("MotherAge",['18', '19','20','21','22','30','30'])!!}--}}
@@ -622,23 +804,33 @@
                             </div>
                             <div class="form-group col-md-6" id="form-MotherProfession-error">
                                 {!! Form::label("MotherProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="MotherProfession">
+                                <div class="col-md-12 MotherProfession1" id="MotherProfession1">
+                                    <select name="MotherProfession" id="MotherProfession" class="MotherProfession">
                                         @foreach($profession as $profession_data )
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            @if($loan->MotherProfession==$profession_data->name)
+                                                {
+                                                <option value="{{$profession_data->name}}"
+                                                        selected>{{$profession_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("MotherProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                                     <span id="MotherProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-MotherOtherProfession-error">
-                                {!! Form::label("MotherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("MotherOtherProfession",null,["class"=>"form-control required"]) !!}
-                                    <span id="MotherOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-MotherOtherProfession-error">--}}
+                                {{--{!! Form::label("MotherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("MotherOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                                    {{--<span id="MotherOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group col-md-6" id="form-MotherMobileNo-error">
                                 {!! Form::label("MotherMobileNo","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -660,19 +852,60 @@
 
                                     <select name="PresentCountry">
                                         @foreach($country as $country_data )
-                                            <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
+                                            @if($loan->PresentCountry==$country_data->id)
+                                                {
+                                                <option value="{{$country_data->id}}"
+                                                        selected>{{$country_data->CountryName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentCountry-error" class="help-block"></span>
                                 </div>
                             </div>
-
+                            <div class="form-group col-md-6" id="form-PresentDivision-error">
+                                {!! Form::label("PresentDivision","বিভাগ",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    <select name="PresentDivision">
+                                    @foreach($division as $division_data )
+                                        @if($loan->PresentDivision==$division_data->id)
+                                            {
+                                            <option value="{{$division_data->id}}"
+                                                    selected>{{$division_data->DivisionName}}</option>
+                                            }
+                                        @else
+                                            {
+                                            <option value="{{$division_data->id}}">{{$division_data->DivisionName}}</option>
+                                            }
+                                        @endif
+                                        {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
+                                    @endforeach
+                                    </select>
+                                    {{--{!! Form::select("PresentDivision",$Division,null,["class"=>"form-control PresentDivision required","id"=>"PresentDivision"]) !!}--}}
+                                    <span id="PresentDivision-error" class="help-block"></span>
+                                </div>
+                            </div>
                             <div class="form-group col-md-6" id="form-PresentDistrict-error">
                                 {!! Form::label("PresentDistrict","জেলা",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <select name="PresentDistrict">
                                         @foreach($district as $district_data )
-                                            <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
+                                            @if($loan->PresentDistrict==$district_data->id)
+                                                {
+                                                <option value="{{$district_data->id}}"
+                                                        selected>{{$district_data->DistrictName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentDistrict-error" class="help-block"></span>
@@ -684,7 +917,17 @@
                                 <div class="col-md-12">
                                     <select name="PresentThana">
                                         @foreach($thana as $thana_data )
-                                            <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
+                                            @if($loan->PresentThana==$thana_data->id)
+                                                {
+                                                <option value="{{$thana_data->id}}"
+                                                        selected>{{$thana_data->ThanaName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentThana-error" class="help-block"></span>
@@ -696,7 +939,17 @@
                                 <div class="col-md-12">
                                     <select name="PresentUnion">
                                         @foreach($union as $union_data )
-                                            <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
+                                            @if($loan->PresentUnion==$union_data->id)
+                                                {
+                                                <option value="{{$union_data->id}}"
+                                                        selected>{{$union_data->UnionName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentUnion-error" class="help-block"></span>
@@ -708,7 +961,17 @@
                                 <div class="col-md-12">
                                     <select name="PresentPostOffice">
                                         @foreach($postOffice  as $postoffice_data )
-                                            <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
+                                            @if($loan->PresentPostOffice==$postoffice_data->id)
+                                                {
+                                                <option value="{{$postoffice_data->id}}"
+                                                        selected>{{$postoffice_data->PostofficeName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
+                                                }
+                                            @endif
+                                            {{--                                            <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentPostOffice-error" class="help-block"></span>
@@ -720,7 +983,17 @@
                                 <div class="col-md-12">
                                     <select name="PresentWord">
                                         @foreach($word as $word_data )
-                                            <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
+                                            @if($loan->PresentWord==$word_data->id)
+                                                {
+                                                <option value="{{$word_data->id}}"
+                                                        selected>{{$word_data->WordName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
+                                                }
+                                            @endif
+                                            {{--                                            <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentWord-error" class="help-block"></span>
@@ -757,10 +1030,43 @@
                                 <div class="col-md-12">
                                     <select name="PermanentCountry">
                                         @foreach($country as $country_data )
-                                            <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
+                                            @if($loan->PermanentCountry==$country_data->id)
+                                                {
+                                                <option value="{{$country_data->id}}"
+                                                        selected>{{$country_data->CountryName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentCountry-error" class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6" id="form-PermanentDivision-error">
+                                {!! Form::label("PermanentDivision","বিভাগ",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    <select name="PermanentDivision">
+                                        @foreach($division as $division_data )
+                                            @if($loan->PermanentDivision==$division_data->id)
+                                                {
+                                                <option value="{{$division_data->id}}"
+                                                        selected>{{$division_data->DivisionName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$division_data->id}}">{{$division_data->DivisionName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
+                                        @endforeach
+                                    </select>
+                                    {{--{!! Form::select("PermanentDivision",$Division,null,["class"=>"form-control PermanentDivision required","id"=>"PermanentDivision"]) !!}--}}
+                                    <span id="PermanentDivision-error" class="help-block"></span>
                                 </div>
                             </div>
 
@@ -769,7 +1075,17 @@
                                 <div class="col-md-12">
                                     <select name="PermanentDistrict">
                                         @foreach($district as $district_data )
-                                            <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
+                                            @if($loan->PermanentDistrict==$district_data->id)
+                                                {
+                                                <option value="{{$district_data->id}}"
+                                                        selected>{{$district_data->DistrictName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentDistrict-error" class="help-block"></span>
@@ -781,7 +1097,17 @@
                                 <div class="col-md-12">
                                     <select name="PermanentThana">
                                         @foreach($thana as $thana_data )
-                                            <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
+                                            @if($loan->PermanentThana==$thana_data->id)
+                                                {
+                                                <option value="{{$thana_data->id}}"
+                                                        selected>{{$thana_data->ThanaName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentThana-error" class="help-block"></span>
@@ -793,7 +1119,17 @@
                                 <div class="col-md-12">
                                     <select name="PermanentUnion">
                                         @foreach($union as $union_data )
-                                            <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
+                                            @if($loan->PermanentUnion==$union_data->id)
+                                                {
+                                                <option value="{{$union_data->id}}"
+                                                        selected>{{$union_data->UnionName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentUnion-error" class="help-block"></span>
@@ -805,7 +1141,17 @@
                                 <div class="col-md-12">
                                     <select name="PermanentPostOffice">
                                         @foreach($postOffice  as $postoffice_data )
-                                            <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
+                                            @if($loan->PermanentPostOffice==$postoffice_data->id)
+                                                {
+                                                <option value="{{$postoffice_data->id}}"
+                                                        selected>{{$postoffice_data->PostofficeName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentPostOffice-error" class="help-block"></span>
@@ -817,7 +1163,17 @@
                                 <div class="col-md-12">
                                     <select name="PermanentWord">
                                         @foreach($word as $word_data )
-                                            <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
+                                            @if($loan->PermanentWord==$word_data->id)
+                                                {
+                                                <option value="{{$word_data->id}}"
+                                                        selected>{{$word_data->WordName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$word_data->id}}">{{$word_data->WordName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentWord-error" class="help-block"></span>
@@ -854,10 +1210,20 @@
                             </div>
                             <div class="form-group col-md-6" id="form-CurrentProfession-error">
                                 {!! Form::label("CurrentProfession","বর্তমান পেশা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="CurrentProfession">
+                                <div class="col-md-12 CurrentProfession1" id="CurrentProfession1">
+                                    <select name="CurrentProfession" class="CurrentProfession" id="CurrentProfession">
                                         @foreach($profession as $profession_data )
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            @if($loan->CurrentProfession==$profession_data->name)
+                                                {
+                                                <option value="{{$profession_data->id}}"
+                                                        selected>{{$profession_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("CurrentProfession",['1' => 'Agriculture', '2' => 'Non-Agriculture', '3'=>'Others'])!!}--}}
@@ -865,26 +1231,36 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6" id="form-PreviousProfessiion-error">
-                                {!! Form::label("PreviousProfessiion","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="PreviousProfessiion">
+                            <div class="form-group col-md-6" id="form-PreviousProfession-error">
+                                {!! Form::label("PreviousProfession","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12 PreviousProfession1" id="PreviousProfession1">
+                                    <select name="PreviousProfession" id="PreviousProfession" class="PreviousProfession">
                                         @foreach($profession as $profession_data )
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            @if($loan->PreviousProfession==$profession_data->name)
+                                                {
+                                                <option value="{{$profession_data->name}}"
+                                                        selected>{{$profession_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{-- <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
-                                    {{--{!! Form::select("PreviousProfessiion",['1' => 'Agriculture', '2' => 'Non-Agriculture', '3'=>'Others'])!!}--}}
-                                    <span id="PreviousProfessiion-error" class="help-block"></span>
+                                    {{--{!! Form::select("PreviousProfession",['1' => 'Agriculture', '2' => 'Non-Agriculture', '3'=>'Others'])!!}--}}
+                                    <span id="PreviousProfession-error" class="help-block"></span>
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6" id="form-DorationOfPreviousProfession-error">
-                                {!! Form::label("DorationOfPreviousProfession","চাকুরি/ব্যবসা কতদিন ধরে করছেন তার বিবরণ(বছর)",["class"=>"control-label col-md-12"]) !!}
+                            <div class="form-group col-md-6" id="form-DurationOfPreviousProfession-error">
+                                {!! Form::label("DurationOfPreviousProfession","চাকুরি/ব্যবসা কতদিন ধরে করছেন তার বিবরণ(বছর)",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <input class="form-control" type="number" name="DorationOfPreviousProfession"
-                                           value="{{$loan->DorationOfPreviousProfession}}">
-                                    {{--{!! Form::number("DorationOfPreviousProfession",null,["class"=>"form-control required"]) !!}--}}
-                                    <span id="DorationOfPreviousProfession-error" class="help-block"></span>
+                                    <input class="form-control" type="number" name="DurationOfPreviousProfession"
+                                           value="{{$loan->DurationOfPreviousProfession}}">
+                                    {{--{!! Form::number("DurationOfPreviousProfession",null,["class"=>"form-control required"]) !!}--}}
+                                    <span id="DurationOfPreviousProfession-error" class="help-block"></span>
                                 </div>
                             </div>
 
@@ -912,11 +1288,21 @@
                             </div>
 
                             <div class="form-group col-md-6" id="form-BusinessType-error">
-                                {!! Form::label("BusinessType","ব্যবসার ধর",["class"=>"control-label col-md-12"]) !!}
+                                {!! Form::label("BusinessType","ব্যবসার ধরন",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <select name="BusinessType">
                                         @foreach($BusinessCategory as $BusinessCategory_data )
-                                            <option value="{{$BusinessCategory_data->id}}">{{$BusinessCategory_data->name}}</option>
+                                            @if($loan->BusinessType==$BusinessCategory_data->id)
+                                                {
+                                                <option value="{{$BusinessCategory_data->id}}"
+                                                        selected>{{$BusinessCategory_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$BusinessCategory_data->id}}">{{$BusinessCategory_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$BusinessCategory_data->id}}">{{$BusinessCategory_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("BusinessType",['1' => 'Single', '2' => 'Partnership'])!!}--}}
@@ -924,13 +1310,13 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6" id="form-BusinessFrturePlan-error">
-                                {!! Form::label("BusinessFrturePlan","ব্যবসার ভবিষ্যৎ পরিকল্পনা",["class"=>"control-label col-md-12"]) !!}
+                            <div class="form-group col-md-6" id="form-BusinessFuturePlan-error">
+                                {!! Form::label("BusinessFuturePlan","ব্যবসার ভবিষ্যৎ পরিকল্পনা",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="BusinessFrturePlan"
-                                           value="{{$loan->BusinessFrturePlan}}">
-                                    {{--{!! Form::textarea("BusinessFrturePlan",null,["class"=>"form-control required"]) !!}--}}
-                                    <span id="BusinessFrturePlan-error" class="help-block"></span>
+                                    <input class="form-control" type="text" name="BusinessFuturePlan"
+                                           value="{{$loan->BusinessFuturePlan}}">
+                                    {{--{!! Form::textarea("BusinessFuturePlan",null,["class"=>"form-control required"]) !!}--}}
+                                    <span id="BusinessFuturePlan-error" class="help-block"></span>
                                 </div>
                             </div>
                         </div>
@@ -947,7 +1333,17 @@
                                 <div class="col-md-12">
                                     <select name="FamilyType">
                                         @foreach($familytype as $Familytype_data )
-                                            <option value="{{$Familytype_data->id}}">{{$Familytype->name}}</option>
+                                            @if($loan->FamilyType==$Familytype_data->id)
+                                                {
+                                                <option value="{{$Familytype_data->id}}"
+                                                        selected>{{$Familytype_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$Familytype_data->id}}">{{$Familytype_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$Familytype_data->id}}">{{$Familytype->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("FamilyType",['1' => 'Single', '2' => 'Combined'])!!}--}}
@@ -955,16 +1351,26 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6" id="form-FamilyMebmer-error">
-                                {!! Form::label("FamilyMebmer","পরিবারের সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
+                            <div class="form-group col-md-6" id="form-FamilyMember-error">
+                                {!! Form::label("FamilyMember","পরিবারের সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <select name="FamilyMebmer">
+                                    <select name="FamilyMember">
                                         @foreach($count as $count_data )
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            @if($loan->FamilyMember==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
-                                    {{--{!! Form::select("FamilyMebmer",['1', '2', '3','4', '5', '6'])!!}--}}
-                                    <span id="FamilyMebmer-error" class="help-block"></span>
+                                    {{--{!! Form::select("FamilyMember",['1', '2', '3','4', '5', '6'])!!}--}}
+                                    <span id="FamilyMember-error" class="help-block"></span>
                                 </div>
                             </div>
 
@@ -973,7 +1379,17 @@
                                 <div class="col-md-12">
                                     <select name="EarningMale">
                                         @foreach($count as $count_data )
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            @if($loan->EarningMale==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("EarningMale",['1', '2', '3','4', '5', '6'])!!}--}}
@@ -986,7 +1402,17 @@
                                 <div class="col-md-12">
                                     <select name="EarningFemale">
                                         @foreach($count as $count_data )
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            @if($loan->EarningFemale==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("EarningFemale",['1', '2', '3','4', '5', '6'])!!}--}}
@@ -999,6 +1425,16 @@
                                 <div class="col-md-12">
                                     <select name="EarningPerson">
                                         @foreach($count as $count_data )
+                                            @if($loan->EarningPerson==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
                                             <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                         @endforeach
                                     </select>
@@ -1012,7 +1448,17 @@
                                 <div class="col-md-12">
                                     <select name="MaleMember">
                                         @foreach($count as $count_data )
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            @if($loan->MaleMember==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("MaleMember",['1', '2', '3','4', '5', '6'])!!}--}}
@@ -1020,28 +1466,38 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6" id="form-FemaleMenber-error">
-                                {!! Form::label("FemaleMenber","মহিলা সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                            <div class="form-group col-md-6" id="form-FemaleMember-error">
+                                {!! Form::label("FemaleMember","মহিলা সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <select name="FemaleMenber">
+                                    <select name="FemaleMember">
                                         @foreach($count as $count_data )
+                                            @if($loan->FemaleMember==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
                                             <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                         @endforeach
                                     </select>
-                                    {{--{!! Form::select("FemaleMenber",['1', '2', '3','4', '5', '6'])!!}--}}
-                                    <span id="FemaleMenber-error" class="help-block"></span>
+                                    {{--{!! Form::select("FemaleMember",['1', '2', '3','4', '5', '6'])!!}--}}
+                                    <span id="FemaleMember-error" class="help-block"></span>
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6" id="form-SickDescripotionOfFamilyMember-error">
-                                {!! Form::label("SickDescripotionOfFamilyMember","পরিবারে কেহ গুরুত্বর অসুস্থ থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
+                            <div class="form-group col-md-6" id="form-SickDescriptionOfFamilyMember-error">
+                                {!! Form::label("SickDescriptionOfFamilyMember","পরিবারে কেহ গুরুত্বর অসুস্থ থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    {{--<input class="form-control" type="text" name="SickDescripotionOfFamilyMember"--}}
-                                    {{--value="{{$loan->SickDescripotionOfFamilyMember}}">--}}
-                                    <textarea name="SickDescripotionOfFamilyMember" cols="50"
-                                              rows="3">{{$loan->SickDescripotionOfFamilyMember}}</textarea>
-                                    {{--{!! Form::textarea("SickDescripotionOfFamilyMember",null,["class"=>"form-control required"]) !!}--}}
-                                    <span id="SickDescripotionOfFamilyMember-error" class="help-block"></span>
+                                    {{--<input class="form-control" type="text" name="SickDescriptionOfFamilyMember"--}}
+                                    {{--value="{{$loan->SickDescriptionOfFamilyMember}}">--}}
+                                    <textarea name="SickDescriptionOfFamilyMember" cols="50"
+                                              rows="3">{{$loan->SickDescriptionOfFamilyMember}}</textarea>
+                                    {{--{!! Form::textarea("SickDescriptionOfFamilyMember",null,["class"=>"form-control required"]) !!}--}}
+                                    <span id="SickDescriptionOfFamilyMember-error" class="help-block"></span>
                                 </div>
                             </div>
 
@@ -1289,7 +1745,17 @@
                                 <div class="col-md-12">
                                     <select name="IsHeSheWillingToTakeLoan">
                                         @foreach($status as $status_info )
-                                            <option value="{{$status_info->id}}">{{$status_info->Status}}</option>
+                                            @if($loan->IsHeSheWillingToTakeLoan==$status_info->id)
+                                                {
+                                                <option value="{{$status_info->id}}"
+                                                        selected>{{$status_info->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$status_info->id}}">{{$status_info->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$status_info->id}}">{{$status_info->Status}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("IsHeSheWillingToTakeLoan",['1'=>'Yes', '2'=>'No'])!!}--}}
@@ -1387,4 +1853,194 @@
         event.preventDefault();
         ajaxLoad($(this).attr('href'));
     });
+
+    $(document).ready(function () {
+//        $(document).on('change', '.DivisionId', function () {
+//            //console.log("yes it is change");
+//
+//            var op = " ";
+//            var DivisionId = $(this).val();
+//            //var div = $(this).parent();
+//            //console.log(DivisionId);
+//            $('#DistrictId').empty();
+//            $.ajax({
+//                type: 'get',
+//                url: 'getDistrict',
+//                data: {'id': DivisionId},
+//                success: function (data) {
+//                    $.each(data, function (index, subcatObj) {
+//                        $('#DistrictId').append('<option value="'+subcatObj.id+'">'+subcatObj.DistrictName +'</option>')
+//                    });
+//                },
+//                error: function () {
+//
+//                }
+//            });
+//        });
+//        $(document).on('change', '.DistrictId', function () {
+//            //console.log("yes it is change");
+//
+//            var op = " ";
+//            var DistrictId = $(this).val();
+//            //var div = $(this).parent();
+//            //console.log(DivisionId);
+//            $('#ThanaId').empty();
+//            $.ajax({
+//                type: 'get',
+//                url: 'getThana',
+//                data: {'id': DistrictId},
+//                success: function (data) {
+//                    $.each(data, function (index, subcatObj1) {
+//                        $('#ThanaId').append('<option value="'+subcatObj1.id+'">'+subcatObj1.ThanaName +'</option>')
+//                    });
+//                },
+//                error: function () {
+//
+//                }
+//            });
+//        });
+//
+//        $(document).on('change', '.ThanaId', function () {
+//            //console.log("yes it is change");
+//
+//            var op = " ";
+//            var ThanaId = $(this).val();
+//            //var div = $(this).parent();
+//            //console.log(DivisionId);
+//            $('#UnionId').empty();
+//            $.ajax({
+//                type: 'get',
+//                url: 'getUnion',
+//                data: {'id': ThanaId},
+//                success: function (data) {
+//                    $.each(data, function (index, subcatObj2) {
+//                        $('#UnionId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.UnionName +'</option>')
+//                    });
+//                },
+//                error: function () {
+//
+//                }
+//            });
+//        });
+//
+//        $(document).on('change', '.UnionId', function () {
+//            //console.log("yes it is change");
+//
+//            var op = " ";
+//            var UnionId = $(this).val();
+//            //var div = $(this).parent();
+//            //console.log(DivisionId);
+//            $('#WordId').empty();
+//            $.ajax({
+//                type: 'get',
+//                url: 'getWord',
+//                data: {'id': UnionId},
+//                success: function (data) {
+//                    $.each(data, function (index, subcatObj2) {
+//                        $('#WordId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.WardName +'</option>')
+//                    });
+//                },
+//                error: function () {
+//
+//                }
+//            });
+//        });
+//
+//        $(document).on('change', '.DistrictId', function () {
+//            //console.log("yes it is change");
+//
+//            var op = " ";
+//            var DistrictId = $(this).val();
+//            //var div = $(this).parent();
+//            //console.log(DistrictId);
+//            $('#PostOfficeId').empty();
+//            $.ajax({
+//                type: 'get',
+//                url: 'getPostOffice',
+//                data: {'id': DistrictId},
+//                success: function (data) {
+//                    $.each(data, function (index, subcatObj3) {
+//                        $('#PostOfficeId').append('<option value="'+subcatObj3.id+'">'+subcatObj3.PostofficeName +'</option>')
+//                    });
+//                },
+//                error: function () {
+//
+//                }
+//            });
+//        });
+        $(document).on('change', '.SpouseProfession', function () {
+            //console.log("yes it is change");
+
+            var SpouseProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(SpouseProfession=='Others') {
+                $('#SpouseProfession1').empty();
+
+                $('#SpouseProfession1').append('<input type="text" class="form-control"  name="SpouseProfession" value="">')
+            }
+        });
+        $(document).on('change', '.WifeProfession', function () {
+            //console.log("yes it is change");
+
+            var WifeProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(WifeProfession=='Others') {
+                $('#WifeProfession1').empty();
+
+                $('#WifeProfession1').append('<input type="text" class="form-control"  name="WifeProfession" value="">')
+            }
+        });
+        $(document).on('change', '.FatherProfession', function () {
+            //console.log("yes it is change");
+
+            var FatherProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(FatherProfession=='Others') {
+                $('#FatherProfession1').empty();
+
+                $('#FatherProfession1').append('<input type="text" class="form-control"  name="FatherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.MotherProfession', function () {
+            //console.log("yes it is change");
+
+            var MotherProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(MotherProfession=='Others') {
+                $('#MotherProfession1').empty();
+
+                $('#MotherProfession1').append('<input type="text" class="form-control"  name="MotherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.CurrentProfession', function () {
+            //console.log("yes it is change");
+
+            var CurrentProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(CurrentProfession=='Others') {
+                $('#CurrentProfession1').empty();
+
+                $('#CurrentProfession1').append('<input type="text" class="form-control"  name="CurrentProfession" value="">')
+            }
+        });
+
+        $(document).on('change', '.PreviousProfession', function () {
+            //console.log("yes it is change");
+
+            var PreviousProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(PreviousProfession=='Others') {
+                $('#PreviousProfession1').empty();
+
+                $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousProfession" value="">')
+            }
+        });
+    });
+
 </script>

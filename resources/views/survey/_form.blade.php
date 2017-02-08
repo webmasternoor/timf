@@ -25,12 +25,12 @@
                     <div class="form-group col-md-4" id="form-AreaId-error">
                         {!! Form::label("AreaId","এলাকা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                       <select name="AreaId">
-                        @foreach($area as $area_data )
-                        <option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>
-                        @endforeach
-                        </select>
-                            {{--{!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId required","id"=>"AreaId"]) !!}--}}
+                       {{--<select name="AreaId">--}}
+                        {{--@foreach($area as $area_data )--}}
+                        {{--<option value="{{$area_data->id}}">{{$area_data->AreaName}}</option>--}}
+                        {{--@endforeach--}}
+                        {{--</select>--}}
+                            {!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId required","id"=>"AreaId"]) !!}
                             <span id="AreaId-error" class="help-block"></span>
                         </div>
                     </div>
@@ -120,18 +120,24 @@
                     </div>
                     <div class="form-group col-md-6" id="form-SpouseProfession-error">
                         {!! Form::label("SpouseProfession","অভিভাবকের পেশা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("SpouseProfession",$Profession,null,["class"=>"form-control SpouseProfession required","id"=>"SpouseProfession"]) !!}
+                        <div class="col-md-12 SpouseProfession" id="SpouseProfession">
+                            {{--<select name="SpouseProfession" id="SpouseProfession" class="SpouseProfession">--}}
+                                {{--@foreach($profession as $profession_data )--}}
+                                        {{--<option value="{{$profession_data->name}}">{{$profession_data->name}}</option>--}}
+                                    {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("SpouseProfession",$Profession,null,["class"=>"form-control SpouseProfession1 required","id"=>"SpouseProfession1"]) !!}
                             <span id="SpouseProfession-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-SpouseOtherProfession-error">
-                        {!! Form::label("SpouseOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::text("SpouseOtherProfession",null,["class"=>"form-control required"]) !!}
-                            <span id="SpouseOtherProfession-error" class="help-block"></span>
-                        </div>
-                    </div>
+                    {{--<div class="form-group col-md-6" id="form-SpouseOtherProfession-error">--}}
+                        {{--{!! Form::label("SpouseOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--{!! Form::text("SpouseOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                            {{--<span id="SpouseOtherProfession-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div class="form-group col-md-6" id="form-SpouseMobileNo-error">
                         {!! Form::label("SpouseMobileNo","অভিভাবকের মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
@@ -235,18 +241,24 @@
                     </div>
                     <div class="form-group col-md-6" id="form-WifeProfession-error">
                         {!! Form::label("WifeProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("WifeProfession",$Profession,null,["class"=>"form-control WifeProfession required","id"=>"WifeProfession"]) !!}
+                        <div class="col-md-12 WifeProfession1" id="WifeProfession1">
+                            <select name="WifeProfession" id="WifeProfession" class="WifeProfession">
+                                @foreach($profession as $profession_data )
+                                    <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                    {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
+                                @endforeach
+                            </select>
+                            {{--{!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                             <span id="WifeProfession-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-WifeOtherProfession-error">
-                        {!! Form::label("WifeOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::text("WifeOtherProfession",null,["class"=>"form-control required"]) !!}
-                            <span id="WifeOtherProfession-error" class="help-block"></span>
-                        </div>
-                    </div>
+                    {{--<div class="form-group col-md-6" id="form-WifeOtherProfession-error">--}}
+                        {{--{!! Form::label("WifeOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--{!! Form::text("WifeOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                            {{--<span id="WifeOtherProfession-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
 
                 <div class="borderportion">
@@ -291,18 +303,24 @@
                     </div>
                     <div class="form-group col-md-6" id="form-FatherProfession-error">
                         {!! Form::label("FatherProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("FatherProfession",$Profession,null,["class"=>"form-control FatherProfession required","id"=>"FatherProfession"]) !!}
+                        <div class="col-md-12 FatherProfession1" id="FatherProfession1">
+                            <select name="FatherProfession" id="FatherProfession" class="FatherProfession">
+                                @foreach($profession as $profession_data )
+                                    <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                    {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
+                                @endforeach
+                            </select>
+                            {{--{!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                             <span id="FatherProfession-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-FatherOtherProfession-error">
-                        {!! Form::label("FatherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::text("FatherOtherProfession",null,["class"=>"form-control required"]) !!}
-                            <span id="FatherOtherProfession-error" class="help-block"></span>
-                        </div>
-                    </div>
+                    {{--<div class="form-group col-md-6" id="form-FatherOtherProfession-error">--}}
+                        {{--{!! Form::label("FatherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--{!! Form::text("FatherOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                            {{--<span id="FatherOtherProfession-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div class="form-group col-md-6" id="form-FatherMobileNo-error">
                         {!! Form::label("FatherMobileNo","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
@@ -355,18 +373,24 @@
                     </div>
                     <div class="form-group col-md-6" id="form-MotherProfession-error">
                         {!! Form::label("MotherProfession","পেশা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("MotherProfession",$Profession,null,["class"=>"form-control MotherProfession required","id"=>"MotherProfession"]) !!}
+                        <div class="col-md-12 MotherProfession1" id="MotherProfession1">
+                            <select name="MotherProfession" id="MotherProfession" class="MotherProfession">
+                                @foreach($profession as $profession_data )
+                                    <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                    {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
+                                @endforeach
+                            </select>
+                            {{--{!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                             <span id="MotherProfession-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-MotherOtherProfession-error">
-                        {!! Form::label("MotherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::text("MotherOtherProfession",null,["class"=>"form-control required"]) !!}
-                            <span id="MotherOtherProfession-error" class="help-block"></span>
-                        </div>
-                    </div>
+                    {{--<div class="form-group col-md-6" id="form-MotherOtherProfession-error">--}}
+                        {{--{!! Form::label("MotherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--{!! Form::text("MotherOtherProfession",null,["class"=>"form-control required"]) !!}--}}
+                            {{--<span id="MotherOtherProfession-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div class="form-group col-md-6" id="form-MotherMobileNo-error">
                         {!! Form::label("MotherMobileNo","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
@@ -391,6 +415,20 @@
                             {{--</select>--}}
                             {!! Form::select("PresentCountry",$Country,null,["class"=>"form-control PresentCountry required","id"=>"PresentCountry"]) !!}
                             <span id="PresentCountry-error" class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="form-PresentDivision-error">
+                        {!! Form::label("PresentDivision","বিভাগ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+
+                            {{--<select name="PresentDivision">--}}
+                            {{--@foreach($country as $country_data )--}}
+                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
+                            {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PresentDivision",$Division,null,["class"=>"form-control PresentDivision required","id"=>"PresentDivision"]) !!}
+                            <span id="PresentDivision-error" class="help-block"></span>
                         </div>
                     </div>
 
@@ -580,25 +618,37 @@
                     </div>
                     <div class="form-group col-md-6" id="form-CurrentProfession-error">
                         {!! Form::label("CurrentProfession","বর্তমান পেশা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("CurrentProfession",$Profession,null,["class"=>"form-control CurrentProfession required","id"=>"CurrentProfession"]) !!}
+                        <div class="col-md-12 CurrentProfession1" id="CurrentProfession1">
+                            <select name="CurrentProfession" id="CurrentProfession" class="CurrentProfession">
+                                @foreach($profession as $profession_data )
+                                    <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                    {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
+                                @endforeach
+                            </select>
+                            {{--{!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                             <span id="CurrentProfession-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-PreviousProfessiion-error">
-                        {!! Form::label("PreviousProfessiion","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("PreviousProfessiion",$Profession,null,["class"=>"form-control PreviousProfessiion required","id"=>"PreviousProfessiion"]) !!}
-                            <span id="PreviousProfessiion-error" class="help-block"></span>
+                    <div class="form-group col-md-6" id="form-PreviousProfession-error">
+                        {!! Form::label("PreviousProfession","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12 PreviousProfession1" id="PreviousProfession1">
+                            <select name="PreviousProfession" id="PreviousProfession" class="PreviousProfession">
+                                @foreach($profession as $profession_data )
+                                    <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
+                                    {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
+                                @endforeach
+                            </select>
+                            {{--{!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
+                            <span id="PreviousProfession-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-DorationOfPreviousProfession-error">
-                        {!! Form::label("DorationOfPreviousProfession","চাকুরি/ব্যবসা কতদিন ধরে করছেন তার বিবরণ(বছর)",["class"=>"control-label col-md-12"]) !!}
+                    <div class="form-group col-md-6" id="form-DurationOfPreviousProfession-error">
+                        {!! Form::label("DurationOfPreviousProfession","চাকুরি/ব্যবসা কতদিন ধরে করছেন তার বিবরণ(বছর)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("DorationOfPreviousProfession",null,["class"=>"form-control required"]) !!}
-                            <span id="DorationOfPreviousProfession-error" class="help-block"></span>
+                            {!! Form::number("DurationOfPreviousProfession",null,["class"=>"form-control required"]) !!}
+                            <span id="DurationOfPreviousProfession-error" class="help-block"></span>
                         </div>
                     </div>
 
@@ -627,11 +677,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-BusinessFrturePlan-error">
-                        {!! Form::label("BusinessFrturePlan","ব্যবসার ভবিষ্যৎ পরিকল্পনা",["class"=>"control-label col-md-12"]) !!}
+                    <div class="form-group col-md-6" id="form-BusinessFuturePlan-error">
+                        {!! Form::label("BusinessFuturePlan","ব্যবসার ভবিষ্যৎ পরিকল্পনা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::textarea("BusinessFrturePlan",null,["class"=>"form-control required"]) !!}
-                            <span id="BusinessFrturePlan-error" class="help-block"></span>
+                            {!! Form::textarea("BusinessFuturePlan",null,["class"=>"form-control required"]) !!}
+                            <span id="BusinessFuturePlan-error" class="help-block"></span>
                         </div>
                     </div>
                 </div>
@@ -651,11 +701,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-FamilyMebmer-error">
-                        {!! Form::label("FamilyMebmer","পরিবারের সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
+                    <div class="form-group col-md-6" id="form-FamilyMember-error">
+                        {!! Form::label("FamilyMember","পরিবারের সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FamilyMebmer",['1', '2', '3','4', '5', '6'])!!}
-                            <span id="FamilyMebmer-error" class="help-block"></span>
+                            {!! Form::select("FamilyMember",['1', '2', '3','4', '5', '6'])!!}
+                            <span id="FamilyMember-error" class="help-block"></span>
                         </div>
                     </div>
 
@@ -691,19 +741,19 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-FemaleMenber-error">
-                        {!! Form::label("FemaleMenber","মহিলা সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                    <div class="form-group col-md-6" id="form-FemaleMember-error">
+                        {!! Form::label("FemaleMember","মহিলা সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FemaleMenber",['1', '2', '3','4', '5', '6'])!!}
-                            <span id="FemaleMenber-error" class="help-block"></span>
+                            {!! Form::select("FemaleMember",['1', '2', '3','4', '5', '6'])!!}
+                            <span id="FemaleMember-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-SickDescripotionOfFamilyMember-error">
-                        {!! Form::label("SickDescripotionOfFamilyMember","পরিবারে কেহ গুরুত্বর অসুস্থ থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
+                    <div class="form-group col-md-6" id="form-SickDescriptionOfFamilyMember-error">
+                        {!! Form::label("SickDescriptionOfFamilyMember","পরিবারে কেহ গুরুত্বর অসুস্থ থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::textarea("SickDescripotionOfFamilyMember",null,["class"=>"form-control required"]) !!}
-                            <span id="SickDescripotionOfFamilyMember-error" class="help-block"></span>
+                            {!! Form::textarea("SickDescriptionOfFamilyMember",null,["class"=>"form-control required"]) !!}
+                            <span id="SickDescriptionOfFamilyMember-error" class="help-block"></span>
                         </div>
                     </div>
 
@@ -1021,5 +1071,354 @@ position: relative;">&nbsp;</p>
             }
         });
         return false;
+    });
+
+    $(document).ready(function () {
+
+        $(document).on('change', '.ZoneId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ZoneId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#AreaId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getArea',
+                data: {'id': ZoneId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObjArea) {
+                        $('#AreaId').append('<option value="'+subcatObjArea.id+'">'+subcatObjArea.AreaName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.AreaId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var AreaId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#BranchId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getBranch',
+                data: {'id': AreaId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObjBranch) {
+                        $('#BranchId').append('<option value="'+subcatObjBranch.id+'">'+subcatObjBranch.BranchName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.PresentDivision', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DivisionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PresentDistrict').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getDistrict',
+                data: {'id': DivisionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj) {
+                        $('#PresentDistrict').append('<option value="'+subcatObj.id+'">'+subcatObj.DistrictName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.PresentDistrict', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var PresentDistrict = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PresentThana').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getThana',
+                data: {'id': PresentDistrict},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj1) {
+                        $('#PresentThana').append('<option value="'+subcatObj1.id+'">'+subcatObj1.ThanaName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.PresentThana', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ThanaId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PresentUnion').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getUnion',
+                data: {'id': ThanaId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj2) {
+                        $('#PresentUnion').append('<option value="'+subcatObj2.id+'">'+subcatObj2.UnionName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.PresentUnion', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var UnionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PresentWord').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getWord',
+                data: {'id': UnionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj2) {
+                        $('#PresentWord').append('<option value="'+subcatObj2.id+'">'+subcatObj2.WardName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.PresentDistrict', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DistrictId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            $('#PresentPostOffice').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getPostOffice',
+                data: {'id': DistrictId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj3) {
+                        $('#PresentPostOffice').append('<option value="'+subcatObj3.id+'">'+subcatObj3.PostofficeName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.PermanentDivision', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DivisionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PermanentDistrict').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getDistrict',
+                data: {'id': DivisionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObjp) {
+                        $('#PermanentDistrict').append('<option value="'+subcatObjp.id+'">'+subcatObjp.DistrictName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.PermanentDistrict', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var PermanentDistrict = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PermanentThana').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getThana',
+                data: {'id': PermanentDistrict},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj1p) {
+                        $('#PermanentThana').append('<option value="'+subcatObj1p.id+'">'+subcatObj1p.ThanaName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.PermanentThana', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ThanaId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PermanentUnion').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getUnion',
+                data: {'id': ThanaId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj2p) {
+                        $('#PermanentUnion').append('<option value="'+subcatObj2p.id+'">'+subcatObj2p.UnionName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.PermanentUnion', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var UnionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#PermanentWord').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getWord',
+                data: {'id': UnionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj3p) {
+                        $('#PermanentWord').append('<option value="'+subcatObj3p.id+'">'+subcatObj3p.WardName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.PermanentDistrict', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DistrictId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            $('#PermanentPostOffice').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getPostOffice',
+                data: {'id': DistrictId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj4p) {
+                        $('#PermanentPostOffice').append('<option value="'+subcatObj4p.id+'">'+subcatObj4p.PostofficeName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.SpouseProfession1', function () {
+            //console.log("yes it is change");
+
+            var SpouseProfession1 = $(this).val();
+            console.log(SpouseProfession1);
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(SpouseProfession1=='7') {
+                console.log(SpouseProfession1);
+                $('#SpouseProfession').empty();
+
+                $('#SpouseProfession').append('<input type="text" class="form-control"  name="SpouseOtherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.WifeProfession', function () {
+            //console.log("yes it is change");
+
+            var WifeProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(WifeProfession=='Others') {
+                $('#WifeProfession1').empty();
+
+                $('#WifeProfession1').append('<input type="text" class="form-control"  name="WifeOtherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.FatherProfession', function () {
+            //console.log("yes it is change");
+
+            var FatherProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(FatherProfession=='7') {
+                $('#FatherProfession1').empty();
+
+                $('#FatherProfession1').append('<input type="text" class="form-control"  name="FatherOtherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.MotherProfession', function () {
+            //console.log("yes it is change");
+
+            var MotherProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(MotherProfession=='7') {
+                $('#MotherProfession1').empty();
+
+                $('#MotherProfession1').append('<input type="text" class="form-control"  name="MotherOtherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.CurrentProfession', function () {
+            //console.log("yes it is change");
+
+            var CurrentProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(CurrentProfession=='7') {
+                $('#CurrentProfession1').empty();
+
+                $('#CurrentProfession1').append('<input type="text" class="form-control"  name="CurrentOtherProfession" value="">')
+            }
+        });
+
+        $(document).on('change', '.PreviousProfession', function () {
+            //console.log("yes it is change");
+
+            var PreviousProfession = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(PreviousProfession=='7') {
+                $('#PreviousProfession1').empty();
+
+                $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousOtherProfession" value="">')
+            }
+        });
     });
 </script>

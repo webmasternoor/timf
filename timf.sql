@@ -13,10 +13,12 @@
 
 
 -- Dumping database structure for timf
+DROP DATABASE IF EXISTS `timf`;
 CREATE DATABASE IF NOT EXISTS `timf` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `timf`;
 
 -- Dumping structure for table timf.accommodations
+DROP TABLE IF EXISTS `accommodations`;
 CREATE TABLE IF NOT EXISTS `accommodations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -36,6 +38,7 @@ INSERT INTO `accommodations` (`id`, `name`, `others`, `created_at`, `updated_at`
 /*!40000 ALTER TABLE `accommodations` ENABLE KEYS */;
 
 -- Dumping structure for table timf.accommodationses
+DROP TABLE IF EXISTS `accommodationses`;
 CREATE TABLE IF NOT EXISTS `accommodationses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -51,6 +54,7 @@ DELETE FROM `accommodationses`;
 /*!40000 ALTER TABLE `accommodationses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.account_status
+DROP TABLE IF EXISTS `account_status`;
 CREATE TABLE IF NOT EXISTS `account_status` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `description` varchar(200) NOT NULL,
@@ -69,6 +73,7 @@ INSERT INTO `account_status` (`id`, `description`) VALUES
 /*!40000 ALTER TABLE `account_status` ENABLE KEYS */;
 
 -- Dumping structure for table timf.ages
+DROP TABLE IF EXISTS `ages`;
 CREATE TABLE IF NOT EXISTS `ages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `age` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -102,6 +107,7 @@ INSERT INTO `ages` (`id`, `age`, `others`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `ages` ENABLE KEYS */;
 
 -- Dumping structure for table timf.appformandpassbooks
+DROP TABLE IF EXISTS `appformandpassbooks`;
 CREATE TABLE IF NOT EXISTS `appformandpassbooks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `serial_no` int(11) DEFAULT NULL,
@@ -129,6 +135,7 @@ DELETE FROM `appformandpassbooks`;
 /*!40000 ALTER TABLE `appformandpassbooks` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas
+DROP TABLE IF EXISTS `areas`;
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -147,9 +154,9 @@ CREATE TABLE IF NOT EXISTS `areas` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.areas: ~6 rows (approximately)
+-- Dumping data for table timf.areas: ~8 rows (approximately)
 DELETE FROM `areas`;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
 INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaUnionId`, `AreaDivisionId`, `AreaWardId`, `AreaPostOfficeId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
@@ -158,10 +165,13 @@ INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaM
 	(3, NULL, 'Bagmara', '2003', 'fgf', NULL, 'hsd@gmail.com', '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	(4, NULL, 'Thengamara', '2004', 'dfgdg', '453', 'hsd@gmail.com', '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	(5, NULL, 'sujanogor', '2005', 'dfgfd', '4546', 'hsd@gmail.com', '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(6, NULL, 'rongpur', '2006', 'sedr', '5465', 'hsd@gmail.com', '5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(6, NULL, 'rongpur', '2006', 'sedr', '5465', 'hsd@gmail.com', '5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(7, NULL, 'Bagha', '2007', 'dfgdfgf', '4564646', 'hsd@gmail.com', '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(8, NULL, 'Vangura', '2008', 'dfdfg', '4546546', 'hsd@gmail.com', '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas_feb_1
+DROP TABLE IF EXISTS `areas_feb_1`;
 CREATE TABLE IF NOT EXISTS `areas_feb_1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -186,6 +196,7 @@ INSERT INTO `areas_feb_1` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, 
 /*!40000 ALTER TABLE `areas_feb_1` ENABLE KEYS */;
 
 -- Dumping structure for table timf.assets
+DROP TABLE IF EXISTS `assets`;
 CREATE TABLE IF NOT EXISTS `assets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -203,6 +214,7 @@ INSERT INTO `assets` (`id`, `name`, `AssetDescription`, `created_at`, `updated_a
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 
 -- Dumping structure for table timf.assets_debt_info
+DROP TABLE IF EXISTS `assets_debt_info`;
 CREATE TABLE IF NOT EXISTS `assets_debt_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) unsigned DEFAULT NULL,
@@ -219,6 +231,7 @@ DELETE FROM `assets_debt_info`;
 /*!40000 ALTER TABLE `assets_debt_info` ENABLE KEYS */;
 
 -- Dumping structure for table timf.blog_post
+DROP TABLE IF EXISTS `blog_post`;
 CREATE TABLE IF NOT EXISTS `blog_post` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -236,6 +249,7 @@ INSERT INTO `blog_post` (`id`, `title`, `description`, `created_at`, `updated_at
 /*!40000 ALTER TABLE `blog_post` ENABLE KEYS */;
 
 -- Dumping structure for table timf.brns
+DROP TABLE IF EXISTS `brns`;
 CREATE TABLE IF NOT EXISTS `brns` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -267,6 +281,7 @@ INSERT INTO `brns` (`id`, `name`, `ZoneId`, `AreaId`, `BranchName`, `BranchCode`
 /*!40000 ALTER TABLE `brns` ENABLE KEYS */;
 
 -- Dumping structure for table timf.brns_feb_1
+DROP TABLE IF EXISTS `brns_feb_1`;
 CREATE TABLE IF NOT EXISTS `brns_feb_1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -291,6 +306,7 @@ INSERT INTO `brns_feb_1` (`id`, `name`, `AreaId`, `BranchName`, `BranchCode`, `B
 /*!40000 ALTER TABLE `brns_feb_1` ENABLE KEYS */;
 
 -- Dumping structure for table timf.businessleaders
+DROP TABLE IF EXISTS `businessleaders`;
 CREATE TABLE IF NOT EXISTS `businessleaders` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -311,6 +327,7 @@ INSERT INTO `businessleaders` (`id`, `name`, `others`, `created_at`, `updated_at
 /*!40000 ALTER TABLE `businessleaders` ENABLE KEYS */;
 
 -- Dumping structure for table timf.businesstypes
+DROP TABLE IF EXISTS `businesstypes`;
 CREATE TABLE IF NOT EXISTS `businesstypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -334,6 +351,7 @@ INSERT INTO `businesstypes` (`id`, `name`, `others`, `created_at`, `updated_at`)
 /*!40000 ALTER TABLE `businesstypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.business_catagories
+DROP TABLE IF EXISTS `business_catagories`;
 CREATE TABLE IF NOT EXISTS `business_catagories` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -349,6 +367,7 @@ INSERT INTO `business_catagories` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `business_catagories` ENABLE KEYS */;
 
 -- Dumping structure for table timf.business_place_statuses
+DROP TABLE IF EXISTS `business_place_statuses`;
 CREATE TABLE IF NOT EXISTS `business_place_statuses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -369,6 +388,7 @@ INSERT INTO `business_place_statuses` (`id`, `name`, `others`, `created_at`, `up
 /*!40000 ALTER TABLE `business_place_statuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.bussinesscashinflows
+DROP TABLE IF EXISTS `bussinesscashinflows`;
 CREATE TABLE IF NOT EXISTS `bussinesscashinflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -387,6 +407,7 @@ INSERT INTO `bussinesscashinflows` (`id`, `name`, `ProductSaleDescription`, `cre
 /*!40000 ALTER TABLE `bussinesscashinflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.bussinesscashoutflows
+DROP TABLE IF EXISTS `bussinesscashoutflows`;
 CREATE TABLE IF NOT EXISTS `bussinesscashoutflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -406,6 +427,7 @@ INSERT INTO `bussinesscashoutflows` (`id`, `name`, `RowMaterialPurchageDescripti
 /*!40000 ALTER TABLE `bussinesscashoutflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cashinflows
+DROP TABLE IF EXISTS `cashinflows`;
 CREATE TABLE IF NOT EXISTS `cashinflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -425,6 +447,7 @@ INSERT INTO `cashinflows` (`id`, `name`, `TotalIncomeDescription`, `created_at`,
 /*!40000 ALTER TABLE `cashinflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cashoutflows
+DROP TABLE IF EXISTS `cashoutflows`;
 CREATE TABLE IF NOT EXISTS `cashoutflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -444,6 +467,7 @@ INSERT INTO `cashoutflows` (`id`, `name`, `TotalExpenditureDescription`, `create
 /*!40000 ALTER TABLE `cashoutflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cash_inflow
+DROP TABLE IF EXISTS `cash_inflow`;
 CREATE TABLE IF NOT EXISTS `cash_inflow` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -460,6 +484,7 @@ INSERT INTO `cash_inflow` (`id`, `name`, `description`) VALUES
 /*!40000 ALTER TABLE `cash_inflow` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cash_outflow
+DROP TABLE IF EXISTS `cash_outflow`;
 CREATE TABLE IF NOT EXISTS `cash_outflow` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -476,6 +501,7 @@ INSERT INTO `cash_outflow` (`id`, `name`, `description`) VALUES
 /*!40000 ALTER TABLE `cash_outflow` ENABLE KEYS */;
 
 -- Dumping structure for table timf.countrs
+DROP TABLE IF EXISTS `countrs`;
 CREATE TABLE IF NOT EXISTS `countrs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -720,6 +746,7 @@ INSERT INTO `countrs` (`id`, `name`, `CountryName`, `CountryCode`, `created_at`,
 /*!40000 ALTER TABLE `countrs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.counts
+DROP TABLE IF EXISTS `counts`;
 CREATE TABLE IF NOT EXISTS `counts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` int(11) DEFAULT NULL,
@@ -733,19 +760,20 @@ CREATE TABLE IF NOT EXISTS `counts` (
 DELETE FROM `counts`;
 /*!40000 ALTER TABLE `counts` DISABLE KEYS */;
 INSERT INTO `counts` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
-	(2, 1, NULL, NULL, NULL),
-	(3, 2, NULL, NULL, NULL),
-	(4, 3, NULL, NULL, NULL),
-	(5, 4, NULL, NULL, NULL),
-	(6, 5, NULL, NULL, NULL),
-	(7, 6, NULL, NULL, NULL),
-	(8, 7, NULL, NULL, NULL),
-	(9, 8, NULL, NULL, NULL),
-	(10, 9, NULL, NULL, NULL),
-	(11, 10, NULL, NULL, NULL);
+	(1, 1, NULL, NULL, NULL),
+	(2, 2, NULL, NULL, NULL),
+	(3, 3, NULL, NULL, NULL),
+	(4, 4, NULL, NULL, NULL),
+	(5, 5, NULL, NULL, NULL),
+	(6, 6, NULL, NULL, NULL),
+	(7, 7, NULL, NULL, NULL),
+	(8, 8, NULL, NULL, NULL),
+	(9, 9, NULL, NULL, NULL),
+	(10, 10, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `counts` ENABLE KEYS */;
 
 -- Dumping structure for table timf.departments
+DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -761,6 +789,7 @@ INSERT INTO `departments` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 
 -- Dumping structure for table timf.directions
+DROP TABLE IF EXISTS `directions`;
 CREATE TABLE IF NOT EXISTS `directions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -781,6 +810,7 @@ INSERT INTO `directions` (`id`, `name`, `others`, `created_at`, `updated_at`) VA
 /*!40000 ALTER TABLE `directions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.districts
+DROP TABLE IF EXISTS `districts`;
 CREATE TABLE IF NOT EXISTS `districts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `DistrictName` varchar(500) DEFAULT NULL,
@@ -866,6 +896,7 @@ INSERT INTO `districts` (`id`, `DistrictName`, `DistrictNameBangla`, `DivisionId
 /*!40000 ALTER TABLE `districts` ENABLE KEYS */;
 
 -- Dumping structure for table timf.divisions
+DROP TABLE IF EXISTS `divisions`;
 CREATE TABLE IF NOT EXISTS `divisions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -893,6 +924,7 @@ INSERT INTO `divisions` (`id`, `name`, `DivisionName`, `DivisionNameBangla`, `Te
 /*!40000 ALTER TABLE `divisions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.dpsapplications
+DROP TABLE IF EXISTS `dpsapplications`;
 CREATE TABLE IF NOT EXISTS `dpsapplications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -911,6 +943,7 @@ DELETE FROM `dpsapplications`;
 /*!40000 ALTER TABLE `dpsapplications` ENABLE KEYS */;
 
 -- Dumping structure for table timf.education
+DROP TABLE IF EXISTS `education`;
 CREATE TABLE IF NOT EXISTS `education` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -933,6 +966,7 @@ INSERT INTO `education` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `education` ENABLE KEYS */;
 
 -- Dumping structure for table timf.familytypes
+DROP TABLE IF EXISTS `familytypes`;
 CREATE TABLE IF NOT EXISTS `familytypes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -940,7 +974,7 @@ CREATE TABLE IF NOT EXISTS `familytypes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.familytypes: ~0 rows (approximately)
 DELETE FROM `familytypes`;
@@ -948,6 +982,7 @@ DELETE FROM `familytypes`;
 /*!40000 ALTER TABLE `familytypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.genders
+DROP TABLE IF EXISTS `genders`;
 CREATE TABLE IF NOT EXISTS `genders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -967,6 +1002,7 @@ INSERT INTO `genders` (`id`, `name`, `GenderName`, `created_at`, `updated_at`) V
 /*!40000 ALTER TABLE `genders` ENABLE KEYS */;
 
 -- Dumping structure for table timf.graces
+DROP TABLE IF EXISTS `graces`;
 CREATE TABLE IF NOT EXISTS `graces` (
   `id` int(11) NOT NULL,
   `GraceId` varchar(500) DEFAULT NULL,
@@ -991,6 +1027,7 @@ INSERT INTO `graces` (`id`, `GraceId`, `name`, `SomitiName`, `MemberName`, `Grac
 /*!40000 ALTER TABLE `graces` ENABLE KEYS */;
 
 -- Dumping structure for table timf.grades
+DROP TABLE IF EXISTS `grades`;
 CREATE TABLE IF NOT EXISTS `grades` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1032,6 +1069,7 @@ INSERT INTO `grades` (`id`, `name`, `designation`, `created_at`, `updated_at`) V
 /*!40000 ALTER TABLE `grades` ENABLE KEYS */;
 
 -- Dumping structure for table timf.holidays
+DROP TABLE IF EXISTS `holidays`;
 CREATE TABLE IF NOT EXISTS `holidays` (
   `id` int(11) NOT NULL,
   `OfficeId` int(11) NOT NULL DEFAULT '0',
@@ -1057,6 +1095,7 @@ INSERT INTO `holidays` (`id`, `OfficeId`, `SamityID_CenterID`, `HolidayyName`, `
 /*!40000 ALTER TABLE `holidays` ENABLE KEYS */;
 
 -- Dumping structure for table timf.investments
+DROP TABLE IF EXISTS `investments`;
 CREATE TABLE IF NOT EXISTS `investments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1079,6 +1118,7 @@ INSERT INTO `investments` (`id`, `name`, `InvestmentyName`, `TransactionEntryDat
 /*!40000 ALTER TABLE `investments` ENABLE KEYS */;
 
 -- Dumping structure for table timf.investors
+DROP TABLE IF EXISTS `investors`;
 CREATE TABLE IF NOT EXISTS `investors` (
   `id` int(11) NOT NULL,
   `InvestorCode` varchar(500) DEFAULT NULL,
@@ -1099,6 +1139,7 @@ INSERT INTO `investors` (`id`, `InvestorCode`, `InvestorName`, `name`, `created_
 /*!40000 ALTER TABLE `investors` ENABLE KEYS */;
 
 -- Dumping structure for table timf.invsummary
+DROP TABLE IF EXISTS `invsummary`;
 CREATE TABLE IF NOT EXISTS `invsummary` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1117,6 +1158,7 @@ DELETE FROM `invsummary`;
 /*!40000 ALTER TABLE `invsummary` ENABLE KEYS */;
 
 -- Dumping structure for table timf.jamindars
+DROP TABLE IF EXISTS `jamindars`;
 CREATE TABLE IF NOT EXISTS `jamindars` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1176,6 +1218,7 @@ INSERT INTO `jamindars` (`id`, `name`, `Nid`, `JamindarNameTitle`, `JamindarFirs
 /*!40000 ALTER TABLE `jamindars` ENABLE KEYS */;
 
 -- Dumping structure for table timf.liabs
+DROP TABLE IF EXISTS `liabs`;
 CREATE TABLE IF NOT EXISTS `liabs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1193,6 +1236,7 @@ INSERT INTO `liabs` (`id`, `name`, `LiabilitiesDescription`, `created_at`, `upda
 /*!40000 ALTER TABLE `liabs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.licenceauthorities
+DROP TABLE IF EXISTS `licenceauthorities`;
 CREATE TABLE IF NOT EXISTS `licenceauthorities` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1212,6 +1256,7 @@ INSERT INTO `licenceauthorities` (`id`, `name`, `others`, `created_at`, `updated
 /*!40000 ALTER TABLE `licenceauthorities` ENABLE KEYS */;
 
 -- Dumping structure for table timf.loans
+DROP TABLE IF EXISTS `loans`;
 CREATE TABLE IF NOT EXISTS `loans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -1327,6 +1372,7 @@ INSERT INTO `loans` (`id`, `name`, `Nid`, `JobOrgName`, `JobOrgPlace`, `JobIdNo`
 /*!40000 ALTER TABLE `loans` ENABLE KEYS */;
 
 -- Dumping structure for table timf.maritalstatuses
+DROP TABLE IF EXISTS `maritalstatuses`;
 CREATE TABLE IF NOT EXISTS `maritalstatuses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1348,6 +1394,7 @@ INSERT INTO `maritalstatuses` (`id`, `name`, `others`, `created_at`, `updated_at
 /*!40000 ALTER TABLE `maritalstatuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.members
+DROP TABLE IF EXISTS `members`;
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1424,6 +1471,7 @@ INSERT INTO `members` (`id`, `name`, `MemberImage`, `NameTitle`, `FirstName`, `L
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 
 -- Dumping structure for table timf.migrations
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
@@ -1442,6 +1490,7 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table timf.nametitles
+DROP TABLE IF EXISTS `nametitles`;
 CREATE TABLE IF NOT EXISTS `nametitles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1461,6 +1510,7 @@ INSERT INTO `nametitles` (`id`, `name`, `others`, `created_at`, `updated_at`) VA
 /*!40000 ALTER TABLE `nametitles` ENABLE KEYS */;
 
 -- Dumping structure for table timf.organizations
+DROP TABLE IF EXISTS `organizations`;
 CREATE TABLE IF NOT EXISTS `organizations` (
   `id` int(11) NOT NULL,
   `OrganizationCode` varchar(500) DEFAULT NULL,
@@ -1492,6 +1542,7 @@ INSERT INTO `organizations` (`id`, `OrganizationCode`, `OrganizationName`, `Orga
 /*!40000 ALTER TABLE `organizations` ENABLE KEYS */;
 
 -- Dumping structure for table timf.othersources
+DROP TABLE IF EXISTS `othersources`;
 CREATE TABLE IF NOT EXISTS `othersources` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1513,6 +1564,7 @@ INSERT INTO `othersources` (`id`, `name`, `others`, `created_at`, `updated_at`) 
 /*!40000 ALTER TABLE `othersources` ENABLE KEYS */;
 
 -- Dumping structure for table timf.ownershiptypes
+DROP TABLE IF EXISTS `ownershiptypes`;
 CREATE TABLE IF NOT EXISTS `ownershiptypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1531,6 +1583,7 @@ INSERT INTO `ownershiptypes` (`id`, `name`, `others`, `created_at`, `updated_at`
 /*!40000 ALTER TABLE `ownershiptypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.password_resets
+DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1545,6 +1598,7 @@ DELETE FROM `password_resets`;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
 -- Dumping structure for table timf.permanentemployees
+DROP TABLE IF EXISTS `permanentemployees`;
 CREATE TABLE IF NOT EXISTS `permanentemployees` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1571,6 +1625,7 @@ INSERT INTO `permanentemployees` (`id`, `name`, `others`, `created_at`, `updated
 /*!40000 ALTER TABLE `permanentemployees` ENABLE KEYS */;
 
 -- Dumping structure for table timf.politicalstatuses
+DROP TABLE IF EXISTS `politicalstatuses`;
 CREATE TABLE IF NOT EXISTS `politicalstatuses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1589,6 +1644,7 @@ INSERT INTO `politicalstatuses` (`id`, `name`, `others`, `created_at`, `updated_
 /*!40000 ALTER TABLE `politicalstatuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.postoffices
+DROP TABLE IF EXISTS `postoffices`;
 CREATE TABLE IF NOT EXISTS `postoffices` (
   `id` int(11) NOT NULL,
   `PostofficeName` varchar(500) DEFAULT NULL,
@@ -1607,6 +1663,7 @@ INSERT INTO `postoffices` (`id`, `PostofficeName`, `ThanaCode`, `name`, `created
 /*!40000 ALTER TABLE `postoffices` ENABLE KEYS */;
 
 -- Dumping structure for table timf.posts
+DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -2124,6 +2181,7 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `created_at`, `updated_at`) VALUE
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
 -- Dumping structure for table timf.processtbl
+DROP TABLE IF EXISTS `processtbl`;
 CREATE TABLE IF NOT EXISTS `processtbl` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2142,6 +2200,7 @@ DELETE FROM `processtbl`;
 /*!40000 ALTER TABLE `processtbl` ENABLE KEYS */;
 
 -- Dumping structure for table timf.prodscheinvest
+DROP TABLE IF EXISTS `prodscheinvest`;
 CREATE TABLE IF NOT EXISTS `prodscheinvest` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2159,6 +2218,7 @@ DELETE FROM `prodscheinvest`;
 /*!40000 ALTER TABLE `prodscheinvest` ENABLE KEYS */;
 
 -- Dumping structure for table timf.prodschesav
+DROP TABLE IF EXISTS `prodschesav`;
 CREATE TABLE IF NOT EXISTS `prodschesav` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2176,6 +2236,7 @@ DELETE FROM `prodschesav`;
 /*!40000 ALTER TABLE `prodschesav` ENABLE KEYS */;
 
 -- Dumping structure for table timf.products
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL,
   `ProductCode` varchar(500) DEFAULT NULL,
@@ -2212,6 +2273,7 @@ INSERT INTO `products` (`id`, `ProductCode`, `ProductName`, `ProductNameEng`, `P
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table timf.producttypes
+DROP TABLE IF EXISTS `producttypes`;
 CREATE TABLE IF NOT EXISTS `producttypes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2234,6 +2296,7 @@ INSERT INTO `producttypes` (`id`, `name`, `ProducttypeyName`, `ProducttypeyCode`
 /*!40000 ALTER TABLE `producttypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.professions
+DROP TABLE IF EXISTS `professions`;
 CREATE TABLE IF NOT EXISTS `professions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2241,9 +2304,9 @@ CREATE TABLE IF NOT EXISTS `professions` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.professions: ~6 rows (approximately)
+-- Dumping data for table timf.professions: ~7 rows (approximately)
 DELETE FROM `professions`;
 /*!40000 ALTER TABLE `professions` DISABLE KEYS */;
 INSERT INTO `professions` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
@@ -2253,10 +2316,12 @@ INSERT INTO `professions` (`id`, `name`, `others`, `created_at`, `updated_at`) V
 	(4, 'Car Driving', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(5, 'Day Labour', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(6, 'Engineer', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(7, 'Others', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(7, 'Others', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(8, 'Van', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `professions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.purposes
+DROP TABLE IF EXISTS `purposes`;
 CREATE TABLE IF NOT EXISTS `purposes` (
   `id` int(11) NOT NULL,
   `name` varchar(500) DEFAULT NULL,
@@ -2276,6 +2341,7 @@ INSERT INTO `purposes` (`id`, `name`, `PurposeCode`, `PurposeName`, `created_at`
 /*!40000 ALTER TABLE `purposes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.saving1s
+DROP TABLE IF EXISTS `saving1s`;
 CREATE TABLE IF NOT EXISTS `saving1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2293,6 +2359,7 @@ DELETE FROM `saving1s`;
 /*!40000 ALTER TABLE `saving1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savings
+DROP TABLE IF EXISTS `savings`;
 CREATE TABLE IF NOT EXISTS `savings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `serial_no` int(11) DEFAULT NULL,
@@ -2315,6 +2382,7 @@ DELETE FROM `savings`;
 /*!40000 ALTER TABLE `savings` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savsummary
+DROP TABLE IF EXISTS `savsummary`;
 CREATE TABLE IF NOT EXISTS `savsummary` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2333,6 +2401,7 @@ DELETE FROM `savsummary`;
 /*!40000 ALTER TABLE `savsummary` ENABLE KEYS */;
 
 -- Dumping structure for table timf.shares
+DROP TABLE IF EXISTS `shares`;
 CREATE TABLE IF NOT EXISTS `shares` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2355,6 +2424,7 @@ DELETE FROM `shares`;
 /*!40000 ALTER TABLE `shares` ENABLE KEYS */;
 
 -- Dumping structure for table timf.statuses
+DROP TABLE IF EXISTS `statuses`;
 CREATE TABLE IF NOT EXISTS `statuses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2373,13 +2443,14 @@ INSERT INTO `statuses` (`id`, `name`, `Status`, `created_at`, `updated_at`) VALU
 /*!40000 ALTER TABLE `statuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.surveys
+DROP TABLE IF EXISTS `surveys`;
 CREATE TABLE IF NOT EXISTS `surveys` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `SurveyCode` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `ZoneId` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `AreaId` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `BranchId` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ZoneId` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `AreaId` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `BranchId` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `NameTitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `FirstName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `LastName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2394,109 +2465,113 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `WifeLastName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `WifeFamilyName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `WifeAge` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `WifeOtherProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `WifeOtherProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `WifeMobileNo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `WifeProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `FatherOrHasbandNAmeTitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `FatherOrHasbandFirstName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `FatherOrHasbandLastName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `FatherOrHasbandAge` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FatherProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FatherOtherProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FatherOrHasbandFamilyName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FatherMobileNo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MatherNameTitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MotherFirstName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MotherLastName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MotherFamilyName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MotherAge` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MotherProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MotherOtherProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MotherMobileNo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SpouseProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MaritalStatus` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PoliticalStatus` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Nid` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentCountry` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentDistrict` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentThana` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentUnion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentPostOffice` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentWord` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentVillage` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PresentRoadNo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentCountry` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentDistrict` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentThana` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentUnion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentPostOffice` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentWord` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentVillage` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PermanentRoadNo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Mobile` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SpouseMobileNo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Distance` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `CurrentProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PreviousProfessiion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `DorationOfPreviousProfession` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `EarningAssetsByBusinessOrJob` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `EarningSourceWithoutBusiness` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `BusinessType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `BusinessFrturePlan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FamilyMebmer` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `EarningMale` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `EarningFemale` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `EarningPerson` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MaleMember` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FemaleMenber` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FamilyType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SickDescripotionOfFamilyMember` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `CaseDescriptionOfFamilyMember` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `IfAnyMemberInAbroad` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `CultiviableLand` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `NonCultivableLand` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Pond` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `House` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `TotalLand` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `AgriculturalEarning` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `NonAgriculturalEarning` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `TotalEarning` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `TotalExpenditure` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `NetBalance` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `TinMadeHouse` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `StrawMadeHouse` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `BrickMadeHouse` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `ReceivedAmount` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `PaidAmount` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `RemainingAmountToPay` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `RepaymentType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `FinancierCompany` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `LoaningYear` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `LastReceivedDate` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `LastReceivedDate1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `IsHeSheWillingToTakeLoan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `InvestmentSector` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Amount` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Comment1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Comment2` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `unitprice` decimal(10,0) NOT NULL,
-  `JoinDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `FatherProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FatherOtherProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FatherOrHasbandFamilyName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FatherMobileNo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MatherNameTitle` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MotherFirstName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MotherLastName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MotherFamilyName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MotherAge` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MotherProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MotherOtherProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MotherMobileNo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SpouseProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MaritalStatus` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PoliticalStatus` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Nid` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentCountry` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentDivision` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentDistrict` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentThana` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentUnion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentPostOffice` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentWord` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentVillage` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PresentRoadNo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentCountry` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentDistrict` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentDivision` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentThana` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentUnion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentPostOffice` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentWord` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentVillage` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PermanentRoadNo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Mobile` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SpouseMobileNo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Distance` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CurrentProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PreviousProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DurationOfPreviousProfession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EarningAssetsByBusinessOrJob` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EarningSourceWithoutBusiness` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `BusinessType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `BusinessFuturePlan` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FamilyMember` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EarningMale` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EarningFemale` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EarningPerson` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MaleMember` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FemaleMember` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FamilyType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SickDescriptionOfFamilyMember` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CaseDescriptionOfFamilyMember` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IfAnyMemberInAbroad` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CultiviableLand` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NonCultivableLand` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Pond` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `House` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TotalLand` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `AgriculturalEarning` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NonAgriculturalEarning` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TotalEarning` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TotalExpenditure` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NetBalance` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TinMadeHouse` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `StrawMadeHouse` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `BrickMadeHouse` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ReceivedAmount` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PaidAmount` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `RemainingAmountToPay` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `RepaymentType` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FinancierCompany` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LoaningYear` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LastReceivedDate` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LastReceivedDate1` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IsHeSheWillingToTakeLoan` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `InvestmentSector` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Amount` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Comment1` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Comment2` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `unitprice` decimal(10,0) DEFAULT NULL,
+  `JoinDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.surveys: ~3 rows (approximately)
+-- Dumping data for table timf.surveys: ~4 rows (approximately)
 DELETE FROM `surveys`;
 /*!40000 ALTER TABLE `surveys` DISABLE KEYS */;
-INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `AreaId`, `BranchId`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeOtherProfession`, `WifeMobileNo`, `WifeProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherOtherProfession`, `FatherOrHasbandFamilyName`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherOtherProfession`, `MotherMobileNo`, `SpouseProfession`, `MaritalStatus`, `PoliticalStatus`, `Nid`, `PresentCountry`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `Mobile`, `Email`, `SpouseMobileNo`, `Distance`, `CurrentProfession`, `PreviousProfessiion`, `DorationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType`, `BusinessFrturePlan`, `FamilyMebmer`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMenber`, `FamilyType`, `SickDescripotionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `RepaymentType`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `LastReceivedDate1`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `unitprice`, `JoinDate`, `created_at`, `updated_at`) VALUES
-	(1, '', '', '5', '2', '1', 'Mr.', 'Rockey', 'Alam', 'hawlader', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '789', '1', '1', '6', '2', '5', '5', '', '', '1', '1', '6', '2', '5', '5', '', '', '', 'rockey@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-05 16:54:22', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
-	(2, '', '', '4', '2', '1', 'Mr.', 'Noor', 'Alam', 'Khan', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '123', '1', '1', '6', '2', '5', '5', '', '', '1', '1', '6', '2', '5', '5', '', '', '', 'noor@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-05 16:54:32', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
-	(3, '', '', '1', '2', '1', 'Mr.', 'Zia', 'Alam', 'rahman', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '456', '1', '1', '6', '2', '5', '5', '', '', '1', '1', '6', '2', '5', '5', '', '', '', 'zia@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-05 16:52:13', '2017-01-22 05:41:07', '2017-01-22 05:41:07');
+INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `AreaId`, `BranchId`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeOtherProfession`, `WifeMobileNo`, `WifeProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherOtherProfession`, `FatherOrHasbandFamilyName`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherOtherProfession`, `MotherMobileNo`, `SpouseProfession`, `MaritalStatus`, `PoliticalStatus`, `Nid`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDistrict`, `PermanentDivision`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `Mobile`, `Email`, `SpouseMobileNo`, `Distance`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `FamilyType`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `RepaymentType`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `LastReceivedDate1`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `unitprice`, `JoinDate`, `created_at`, `updated_at`) VALUES
+	(1, '', '', '5', '5', '1', '1', 'Rockey', 'Alam', 'hawlader', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '789', '1', '', '1', '6', '2', '5', '5', '', '', '1', '1', '', '6', '2', '5', '5', '', '', '', 'rockey@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-08 09:45:19', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
+	(2, '', '', '4', '2', '1', '1', 'Noor', 'Alam', 'Khan', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '123', '1', '', '1', '6', '2', '5', '5', '', '', '1', '1', '', '6', '2', '5', '5', '', '', '', 'noor@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-08 09:45:20', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
+	(3, '', '', '1', '2', '1', '1', 'Zia', 'Alam', 'rahman', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '456', '1', '', '1', '6', '2', '5', '5', '', '', '1', '1', '', '6', '2', '5', '5', '', '', '', 'zia@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-08 09:45:22', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
+	(4, '', '', '4', '5', '1', '1', 'Rockey', 'Ahmed', 'Molla', 'মোঃ রকি আহমেদ', '1', '17', '5', '15', '2', 'hortoki', 'begom', 'choudhury', '17', NULL, '23435', 'Engineer', '1', 'Tofazzal', 'Hussain', '1', 'Agriculture', NULL, 'Molla', '21342543', '2', 'Rabeya', 'Khatun', 'pk', '17', 'Service Holder', NULL, '2343252', 'van', '3', '2', '987', '17', NULL, '23', '374', '20', '5', '1', 'Koladi', '234', '17', '23', NULL, '374', '20', '5', '1', 'Koladi', '234', '232435', 'rockeycse@gmail.com', '2142353', '2', 'Engineer', 'Day Labour', '23', '234', 'sdagfadg', '2', 'sadfgd', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, NULL, '2017-02-08 09:36:18', '2017-02-08 09:36:18');
 /*!40000 ALTER TABLE `surveys` ENABLE KEYS */;
 
 -- Dumping structure for table timf.taggables
+DROP TABLE IF EXISTS `taggables`;
 CREATE TABLE IF NOT EXISTS `taggables` (
   `tag_id` int(10) unsigned NOT NULL,
   `taggable_id` int(10) unsigned NOT NULL,
@@ -5017,6 +5092,7 @@ INSERT INTO `taggables` (`tag_id`, `taggable_id`, `taggable_type`) VALUES
 /*!40000 ALTER TABLE `taggables` ENABLE KEYS */;
 
 -- Dumping structure for table timf.tags
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -5034,6 +5110,7 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 
 -- Dumping structure for table timf.test1s
+DROP TABLE IF EXISTS `test1s`;
 CREATE TABLE IF NOT EXISTS `test1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -5057,6 +5134,7 @@ INSERT INTO `test1s` (`id`, `name`, `Test1Code`, `name23`, `email23`, `unitprice
 /*!40000 ALTER TABLE `test1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.tests
+DROP TABLE IF EXISTS `tests`;
 CREATE TABLE IF NOT EXISTS `tests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -5079,6 +5157,7 @@ INSERT INTO `tests` (`id`, `name`, `TestCode`, `unitprice`, `created_at`, `updat
 /*!40000 ALTER TABLE `tests` ENABLE KEYS */;
 
 -- Dumping structure for table timf.thanas
+DROP TABLE IF EXISTS `thanas`;
 CREATE TABLE IF NOT EXISTS `thanas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ThanaNameBangla` varchar(500) DEFAULT NULL,
@@ -5590,6 +5669,7 @@ INSERT INTO `thanas` (`id`, `ThanaNameBangla`, `ThanaName`, `DistrictId`, `name`
 /*!40000 ALTER TABLE `thanas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.unions
+DROP TABLE IF EXISTS `unions`;
 CREATE TABLE IF NOT EXISTS `unions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `UnionName` varchar(500) NOT NULL,
@@ -5627,6 +5707,7 @@ INSERT INTO `unions` (`id`, `UnionName`, `name`, `ThanaId`, `created_at`, `updat
 /*!40000 ALTER TABLE `unions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -6149,6 +6230,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs
+DROP TABLE IF EXISTS `userstimfs`;
 CREATE TABLE IF NOT EXISTS `userstimfs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -6194,6 +6276,7 @@ INSERT INTO `userstimfs` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`, `emp
 /*!40000 ALTER TABLE `userstimfs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_2
+DROP TABLE IF EXISTS `userstimfs_feb_2`;
 CREATE TABLE IF NOT EXISTS `userstimfs_feb_2` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -6236,6 +6319,7 @@ INSERT INTO `userstimfs_feb_2` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`
 /*!40000 ALTER TABLE `userstimfs_feb_2` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_3
+DROP TABLE IF EXISTS `userstimfs_feb_3`;
 CREATE TABLE IF NOT EXISTS `userstimfs_feb_3` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -6280,6 +6364,7 @@ INSERT INTO `userstimfs_feb_3` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`
 /*!40000 ALTER TABLE `userstimfs_feb_3` ENABLE KEYS */;
 
 -- Dumping structure for table timf.user_post
+DROP TABLE IF EXISTS `user_post`;
 CREATE TABLE IF NOT EXISTS `user_post` (
   `user_id` int(10) unsigned NOT NULL,
   `post_id` int(10) unsigned NOT NULL,
@@ -6295,6 +6380,7 @@ DELETE FROM `user_post`;
 /*!40000 ALTER TABLE `user_post` ENABLE KEYS */;
 
 -- Dumping structure for table timf.wards
+DROP TABLE IF EXISTS `wards`;
 CREATE TABLE IF NOT EXISTS `wards` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `WardName` varchar(500) DEFAULT NULL,
@@ -6313,6 +6399,7 @@ INSERT INTO `wards` (`id`, `WardName`, `UnionId`, `name`, `created_at`, `updated
 /*!40000 ALTER TABLE `wards` ENABLE KEYS */;
 
 -- Dumping structure for table timf.weekends
+DROP TABLE IF EXISTS `weekends`;
 CREATE TABLE IF NOT EXISTS `weekends` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -6336,6 +6423,7 @@ INSERT INTO `weekends` (`id`, `name`, `others`, `created_at`, `updated_at`) VALU
 /*!40000 ALTER TABLE `weekends` ENABLE KEYS */;
 
 -- Dumping structure for table timf.year_calendars
+DROP TABLE IF EXISTS `year_calendars`;
 CREATE TABLE IF NOT EXISTS `year_calendars` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(20) NOT NULL,
@@ -6392,6 +6480,7 @@ INSERT INTO `year_calendars` (`id`, `Name`, `Note`, `CreatedAt`, `UpdatedAt`) VA
 /*!40000 ALTER TABLE `year_calendars` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zone1s
+DROP TABLE IF EXISTS `zone1s`;
 CREATE TABLE IF NOT EXISTS `zone1s` (
   `id` int(11) NOT NULL,
   `name` varchar(500) DEFAULT NULL,
@@ -6416,6 +6505,7 @@ INSERT INTO `zone1s` (`id`, `name`, `OfficeId`, `Zone1Name`, `SomitiName`, `Sami
 /*!40000 ALTER TABLE `zone1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones
+DROP TABLE IF EXISTS `zones`;
 CREATE TABLE IF NOT EXISTS `zones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -6448,6 +6538,7 @@ INSERT INTO `zones` (`id`, `name`, `ZoneName`, `ZoneEmail`, `ZoneCode`, `ZoneAdd
 /*!40000 ALTER TABLE `zones` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones_feb_1
+DROP TABLE IF EXISTS `zones_feb_1`;
 CREATE TABLE IF NOT EXISTS `zones_feb_1` (
   `id` int(11) NOT NULL,
   `name` varchar(500) DEFAULT NULL,
