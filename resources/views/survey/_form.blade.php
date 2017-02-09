@@ -1090,7 +1090,7 @@ position: relative;">&nbsp;</p>
                 data: {'id': ZoneId},
                 success: function (data) {
                     $.each(data, function (index, subcatObjArea) {
-                        $('#AreaId').append('<option value="'+subcatObjArea.id+'" id="AreaId1">'+subcatObjArea.AreaName +'</option>')
+                        $('#AreaId').append('<option value="'+subcatObjArea.id+'" >'+subcatObjArea.AreaName +'</option>')
                     });
                 },
                 error: function () {
@@ -1113,7 +1113,7 @@ position: relative;">&nbsp;</p>
                 data: {'id': AreaId},
                 success: function (data) {
                     $.each(data, function (index, subcatObjBranch) {
-                        $('#BranchId').append('<option value="'+subcatObjBranch.id+'" id="BranchId1">'+subcatObjBranch.BranchName +'</option>')
+                        $('#BranchId').append('<option value="'+subcatObjBranch.id+'">'+subcatObjBranch.BranchName +'</option>')
                     });
                 },
                 error: function () {

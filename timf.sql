@@ -46,11 +46,15 @@ CREATE TABLE IF NOT EXISTS `accommodationses` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.accommodationses: ~0 rows (approximately)
+-- Dumping data for table timf.accommodationses: ~3 rows (approximately)
 DELETE FROM `accommodationses`;
 /*!40000 ALTER TABLE `accommodationses` DISABLE KEYS */;
+INSERT INTO `accommodationses` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
+	(1, 'পাকা', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2, 'সেমি-পাকা', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(3, 'কাঁচা', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `accommodationses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.account_status
@@ -81,9 +85,9 @@ CREATE TABLE IF NOT EXISTS `ages` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.ages: ~15 rows (approximately)
+-- Dumping data for table timf.ages: ~40 rows (approximately)
 DELETE FROM `ages`;
 /*!40000 ALTER TABLE `ages` DISABLE KEYS */;
 INSERT INTO `ages` (`id`, `age`, `others`, `created_at`, `updated_at`) VALUES
@@ -103,7 +107,30 @@ INSERT INTO `ages` (`id`, `age`, `others`, `created_at`, `updated_at`) VALUES
 	(14, '14', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(15, '15', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(16, '16', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(17, '17', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(17, '17', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(18, '18', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(19, '19', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(20, '20', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(21, '21', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(22, '22', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(23, '23', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(24, '24', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(25, '25', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(26, '26', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(27, '27', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(28, '28', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(29, '29', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(30, '30', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(31, '31', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(32, '32', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(33, '33', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(34, '34', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(35, '35', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(36, '36', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(37, '37', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(38, '38', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(39, '39', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(40, '40', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `ages` ENABLE KEYS */;
 
 -- Dumping structure for table timf.appformandpassbooks
@@ -154,20 +181,17 @@ CREATE TABLE IF NOT EXISTS `areas` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.areas: ~8 rows (approximately)
+-- Dumping data for table timf.areas: ~0 rows (approximately)
 DELETE FROM `areas`;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
 INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaUnionId`, `AreaDivisionId`, `AreaWardId`, `AreaPostOfficeId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 'Hemayetpur', '2001', 'aa', '3', 'hsd@gmail.com', '1', 1, 3, 1, 1, 5, 1, '2017-02-02 04:08:07', '2017-02-02 04:08:07'),
-	(2, NULL, 'Savar', '2002', '45', NULL, 'hsd@gmail.com', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(3, NULL, 'Bagmara', '2003', 'fgf', NULL, 'hsd@gmail.com', '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(4, NULL, 'Thengamara', '2004', 'dfgdg', '453', 'hsd@gmail.com', '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(5, NULL, 'sujanogor', '2005', 'dfgfd', '4546', 'hsd@gmail.com', '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(6, NULL, 'rongpur', '2006', 'sedr', '5465', 'hsd@gmail.com', '5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(7, NULL, 'Bagha', '2007', 'dfgdfgf', '4564646', 'hsd@gmail.com', '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(8, NULL, 'Vangura', '2008', 'dfdfg', '4546546', 'hsd@gmail.com', '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(1, NULL, 'Pabna', '2001', 'Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 1, 5, 1, 2, 374, '2017-02-09 10:37:27', '2017-02-09 10:37:27'),
+	(2, NULL, 'Sujanagor', '2002', 'Sujanagor, Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 2, 5, 5, 4, 374, '2017-02-09 10:38:25', '2017-02-09 10:38:25'),
+	(3, NULL, 'Atgharia', '2003', 'Atgharia, Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 1, 5, 1, 1, 368, '2017-02-09 10:39:52', '2017-02-09 10:39:52'),
+	(4, NULL, 'Ataikula', '2004', 'Ataikula, Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 1, 5, 3, 3, 374, '2017-02-09 10:41:08', '2017-02-09 10:41:08'),
+	(5, NULL, 'Shanthia', '2005', 'Shanthia, Pabna', '01738349723', 'rockeycse@gmail.com', '1', 23, 3, 5, 4, 1, 374, '2017-02-09 10:42:37', '2017-02-09 10:42:37');
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas_feb_1
@@ -269,15 +293,16 @@ CREATE TABLE IF NOT EXISTS `brns` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.brns: ~3 rows (approximately)
+-- Dumping data for table timf.brns: ~0 rows (approximately)
 DELETE FROM `brns`;
 /*!40000 ALTER TABLE `brns` DISABLE KEYS */;
 INSERT INTO `brns` (`id`, `name`, `ZoneId`, `AreaId`, `BranchName`, `BranchCode`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `BranchDivisionId`, `BranchUnionId`, `BranchWardId`, `BranchPostOfficeId`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 4, 5, 'Dublia', '3001', 'sa', '1', '1@gmail.com', 1, 1, 1, 3, 1, 5, '2017-02-02 04:16:13', '2017-02-02 04:16:13'),
-	(2, NULL, 4, 5, 'Koladi', '3002', 'dfgdg', '123', '1@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(3, NULL, 4, 5, 'Satbaria', '3002', 'dfdg', '12324', '1@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(1, NULL, 4, 1, 'Koladi', '3001', 'Koladi, Dublia, Pabna', '01738349723', 'rockeycse@gmail.com', 374, 23, 5, 1, 1, 2, '2017-02-09 10:44:10', '2017-02-09 10:44:10'),
+	(2, NULL, 4, 1, 'Dublia', '3002', 'Dublia, Pabna', '01738349723', 'rockeycse@gmail.com', 374, 23, 5, 2, 5, 2, '2017-02-09 10:45:00', '2017-02-09 10:45:12'),
+	(3, NULL, 4, 1, 'Shadullapur', '3003', 'Shadullapur, Pabna', '01738349723', 'rockeycse@gmail.com', 374, 23, 5, 2, 5, 1, '2017-02-09 10:46:05', '2017-02-09 10:46:05'),
+	(4, NULL, 4, 1, 'Varara', '3004', 'Varara, Pabna', '01738349723', 'rockeycse@gmail.com', 374, 23, 5, 1, 3, 1, '2017-02-09 10:47:29', '2017-02-09 10:47:29');
 /*!40000 ALTER TABLE `brns` ENABLE KEYS */;
 
 -- Dumping structure for table timf.brns_feb_1
@@ -396,14 +421,11 @@ CREATE TABLE IF NOT EXISTS `bussinesscashinflows` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.bussinesscashinflows: ~2 rows (approximately)
+-- Dumping data for table timf.bussinesscashinflows: ~0 rows (approximately)
 DELETE FROM `bussinesscashinflows`;
 /*!40000 ALTER TABLE `bussinesscashinflows` DISABLE KEYS */;
-INSERT INTO `bussinesscashinflows` (`id`, `name`, `ProductSaleDescription`, `created_at`, `updated_at`) VALUES
-	(4, '9', 'ধান - পাতা', '2017-01-11 05:50:14', '2017-01-11 07:43:19'),
-	(6, NULL, 'কাঠ বিক্রয়', '2017-01-12 08:23:27', '2017-01-12 08:23:27');
 /*!40000 ALTER TABLE `bussinesscashinflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.bussinesscashoutflows
@@ -415,15 +437,11 @@ CREATE TABLE IF NOT EXISTS `bussinesscashoutflows` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.bussinesscashoutflows: ~3 rows (approximately)
+-- Dumping data for table timf.bussinesscashoutflows: ~0 rows (approximately)
 DELETE FROM `bussinesscashoutflows`;
 /*!40000 ALTER TABLE `bussinesscashoutflows` DISABLE KEYS */;
-INSERT INTO `bussinesscashoutflows` (`id`, `name`, `RowMaterialPurchageDescription`, `created_at`, `updated_at`) VALUES
-	(4, '87', 'কাগজ', '2017-01-11 05:46:55', '2017-01-12 08:24:12'),
-	(5, NULL, 'বস্তা', '2017-01-11 07:48:57', '2017-01-11 07:48:57'),
-	(6, NULL, 'চিনি ক্রয়', '2017-01-12 08:24:33', '2017-01-12 08:24:33');
 /*!40000 ALTER TABLE `bussinesscashoutflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cashinflows
@@ -435,15 +453,11 @@ CREATE TABLE IF NOT EXISTS `cashinflows` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.cashinflows: ~3 rows (approximately)
+-- Dumping data for table timf.cashinflows: ~0 rows (approximately)
 DELETE FROM `cashinflows`;
 /*!40000 ALTER TABLE `cashinflows` DISABLE KEYS */;
-INSERT INTO `cashinflows` (`id`, `name`, `TotalIncomeDescription`, `created_at`, `updated_at`) VALUES
-	(3, '9', 'ছাগল বিক্রয়', '2017-01-10 06:40:10', '2017-01-12 08:18:23'),
-	(4, NULL, 'বাড়ী ভাড়া', '2017-01-11 07:55:16', '2017-01-12 08:18:29'),
-	(5, NULL, 'চাঁদাবাজি', '2017-01-12 08:18:47', '2017-01-12 08:18:47');
 /*!40000 ALTER TABLE `cashinflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cashoutflows
@@ -455,15 +469,11 @@ CREATE TABLE IF NOT EXISTS `cashoutflows` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.cashoutflows: ~3 rows (approximately)
+-- Dumping data for table timf.cashoutflows: ~0 rows (approximately)
 DELETE FROM `cashoutflows`;
 /*!40000 ALTER TABLE `cashoutflows` DISABLE KEYS */;
-INSERT INTO `cashoutflows` (`id`, `name`, `TotalExpenditureDescription`, `created_at`, `updated_at`) VALUES
-	(1, '1', 'পারিবারিক ব্যয়', '2017-01-03 04:13:40', '2017-01-11 08:03:49'),
-	(2, NULL, 'বাড়ী ভাড়া প্রদান', '2017-01-11 08:03:22', '2017-01-11 08:03:22'),
-	(3, NULL, 'চাঁদা প্রদান', '2017-01-12 08:19:44', '2017-01-12 08:19:54');
 /*!40000 ALTER TABLE `cashoutflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cash_inflow
@@ -473,14 +483,11 @@ CREATE TABLE IF NOT EXISTS `cash_inflow` (
   `name` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.cash_inflow: ~2 rows (approximately)
+-- Dumping data for table timf.cash_inflow: ~0 rows (approximately)
 DELETE FROM `cash_inflow`;
 /*!40000 ALTER TABLE `cash_inflow` DISABLE KEYS */;
-INSERT INTO `cash_inflow` (`id`, `name`, `description`) VALUES
-	(1, 'test', 'test'),
-	(2, ' member', 'test Member');
 /*!40000 ALTER TABLE `cash_inflow` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cash_outflow
@@ -490,14 +497,11 @@ CREATE TABLE IF NOT EXISTS `cash_outflow` (
   `name` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.cash_outflow: ~2 rows (approximately)
+-- Dumping data for table timf.cash_outflow: ~0 rows (approximately)
 DELETE FROM `cash_outflow`;
 /*!40000 ALTER TABLE `cash_outflow` DISABLE KEYS */;
-INSERT INTO `cash_outflow` (`id`, `name`, `description`) VALUES
-	(1, 'test', 'test'),
-	(2, ' member', 'test Member');
 /*!40000 ALTER TABLE `cash_outflow` ENABLE KEYS */;
 
 -- Dumping structure for table timf.countrs
@@ -754,7 +758,7 @@ CREATE TABLE IF NOT EXISTS `counts` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.counts: ~10 rows (approximately)
 DELETE FROM `counts`;
@@ -908,7 +912,7 @@ CREATE TABLE IF NOT EXISTS `divisions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.divisions: ~9 rows (approximately)
+-- Dumping data for table timf.divisions: ~7 rows (approximately)
 DELETE FROM `divisions`;
 /*!40000 ALTER TABLE `divisions` DISABLE KEYS */;
 INSERT INTO `divisions` (`id`, `name`, `DivisionName`, `DivisionNameBangla`, `TestImages`, `created_at`, `updated_at`) VALUES
@@ -918,9 +922,7 @@ INSERT INTO `divisions` (`id`, `name`, `DivisionName`, `DivisionNameBangla`, `Te
 	(4, NULL, 'Khulna', 'খুলনা', NULL, NULL, NULL),
 	(5, NULL, 'Rajshahi', 'রাজশাহী', NULL, NULL, NULL),
 	(6, NULL, 'Rangpur', 'রংপুর', NULL, NULL, NULL),
-	(7, NULL, 'Sylhet', 'সিলেট', NULL, NULL, NULL),
-	(8, NULL, '12', '12', '0.79843100 1485320873slidel3.png.png', '2017-01-25 05:07:53', '2017-01-25 05:07:53'),
-	(9, NULL, '13', '13', '0.09702000 1485320922advertisewithus.jpg', '2017-01-25 05:08:42', '2017-01-25 05:08:42');
+	(7, NULL, 'Sylhet', 'সিলেট', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `divisions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.dpsapplications
@@ -974,11 +976,14 @@ CREATE TABLE IF NOT EXISTS `familytypes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.familytypes: ~0 rows (approximately)
+-- Dumping data for table timf.familytypes: ~2 rows (approximately)
 DELETE FROM `familytypes`;
 /*!40000 ALTER TABLE `familytypes` DISABLE KEYS */;
+INSERT INTO `familytypes` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
+	(1, 'একক', NULL, NULL, NULL),
+	(2, 'যৌথ', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `familytypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.genders
@@ -1108,13 +1113,11 @@ CREATE TABLE IF NOT EXISTS `investments` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.investments: ~0 rows (approximately)
 DELETE FROM `investments`;
 /*!40000 ALTER TABLE `investments` DISABLE KEYS */;
-INSERT INTO `investments` (`id`, `name`, `InvestmentyName`, `TransactionEntryDate`, `Memberid`, `SavingAmount`, `TransactionDate`, `ProductId`, `created_at`, `updated_at`) VALUES
-	(4, NULL, NULL, '2017-01-04 00:00:00', 1, 1, '2017-01-12 00:00:00', 1, '2017-01-31 04:01:09', '2017-01-31 04:01:09');
 /*!40000 ALTER TABLE `investments` ENABLE KEYS */;
 
 -- Dumping structure for table timf.investors
@@ -1129,13 +1132,9 @@ CREATE TABLE IF NOT EXISTS `investors` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.investors: ~3 rows (approximately)
+-- Dumping data for table timf.investors: ~0 rows (approximately)
 DELETE FROM `investors`;
 /*!40000 ALTER TABLE `investors` DISABLE KEYS */;
-INSERT INTO `investors` (`id`, `InvestorCode`, `InvestorName`, `name`, `created_at`, `updated_at`) VALUES
-	(2, '2', 'Mr Rockey Ahmed', '1', '2017-01-03 05:44:39', '2017-01-11 10:21:08'),
-	(3, '0010', 'Mr Noor e Alom Khan', NULL, '2017-01-11 10:21:31', '2017-01-11 10:21:31'),
-	(4, '010', 'জিয়াউর রহমান', NULL, '2017-01-11 10:22:37', '2017-01-11 10:25:27');
 /*!40000 ALTER TABLE `investors` ENABLE KEYS */;
 
 -- Dumping structure for table timf.invsummary
@@ -1202,19 +1201,11 @@ CREATE TABLE IF NOT EXISTS `jamindars` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.jamindars: ~7 rows (approximately)
+-- Dumping data for table timf.jamindars: ~0 rows (approximately)
 DELETE FROM `jamindars`;
 /*!40000 ALTER TABLE `jamindars` DISABLE KEYS */;
-INSERT INTO `jamindars` (`id`, `name`, `Nid`, `JamindarNameTitle`, `JamindarFirstName`, `JamindarLastName`, `JamindarFamilyName`, `JamindarRelation`, `JamindarAge`, `JamindarEducation`, `JamindarPassingYear`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `JamindarCountry`, `JamindarDistrict`, `JamindarThana`, `JamindarPostoffice`, `JamindarUnion`, `JamindarWord`, `JamindarVillage`, `JamindarCountry1`, `JamindarDistrict1`, `JamindarThana1`, `JamindarPostoffice1`, `JamindarUnion1`, `JamindarWord1`, `JamindarVillage1`, `JamindarMobile1`, `JamindarEmail`, `JamindarNid`, `JamindarBusinessOrJobAddress`, `JamindarProfession1`, `JamindarMonthlyNetIncome`, `JamindarMonthlyNetExpences`, `JamindarMonthlyNetSurplus`, `JamindarTotalNetMoney`, `JamindarSocialStatus`, `created_at`, `updated_at`) VALUES
-	(6, NULL, NULL, '1', '1', '2', '3', '4', '5', '6', '7', '1', '8', '7', '6', '4', '2', '6', '5', '2', '5', '5', '4', '2', '6', '5', '2', '5', '5', '4', '3@gmail.com', '2', '8', '7', '6', '5', '4', '3', '4', '2017-01-19 05:01:40', '2017-01-19 05:01:40'),
-	(7, NULL, NULL, '1', '3', '4', '5', '6', '8', '9', '8', '1', '6', '5', '66', '4', '2', '6', '5', '2', '5', '7', '4', '2', '6', '5', '2', '5', '6', '5', '4@gmail.com', '3', '7', '6', '5', '4', '3', '4', '5', '2017-01-19 05:47:32', '2017-01-19 05:47:32'),
-	(8, NULL, NULL, '1', '6', '7', '8', '9', '0', '1', '7', '1', '6', '5', '4', '1', '1', '6', '5', '2', '5', '5', '1', '1', '6', '5', '2', '5', '2', '6', 's@gmail.com', '6', '7', '8', '9', '0', '8', '7', '6', '2017-01-21 05:37:11', '2017-01-21 05:37:11'),
-	(9, NULL, NULL, '1', '', '', '', '', '', '1', '', '1', '', '', '', '1', '1', '6', '5', '2', '5', '', '1', '1', '6', '5', '2', '5', '', '', '', '', '', '', '', '', '', '', '', '2017-01-22 07:45:38', '2017-01-22 07:45:38'),
-	(10, NULL, NULL, '1', '121212', '', '', '', '', '1', '', '1', '', '', '', '1', '1', '1', '5', '3', '0', '', '1', '1', '1', '5', '3', '0', '', '', '', '', '', '', '', '', '', '', '', '2017-01-24 09:14:22', '2017-01-24 09:14:22'),
-	(11, NULL, '789', '1', '4321', '', '', '', '', '1', '', '1', '', '', '', '1', '1', '1', '5', '3', '0', '', '1', '1', '1', '5', '3', '0', '', '', '', '', '', '', '', '', '', '', '', '2017-01-24 09:20:03', '2017-01-24 09:20:03'),
-	(12, NULL, '', '1', '', '', '', '', '', '1', '', '1', '', '', '', '1', '1', '1', '5', '3', '1', '', '1', '1', '1', '5', '3', '1', '', '', '', '', '', '', '', '', '', '', '', '2017-02-02 09:21:08', '2017-02-02 09:21:08');
 /*!40000 ALTER TABLE `jamindars` ENABLE KEYS */;
 
 -- Dumping structure for table timf.liabs
@@ -1226,13 +1217,11 @@ CREATE TABLE IF NOT EXISTS `liabs` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.liabs: ~0 rows (approximately)
 DELETE FROM `liabs`;
 /*!40000 ALTER TABLE `liabs` DISABLE KEYS */;
-INSERT INTO `liabs` (`id`, `name`, `LiabilitiesDescription`, `created_at`, `updated_at`) VALUES
-	(4, '8', '77', '2017-01-11 06:57:33', '2017-01-23 10:57:02');
 /*!40000 ALTER TABLE `liabs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.licenceauthorities
@@ -1355,20 +1344,11 @@ CREATE TABLE IF NOT EXISTS `loans` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.loans: ~8 rows (approximately)
+-- Dumping data for table timf.loans: ~0 rows (approximately)
 DELETE FROM `loans`;
 /*!40000 ALTER TABLE `loans` DISABLE KEYS */;
-INSERT INTO `loans` (`id`, `name`, `Nid`, `JobOrgName`, `JobOrgPlace`, `JobIdNo`, `ShenaNo`, `JobDesignation`, `JobUniteName`, `DivisionName`, `JobDuration`, `JobSalary`, `LoanProviderOrgName`, `LoanProviderOrgAddress`, `AmountOfReceivedLoan`, `ProductName`, `InvestmentTypeNo`, `LoanReceiveDuration`, `LoanReceivedDate`, `AmountOfLoanRepay`, `CorrentStatus`, `RemainingInstallment`, `ApproximateRepaidDate`, `LoanProviderOrgName1`, `LoanProviderOrgAddress1`, `AmountOfReceivedLoan1`, `ProductName1`, `InvestmentTypeNo1`, `LoanReceiveDuration1`, `LoanReceivedDate1`, `AmountOfLoanRepay1`, `CorrentStatus1`, `RemainingInstallment1`, `ApproximateRepaidDate1`, `DonorOrgName`, `DonorOrgAddress`, `AmountOfBorrowedLoan`, `product12Name`, `InvestmentStepNo`, `InvestmentDuration`, `InvestmentBorrowedDate`, `AmountOfRepaidMoney`, `CurrentBalanceOfBorrow`, `RemainingInstalments`, `AproximateDateOfPayment`, `DonorOrgName1`, `DonorOrgAddress1`, `AmountOfBorrowedLoan1`, `DonarOrgProductName`, `InvestmentStepNo1`, `InvestmentDuration1`, `InvestmentBorrowedDate1`, `AmountOfRepaidMoney1`, `CurrentBalanceOfBorrow1`, `RemainingInstalments1`, `AproximateDateOfPayment1`, `OthersIncomeSources1`, `OthersIncomeSources2`, `OthersIncomeSources3`, `GPositionPrice`, `GPositionDuration`, `GValidityYear`, `GMouza`, `GCSKhotiyanNo`, `GHallKhotiyanNo`, `GRSDPKhotiyanNo`, `GCSDagNo`, `GHalDagNo`, `GJLNo`, `GHoldingNo`, `GLandAmount`, `GApproximatePrice`, `GLandOwerShip`, `AdvancedCheckBankName`, `GBankBranchName`, `GBankAccountNo`, `ProjectName`, `PreviousInvestmentType`, `PreviousReceivedAmount`, `AmountReceivedStep`, `PreviousInvestmentReceivedDate`, `PreviousInvestmentRepaidDate`, `Repaymentattitude`, `AdvancedPaidInstalation`, `PaidMoneyPerInstalment`, `GenaralSaving`, `SpecialSaving`, `TssMoney`, `TotalSavingAmount`, `ProposedAmountInNumber`, `ProposedAmountInWord`, `ProposedInvesmentDuration`, `ProposedInvestmentStep`, `ProposedInvesmentName`, `created_at`, `updated_at`) VALUES
-	(11, NULL, NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '2017-01-13', '2', '3', '3', '2017-01-20', '1', '3', '3', '3', '2', '3', '2017-01-06', '3', '3', '3', '2017-01-20', '1', 'qwqw', '', '1', '4', '4', '2017-01-12', '4', '4', '4', '2017-01-05', '1', 'r', '5', '1', '6', '6', '2017-01-12', '5', '5', '5', '2017-01-04', '', '', '', '3', '4', '5', '6', '7', '5', '5', '5', '5', '5', '5', '5', '5', '1', '5', '5', '5', '5', '5', '5', '5', '2017-01-04', '2017-01-05', '1', '5', '6', '5', '5', '5', '5', '3', '4', '5', '0', '6', '2017-01-22 10:28:16', '2017-01-22 10:28:16'),
-	(12, NULL, NULL, '', '', '', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '34567', '', '', '0', '', '2017-01-24 06:05:05', '2017-01-24 06:05:05'),
-	(13, NULL, NULL, '', '', '', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '456', '', '', '0', '', '2017-01-24 06:21:24', '2017-01-24 06:21:24'),
-	(14, NULL, NULL, '', '', '', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '1212', '', '', '0', '', '2017-01-24 06:23:10', '2017-01-24 06:23:10'),
-	(15, NULL, NULL, '', '', '', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '12', '', '', '0', '', '2017-01-24 06:29:14', '2017-01-24 06:29:14'),
-	(16, '456', NULL, '', '', '', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '123', '', '', '0', '', '2017-01-24 06:31:02', '2017-01-24 06:31:02'),
-	(17, NULL, '123', '', '', '', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '67', '', '', '0', '', '2017-01-24 06:32:55', '2017-01-24 06:32:55'),
-	(18, NULL, '456', '', '', '', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '', '0', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '1', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '123', '', '', '0', '', '2017-01-24 06:47:01', '2017-01-24 06:47:01');
 /*!40000 ALTER TABLE `loans` ENABLE KEYS */;
 
 -- Dumping structure for table timf.maritalstatuses
@@ -1449,25 +1429,16 @@ CREATE TABLE IF NOT EXISTS `members` (
   `ClosingIntervalClose` varchar(500) DEFAULT NULL,
   `WeekEnd` varchar(500) DEFAULT NULL,
   `OrgPermanentEmployee` varchar(500) DEFAULT NULL,
+  `LoanAccount` varchar(100) DEFAULT NULL,
+  `SavingAccount` varchar(100) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.members: ~10 rows (approximately)
+-- Dumping data for table timf.members: ~0 rows (approximately)
 DELETE FROM `members`;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` (`id`, `name`, `MemberImage`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `ZoneId`, `FatherImage`, `MotherImage`, `Nid`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `created_at`, `updated_at`) VALUES
-	(21, NULL, '456_4564.jpg', NULL, NULL, NULL, NULL, NULL, NULL, '456_45615.jpg', '456_45616.jpg', '456', NULL, '45', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 04:15:54', '2017-02-05 04:15:54'),
-	(22, NULL, '456_4563.jpg', NULL, NULL, NULL, NULL, NULL, NULL, '456_4565.jpg', '456_45616.jpg', '456', NULL, '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 04:16:38', '2017-02-05 04:16:38'),
-	(23, NULL, '789_7893.jpg', NULL, NULL, NULL, NULL, NULL, '0', '789_7894.jpg', '789_7895.jpg', '789', '12', '34', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 04:26:51', '2017-02-05 04:26:51'),
-	(24, NULL, '789_78915.jpg', NULL, NULL, NULL, NULL, NULL, 'Rockey', '789_78916.jpg', '789_78913.jpg', '789', '2', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 04:27:31', '2017-02-05 04:27:31'),
-	(25, NULL, '789_78915.jpg', NULL, NULL, NULL, NULL, NULL, 'Rockey', '789_78916.jpg', '789_78913.jpg', '789', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 04:31:32', '2017-02-05 04:31:32'),
-	(26, NULL, '789_78914.jpg', NULL, NULL, NULL, NULL, NULL, NULL, '789_78915.jpg', '789_78916.jpg', '789', '12', '34', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 05:01:13', '2017-02-05 05:01:13'),
-	(27, NULL, '789_7891.jpg', NULL, NULL, NULL, NULL, NULL, 'Rockey Islam', '789_7894.jpg', '789_78911.jpg', '789', '12', '45', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 05:03:06', '2017-02-05 05:03:06'),
-	(28, NULL, '123_1236.jpg', NULL, NULL, NULL, NULL, NULL, NULL, '123_12315.jpg', '123_1237.jpg', '123', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 05:15:42', '2017-02-05 05:15:42'),
-	(29, NULL, '456_4563.jpg', 'Mr.', 'Zia', 'Alam', 'rahman', NULL, NULL, '456_4565.jpg', '456_4567.jpg', '456', '34', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 05:17:47', '2017-02-05 05:17:47'),
-	(30, NULL, '789_78913.jpg', 'Mr.', 'Rockey', 'Alam', 'hawlader', NULL, '5', '789_78914.jpg', '789_78915.jpg', '789', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '0', '2017-02-05 09:13:50', '2017-02-05 09:13:50');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 
 -- Dumping structure for table timf.migrations
@@ -1537,8 +1508,6 @@ CREATE TABLE IF NOT EXISTS `organizations` (
 -- Dumping data for table timf.organizations: ~0 rows (approximately)
 DELETE FROM `organizations`;
 /*!40000 ALTER TABLE `organizations` DISABLE KEYS */;
-INSERT INTO `organizations` (`id`, `OrganizationCode`, `OrganizationName`, `OrganizationAddress`, `YearEndingDate`, `CashBook`, `PLAccount`, `BankAccount`, `PhoneNumber`, `MobileNumber`, `EmailId`, `StartWorkingDay`, `WorkType`, `LicenceNo`, `LicenceStartDate`, `LicenceValidityEndingDate`, `name`, `created_at`, `updated_at`) VALUES
-	(1, '1', '1', 'dskjfbhs', 'ZDSgvdfh', '', '', '', '', '', '', '', NULL, '', '', '', NULL, '2017-01-11 09:55:57', '2017-01-11 09:56:17');
 /*!40000 ALTER TABLE `organizations` ENABLE KEYS */;
 
 -- Dumping structure for table timf.othersources
@@ -1646,20 +1615,25 @@ INSERT INTO `politicalstatuses` (`id`, `name`, `others`, `created_at`, `updated_
 -- Dumping structure for table timf.postoffices
 DROP TABLE IF EXISTS `postoffices`;
 CREATE TABLE IF NOT EXISTS `postoffices` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `PostofficeName` varchar(500) DEFAULT NULL,
-  `ThanaCode` varchar(500) DEFAULT NULL,
+  `ThanaId` varchar(500) DEFAULT NULL,
+  `DivisionId` varchar(500) DEFAULT NULL,
+  `DistrictId` varchar(500) DEFAULT NULL,
   `name` varchar(500) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.postoffices: ~0 rows (approximately)
 DELETE FROM `postoffices`;
 /*!40000 ALTER TABLE `postoffices` DISABLE KEYS */;
-INSERT INTO `postoffices` (`id`, `PostofficeName`, `ThanaCode`, `name`, `created_at`, `updated_at`) VALUES
-	(5, 'Adabor', '23', NULL, '2017-01-11 04:18:00', '2017-01-11 04:18:00');
+INSERT INTO `postoffices` (`id`, `PostofficeName`, `ThanaId`, `DivisionId`, `DistrictId`, `name`, `created_at`, `updated_at`) VALUES
+	(1, 'Pabna', '374', '5', '23', NULL, '2017-02-09 10:28:02', '2017-02-09 10:28:02'),
+	(2, 'Dublia', '374', '5', '23', NULL, '2017-02-09 10:28:15', '2017-02-09 10:28:15'),
+	(3, 'Ataikula', '374', '5', '23', NULL, '2017-02-09 10:28:28', '2017-02-09 10:28:28'),
+	(4, 'Sujanogor', '376', '5', '23', NULL, '2017-02-09 10:28:56', '2017-02-09 10:29:08');
 /*!40000 ALTER TABLE `postoffices` ENABLE KEYS */;
 
 -- Dumping structure for table timf.posts
@@ -2264,12 +2238,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.products: ~2 rows (approximately)
+-- Dumping data for table timf.products: ~0 rows (approximately)
 DELETE FROM `products`;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` (`id`, `ProductCode`, `ProductName`, `ProductNameEng`, `ProductNameBanglaShort`, `ProductNameBanglaFull`, `ProductType`, `ServiceChargeRate`, `Duration`, `MainProductName`, `MainItemName`, `LoanInstallation`, `InstallationServiceCharge`, `SavingInstallment`, `MinimumLimit`, `MaximumLimit`, `ServiceChargeCalculationMethod`, `PaymentFrequency`, `InsuranceItemCode`, `InsuranceItemRate`, `name`, `created_at`, `updated_at`) VALUES
-	(1, 'fghf', 'sadfgdg', 'sdfgsg', 'sdgfdg', 'asfdg', 'sdfg', 'sdg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(2, 'xcvbcn', 'xcbcv', 'b n', 'xcbcv', 'xcbncv', 'xcbxcvn', '456', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-01-11 10:08:49', '2017-01-11 10:08:49');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table timf.producttypes
@@ -2304,7 +2275,7 @@ CREATE TABLE IF NOT EXISTS `professions` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Dumping data for table timf.professions: ~7 rows (approximately)
 DELETE FROM `professions`;
@@ -2316,8 +2287,7 @@ INSERT INTO `professions` (`id`, `name`, `others`, `created_at`, `updated_at`) V
 	(4, 'Car Driving', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(5, 'Day Labour', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(6, 'Engineer', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(7, 'Others', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(8, 'Van', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(7, 'Others', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `professions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.purposes
@@ -2558,16 +2528,11 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `created_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.surveys: ~4 rows (approximately)
+-- Dumping data for table timf.surveys: ~0 rows (approximately)
 DELETE FROM `surveys`;
 /*!40000 ALTER TABLE `surveys` DISABLE KEYS */;
-INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `AreaId`, `BranchId`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeOtherProfession`, `WifeMobileNo`, `WifeProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherOtherProfession`, `FatherOrHasbandFamilyName`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherOtherProfession`, `MotherMobileNo`, `SpouseProfession`, `MaritalStatus`, `PoliticalStatus`, `Nid`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDistrict`, `PermanentDivision`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `Mobile`, `Email`, `SpouseMobileNo`, `Distance`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `FamilyType`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `RepaymentType`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `LastReceivedDate1`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `unitprice`, `JoinDate`, `created_at`, `updated_at`) VALUES
-	(1, '', '', '5', '5', '1', '1', 'Rockey', 'Alam', 'hawlader', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '789', '1', '', '1', '6', '2', '5', '5', '', '', '1', '1', '', '6', '2', '5', '5', '', '', '', 'rockey@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-08 09:45:19', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
-	(2, '', '', '4', '2', '1', '1', 'Noor', 'Alam', 'Khan', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '123', '1', '', '1', '6', '2', '5', '5', '', '', '1', '1', '', '6', '2', '5', '5', '', '', '', 'noor@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-08 09:45:20', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
-	(3, '', '', '1', '2', '1', '1', 'Zia', 'Alam', 'rahman', '', '1', '', '1', '0', '', '', '', '', '', '', '', '', '1', '', '', '0', '', '', '', '', '2', '', '', '', '0', '', '', '', '1', '1', '1', '456', '1', '', '1', '6', '2', '5', '5', '', '', '1', '1', '', '6', '2', '5', '5', '', '', '', 'zia@gmail.com', '', '', '1', '1', '0', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1212', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2017-02-08 09:45:22', '2017-01-22 05:41:07', '2017-01-22 05:41:07'),
-	(4, '', '', '4', '5', '1', '1', 'Rockey', 'Ahmed', 'Molla', 'মোঃ রকি আহমেদ', '1', '17', '5', '15', '2', 'hortoki', 'begom', 'choudhury', '17', NULL, '23435', 'Engineer', '1', 'Tofazzal', 'Hussain', '1', 'Agriculture', NULL, 'Molla', '21342543', '2', 'Rabeya', 'Khatun', 'pk', '17', 'Service Holder', NULL, '2343252', 'van', '3', '2', '987', '17', NULL, '23', '374', '20', '5', '1', 'Koladi', '234', '17', '23', NULL, '374', '20', '5', '1', 'Koladi', '234', '232435', 'rockeycse@gmail.com', '2142353', '2', 'Engineer', 'Day Labour', '23', '234', 'sdagfadg', '2', 'sadfgd', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, NULL, '2017-02-08 09:36:18', '2017-02-08 09:36:18');
 /*!40000 ALTER TABLE `surveys` ENABLE KEYS */;
 
 -- Dumping structure for table timf.taggables
@@ -5675,35 +5640,21 @@ CREATE TABLE IF NOT EXISTS `unions` (
   `UnionName` varchar(500) NOT NULL,
   `name` varchar(500) DEFAULT NULL,
   `ThanaId` int(11) DEFAULT NULL,
+  `DivisionId` int(11) DEFAULT NULL,
+  `DistrictId` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.unions: ~20 rows (approximately)
+-- Dumping data for table timf.unions: ~4 rows (approximately)
 DELETE FROM `unions`;
 /*!40000 ALTER TABLE `unions` DISABLE KEYS */;
-INSERT INTO `unions` (`id`, `UnionName`, `name`, `ThanaId`, `created_at`, `updated_at`) VALUES
-	(3, 'test', NULL, 1, '2017-01-23 10:20:38', '2017-01-23 10:23:25'),
-	(4, 'second union', NULL, 2, '2017-01-23 10:23:43', '2017-01-23 10:23:43'),
-	(5, 'as', NULL, 3, '2017-01-23 10:24:05', '2017-01-23 10:24:05'),
-	(6, 'qw', NULL, 4, '2017-01-23 10:24:15', '2017-01-23 10:24:15'),
-	(7, 'test', NULL, 1, '2017-01-23 10:20:38', '2017-01-23 10:23:25'),
-	(8, 'second union', NULL, 2, '2017-01-23 10:23:43', '2017-01-23 10:23:43'),
-	(9, 'as', NULL, 3, '2017-01-23 10:24:05', '2017-01-23 10:24:05'),
-	(10, 'qw', NULL, 4, '2017-01-23 10:24:15', '2017-01-23 10:24:15'),
-	(11, 'test', NULL, 1, '2017-01-23 10:20:38', '2017-01-23 10:23:25'),
-	(12, 'second union', NULL, 2, '2017-01-23 10:23:43', '2017-01-23 10:23:43'),
-	(13, 'as', NULL, 3, '2017-01-23 10:24:05', '2017-01-23 10:24:05'),
-	(14, 'qw', NULL, 4, '2017-01-23 10:24:15', '2017-01-23 10:24:15'),
-	(15, 'test', NULL, 1, '2017-01-23 10:20:38', '2017-01-23 10:23:25'),
-	(16, 'second union', NULL, 2, '2017-01-23 10:23:43', '2017-01-23 10:23:43'),
-	(17, 'as', NULL, 3, '2017-01-23 10:24:05', '2017-01-23 10:24:05'),
-	(18, 'qw', NULL, 4, '2017-01-23 10:24:15', '2017-01-23 10:24:15'),
-	(19, 'test', NULL, 1, '2017-01-23 10:20:38', '2017-01-23 10:23:25'),
-	(20, 'second union', NULL, 374, '2017-01-23 10:23:43', '2017-01-23 10:23:43'),
-	(21, 'as', NULL, 3, '2017-01-23 10:24:05', '2017-01-23 10:24:05'),
-	(22, 'qw', NULL, 4, '2017-01-23 10:24:15', '2017-01-23 10:24:15');
+INSERT INTO `unions` (`id`, `UnionName`, `name`, `ThanaId`, `DivisionId`, `DistrictId`, `created_at`, `updated_at`) VALUES
+	(1, 'Varara', NULL, 374, 5, 23, '2017-02-09 10:11:10', '2017-02-09 10:11:10'),
+	(2, 'Chortarapur', NULL, 374, 5, 23, '2017-02-09 10:11:59', '2017-02-09 10:12:41'),
+	(3, 'Dogachi', NULL, 374, 5, 23, '2017-02-09 10:13:12', '2017-02-09 10:13:12'),
+	(4, 'Ataikula', NULL, 374, 5, 23, '2017-02-09 10:13:51', '2017-02-09 10:13:51');
 /*!40000 ALTER TABLE `unions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.users
@@ -6263,16 +6214,11 @@ CREATE TABLE IF NOT EXISTS `userstimfs` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.userstimfs: ~4 rows (approximately)
+-- Dumping data for table timf.userstimfs: ~0 rows (approximately)
 DELETE FROM `userstimfs`;
 /*!40000 ALTER TABLE `userstimfs` DISABLE KEYS */;
-INSERT INTO `userstimfs` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`, `employee_id`, `employee_code`, `employee_firstname`, `employee_lastname`, `ZoneID`, `AreaID`, `office_id`, `designation`, `address`, `phone1`, `phone2`, `email`, `altemail`, `gender`, `birthdate`, `joiningdate`, `status`, `releasedate`, `username`, `password12`, `comment`, `photo`, `org_id`, `IsActiveDate`, `created_at`, `updated_at`) VALUES
-	(2, NULL, NULL, NULL, '1', '1', '1', '1', NULL, NULL, 1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2017-01-25 06:56:22', '2017-01-25 06:56:22'),
-	(3, NULL, NULL, NULL, '1', '1', '1', '1', 1, 11, 1, '3', 'etgjyukul', '23', '23', '2df@dg.com', 'we@ghbfgi.com', '1', 'gdfsg', 'dfgds', 'sfdg', 'sdg', 'dg', '12345', 'sdgfdh', 'fgfgh', '1', '1', '2017-02-02 05:42:47', '2017-02-02 05:42:47'),
-	(6, NULL, NULL, NULL, '12', '23', '324', '345', 1, 11, 1, '1', '234', '3', '33', 'webmaster.noor@gmail.com', 'we@ghbfgi.com', '1', '123', '123', '23', '123', '12', '1', '1', 'micro1.jpg', '1', '1', '2017-02-02 06:08:52', '2017-02-02 06:08:52'),
-	(7, NULL, NULL, NULL, '1', '2', '1', '1', 2, 11, 1, '1', '1', '1', '1', 'a@gmail.com', 'b@email.com', '1', '2017-02-01', '2017-02-07', '1', '2017-02-09', 'as', 'as', 'as', 'noor.jpg', '1', '1', '2017-02-04 04:16:32', '2017-02-04 04:16:32');
 /*!40000 ALTER TABLE `userstimfs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_2
@@ -6385,17 +6331,24 @@ CREATE TABLE IF NOT EXISTS `wards` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `WardName` varchar(500) DEFAULT NULL,
   `UnionId` varchar(500) DEFAULT NULL,
+  `DivisionId` varchar(500) DEFAULT NULL,
+  `DistrictId` varchar(500) DEFAULT NULL,
+  `ThanaId` varchar(500) DEFAULT NULL,
   `name` varchar(500) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.wards: ~0 rows (approximately)
+-- Dumping data for table timf.wards: ~5 rows (approximately)
 DELETE FROM `wards`;
 /*!40000 ALTER TABLE `wards` DISABLE KEYS */;
-INSERT INTO `wards` (`id`, `WardName`, `UnionId`, `name`, `created_at`, `updated_at`) VALUES
-	(1, 'test', '4', NULL, '2017-01-23 10:51:57', '2017-01-23 10:51:57');
+INSERT INTO `wards` (`id`, `WardName`, `UnionId`, `DivisionId`, `DistrictId`, `ThanaId`, `name`, `created_at`, `updated_at`) VALUES
+	(1, '1', '1', '5', '23', '374', NULL, '2017-02-09 10:15:28', '2017-02-09 10:15:28'),
+	(2, '2', '1', '5', '23', '374', NULL, '2017-02-09 10:15:48', '2017-02-09 10:15:48'),
+	(3, '3', '1', '5', '23', '374', NULL, '2017-02-09 10:16:05', '2017-02-09 10:16:05'),
+	(4, '1', '3', '5', '23', '374', NULL, '2017-02-09 10:17:19', '2017-02-09 10:17:19'),
+	(5, '2', '2', '5', '23', '374', NULL, '2017-02-09 10:17:35', '2017-02-09 10:17:35');
 /*!40000 ALTER TABLE `wards` ENABLE KEYS */;
 
 -- Dumping structure for table timf.weekends
@@ -6494,14 +6447,9 @@ CREATE TABLE IF NOT EXISTS `zone1s` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.zone1s: ~4 rows (approximately)
+-- Dumping data for table timf.zone1s: ~0 rows (approximately)
 DELETE FROM `zone1s`;
 /*!40000 ALTER TABLE `zone1s` DISABLE KEYS */;
-INSERT INTO `zone1s` (`id`, `name`, `OfficeId`, `Zone1Name`, `SomitiName`, `SamitiOpenDate`, `SamitiEndDate`, `BranchId`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 0, NULL, '12', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, '2017-01-23 08:41:51', '2017-01-23 10:27:05'),
-	(12, NULL, NULL, NULL, 'ryfttyu', '0000-00-00 00:00:00', NULL, 3, '2017-01-23 09:48:19', '2017-01-23 09:50:10'),
-	(13, NULL, 232, NULL, '24', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3, '2017-01-23 10:26:01', '2017-01-23 10:26:01'),
-	(0, NULL, 12, NULL, 'as', '2017-01-04 00:00:00', '2017-01-13 00:00:00', 5, '2017-01-23 11:18:17', '2017-01-23 11:18:17');
 /*!40000 ALTER TABLE `zone1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones

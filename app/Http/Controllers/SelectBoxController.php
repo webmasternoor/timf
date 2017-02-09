@@ -70,7 +70,7 @@ class SelectBoxController extends Controller
     {
         $data=DB::table('postoffices')
             ->select('*')
-            ->where('ThanaCode',$request->id)
+            ->where('DistrictId',$request->id)
             ->get();
         return response()->json($data);
     }

@@ -47,7 +47,7 @@ class WardController extends Controller
         $ward = Ward::find($id);
         $rules = ["UnionId" => "required"];
         if ($ward->WardName != Input::get('WardName'))
-            $rules += ['WardName' => 'required|unique:wards'];
+            $rules += ['WardName' => 'required'];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
             return array(
@@ -76,7 +76,7 @@ class WardController extends Controller
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
-            "WardName" => "required|unique:wards",
+            "WardName" => "required",
             "UnionId" => "required"
         ]);
         if ($validator->fails()) {

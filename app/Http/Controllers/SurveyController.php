@@ -50,32 +50,32 @@ class SurveyController extends Controller
 //        $zone = Zone::lists('ZoneName', 'id');
 //        $area = Area::lists('AreaName', 'id');
 //        $branch = Brn::lists('BranchName', 'id');
-        $NameTitle = Nametitle::lists('name','id');
-        $Age = Age::lists('age','id');
-        $PassingYear = Year_calendar::lists('Name','id');
-        $Profession = Profession::lists('name','id');
+        $NameTitle = Nametitle::lists('name', 'id');
+        $Age = Age::lists('age', 'id');
+        $PassingYear = Year_calendar::lists('Name', 'id');
+        $Profession = Profession::lists('name', 'id');
         $profession = Profession::all();
-        $MaritalStatus = Maritalstatus::lists('name','id');
-        $Accommodation = Accommodation::lists('name','id');
-        $Education = Education::lists('name','id');
-        $PoliticalStatus = Politicalstatus::lists('name','id');
-        $Gender = Gender::lists('GenderName','id');
-        $Country = Countr::lists('CountryName','id');
-        $Division = Division::lists('DivisionName','id');
-        $District = District::lists('DistrictName','id');
-        $Thana = Thana::lists('ThanaName','id');
-        $PostOffice = Postoffice::lists('PostofficeName','id');
-        $Union = Union::lists('UnionName','id');
-        $Word = Ward::lists('WardName','id');
+        $MaritalStatus = Maritalstatus::lists('name', 'id');
+        $Accommodation = Accommodation::lists('name', 'id');
+        $Education = Education::lists('name', 'id');
+        $PoliticalStatus = Politicalstatus::lists('name', 'id');
+        $Gender = Gender::lists('GenderName', 'id');
+        $Country = Countr::lists('CountryName', 'id');
+        $Division = Division::lists('DivisionName', 'id');
+        $District = District::lists('DistrictName', 'id');
+        $Thana = Thana::lists('ThanaName', 'id');
+        $PostOffice = Postoffice::lists('PostofficeName', 'id');
+        $Union = Union::lists('UnionName', 'id');
+        $Word = Ward::lists('WardName', 'id');
         $ZoneInfo = Zone::lists('ZoneName', 'id');
         $AreaInfo = Area::lists('AreaName', 'id');
         $BranchInfo = Brn::lists('BranchName', 'id');
         return view('survey.update', ['survey' => Survey::find($id)])->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
-            ->with('Age', $Age)->with('Profession',$Profession)->with('Gender',$Gender)->with('Division',$Division)
-            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus)
-            ->with('profession',$profession);
+            ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
+            ->with('PassingYear', $PassingYear)->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)
+            ->with('profession', $profession);
 
         //return view('survey.update', ['survey' => Survey::find($id)]);
     }
@@ -104,20 +104,20 @@ class SurveyController extends Controller
         $zone = Zone::all();
         $area = Area::all();
         $branch = Brn::all();
-        $NameTitle  = Nametitle::lists('name','id');
-        $Gender  = Gender::lists('name','id');
-        $Age = Age::lists('age','id');
-        $Education = Education::lists('name','id');
-        $PoliticalStatus = Politicalstatus::lists('name','id');
-        $PassingYear = Year_calendar::lists('Name','id');
-        $Profession = Profession::lists('name','id');
-        $MaritalStatus = Maritalstatus::lists('name','id');
-        $Country = Countr::lists('CountryName','id');
-        $District = District::lists('DistrictName','id');
-        $Thana = Thana::lists('ThanaName','id');
-        $PostOffice = Postoffice::lists('PostofficeName','id');
-        $Union = Union::lists('UnionName','id');
-        $Word = Ward::lists('WardName','id');
+        $NameTitle = Nametitle::lists('name', 'id');
+        $Gender = Gender::lists('name', 'id');
+        $Age = Age::lists('age', 'id');
+        $Education = Education::lists('name', 'id');
+        $PoliticalStatus = Politicalstatus::lists('name', 'id');
+        $PassingYear = Year_calendar::lists('Name', 'id');
+        $Profession = Profession::lists('name', 'id');
+        $MaritalStatus = Maritalstatus::lists('name', 'id');
+        $Country = Countr::lists('CountryName', 'id');
+        $District = District::lists('DistrictName', 'id');
+        $Thana = Thana::lists('ThanaName', 'id');
+        $PostOffice = Postoffice::lists('PostofficeName', 'id');
+        $Union = Union::lists('UnionName', 'id');
+        $Word = Ward::lists('WardName', 'id');
 
         $education = Education::all();
         $country = Countr::all();
@@ -131,9 +131,9 @@ class SurveyController extends Controller
         $BranchInfo = Brn::lists('BranchName', 'id');
         return view('survey.viewm', ['survey' => Survey::find($id)])->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
-            ->with('union', $union)->with('word', $word)->with('education', $education)->with('zone',$zone)->with('area',$area)
-            ->with('branch',$branch)->with('NameTitle',$NameTitle)->with('PoliticalStatus',$PoliticalStatus)->with('PassingYear',$PassingYear)
-            ->with('Gender',$Gender)->with('Age',$Age)->with('Education',$Education)->with('Profession',$Profession)->with('MaritalStatus',$MaritalStatus)
+            ->with('union', $union)->with('word', $word)->with('education', $education)->with('zone', $zone)->with('area', $area)
+            ->with('branch', $branch)->with('NameTitle', $NameTitle)->with('PoliticalStatus', $PoliticalStatus)->with('PassingYear', $PassingYear)
+            ->with('Gender', $Gender)->with('Age', $Age)->with('Education', $Education)->with('Profession', $Profession)->with('MaritalStatus', $MaritalStatus)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word);
 
@@ -172,6 +172,83 @@ class SurveyController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }*/
+
+        $SpouseOtherProfession = Input::get('SpouseOtherProfession');
+
+        if (!empty($SpouseOtherProfession)) {
+
+            $profession_data = Profession::where('name', $SpouseOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $SpouseOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $SpouseOtherProfession)->get();
+                $survey->SpouseProfession = $profession_data[0]->id;
+            }
+        } else {
+            $survey->SpouseProfession = Input::get('SpouseProfession');
+        }
+        $WifeOtherProfession = Input::get('WifeOtherProfession');
+        if (!empty($WifeOtherProfession)) {
+
+            $profession_data = Profession::where('name', $WifeOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $WifeOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $survey->WifeProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $survey->WifeProfession = $profession_data[0]->id;
+            }
+
+//            $survey->WifeProfession = $WifeOtherProfession;
+        } else {
+            $survey->WifeProfession = Input::get('WifeProfession');
+        }
+        $FatherOtherProfession = Input::get('FatherOtherProfession');
+        if (!empty($FatherOtherProfession) ) {
+            $profession_data = Profession::where('name', $FatherOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $FatherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $survey->FatherProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $survey->FatherProfession = $profession_data[0]->id;
+            }
+//            $survey->FatherProfession = $FatherOtherProfession;
+        } else {
+            $survey->FatherProfession = Input::get('FatherProfession');
+        }
+        $MotherOtherProfession = Input::get('MotherOtherProfession');
+        if (!empty($MotherOtherProfession)) {
+            $profession_data = Profession::where('name', $MotherOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $MotherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $survey->MotherProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $survey->MotherProfession = $profession_data[0]->id;
+            }
+//            $survey->MotherProfession = $MotherOtherProfession;
+        } else {
+            $survey->MotherProfession = Input::get('MotherProfession');
+        }
+
         $survey->ZoneId = Input::get('ZoneId');
         $survey->AreaId = Input::get('AreaId');
         $survey->BranchId = Input::get('BranchId');
@@ -283,32 +360,32 @@ class SurveyController extends Controller
 
     public function getCreate()
     {
-        $NameTitle = Nametitle::lists('name','id');
-        $Age = Age::lists('age','id');
-        $PassingYear = Year_calendar::lists('Name','id');
-        $Profession = Profession::lists('name','id');
+        $NameTitle = Nametitle::lists('name', 'id');
+        $Age = Age::lists('age', 'id');
+        $PassingYear = Year_calendar::lists('Name', 'id');
+        $Profession = Profession::lists('name', 'id');
         $profession = Profession::all();
-        $MaritalStatus = Maritalstatus::lists('name','id');
-        $Accommodation = Accommodation::lists('name','id');
-        $Education = Education::lists('name','id');
-        $PoliticalStatus = Politicalstatus::lists('name','id');
-        $Gender = Gender::lists('GenderName','id');
-        $Country = Countr::lists('CountryName','id');
-        $Division = Division::lists('DivisionName','id');
-        $District = District::lists('DistrictName','id');
-        $Thana = Thana::lists('ThanaName','id');
-        $PostOffice = Postoffice::lists('PostofficeName','id');
-        $Union = Union::lists('UnionName','id');
-        $Word = Ward::lists('WardName','id');
+        $MaritalStatus = Maritalstatus::lists('name', 'id');
+        $Accommodation = Accommodation::lists('name', 'id');
+        $Education = Education::lists('name', 'id');
+        $PoliticalStatus = Politicalstatus::lists('name', 'id');
+        $Gender = Gender::lists('GenderName', 'id');
+        $Country = Countr::lists('CountryName', 'id');
+        $Division = Division::lists('DivisionName', 'id');
+        $District = District::lists('DistrictName', 'id');
+        $Thana = Thana::lists('ThanaName', 'id');
+        $PostOffice = Postoffice::lists('PostofficeName', 'id');
+        $Union = Union::lists('UnionName', 'id');
+        $Word = Ward::lists('WardName', 'id');
         $ZoneInfo = Zone::lists('ZoneName', 'id');
         $AreaInfo = Area::lists('AreaName', 'id');
         $BranchInfo = Brn::lists('BranchName', 'id');
         return view('survey.create')->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
-            ->with('Age', $Age)->with('Profession',$Profession)->with('Accommodation',$Accommodation)->with('Gender',$Gender)
-            ->with('PassingYear',$PassingYear)->with('MaritalStatus',$MaritalStatus)->with('PoliticalStatus',$PoliticalStatus)
-            ->with('Division',$Division)->with('profession',$profession);
+            ->with('Age', $Age)->with('Profession', $Profession)->with('Accommodation', $Accommodation)->with('Gender', $Gender)
+            ->with('PassingYear', $PassingYear)->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)
+            ->with('Division', $Division)->with('profession', $profession);
 
         /*return view('survey.create')->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
             ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
@@ -344,74 +421,77 @@ class SurveyController extends Controller
 
         $SpouseOtherProfession = Input::get('SpouseOtherProfession');
 
-        if(!empty($SpouseOtherProfession)) {
+        if (!empty($SpouseOtherProfession)) {
 
             $profession_data = Profession::where('name', $SpouseOtherProfession)->count();
 
-            if ($profession_data==0) {
+            if ($profession_data == 0) {
                 $profession = new Profession();
                 $profession->name = $SpouseOtherProfession;
                 $profession->save();
                 $profession_data = Profession::where('name', '=', $SpouseOtherProfession)->get();
                 $survey->SpouseProfession = $profession_data[0]->id;
             }
-        }
-        else
-        {
+        } else {
             $survey->SpouseProfession = Input::get('SpouseProfession');
         }
         $WifeOtherProfession = Input::get('WifeOtherProfession');
-        if(!empty($WifeOtherProfession)&&($WifeOtherProfession!=$SpouseOtherProfession))
-        {
+        if (!empty($WifeOtherProfession)) {
+
             $profession_data = Profession::where('name', $WifeOtherProfession)->count();
 
-            if ($profession_data==0) {
+            if ($profession_data == 0) {
                 $profession = new Profession();
                 $profession->name = $WifeOtherProfession;
                 $profession->save();
                 $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
                 $survey->WifeProfession = $profession_data[0]->id;
             }
+            else{
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $survey->WifeProfession = $profession_data[0]->id;
+            }
+
 //            $survey->WifeProfession = $WifeOtherProfession;
-        }
-        else
-        {
+        } else {
             $survey->WifeProfession = Input::get('WifeProfession');
         }
         $FatherOtherProfession = Input::get('FatherOtherProfession');
-        if(!empty($FatherOtherProfession)&&($FatherOtherProfession!=$SpouseOtherProfession)&&($FatherOtherProfession!=$WifeOtherProfession))
-        {
+        if (!empty($FatherOtherProfession) ) {
             $profession_data = Profession::where('name', $FatherOtherProfession)->count();
 
-            if ($profession_data==0) {
+            if ($profession_data == 0) {
                 $profession = new Profession();
                 $profession->name = $FatherOtherProfession;
                 $profession->save();
                 $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
                 $survey->FatherProfession = $profession_data[0]->id;
             }
+            else{
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $survey->FatherProfession = $profession_data[0]->id;
+            }
 //            $survey->FatherProfession = $FatherOtherProfession;
-        }
-        else
-        {
+        } else {
             $survey->FatherProfession = Input::get('FatherProfession');
         }
         $MotherOtherProfession = Input::get('MotherOtherProfession');
-        if(!empty($MotherOtherProfession)&&($MotherOtherProfession!=$SpouseOtherProfession)&&($MotherOtherProfession!=$WifeOtherProfession)&&($MotherOtherProfession!=$FatherOtherProfession))
-        {
+        if (!empty($MotherOtherProfession)) {
             $profession_data = Profession::where('name', $MotherOtherProfession)->count();
 
-            if ($profession_data==0) {
+            if ($profession_data == 0) {
                 $profession = new Profession();
                 $profession->name = $MotherOtherProfession;
                 $profession->save();
                 $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
                 $survey->MotherProfession = $profession_data[0]->id;
             }
+            else{
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $survey->MotherProfession = $profession_data[0]->id;
+            }
 //            $survey->MotherProfession = $MotherOtherProfession;
-        }
-        else
-        {
+        } else {
             $survey->MotherProfession = Input::get('MotherProfession');
         }
         $survey->MaritalStatus = Input::get('MaritalStatus');

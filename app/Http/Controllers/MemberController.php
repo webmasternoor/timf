@@ -314,6 +314,8 @@ class MemberController extends Controller
         $member->MemberImage =$nid."_". $filename;
         $member->FatherImage =$nid."_". $filenamefather;
         $member->MotherImage =$nid."_". $filenamemother;
+        $member->LoanAccount =$nid."_".rand(50000,60000);
+        $member->SavingAccount =$nid."_".rand(50000,60000);
         $member->save();
         return ['url' => 'member/list'];
     }

@@ -47,7 +47,7 @@ class PostofficeController extends Controller
         $postoffice = Postoffice::find($id);
         $rules = ["ThanaId" => "required"];
         if ($postoffice->PostofficeName != Input::get('PostofficeName'))
-            $rules += ['PostofficeName' => 'required|unique:postoffices'];
+            $rules += ['PostofficeName' => 'required'];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
             return array(
@@ -74,7 +74,7 @@ class PostofficeController extends Controller
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
-            "PostofficeName" => "required|unique:postoffices",
+            "PostofficeName" => "required",
             "ThanaId" => "required"
         ]);
         if ($validator->fails()) {
