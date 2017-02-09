@@ -147,16 +147,16 @@ class AreaController extends Controller
     }
     public function postCreate()
     {
-        /*$validator = Validator::make(Input::all(), [
-            "ZoneId" => "required",
-            "AreaName" => "required|unique:areas",
-        ]);
-        if ($validator->fails()) {
-            return array(
-                'fail' => true,
-                'errors' => $validator->getMessageBag()->toArray()
-            );
-        }*/
+//        $validator = Validator::make(Input::all(), [
+//            "ZoneId" => "required",
+//            "AreaName" => "required|unique:areas",
+//        ]);
+//        if ($validator->fails()) {
+//            return array(
+//                'fail' => true,
+//                'errors' => $validator->getMessageBag()->toArray()
+//            );
+//        }
         $area = new Area();
         $area->ZoneId = Input::get('ZoneId');
         $area->AreaName = Input::get('AreaName');

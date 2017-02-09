@@ -297,7 +297,7 @@
                     <div class="form-group col-md-6" id="form-FatherOrHasbandAge-error">
                         {!! Form::label("FatherOrHasbandAge","বয়স",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FatherOrHasbandAge",$Profession,null,["class"=>"form-control FatherOrHasbandAge required","id"=>"FatherOrHasbandAge"]) !!}
+                            {!! Form::select("FatherOrHasbandAge",$Age,null,["class"=>"form-control FatherOrHasbandAge required","id"=>"FatherOrHasbandAge"]) !!}
                             <span id="FatherOrHasbandAge-error" class="help-block"></span>
                         </div>
                     </div>
@@ -1083,13 +1083,14 @@ position: relative;">&nbsp;</p>
             //var div = $(this).parent();
             //console.log(DivisionId);
             $('#AreaId').empty();
+            $('#AreaId1').empty();
             $.ajax({
                 type: 'get',
                 url: 'getArea',
                 data: {'id': ZoneId},
                 success: function (data) {
                     $.each(data, function (index, subcatObjArea) {
-                        $('#AreaId').append('<option value="'+subcatObjArea.id+'">'+subcatObjArea.AreaName +'</option>')
+                        $('#AreaId').append('<option value="'+subcatObjArea.id+'" id="AreaId1">'+subcatObjArea.AreaName +'</option>')
                     });
                 },
                 error: function () {
@@ -1105,13 +1106,14 @@ position: relative;">&nbsp;</p>
             //var div = $(this).parent();
             //console.log(DivisionId);
             $('#BranchId').empty();
+            $('#BranchId1').empty();
             $.ajax({
                 type: 'get',
                 url: 'getBranch',
                 data: {'id': AreaId},
                 success: function (data) {
                     $.each(data, function (index, subcatObjBranch) {
-                        $('#BranchId').append('<option value="'+subcatObjBranch.id+'">'+subcatObjBranch.BranchName +'</option>')
+                        $('#BranchId').append('<option value="'+subcatObjBranch.id+'" id="BranchId1">'+subcatObjBranch.BranchName +'</option>')
                     });
                 },
                 error: function () {
@@ -1119,6 +1121,7 @@ position: relative;">&nbsp;</p>
                 }
             });
         });
+
         $(document).on('change', '.PresentDivision', function () {
             //console.log("yes it is change");
 

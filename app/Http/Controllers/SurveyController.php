@@ -343,36 +343,72 @@ class SurveyController extends Controller
         $survey->PassingYear = Input::get('PassingYear');
 
         $SpouseOtherProfession = Input::get('SpouseOtherProfession');
-        if(!empty($SpouseOtherProfession))
-        {
-            $survey->SpouseProfession = $SpouseOtherProfession;
+
+        if(!empty($SpouseOtherProfession)) {
+
+            $profession_data = Profession::where('name', $SpouseOtherProfession)->count();
+
+            if ($profession_data==0) {
+                $profession = new Profession();
+                $profession->name = $SpouseOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $SpouseOtherProfession)->get();
+                $survey->SpouseProfession = $profession_data[0]->id;
+            }
         }
         else
         {
             $survey->SpouseProfession = Input::get('SpouseProfession');
         }
         $WifeOtherProfession = Input::get('WifeOtherProfession');
-        if(!empty($WifeOtherProfession))
+        if(!empty($WifeOtherProfession)&&($WifeOtherProfession!=$SpouseOtherProfession))
         {
-            $survey->WifeProfession = $WifeOtherProfession;
+            $profession_data = Profession::where('name', $WifeOtherProfession)->count();
+
+            if ($profession_data==0) {
+                $profession = new Profession();
+                $profession->name = $WifeOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $survey->WifeProfession = $profession_data[0]->id;
+            }
+//            $survey->WifeProfession = $WifeOtherProfession;
         }
         else
         {
             $survey->WifeProfession = Input::get('WifeProfession');
         }
         $FatherOtherProfession = Input::get('FatherOtherProfession');
-        if(!empty($FatherOtherProfession))
+        if(!empty($FatherOtherProfession)&&($FatherOtherProfession!=$SpouseOtherProfession)&&($FatherOtherProfession!=$WifeOtherProfession))
         {
-            $survey->FatherProfession = $FatherOtherProfession;
+            $profession_data = Profession::where('name', $FatherOtherProfession)->count();
+
+            if ($profession_data==0) {
+                $profession = new Profession();
+                $profession->name = $FatherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $survey->FatherProfession = $profession_data[0]->id;
+            }
+//            $survey->FatherProfession = $FatherOtherProfession;
         }
         else
         {
             $survey->FatherProfession = Input::get('FatherProfession');
         }
         $MotherOtherProfession = Input::get('MotherOtherProfession');
-        if(!empty($MotherOtherProfession))
+        if(!empty($MotherOtherProfession)&&($MotherOtherProfession!=$SpouseOtherProfession)&&($MotherOtherProfession!=$WifeOtherProfession)&&($MotherOtherProfession!=$FatherOtherProfession))
         {
-            $survey->MotherProfession = $MotherOtherProfession;
+            $profession_data = Profession::where('name', $MotherOtherProfession)->count();
+
+            if ($profession_data==0) {
+                $profession = new Profession();
+                $profession->name = $MotherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $survey->MotherProfession = $profession_data[0]->id;
+            }
+//            $survey->MotherProfession = $MotherOtherProfession;
         }
         else
         {
