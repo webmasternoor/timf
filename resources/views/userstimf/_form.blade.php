@@ -88,10 +88,17 @@
             <span id="office_id-error" class="help-block"></span>
         </div>
     </div>
+    <div class="form-group required col-md-4" id="form-SamityID-error">
+        {!! Form::label("SamityID","সমিতি আইডি",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("SamityID",$SamityInfo,null,["class"=>"form-control SamityID required","id"=>"SamityID"]) !!}
+            <span id="SamityID-error" class="help-block"></span>
+        </div>
+    </div>
     <div class="form-group required col-md-12" id="form-address-error">
         {!! Form::label("address","ঠিকানা",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-9">
-            {!! Form::textarea("address",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::textarea("address",null,["class"=>"form-control address required","id"=>"address"]) !!}
             <span id="address-error" class="help-block"></span>
         </div>
     </div>
@@ -124,7 +131,7 @@
         </div>
     </div>
     <div class="form-group required col-md-6" id="form-gender-error">
-        {!! Form::label("gender","লিঙ্গ",["class"=>"control-label col-md-3"]) !!}
+        {!! Form::label("gender","জেন্ডার",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-12">
             <select name="gender">
                 @foreach($GenderInfo as $GenderInfoData )
@@ -310,6 +317,28 @@
                 success: function (data) {
                     $.each(data, function (index, subcatObjbranch) {
                         $('#office_id').append('<option value="'+subcatObjbranch.id+'">'+subcatObjbranch.BranchName+'->'+subcatObjbranch.id+'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.office_id', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var office_id = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#SamityID').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getSamity',
+                data: {'id': office_id},
+                success: function (data) {
+                    $.each(data, function (index, subcatObjSamity) {
+                        $('#SamityID').append('<option value="'+subcatObjSamity.id+'">('+subcatObjSamity.id+')->'+subcatObjSamity.SomitiName+'</option>')
                     });
                 },
                 error: function () {

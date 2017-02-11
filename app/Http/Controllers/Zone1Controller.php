@@ -2,6 +2,12 @@
 namespace App\Http\Controllers;
 
 use App\Brn;
+use App\District;
+use App\Division;
+use App\Postoffice;
+use App\Thana;
+use App\Union;
+use App\Ward;
 use App\Zone1;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -27,8 +33,16 @@ class Zone1Controller extends Controller
 
     public function getUpdate($id)
     {
-        $brn_info=Brn::lists('BranchName','id');
-        return view('zone1.update', ['zone1' => Zone1::find($id)],['brn_info'=>$brn_info]);
+        $ThanaInfo = Thana::lists('ThanaName', 'id');
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $UnionInfo = Union::lists('UnionName', 'id');
+        $WardInfo = Ward::lists('WardName', 'id');
+        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $BranchInfo=Brn::lists('BranchName','id');
+        return view('zone1.update', ['zone1' => Zone1::find($id)])->with('DivisionInfo',$DivisionInfo)->with('DistrictInfo',$DistrictInfo)
+            ->with('ThanaInfo',$ThanaInfo)->with('UnionInfo',$UnionInfo)->with('WardInfo',$WardInfo)
+            ->with('PostOfficeInfo',$PostOfficeInfo)->with('BranchInfo',$BranchInfo);
     }
 
     public function postUpdate($id)
@@ -45,10 +59,16 @@ class Zone1Controller extends Controller
             );
         }
         $zone1->SomitiName = Input::get('SomitiName');
-
+        $zone1->SomitiAddress = Input::get('SomitiAddress');
         $zone1->SamitiOpenDate = Input::get('SamitiOpenDate');
         $zone1->SamitiEndDate = Input::get('SamitiEndDate');
         $zone1->BranchId = Input::get('BranchId');
+        $zone1->BranchDivisionId = Input::get('BranchDivisionId');
+        $zone1->BranchDistrictId = Input::get('BranchDistrictId');
+        $zone1->BranchThanaId = Input::get('BranchThanaId');
+        $zone1->BranchUnionId = Input::get('BranchUnionId');
+        $zone1->BranchPostOfficeId = Input::get('BranchPostOfficeId');
+        $zone1->BranchWardId = Input::get('BranchWardId');
         $zone1->SomitiCode = Input::get('SomitiCode');
         $zone1->save();
         return ['url' => 'zone1/list'];
@@ -56,8 +76,16 @@ class Zone1Controller extends Controller
 
     public function getCreate()
     {
-        $brn_info=Brn::lists('BranchName','id');
-        return view('zone1.create',compact('brn_info'));
+        $ThanaInfo = Thana::lists('ThanaName', 'id');
+        $DivisionInfo = Division::lists('DivisionName', 'id');
+        $UnionInfo = Union::lists('UnionName', 'id');
+        $WardInfo = Ward::lists('WardName', 'id');
+        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
+        $DistrictInfo = District::lists('DistrictName', 'id');
+        $BranchInfo=Brn::lists('BranchName','id');
+        return view('zone1.create')->with('DivisionInfo',$DivisionInfo)->with('DistrictInfo',$DistrictInfo)
+            ->with('ThanaInfo',$ThanaInfo)->with('UnionInfo',$UnionInfo)->with('WardInfo',$WardInfo)
+            ->with('PostOfficeInfo',$PostOfficeInfo)->with('BranchInfo',$BranchInfo);
     }
 
     public function postCreate()
@@ -73,9 +101,16 @@ class Zone1Controller extends Controller
         }
         $zone1 = new Zone1();
         $zone1->SomitiName = Input::get('SomitiName');
+        $zone1->SomitiAddress = Input::get('SomitiAddress');
         $zone1->SamitiOpenDate = Input::get('SamitiOpenDate');
         $zone1->SamitiEndDate = Input::get('SamitiEndDate');
         $zone1->BranchId = Input::get('BranchId');
+        $zone1->BranchDivisionId = Input::get('BranchDivisionId');
+        $zone1->BranchDistrictId = Input::get('BranchDistrictId');
+        $zone1->BranchThanaId = Input::get('BranchThanaId');
+        $zone1->BranchUnionId = Input::get('BranchUnionId');
+        $zone1->BranchPostOfficeId = Input::get('BranchPostOfficeId');
+        $zone1->BranchWardId = Input::get('BranchWardId');
         $zone1->SomitiCode = Input::get('SomitiCode');
         $zone1->save();
         return ['url' => 'zone1/list'];

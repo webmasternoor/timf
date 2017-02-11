@@ -43,7 +43,7 @@ class JamindarController extends Controller
         $area = Area::all();
         $branch = Brn::all();
         //$Education= '';
-        $education= DB::table('educations')->get();
+        $education= DB::table('education')->get();
         $country=Countr::all();
         $district=District::all();
         $thana=Thana::all();
@@ -128,7 +128,7 @@ class JamindarController extends Controller
         $area = Area::all();
         $branch = Brn::all();
         //$Education= '';
-        $education= DB::table('educations')->get();
+        $education= DB::table('education')->get();
         $country=Countr::all();
         $district=District::all();
         $thana=Thana::all();

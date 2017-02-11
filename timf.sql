@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `accommodationses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.accommodationses: ~3 rows (approximately)
+-- Dumping data for table timf.accommodationses: ~2 rows (approximately)
 DELETE FROM `accommodationses`;
 /*!40000 ALTER TABLE `accommodationses` DISABLE KEYS */;
 INSERT INTO `accommodationses` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `ages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.ages: ~40 rows (approximately)
+-- Dumping data for table timf.ages: ~38 rows (approximately)
 DELETE FROM `ages`;
 /*!40000 ALTER TABLE `ages` DISABLE KEYS */;
 INSERT INTO `ages` (`id`, `age`, `others`, `created_at`, `updated_at`) VALUES
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `areas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.areas: ~0 rows (approximately)
+-- Dumping data for table timf.areas: ~4 rows (approximately)
 DELETE FROM `areas`;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
 INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaUnionId`, `AreaDivisionId`, `AreaWardId`, `AreaPostOfficeId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
@@ -295,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `brns` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.brns: ~0 rows (approximately)
+-- Dumping data for table timf.brns: ~3 rows (approximately)
 DELETE FROM `brns`;
 /*!40000 ALTER TABLE `brns` DISABLE KEYS */;
 INSERT INTO `brns` (`id`, `name`, `ZoneId`, `AreaId`, `BranchName`, `BranchCode`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `BranchDivisionId`, `BranchUnionId`, `BranchWardId`, `BranchPostOfficeId`, `created_at`, `updated_at`) VALUES
@@ -453,11 +453,13 @@ CREATE TABLE IF NOT EXISTS `cashinflows` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.cashinflows: ~0 rows (approximately)
 DELETE FROM `cashinflows`;
 /*!40000 ALTER TABLE `cashinflows` DISABLE KEYS */;
+INSERT INTO `cashinflows` (`id`, `name`, `TotalIncomeDescription`, `created_at`, `updated_at`) VALUES
+	(1, NULL, 'ngfjhgfh', '2017-02-11 10:42:41', '2017-02-11 10:42:41');
 /*!40000 ALTER TABLE `cashinflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cashoutflows
@@ -910,7 +912,7 @@ CREATE TABLE IF NOT EXISTS `divisions` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.divisions: ~7 rows (approximately)
 DELETE FROM `divisions`;
@@ -1626,7 +1628,7 @@ CREATE TABLE IF NOT EXISTS `postoffices` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.postoffices: ~0 rows (approximately)
+-- Dumping data for table timf.postoffices: ~4 rows (approximately)
 DELETE FROM `postoffices`;
 /*!40000 ALTER TABLE `postoffices` DISABLE KEYS */;
 INSERT INTO `postoffices` (`id`, `PostofficeName`, `ThanaId`, `DivisionId`, `DistrictId`, `name`, `created_at`, `updated_at`) VALUES
@@ -2212,7 +2214,7 @@ DELETE FROM `prodschesav`;
 -- Dumping structure for table timf.products
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `ProductCode` varchar(500) DEFAULT NULL,
   `ProductName` varchar(500) DEFAULT NULL,
   `ProductNameEng` varchar(500) DEFAULT NULL,
@@ -2236,11 +2238,14 @@ CREATE TABLE IF NOT EXISTS `products` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.products: ~0 rows (approximately)
 DELETE FROM `products`;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` (`id`, `ProductCode`, `ProductName`, `ProductNameEng`, `ProductNameBanglaShort`, `ProductNameBanglaFull`, `ProductType`, `ServiceChargeRate`, `Duration`, `MainProductName`, `MainItemName`, `LoanInstallation`, `InstallationServiceCharge`, `SavingInstallment`, `MinimumLimit`, `MaximumLimit`, `ServiceChargeCalculationMethod`, `PaymentFrequency`, `InsuranceItemCode`, `InsuranceItemRate`, `name`, `created_at`, `updated_at`) VALUES
+	(1, '1.0', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', '1', '15', '36', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', '12', '12', '12', '12', '21', '1', '2', '12', '12', NULL, '2017-02-11 08:10:04', '2017-02-11 08:10:04'),
+	(2, '2.0', 'সাধারণ সঞ্চয়', 'general savings', 'GS', 'সাধারণ সঞ্চয়', '4', '13', '24', 'সাধারণ সঞ্চয়', 'সাধারণ সঞ্চয়', '', '', '', '100', '5000', '1', '2', '', '', NULL, '2017-02-11 08:15:44', '2017-02-11 08:15:44');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table timf.producttypes
@@ -2255,15 +2260,16 @@ CREATE TABLE IF NOT EXISTS `producttypes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.producttypes: ~3 rows (approximately)
+-- Dumping data for table timf.producttypes: ~4 rows (approximately)
 DELETE FROM `producttypes`;
 /*!40000 ALTER TABLE `producttypes` DISABLE KEYS */;
 INSERT INTO `producttypes` (`id`, `name`, `ProducttypeyName`, `ProducttypeyCode`, `ProductInstallments`, `ProductRate`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 'বাই মুদারাবা', '1001', 12, 12, '2017-02-02 10:30:37', '2017-02-02 10:30:37'),
-	(3, NULL, 'বাই মুয়াজ্জাল', '1002', 18, 14, '2017-02-02 11:01:59', '2017-02-02 11:01:59'),
-	(4, NULL, 'বাই মুশাকারাকা', '1003', 24, 13, '2017-02-02 11:02:53', '2017-02-02 11:02:53');
+	(1, NULL, 'বিনিয়োগ', '1001', 12, 12, '2017-02-02 10:30:37', '2017-02-11 08:02:56'),
+	(3, NULL, 'ঋণ', '1002', 18, 14, '2017-02-02 11:01:59', '2017-02-11 08:03:22'),
+	(4, NULL, 'সঞ্চয়', '1003', 24, 13, '2017-02-02 11:02:53', '2017-02-11 08:03:10'),
+	(5, NULL, 'ইন্সুরেন্স', '456877', 12, 14, '2017-02-11 08:03:56', '2017-02-11 08:03:56');
 /*!40000 ALTER TABLE `producttypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.professions
@@ -2275,7 +2281,7 @@ CREATE TABLE IF NOT EXISTS `professions` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Dumping data for table timf.professions: ~7 rows (approximately)
 DELETE FROM `professions`;
@@ -2411,6 +2417,22 @@ INSERT INTO `statuses` (`id`, `name`, `Status`, `created_at`, `updated_at`) VALU
 	(1, NULL, 'Yes', NULL, NULL),
 	(2, NULL, 'No', NULL, NULL);
 /*!40000 ALTER TABLE `statuses` ENABLE KEYS */;
+
+-- Dumping structure for table timf.statusesers
+DROP TABLE IF EXISTS `statusesers`;
+CREATE TABLE IF NOT EXISTS `statusesers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(500) DEFAULT NULL,
+  `Status` varchar(500) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.statusesers: ~0 rows (approximately)
+DELETE FROM `statusesers`;
+/*!40000 ALTER TABLE `statusesers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `statusesers` ENABLE KEYS */;
 
 -- Dumping structure for table timf.surveys
 DROP TABLE IF EXISTS `surveys`;
@@ -5647,7 +5669,7 @@ CREATE TABLE IF NOT EXISTS `unions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.unions: ~4 rows (approximately)
+-- Dumping data for table timf.unions: ~3 rows (approximately)
 DELETE FROM `unions`;
 /*!40000 ALTER TABLE `unions` DISABLE KEYS */;
 INSERT INTO `unions` (`id`, `UnionName`, `name`, `ThanaId`, `DivisionId`, `DistrictId`, `created_at`, `updated_at`) VALUES
@@ -6194,6 +6216,7 @@ CREATE TABLE IF NOT EXISTS `userstimfs` (
   `ZoneID` int(11) DEFAULT NULL,
   `AreaID` int(11) DEFAULT NULL,
   `office_id` int(11) DEFAULT NULL,
+  `SamityID` int(11) DEFAULT NULL,
   `designation` varchar(500) DEFAULT NULL,
   `address` varchar(500) DEFAULT NULL,
   `phone1` varchar(500) DEFAULT NULL,
@@ -6201,10 +6224,10 @@ CREATE TABLE IF NOT EXISTS `userstimfs` (
   `email` varchar(500) DEFAULT NULL,
   `altemail` varchar(500) DEFAULT NULL,
   `gender` varchar(500) DEFAULT NULL,
-  `birthdate` varchar(500) DEFAULT NULL,
-  `joiningdate` varchar(500) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
+  `joiningdate` date DEFAULT NULL,
   `status` varchar(500) DEFAULT NULL,
-  `releasedate` varchar(500) DEFAULT NULL,
+  `releasedate` date DEFAULT NULL,
   `username` varchar(500) DEFAULT NULL,
   `password12` varchar(500) DEFAULT NULL,
   `comment` varchar(500) DEFAULT NULL,
@@ -6214,11 +6237,14 @@ CREATE TABLE IF NOT EXISTS `userstimfs` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.userstimfs: ~0 rows (approximately)
+-- Dumping data for table timf.userstimfs: ~2 rows (approximately)
 DELETE FROM `userstimfs`;
 /*!40000 ALTER TABLE `userstimfs` DISABLE KEYS */;
+INSERT INTO `userstimfs` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`, `employee_id`, `employee_code`, `employee_firstname`, `employee_lastname`, `ZoneID`, `AreaID`, `office_id`, `SamityID`, `designation`, `address`, `phone1`, `phone2`, `email`, `altemail`, `gender`, `birthdate`, `joiningdate`, `status`, `releasedate`, `username`, `password12`, `comment`, `photo`, `org_id`, `IsActiveDate`, `created_at`, `updated_at`) VALUES
+	(1, NULL, NULL, NULL, '1', '1', 'Noor', 'Alom', 4, 1, 1, 1, '25', 'hjedfsfag', '123', '34', '', '', '1', '2017-02-27', '2017-02-06', '', '2017-02-21', '', '', '', NULL, NULL, NULL, '2017-02-11 06:37:18', '2017-02-11 06:47:12'),
+	(2, NULL, NULL, NULL, '12', '12', 'Rockey', 'Ahmed', 1, 1, 1, 1, '1', 'erfdgh', '23432', '234234', 'rockeycse@gmail.com', 'we@ghbfgi.com', '1', '1992-02-15', '2017-02-01', '1', '2017-03-14', 'rockeycse@gmail.com', '', '1', 'micro5.jpg', NULL, NULL, '2017-02-11 06:40:51', '2017-02-11 06:46:14');
 /*!40000 ALTER TABLE `userstimfs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_2
@@ -6340,7 +6366,7 @@ CREATE TABLE IF NOT EXISTS `wards` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.wards: ~5 rows (approximately)
+-- Dumping data for table timf.wards: ~4 rows (approximately)
 DELETE FROM `wards`;
 /*!40000 ALTER TABLE `wards` DISABLE KEYS */;
 INSERT INTO `wards` (`id`, `WardName`, `UnionId`, `DivisionId`, `DistrictId`, `ThanaId`, `name`, `created_at`, `updated_at`) VALUES
@@ -6435,21 +6461,32 @@ INSERT INTO `year_calendars` (`id`, `Name`, `Note`, `CreatedAt`, `UpdatedAt`) VA
 -- Dumping structure for table timf.zone1s
 DROP TABLE IF EXISTS `zone1s`;
 CREATE TABLE IF NOT EXISTS `zone1s` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
-  `OfficeId` int(11) DEFAULT NULL,
   `Zone1Name` varchar(500) DEFAULT NULL,
   `SomitiName` varchar(500) DEFAULT NULL,
+  `SomitiAddress` varchar(500) DEFAULT NULL,
+  `SomitiCode` varchar(500) DEFAULT NULL,
   `SamitiOpenDate` datetime DEFAULT NULL,
   `SamitiEndDate` datetime DEFAULT NULL,
   `BranchId` int(11) DEFAULT NULL,
+  `BranchDivisionId` int(11) DEFAULT NULL,
+  `BranchDistrictId` int(11) DEFAULT NULL,
+  `BranchThanaId` int(11) DEFAULT NULL,
+  `BranchUnionId` int(11) DEFAULT NULL,
+  `BranchPostOfficeId` int(11) DEFAULT NULL,
+  `BranchWardId` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.zone1s: ~0 rows (approximately)
 DELETE FROM `zone1s`;
 /*!40000 ALTER TABLE `zone1s` DISABLE KEYS */;
+INSERT INTO `zone1s` (`id`, `name`, `Zone1Name`, `SomitiName`, `SomitiAddress`, `SomitiCode`, `SamitiOpenDate`, `SamitiEndDate`, `BranchId`, `BranchDivisionId`, `BranchDistrictId`, `BranchThanaId`, `BranchUnionId`, `BranchPostOfficeId`, `BranchWardId`, `created_at`, `updated_at`) VALUES
+	(1, NULL, NULL, 'চামেলি', 'abcd', '5001', '2017-02-11 00:00:00', '2017-03-30 00:00:00', 1, 5, 23, 374, 1, 1, 1, '2017-02-11 05:55:43', '2017-02-11 05:59:04'),
+	(2, NULL, NULL, 'শিউলী', 'abcd', '5002', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 5, 23, 374, 1, 1, 1, '2017-02-11 06:02:02', '2017-02-11 06:02:25');
 /*!40000 ALTER TABLE `zone1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones

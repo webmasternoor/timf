@@ -2,7 +2,10 @@
 namespace App\Http\Controllers;
 
 use App\Organization;
+use App\Status;
+use App\Statuseser;
 use App\Userstimf;
+use App\Zone1;
 use DB;
 use App\Brn;
 use Illuminate\Support\Facades\Auth;
@@ -34,12 +37,14 @@ class UserstimfController extends Controller
         $OrganizationInfo=Organization::lists('OrganizationName','id');
         $zones= DB::table('zones')->get();
         $areas= DB::table('areas')->get();
+        $StatusInfo = Status::all();
+        $SamityInfo = Zone1::lists('SomitiName','id');
+        // $branchs= DB::table('brns')->get();
         $designations= DB::table('grades')->get();
-        $StatusInfo = DB::table('Statuss')->get();
         return view('userstimf.update',['userstimf' => Userstimf::find($id)])
             ->with('designations', $designations)->with('BranchInfo', $BranchInfo)
             ->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)
-            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo);
+            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo)->with('SamityInfo',$SamityInfo);
 
     }
 
@@ -65,7 +70,9 @@ class UserstimfController extends Controller
         $userstimf->ZoneID = Input::get('ZoneID');
         $userstimf->AreaID = Input::get('AreaID');
         $userstimf->office_id = Input::get('office_id');
+        $userstimf->SamityID = Input::get('SamityID');
         $userstimf->designation = Input::get('designation');
+        $userstimf->address = Input::get('address');
         $userstimf->address = Input::get('address');
         $userstimf->phone1 = Input::get('phone1');
         $userstimf->phone2 = Input::get('phone2');
@@ -93,11 +100,14 @@ class UserstimfController extends Controller
         $OrganizationInfo=Organization::lists('OrganizationName','id');
         $zones= DB::table('zones')->get();
         $areas= DB::table('areas')->get();
-        $StatusInfo = DB::table('Statuss')->get();
+        $StatusInfo = Status::all();
+        $SamityInfo = Zone1::lists('SomitiName','id');
        // $branchs= DB::table('brns')->get();
         $designations= DB::table('grades')->get();
         //$designations = DB::table('designations')-> select('*')->get();
-        return view('userstimf.create')->with('designations', $designations)->with('BranchInfo', $BranchInfo)->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo);
+        return view('userstimf.create')->with('designations', $designations)->with('BranchInfo', $BranchInfo)
+            ->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)
+            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo)->with('SamityInfo',$SamityInfo);
         //return view('userstimf.create');
     }
 
@@ -114,7 +124,7 @@ class UserstimfController extends Controller
             );
         }*/
 
-        //$nid=Session::get('loan_search1');
+        $nid=Session::get('loan_search1');
 
         $file = Input::file('photo');
         // $input = array('image' => $file);
@@ -134,7 +144,9 @@ class UserstimfController extends Controller
         $userstimf->ZoneID = Input::get('ZoneID');
         $userstimf->AreaID = Input::get('AreaID');
         $userstimf->office_id = Input::get('office_id');
+        $userstimf->SamityID = Input::get('SamityID');
         $userstimf->designation = Input::get('designation');
+        $userstimf->address = Input::get('address');
         $userstimf->address = Input::get('address');
         $userstimf->phone1 = Input::get('phone1');
         $userstimf->phone2 = Input::get('phone2');

@@ -80,6 +80,8 @@ Route::get('getArea','SelectBoxController@getArea');
 
 Route::get('getBranch','SelectBoxController@getBranch');
 
+Route::get('getSamity','SelectBoxController@getSamity');
+
 Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
 Route::get('{view}', function ($view) {

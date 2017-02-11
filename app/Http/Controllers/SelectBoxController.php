@@ -93,6 +93,15 @@ class SelectBoxController extends Controller
         return response()->json($data);
     }
 
+    public function getSamity(Request $request)
+    {
+        $data=DB::table('zone1s')
+            ->select('*')
+            ->where('BranchId',$request->id)
+            ->get();
+        return response()->json($data);
+    }
+
     public function getProductInfo(Request $request)
     {
         $data=DB::table('producttypes')

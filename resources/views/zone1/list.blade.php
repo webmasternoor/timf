@@ -1,7 +1,7 @@
-<h1 class="page-header">জোন তালিকা
+<h1 class="page-header">সমিতি তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('zone1/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
+                    class="glyphicon glyphicon-plus-sign"></i> নতুন </a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
