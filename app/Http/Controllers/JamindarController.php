@@ -1,7 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Age;
+use App\Education;
+use App\Gender;
+use App\Nametitle;
 use App\Post;
+use App\Profession;
 use App\Survey;
 use App\Countr;
 use App\Division;
@@ -10,6 +15,7 @@ use App\Thana;
 use App\Union;
 use App\Postoffice;
 use App\Ward;
+use App\Year_calendar;
 use App\Zone;
 use App\Area;
 use App\Brn;
@@ -78,6 +84,7 @@ class JamindarController extends Controller
         $jamindar->JamindarFamilyName = Input::get('JamindarFamilyName');
         $jamindar->JamindarRelation = Input::get('JamindarRelation');
         $jamindar->JamindarAge = Input::get('JamindarAge');
+        $jamindar->JamindarGender = Input::get('JamindarGender');
         $jamindar->JamindarEducation = Input::get('JamindarEducation');
         $jamindar->JamindarPassingYear = Input::get('JamindarPassingYear');
         $jamindar->FatherOrHasbandNAmeTitle = Input::get('FatherOrHasbandNAmeTitle');
@@ -85,6 +92,7 @@ class JamindarController extends Controller
         $jamindar->FatherOrHasbandLastName = Input::get('FatherOrHasbandLastName');
         $jamindar->FatherOrHasbandAge = Input::get('FatherOrHasbandAge');
         $jamindar->JamindarCountry = Input::get('JamindarCountry');
+        $jamindar->JamindarDivision = Input::get('JamindarDivision');
         $jamindar->JamindarDistrict = Input::get('JamindarDistrict');
         $jamindar->JamindarThana = Input::get('JamindarThana');
         $jamindar->JamindarPostoffice = Input::get('JamindarPostoffice');
@@ -92,6 +100,7 @@ class JamindarController extends Controller
         $jamindar->JamindarWord = Input::get('JamindarWord');
         $jamindar->JamindarVillage = Input::get('JamindarVillage');
         $jamindar->JamindarCountry1 = Input::get('JamindarCountry1');
+        $jamindar->JamindarDivision1 = Input::get('JamindarDivision1');
         $jamindar->JamindarDistrict1 = Input::get('JamindarDistrict1');
         $jamindar->JamindarThana1 = Input::get('JamindarThana1');
         $jamindar->JamindarPostoffice1 = Input::get('JamindarPostoffice1');
@@ -124,21 +133,29 @@ class JamindarController extends Controller
         $Nidsession = Session::get('loan_search2');
 
 
+        $NameTitle = Nametitle::lists('name', 'id');
+        $Age = Age::lists('age', 'id');
+        $PassingYear = Year_calendar::lists('Name', 'id');
+        $Profession = Profession::lists('name', 'id');
+        $Education = Education::lists('name', 'id');
+        $Gender = Gender::lists('GenderName', 'id');
+        $Country = Countr::lists('CountryName', 'id');
+        $Division = Division::lists('DivisionName', 'id');
+        $District = District::lists('DistrictName', 'id');
+        $Thana = Thana::lists('ThanaName', 'id');
+        $PostOffice = Postoffice::lists('PostofficeName', 'id');
+        $Union = Union::lists('UnionName', 'id');
+        $Ward = Ward::lists('WardName', 'id');
+
+
         $zone = Zone::all();
         $area = Area::all();
         $branch = Brn::all();
-        //$Education= '';
-        $education= DB::table('education')->get();
-        $country=Countr::all();
-        $district=District::all();
-        $thana=Thana::all();
-        $postoffice=Postoffice::all();
-        $union=Union::all();
-        $word=Ward::all();
+
         return view('jamindar.create')->with('zone', $zone)->with('branch', $branch)->with('area', $area)
-            ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
-            ->with('union', $union)->with('word', $word)
-            ->with('education', $education)
+            ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
+            ->with('Union', $Union)->with('Ward', $Ward)->with('NameTitle',$NameTitle)->with('Age',$Age)->with('PassingYear',$PassingYear)
+            ->with('Education', $Education)->with('Profession',$Profession)->with('Gender',$Gender)->with('Division',$Division)
             ->with('loan1s', $loan1s);
        // return view('jamindar.create');
     }
@@ -164,6 +181,7 @@ class JamindarController extends Controller
         $jamindar->JamindarFamilyName = Input::get('JamindarFamilyName');
         $jamindar->JamindarRelation = Input::get('JamindarRelation');
         $jamindar->JamindarAge = Input::get('JamindarAge');
+        $jamindar->JamindarGender = Input::get('JamindarGender');
         $jamindar->JamindarEducation = Input::get('JamindarEducation');
         $jamindar->JamindarPassingYear = Input::get('JamindarPassingYear');
         $jamindar->FatherOrHasbandNAmeTitle = Input::get('FatherOrHasbandNAmeTitle');

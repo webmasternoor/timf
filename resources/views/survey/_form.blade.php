@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-Gender-error">
-                        {!! Form::label("Gender","লিঙ্গ",["class"=>"control-label col-md-12"]) !!}
+                        {!! Form::label("Gender","জেন্ডার",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::select("Gender",$Gender,null,["class"=>"form-control Gender required","id"=>"Gender"]) !!}
                             <span id="Gender-error" class="help-block"></span>

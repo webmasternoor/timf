@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Organization;
+use App\Rollcatagory;
 use App\Status;
 use App\Statuseser;
 use App\Userstimf;
@@ -39,12 +40,14 @@ class UserstimfController extends Controller
         $areas= DB::table('areas')->get();
         $StatusInfo = Status::all();
         $SamityInfo = Zone1::lists('SomitiName','id');
+        $RollCategory = Rollcatagory::lists('name','id');
         // $branchs= DB::table('brns')->get();
         $designations= DB::table('grades')->get();
         return view('userstimf.update',['userstimf' => Userstimf::find($id)])
             ->with('designations', $designations)->with('BranchInfo', $BranchInfo)
             ->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)
-            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo)->with('SamityInfo',$SamityInfo);
+            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo)->with('SamityInfo',$SamityInfo)
+            ->with('RollCategory',$RollCategory);
 
     }
 
@@ -72,6 +75,7 @@ class UserstimfController extends Controller
         $userstimf->office_id = Input::get('office_id');
         $userstimf->SamityID = Input::get('SamityID');
         $userstimf->designation = Input::get('designation');
+        $userstimf->RollType = Input::get('RollType');
         $userstimf->address = Input::get('address');
         $userstimf->address = Input::get('address');
         $userstimf->phone1 = Input::get('phone1');
@@ -102,12 +106,14 @@ class UserstimfController extends Controller
         $areas= DB::table('areas')->get();
         $StatusInfo = Status::all();
         $SamityInfo = Zone1::lists('SomitiName','id');
+        $RollCategory = Rollcatagory::lists('name','id');
        // $branchs= DB::table('brns')->get();
         $designations= DB::table('grades')->get();
         //$designations = DB::table('designations')-> select('*')->get();
         return view('userstimf.create')->with('designations', $designations)->with('BranchInfo', $BranchInfo)
             ->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)
-            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo)->with('SamityInfo',$SamityInfo);
+            ->with('GenderInfo',$GenderInfo)->with('StatusInfo',$StatusInfo)->with('SamityInfo',$SamityInfo)
+            ->with('RollCategory',$RollCategory);
         //return view('userstimf.create');
     }
 
@@ -146,6 +152,7 @@ class UserstimfController extends Controller
         $userstimf->office_id = Input::get('office_id');
         $userstimf->SamityID = Input::get('SamityID');
         $userstimf->designation = Input::get('designation');
+        $userstimf->RollType = Input::get('RollType');
         $userstimf->address = Input::get('address');
         $userstimf->address = Input::get('address');
         $userstimf->phone1 = Input::get('phone1');

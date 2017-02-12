@@ -26,13 +26,13 @@
             <span id="employee_id-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-4" id="form-employee_code-error">
-        {!! Form::label("employee_code","কর্মকর্তা/কর্মচারী কোড",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
-            {!! Form::text("employee_code",null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="employee_code-error" class="help-block"></span>
-        </div>
-    </div>
+    {{--<div class="form-group required col-md-4" id="form-employee_code-error">--}}
+        {{--{!! Form::label("employee_code","কর্মকর্তা/কর্মচারী কোড",["class"=>"control-label col-md-12"]) !!}--}}
+        {{--<div class="col-md-12">--}}
+            {{--{!! Form::text("employee_code",null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
+            {{--<span id="employee_code-error" class="help-block"></span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="form-group required col-md-4" id="form-employee_firstname-error">
         {!! Form::label("employee_firstname","নামের প্রথম অংশ",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
@@ -59,35 +59,43 @@
             <span id="designation-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-4" id="form-ZoneID-error">
-        {!! Form::label("ZoneID","জোন",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
-            <select name="ZoneID" class="ZoneId" id="ZoneId">
-                @foreach($zones as $zones12 )
-                    <option value="{{$zones12->id}}">{{$zones12->ZoneName}}</option>
-                @endforeach
-            </select>
-            <span id="ZoneID-error" class="help-block"></span>
+    <div class="form-group required col-md-8" id="form-RollType-error">
+        {!! Form::label("RollType","রোল",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-6">
+        {!! Form::select("RollType",$RollCategory,null,["class"=>"form-control RollType required","id"=>"RollType"]) !!}
+        <!-- {!! Form::text("RollType",null,["class"=>"form-control RollType required","id"=>"RollType"]) !!} -->
+            <span id="RollType-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-4" id="form-AreaID-error">
-        {!! Form::label("AreaID","এরিয়া",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
-            <select name="AreaID" class="AreaId" id="AreaId">
-                @foreach($areas as $areas12 )
-                    <option value="{{$areas12->id}}">{{$areas12->AreaName}}</option>
-                @endforeach
-            </select>
-            <span id="AreaID-error" class="help-block"></span>
-        </div>
-    </div>
-    <div class="form-group required col-md-4" id="form-office_id-error">
-        {!! Form::label("office_id","অফিস আইডি",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
-            {!! Form::select("office_id",$BranchInfo,null,["class"=>"form-control office_id required","id"=>"office_id"]) !!}
-            <span id="office_id-error" class="help-block"></span>
-        </div>
-    </div>
+    {{--<div class="form-group required col-md-4" id="form-ZoneID-error">--}}
+        {{--{!! Form::label("ZoneID","জোন",["class"=>"control-label col-md-12"]) !!}--}}
+        {{--<div class="col-md-12">--}}
+            {{--<select name="ZoneID" class="ZoneId" id="ZoneId">--}}
+                {{--@foreach($zones as $zones12 )--}}
+                    {{--<option value="{{$zones12->id}}">{{$zones12->ZoneName}}</option>--}}
+                {{--@endforeach--}}
+            {{--</select>--}}
+            {{--<span id="ZoneID-error" class="help-block"></span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="form-group required col-md-4" id="form-AreaID-error">--}}
+        {{--{!! Form::label("AreaID","এরিয়া",["class"=>"control-label col-md-12"]) !!}--}}
+        {{--<div class="col-md-12">--}}
+            {{--<select name="AreaID" class="AreaId" id="AreaId">--}}
+                {{--@foreach($areas as $areas12 )--}}
+                    {{--<option value="{{$areas12->id}}">{{$areas12->AreaName}}</option>--}}
+                {{--@endforeach--}}
+            {{--</select>--}}
+            {{--<span id="AreaID-error" class="help-block"></span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="form-group required col-md-4" id="form-office_id-error">--}}
+        {{--{!! Form::label("office_id","অফিস আইডি",["class"=>"control-label col-md-12"]) !!}--}}
+        {{--<div class="col-md-12">--}}
+            {{--{!! Form::select("office_id",$BranchInfo,null,["class"=>"form-control office_id required","id"=>"office_id"]) !!}--}}
+            {{--<span id="office_id-error" class="help-block"></span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="form-group required col-md-4" id="form-SamityID-error">
         {!! Form::label("SamityID","সমিতি আইডি",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
@@ -144,7 +152,7 @@
     <div class="form-group required col-md-6" id="form-status-error">
         {!! Form::label("status","স্ট্যাটাস",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-12">
-            {!! Form::text("status",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::textarea("status",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="status-error" class="help-block"></span>
         </div>
     </div>
@@ -185,7 +193,7 @@
         </div>
     </div>
     <div class="form-group required col-md-4" id="form-password122-error">
-        {!! Form::label("password122","নিশ্চিত পাসওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
+        {!! Form::label("password122","কনফার্ম পাসওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::password("password122",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="password122-error" class="help-block"></span>

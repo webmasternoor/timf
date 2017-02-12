@@ -24,23 +24,27 @@
     <link rel="stylesheet" href="{{ asset('highlight/styles/zenburn.css') }}">
     <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"> -->
     <link href="{{ asset('/css/bootstrap-combined.min.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('bootstrap-3.3.6/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+<!-- <link href="{{ asset('bootstrap-3.3.6/css/bootstrap.min.css') }}" rel="stylesheet"> -->
     <script src="{{ asset('highlight/highlight.pack.js')  }}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <style type="text/css">
         .dropdown-menu {
-            float:left;
+            float: left;
         }
+
         .dropdown-menu,
-        .dropdown-submenu{
+        .dropdown-submenu {
             width: 100% !important;
         }
+
         .pull-right {
             /* float: none!important; */
         }
-        .navbar-inverse .nav>li>a{
+
+        .navbar-inverse .nav > li > a {
             color: #ffffff !important;
         }
+
         .loading {
             background: lightgoldenrodyellow url('{{asset('images/processing.gif')}}') no-repeat center 65%;
             height: 80px;
@@ -53,13 +57,15 @@
             z-index: 2000;
             display: none;
         }
+
         div.product .input-group .form-control#search,
-        div.product input[type="text"]{
+        div.product input[type="text"] {
             /* height: 24px;
             width: 100%; */
         }
-        .pull-right>.dropdown-menu{
-            left:none !important;
+
+        .pull-right > .dropdown-menu {
+            left: none !important;
         }
     </style>
 
@@ -85,7 +91,7 @@
             </button>
             <a class="navbar-brand" href="{{ url('/') }}">
                 <span class="dt-icon"><i class="fa fa-th-list"></i></span>
-                TIMF</a>
+                MiKroF</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -95,15 +101,21 @@
                 <li><a href="https://yajrabox.com/docs/laravel-datatables/6.0"><strong>Documentation</strong></a></li>
                 <li><a href="https://www.patreon.com/bePatron?u=4521203"><strong>Become a Patreon</strong></a></li>
             </ul> -->
-        
+
             <ul class="nav navbar-nav navbar-right navbar-custom">
+
+                    <li>Zone: Bogra.</li>
+                    <li>Area: Thengamara.</li>
+                    <li>Branch: Gokul.</li>
+
+
                 @if (Auth::guest())
                     <li><a href="{{ url('/auth/login') }}">Login</a></li>
-                    <!-- <li><a href="{{ url('/auth/register') }}">Register</a></li> -->
+                <!-- <li><a href="{{ url('/auth/register') }}">Register</a></li> -->
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                           aria-expanded="false">{{ Auth::user()->name }} &nbsp; [Branch Manager] <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                         </ul>
@@ -136,8 +148,8 @@
                 'style'=>'display:none;'
             ])
             <div class="col-md-12">
-                @yield('content')
-                <!-- <hr> -->
+            @yield('content')
+            <!-- <hr> -->
                 @include('partials.ads',[
                     'client' => env('ADS_YAJRA_CLIENT'),
                     'slot'  => env('ADS_YAJRA_SLOT'),

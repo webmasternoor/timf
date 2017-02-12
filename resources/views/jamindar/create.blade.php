@@ -1,5 +1,5 @@
 <div class="col-md-12 surveysearch">
-	<h1 class="page-header">Survey Search
+	<h1 class="page-header">Step - 1:
 	    <div class="pull-right">
 	        <a href="javascript:ajaxLoad('jamindar/create')" class="btn btn-primary pull-right"><i
 	                    class="glyphicon glyphicon-plus-sign"></i> New</a>
@@ -9,7 +9,7 @@
 	    <div class="input-group">
 	        <input class="form-control" id="search2" value="{{ Session::get('loan_search2') }}"
 	               onkeydown="if (event.keyCode == 13) ajaxLoad('{{url('jamindar/create')}}?ok=1&search2='+this.value)"
-	               placeholder="Survey Search [NID].."
+	               placeholder="Search by [Mobile no].."
 	               type="text">
 
 	        <div class="input-group-btn">

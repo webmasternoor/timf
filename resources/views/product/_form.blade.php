@@ -57,7 +57,7 @@
         <div class="form-group required col-md-4" id="form-Duration-error">
             {!! Form::label("Duration","মেয়াদ(মাস)",["class"=>"control-label  col-md-12"]) !!}
             <div class="col-md-12" id="Duration">
-                {!! Form::number("Duration",null,["class"=>"form-control Duration required" ,"id"=>"Duration"],['readonly']) !!}
+                {!! Form::number("Duration",null,["class"=>"form-control Duration required" ,"id"=>"Duration"]) !!}
                 <span id="Duration-error" class="help-block"></span>
             </div>
         </div>
@@ -196,29 +196,29 @@
         return false;
     });
 
-    $(document).ready(function () {
-        $(document).on('change', '.ProductType', function () {
-            //console.log("yes it is change");
-
-            var ProductType = $(this).val();
-            var div = $(this).parent();
-            //console.log(DivisionId);
-            $('#ServiceChargeRate').empty();
-            $('#Duration').empty();
-            $.ajax({
-                type: 'get',
-                url: 'getProductInfo',
-                data: {'id': ProductType},
-                success: function (data) {
-                    $.each(data, function (index, subcatObj) {
-                        $('#ServiceChargeRate').append('<input type="text" class="form-control" readonly name="ServiceChargeRate" value="'+subcatObj.ProductRate+'">');
-                        $('#Duration').append('<input type="text" class="form-control" readonly name="Duration" value="'+subcatObj.ProductInstallments+'">')
-                    });
-                },
-                error: function () {
-
-                }
-            });
-        });
-    });
+//    $(document).ready(function () {
+//        $(document).on('change', '.ProductType', function () {
+//            //console.log("yes it is change");
+//
+//            var ProductType = $(this).val();
+//            var div = $(this).parent();
+//            //console.log(DivisionId);
+//            $('#ServiceChargeRate').empty();
+//            $('#Duration').empty();
+//            $.ajax({
+//                type: 'get',
+//                url: 'getProductInfo',
+//                data: {'id': ProductType},
+//                success: function (data) {
+//                    $.each(data, function (index, subcatObj) {
+//                        $('#ServiceChargeRate').append('<input type="text" class="form-control" readonly name="ServiceChargeRate" value="'+subcatObj.ProductRate+'">');
+//                        $('#Duration').append('<input type="text" class="form-control" readonly name="Duration" value="'+subcatObj.ProductInstallments+'">')
+//                    });
+//                },
+//                error: function () {
+//
+//                }
+//            });
+//        });
+//    });
 </script>
