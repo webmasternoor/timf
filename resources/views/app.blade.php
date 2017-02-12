@@ -103,9 +103,9 @@
             </ul> -->
             <div class="zoneareabran">
                 <ul class="nav navbar-nav navbar-custom">
-                    <li>Zone: Bogra.</li>
-                    <li>Area: Thengamara.</li>
-                    <li>Branch: Gokul.</li>
+                    <li><span>Zone: </span>Bogra.</li>
+                    <li><span>Area: </span>Thengamara.</li>
+                    <li><span>Branch: </span>Gokul.</li>
                 </ul>
             </div>
 
@@ -164,7 +164,16 @@
         </div>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="panel-footer footercopy">
+            <div class="pull-left">Copyright <sup>&reg;</sup> MiKroF 2017</div>
+            <div class="pull-right">Design & Developed by <a target="_blank" href="http://tmss-ict.com">TMSS-ICT</a></div>
+        </div>
+    </div>
+</div>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <!-- <script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script> -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
