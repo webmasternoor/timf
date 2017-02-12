@@ -228,6 +228,7 @@
 
                         </div>
                     </div>
+
                     <div class="tab-pane" id="22">
                         <div class="borderportion">
                             <div class="box-header col-md-11">
@@ -290,7 +291,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6" id="form-Gender-error">
-                                {!! Form::label("Gender","লিঙ্গ",["class"=>"control-label col-md-12"]) !!}
+                                {!! Form::label("Gender","জেন্ডার",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <select name="Gender">
                                         @foreach($gender as $GenderInfo )
@@ -602,13 +603,13 @@
                                     <span id="WifeProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-WifeOtherProfession-error">
-                                {!! Form::label("WifeOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("WifeOtherProfession",null,["class"=>"form-control"]) !!}
-                                    <span id="WifeOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-WifeOtherProfession-error">--}}
+                                {{--{!! Form::label("WifeOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("WifeOtherProfession",null,["class"=>"form-control"]) !!}--}}
+                                    {{--<span id="WifeOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
 
                         <div class="borderportion">
@@ -708,13 +709,13 @@
                                     <span id="FatherProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-FatherOtherProfession-error">
-                                {!! Form::label("FatherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("FatherOtherProfession",null,["class"=>"form-control"]) !!}
-                                    <span id="FatherOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-FatherOtherProfession-error">--}}
+                                {{--{!! Form::label("FatherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("FatherOtherProfession",null,["class"=>"form-control"]) !!}--}}
+                                    {{--<span id="FatherOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group col-md-6" id="form-FatherMobileNo-error">
                                 {!! Form::label("FatherMobileNo","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -824,13 +825,13 @@
                                     <span id="MotherProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-MotherOtherProfession-error">
-                                {!! Form::label("MotherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("MotherOtherProfession",null,["class"=>"form-control"]) !!}
-                                    <span id="MotherOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-MotherOtherProfession-error">--}}
+                                {{--{!! Form::label("MotherOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("MotherOtherProfession",null,["class"=>"form-control"]) !!}--}}
+                                    {{--<span id="MotherOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group col-md-6" id="form-MotherMobileNo-error">
                                 {!! Form::label("MotherMobileNo","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -1204,6 +1205,7 @@
                         </div>
 
                     </div>
+
                     <div class="tab-pane" id="55">
                         <div class="borderportion">
                             <div class="box-header col-md-11">
@@ -1375,75 +1377,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6" id="form-EarningMale-error">
-                                {!! Form::label("EarningMale","উপার্জনক্ষম পুরুষের সংখ্যা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="EarningMale">
-                                        @foreach($count as $count_data )
-                                            @if($loan->EarningMale==$count_data->id)
-                                                {
-                                                <option value="{{$count_data->id}}"
-                                                        selected>{{$count_data->name}}</option>
-                                                }
-                                            @else
-                                                {
-                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
-                                                }
-                                            @endif
-                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
-                                        @endforeach
-                                    </select>
-
-                                    <span id="EarningMale-error" class="help-block"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-6" id="form-EarningFemale-error">
-                                {!! Form::label("EarningFemale","উপার্জনক্ষম মহিলার সংখ্যা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="EarningFemale">
-                                        @foreach($count as $count_data )
-                                            @if($loan->EarningFemale==$count_data->id)
-                                                {
-                                                <option value="{{$count_data->id}}"
-                                                        selected>{{$count_data->name}}</option>
-                                                }
-                                            @else
-                                                {
-                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
-                                                }
-                                            @endif
-                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
-                                        @endforeach
-                                    </select>
-
-                                    <span id="EarningFemale-error" class="help-block"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-6" id="form-EarningPerson-error">
-                                {!! Form::label("EarningPerson","উপার্জনক্ষম সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    <select name="EarningPerson">
-                                        @foreach($count as $count_data )
-                                            @if($loan->EarningPerson==$count_data->id)
-                                                {
-                                                <option value="{{$count_data->id}}"
-                                                        selected>{{$count_data->name}}</option>
-                                                }
-                                            @else
-                                                {
-                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
-                                                }
-                                            @endif
-                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
-                                        @endforeach
-                                    </select>
-
-                                    <span id="EarningPerson-error" class="help-block"></span>
-                                </div>
-                            </div>
-
                             <div class="form-group col-md-6" id="form-MaleMember-error">
                                 {!! Form::label("MaleMember","পুরুষ সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -1487,6 +1420,76 @@
                                     </select>
 
                                     <span id="FemaleMember-error" class="help-block"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-md-6" id="form-EarningPerson-error">
+                                {!! Form::label("EarningPerson","উপার্জনক্ষম সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    <select name="EarningPerson">
+                                        @foreach($count as $count_data )
+                                            @if($loan->EarningPerson==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
+                                        @endforeach
+                                    </select>
+
+                                    <span id="EarningPerson-error" class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6" id="form-EarningMale-error">
+                                {!! Form::label("EarningMale","উপার্জনক্ষম পুরুষের সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    <select name="EarningMale">
+                                        @foreach($count as $count_data )
+                                            @if($loan->EarningMale==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
+                                        @endforeach
+                                    </select>
+
+                                    <span id="EarningMale-error" class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6" id="form-EarningFemale-error">
+                                {!! Form::label("EarningFemale","উপার্জনক্ষম মহিলার সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    <select name="EarningFemale">
+                                        @foreach($count as $count_data )
+                                            @if($loan->EarningFemale==$count_data->id)
+                                                {
+                                                <option value="{{$count_data->id}}"
+                                                        selected>{{$count_data->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
+                                        @endforeach
+                                    </select>
+
+                                    <span id="EarningFemale-error" class="help-block"></span>
                                 </div>
                             </div>
 
@@ -1765,8 +1768,8 @@
                             <div class="form-group col-md-6" id="form-InvestmentSector-error">
                                 {!! Form::label("InvestmentSector","বিনিয়োগের খাত",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="InvestmentSector"
-                                           value="{{$loan->InvestmentSector}}">
+                                    <textarea class="form-control" type="text" name="InvestmentSector"
+                                              value="{{$loan->InvestmentSector}}">{{$loan->InvestmentSector}}</textarea>
                                     {{--{!! Form::text("InvestmentSector",null,["class"=>"form-control"]) !!}--}}
                                     <span id="InvestmentSector-error" class="help-block"></span>
                                 </div>
@@ -1983,7 +1986,7 @@
             if (SpouseProfession == 'Others') {
                 $('#SpouseProfession1').empty();
 
-                $('#SpouseProfession1').append('<input type="text" class="form-control"  name="SpouseProfession" value="">')
+                $('#SpouseProfession1').append('<input type="text" class="form-control"  name="SpouseOtherProfession" value="">')
             }
         });
         $(document).on('change', '.WifeProfession', function () {
@@ -1995,7 +1998,7 @@
             if (WifeProfession == 'Others') {
                 $('#WifeProfession1').empty();
 
-                $('#WifeProfession1').append('<input type="text" class="form-control"  name="WifeProfession" value="">')
+                $('#WifeProfession1').append('<input type="text" class="form-control"  name="WifeOtherProfession" value="">')
             }
         });
         $(document).on('change', '.FatherProfession', function () {
@@ -2007,7 +2010,7 @@
             if (FatherProfession == 'Others') {
                 $('#FatherProfession1').empty();
 
-                $('#FatherProfession1').append('<input type="text" class="form-control"  name="FatherProfession" value="">')
+                $('#FatherProfession1').append('<input type="text" class="form-control"  name="FatherOtherProfession" value="">')
             }
         });
         $(document).on('change', '.MotherProfession', function () {
@@ -2019,7 +2022,7 @@
             if (MotherProfession == 'Others') {
                 $('#MotherProfession1').empty();
 
-                $('#MotherProfession1').append('<input type="text" class="form-control"  name="MotherProfession" value="">')
+                $('#MotherProfession1').append('<input type="text" class="form-control"  name="MotherOtherProfession" value="">')
             }
         });
         $(document).on('change', '.CurrentProfession', function () {
@@ -2028,10 +2031,10 @@
             var CurrentProfession = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
-            if (CurrentProfession == 'Others') {
+            if (CurrentProfession == '7') {
                 $('#CurrentProfession1').empty();
 
-                $('#CurrentProfession1').append('<input type="text" class="form-control"  name="CurrentProfession" value="">')
+                $('#CurrentProfession1').append('<input type="text" class="form-control"  name="CurrentOtherProfession" value="">')
             }
         });
 
@@ -2044,7 +2047,7 @@
             if (PreviousProfession == 'Others') {
                 $('#PreviousProfession1').empty();
 
-                $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousProfession" value="">')
+                $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousOtherProfession" value="">')
             }
         });
     });

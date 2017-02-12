@@ -108,6 +108,123 @@ class MemberController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }*/
+
+        $SpouseOtherProfession = Input::get('SpouseOtherProfession');
+
+        if (!empty($SpouseOtherProfession)) {
+
+            $profession_data = Profession::where('name', $SpouseOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $SpouseOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $SpouseOtherProfession)->get();
+                $member->SpouseProfession = $profession_data[0]->id;
+            }
+        } else {
+            $member->SpouseProfession = Input::get('SpouseProfession');
+        }
+        $WifeOtherProfession = Input::get('WifeOtherProfession');
+        if (!empty($WifeOtherProfession)) {
+
+            $profession_data = Profession::where('name', $WifeOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $WifeOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $member->WifeProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $member->WifeProfession = $profession_data[0]->id;
+            }
+
+//            $member->WifeProfession = $WifeOtherProfession;
+        } else {
+            $member->WifeProfession = Input::get('WifeProfession');
+        }
+        $FatherOtherProfession = Input::get('FatherOtherProfession');
+        if (!empty($FatherOtherProfession) ) {
+            $profession_data = Profession::where('name', $FatherOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $FatherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $member->FatherProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $member->FatherProfession = $profession_data[0]->id;
+            }
+//            $member->FatherProfession = $FatherOtherProfession;
+        } else {
+            $member->FatherProfession = Input::get('FatherProfession');
+        }
+        $MotherOtherProfession = Input::get('MotherOtherProfession');
+        if (!empty($MotherOtherProfession)) {
+            $profession_data = Profession::where('name', $MotherOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $MotherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $member->MotherProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $member->MotherProfession = $profession_data[0]->id;
+            }
+//            $member->MotherProfession = $MotherOtherProfession;
+        } else {
+            $member->MotherProfession = Input::get('MotherProfession');
+        }
+        $CurrentOtherProfession = Input::get('CurrentOtherProfession');
+//        $MotherOtherProfession = Input::get('MotherOtherProfession');
+        if (!empty($CurrentOtherProfession)) {
+            $profession_data = Profession::where('name', $CurrentOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $CurrentOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $CurrentOtherProfession)->get();
+                $member->CurrentProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $CurrentOtherProfession)->get();
+                $member->CurrentProfession = $profession_data[0]->id;
+            }
+//            $member->MotherProfession = $MotherOtherProfession;
+        } else {
+            $member->CurrentProfession = Input::get('CurrentProfession');
+        }
+        $PreviousOtherProfession = Input::get('PreviousOtherProfession');
+        if (!empty($PreviousOtherProfession)) {
+            $profession_data = Profession::where('name', $PreviousOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $PreviousOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $PreviousOtherProfession)->get();
+                $member->PreviousProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $PreviousOtherProfession)->get();
+                $member->PreviousProfession = $profession_data[0]->id;
+            }
+//            $member->MotherProfession = $MotherOtherProfession;
+        } else {
+            $member->PreviousProfession = Input::get('PreviousProfession');
+        }
+
+
         $member->BusinessName = Input::get('BusinessName');
         $member->BusinessNature = Input::get('BusinessNature');
         $member->BusinessExperience = Input::get('BusinessExperience');
@@ -244,6 +361,8 @@ class MemberController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }*/
+
+
         $member = new Member();
         $nid=Session::get('loan_search1');
 
@@ -275,6 +394,121 @@ class MemberController extends Controller
 
         }
 
+        $SpouseOtherProfession = Input::get('SpouseOtherProfession');
+
+        if (!empty($SpouseOtherProfession)) {
+
+            $profession_data = Profession::where('name', $SpouseOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $SpouseOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $SpouseOtherProfession)->get();
+                $member->SpouseProfession = $profession_data[0]->id;
+            }
+        } else {
+            $member->SpouseProfession = Input::get('SpouseProfession');
+        }
+        $WifeOtherProfession = Input::get('WifeOtherProfession');
+        if (!empty($WifeOtherProfession)) {
+
+            $profession_data = Profession::where('name', $WifeOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $WifeOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $member->WifeProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $WifeOtherProfession)->get();
+                $member->WifeProfession = $profession_data[0]->id;
+            }
+
+//            $member->WifeProfession = $WifeOtherProfession;
+        } else {
+            $member->WifeProfession = Input::get('WifeProfession');
+        }
+        $FatherOtherProfession = Input::get('FatherOtherProfession');
+        if (!empty($FatherOtherProfession) ) {
+            $profession_data = Profession::where('name', $FatherOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $FatherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $member->FatherProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $FatherOtherProfession)->get();
+                $member->FatherProfession = $profession_data[0]->id;
+            }
+//            $member->FatherProfession = $FatherOtherProfession;
+        } else {
+            $member->FatherProfession = Input::get('FatherProfession');
+        }
+        $MotherOtherProfession = Input::get('MotherOtherProfession');
+        if (!empty($MotherOtherProfession)) {
+            $profession_data = Profession::where('name', $MotherOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $MotherOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $member->MotherProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $MotherOtherProfession)->get();
+                $member->MotherProfession = $profession_data[0]->id;
+            }
+//            $member->MotherProfession = $MotherOtherProfession;
+        } else {
+            $member->MotherProfession = Input::get('MotherProfession');
+        }
+        $CurrentOtherProfession = Input::get('CurrentOtherProfession');
+//        $MotherOtherProfession = Input::get('MotherOtherProfession');
+        if (!empty($CurrentOtherProfession)) {
+            $profession_data = Profession::where('name', $CurrentOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $CurrentOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $CurrentOtherProfession)->get();
+                $member->CurrentProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $CurrentOtherProfession)->get();
+                $member->CurrentProfession = $profession_data[0]->id;
+            }
+//            $member->MotherProfession = $MotherOtherProfession;
+        } else {
+            $member->CurrentProfession = Input::get('CurrentProfession');
+        }
+        $PreviousOtherProfession = Input::get('PreviousOtherProfession');
+        if (!empty($PreviousOtherProfession)) {
+            $profession_data = Profession::where('name', $PreviousOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $PreviousOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $PreviousOtherProfession)->get();
+                $member->PreviousProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $PreviousOtherProfession)->get();
+                $member->PreviousProfession = $profession_data[0]->id;
+            }
+//            $member->MotherProfession = $MotherOtherProfession;
+        } else {
+            $member->PreviousProfession = Input::get('PreviousProfession');
+        }
+
         $member->Nid = $nid;
 
         $member->ZoneId = Input::get('ZoneId');
@@ -290,8 +524,8 @@ class MemberController extends Controller
         $member->Age = Input::get('Age');
         $member->Education = Input::get('Education');
         $member->PassingYear = Input::get('PassingYear');
-        $member->SpouseProfession = Input::get('SpouseProfession');
-        $member->SpouseOtherProfession = Input::get('SpouseOtherProfession');
+//        $member->SpouseProfession = Input::get('SpouseProfession');
+//        $member->SpouseOtherProfession = Input::get('SpouseOtherProfession');
         $member->SpouseMobileNo = Input::get('SpouseMobileNo');
         $member->MaritalStatus = Input::get('MaritalStatus');
         $member->Mobile = Input::get('Mobile');
@@ -304,21 +538,21 @@ class MemberController extends Controller
         $member->WifeFamilyName = Input::get('WifeFamilyName');
         $member->WifeAge = Input::get('WifeAge');
         $member->WifeMobileNo = Input::get('WifeMobileNo');
-        $member->WifeProfession = Input::get('WifeProfession');
-        $member->WifeOtherProfession = Input::get('WifeOtherProfession');
+//        $member->WifeProfession = Input::get('WifeProfession');
+//        $member->WifeOtherProfession = Input::get('WifeOtherProfession');
         $member->FatherOrHasbandNAmeTitle = Input::get('FatherOrHasbandNAmeTitle');
         $member->FatherOrHasbandFirstName = Input::get('FatherOrHasbandFirstName');
         $member->FatherOrHasbandLastName = Input::get('FatherOrHasbandLastName');
         $member->FatherOrHasbandFamilyName = Input::get('FatherOrHasbandFamilyName');
         $member->FatherOrHasbandAge = Input::get('FatherOrHasbandAge');
-        $member->FatherProfession = Input::get('FatherProfession');
+//        $member->FatherProfession = Input::get('FatherProfession');
         $member->FatherMobileNo = Input::get('FatherMobileNo');
         $member->MatherNameTitle = Input::get('MatherNameTitle');
         $member->MotherFirstName = Input::get('MotherFirstName');
         $member->MotherLastName = Input::get('MotherLastName');
         $member->MotherFamilyName = Input::get('MotherFamilyName');
         $member->MotherAge = Input::get('MotherAge');
-        $member->MotherProfession = Input::get('MotherProfession');
+//       MotherAg $member->MotherProfession = Input::get('MotherProfession');
         $member->MotherMobileNo = Input::get('MotherMobileNo');
        $member->PresentCountry = Input::get('PresentCountry');
        $member->PresentDivision = Input::get('PresentDivision');
@@ -338,8 +572,8 @@ class MemberController extends Controller
        $member->PermanentWord = Input::get('PermanentWord');
        $member->PermanentVillage = Input::get('PermanentVillage');
        $member->PermanentRoadNo = Input::get('PermanentRoadNo');
-       $member->CurrentProfession = Input::get('CurrentProfession');
-       $member->PreviousProfession = Input::get('PreviousProfession');
+//       $member->CurrentProfession = Input::get('CurrentProfession');
+//       $member->PreviousProfession = Input::get('PreviousProfession');
        $member->DurationOfPreviousProfession = Input::get('DurationOfPreviousProfession');
        $member->EarningAssetsByBusinessOrJob = Input::get('EarningAssetsByBusinessOrJob');
        $member->EarningSourceWithoutBusiness = Input::get('EarningSourceWithoutBusiness');

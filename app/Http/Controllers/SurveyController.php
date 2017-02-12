@@ -248,6 +248,46 @@ class SurveyController extends Controller
         } else {
             $survey->MotherProfession = Input::get('MotherProfession');
         }
+        $CurrentOtherProfession = Input::get('CurrentOtherProfession');
+//        $MotherOtherProfession = Input::get('MotherOtherProfession');
+        if (!empty($CurrentOtherProfession)) {
+            $profession_data = Profession::where('name', $CurrentOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $CurrentOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $CurrentOtherProfession)->get();
+                $survey->CurrentProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $CurrentOtherProfession)->get();
+                $survey->CurrentProfession = $profession_data[0]->id;
+            }
+//            $survey->MotherProfession = $MotherOtherProfession;
+        } else {
+            $survey->CurrentProfession = Input::get('CurrentProfession');
+        }
+        $PreviousOtherProfession = Input::get('PreviousOtherProfession');
+        if (!empty($PreviousOtherProfession)) {
+            $profession_data = Profession::where('name', $PreviousOtherProfession)->count();
+
+            if ($profession_data == 0) {
+                $profession = new Profession();
+                $profession->name = $PreviousOtherProfession;
+                $profession->save();
+                $profession_data = Profession::where('name', '=', $PreviousOtherProfession)->get();
+                $survey->PreviousProfession = $profession_data[0]->id;
+            }
+            else{
+                $profession_data = Profession::where('name', '=', $PreviousOtherProfession)->get();
+                $survey->PreviousProfession = $profession_data[0]->id;
+            }
+//            $survey->MotherProfession = $MotherOtherProfession;
+        } else {
+            $survey->PreviousProfession = Input::get('PreviousProfession');
+        }
+
 
         $survey->ZoneId = Input::get('ZoneId');
         $survey->AreaId = Input::get('AreaId');

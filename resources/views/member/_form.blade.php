@@ -154,7 +154,7 @@
                     <div class="form-group col-md-4" id="form-BusinessExperience-error">
                         {!! Form::label("BusinessExperience","ব্যবসার অভিজ্ঞতাঃ(মাস)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::text("BusinessExperience",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("BusinessExperience",null,["class"=>"form-control required"]) !!}
                             <span id="BusinessExperience-error" class="help-block"></span>
                         </div>
                     </div>
