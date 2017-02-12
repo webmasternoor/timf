@@ -101,13 +101,15 @@
                 <li><a href="https://yajrabox.com/docs/laravel-datatables/6.0"><strong>Documentation</strong></a></li>
                 <li><a href="https://www.patreon.com/bePatron?u=4521203"><strong>Become a Patreon</strong></a></li>
             </ul> -->
-
-            <ul class="nav navbar-nav navbar-right navbar-custom">
-
+            <div class="zoneareabran">
+                <ul class="nav navbar-nav navbar-custom">
                     <li>Zone: Bogra.</li>
                     <li>Area: Thengamara.</li>
                     <li>Branch: Gokul.</li>
+                </ul>
+            </div>
 
+            <ul class="nav navbar-nav navbar-right navbar-custom">
 
                 @if (Auth::guest())
                     <li><a href="{{ url('/auth/login') }}">Login</a></li>
