@@ -183,6 +183,7 @@ class MemberController extends Controller
         $Gender = Gender::lists('GenderName','id');
         $gender = Gender::all();
         $familytype = Familytype::all();
+        $Familytype  = Familytype::lists('name','id');
         $count = Count::all();
         $status = Status::all();
 
@@ -226,7 +227,7 @@ class MemberController extends Controller
             ->with('education',$education)->with('politicalStatus',$politicalStatus)->with('gender',$gender)->with('country',$country)
             ->with('district',$district)->with('thana',$thana)->with('postOffice',$postOffice)->with('union',$union)->with('word',$word)
             ->with('BusinessCategory',$BusinessCategory)->with('familytype',$familytype)->with('count',$count)->with('status',$status)
-            ->with('division',$division)->with('Division',$Division);
+            ->with('division',$division)->with('Division',$Division)->with('Familytype',$Familytype);
         //return view('member.create')->with;
     }
 
@@ -332,7 +333,7 @@ class MemberController extends Controller
        $member->BusinessType1 = Input::get('BusinessType1');
        $member->BusinessFuturePlan = Input::get('BusinessFuturePlan');
 
-       //$member->FamilyType = Input::get('FamilyType');
+       $member->FamilyType = Input::get('FamilyType');
        $member->FamilyMember = Input::get('FamilyMember');
        $member->EarningMale = Input::get('EarningMale');
        $member->EarningFemale = Input::get('EarningFemale');
@@ -342,17 +343,17 @@ class MemberController extends Controller
        $member->SickDescriptionOfFamilyMember = Input::get('SickDescriptionOfFamilyMember');
        $member->CaseDescriptionOfFamilyMember = Input::get('CaseDescriptionOfFamilyMember');
        $member->IfAnyMemberInAbroad = Input::get('IfAnyMemberInAbroad');
-        /*
-                       $member->CultiviableLand = Input::get('CultiviableLand');
-                       $member->NonCultivableLand = Input::get('NonCultivableLand');
-                       $member->Pond = Input::get('Pond');
-                       $member->House = Input::get('House');
-                       $member->TotalLand = Input::get('TotalLand');
-                       $member->TinMadeHouse = Input::get('TinMadeHouse');
-                       $member->StrawMadeHouse = Input::get('StrawMadeHouse');
-                       $member->BrickMadeHouse = Input::get('BrickMadeHouse');
-                       $member->AgriculturalEarning = Input::get('AgriculturalEarning');
-                       $member->NonAgriculturalEarning = Input::get('NonAgriculturalEarning');
+
+        $member->CultiviableLand = Input::get('CultiviableLand');
+        $member->NonCultivableLand = Input::get('NonCultivableLand');
+        $member->Pond = Input::get('Pond');
+        $member->House = Input::get('House');
+        $member->TotalLand = Input::get('TotalLand');
+        $member->TinMadeHouse = Input::get('TinMadeHouse');
+        $member->StrawMadeHouse = Input::get('StrawMadeHouse');
+        $member->BrickMadeHouse = Input::get('BrickMadeHouse');
+        $member->AgriculturalEarning = Input::get('AgriculturalEarning');
+        $member->NonAgriculturalEarning = Input::get('NonAgriculturalEarning');
                        $member->TotalEarning = Input::get('TotalEarning');
                        $member->TotalExpenditure = Input::get('TotalExpenditure');
                        $member->NetBalance = Input::get('NetBalance');
@@ -367,7 +368,7 @@ class MemberController extends Controller
                        $member->InvestmentSector = Input::get('InvestmentSector');
                        $member->Amount = Input::get('Amount');
                        $member->Comment1 = Input::get('Comment1');
-                       $member->Comment2 = Input::get('Comment2');*/
+                       $member->Comment2 = Input::get('Comment2');
 
         $member->FatherNid = Input::get('FatherNid');
         $member->MotherNid = Input::get('MotherNid');

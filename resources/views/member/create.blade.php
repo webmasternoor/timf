@@ -1327,7 +1327,7 @@
                                 <h5 class="text-aqua"><u>পরিবারের সদস্য সংক্রান্ত</u></h5>
                             </div>
 
-                            {{--<div class="form-group col-md-6" id="form-FamilyType-error">
+                            <div class="form-group col-md-6" id="form-FamilyType-error">
                                 {!! Form::label("FamilyType","পরিবারের প্রকৃতি",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <select name="FamilyType">
@@ -1342,13 +1342,13 @@
                                                 <option value="{{$Familytype_data->id}}">{{$Familytype_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$Familytype_data->id}}">{{$Familytype->name}}</option>
+                                            <option value="{{$Familytype_data->id}}">{{$Familytype_data->name}}</option>
                                         @endforeach
                                     </select>
-                                    --}}{{--{!! Form::select("FamilyType",['1' => 'Single', '2' => 'Combined'])!!}--}}{{--
+                                    {{--{!! Form::select("FamilyType",['1' => 'Single', '2' => 'Combined'])!!}--}}
                                     <span id="FamilyType-error" class="help-block"></span>
                                 </div>
-                            </div>--}}
+                            </div>
 
                             <div class="form-group col-md-6" id="form-FamilyMember-error">
                                 {!! Form::label("FamilyMember","পরিবারের সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
