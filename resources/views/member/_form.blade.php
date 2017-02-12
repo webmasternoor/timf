@@ -2,7 +2,7 @@
 
     <div id="exTab2" class="">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#11" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
+            <li class="active"><a href="#111" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
             <li><a href="#12" data-toggle="tab">নমিনি ও ব্যাংক</a></li>
             {{--<li><a href="#4" data-toggle="tab">পারিবারিক তথ্য</a></li>--}}
             {{--<li><a href="#5" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>--}}
@@ -10,7 +10,7 @@
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane active" id="11">
+            <div class="tab-pane active" id="111">
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>ছবি আপলোড করুন</u></h5>
