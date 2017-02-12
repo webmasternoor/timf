@@ -1,17 +1,17 @@
 <h2 class="page-header">নতুন সদস্য যোগ করুন</h2>
 {!! Form::open(["id"=>"frm","class"=>"form-horizontal"]) !!}
 <div class="col-md-12 surveysearch">
-    <h1 class="page-header">Survey Search
+    <h1 class="page-header">Step - 1:
         <div class="pull-right">
             <a href="javascript:ajaxLoad('loan/create')" class="btn btn-primary pull-right"><i
-                        class="glyphicon glyphicon-plus-sign"></i> New</a>
+                        class="glyphicon glyphicon-plus-sign"></i> নতুন</a>
         </div>
     </h1>
     <div class="col-sm-7 form-group">
         <div class="input-group">
             <input class="form-control" id="search1" value="{{ Session::get('loan_search1') }}"
                    onkeydown="if (event.keyCode == 13) ajaxLoad('{{url('member/create')}}?ok=1&search1='+this.value)"
-                   placeholder="Survey Search [NID].."
+                   placeholder="Search by Mobile No.."
                    type="text">
 
             <div class="input-group-btn">
@@ -304,7 +304,7 @@
                                                 <option value="{{$GenderInfo->id}}">{{$GenderInfo->GenderName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$GenderInfo->id}}">{{$GenderInfo->GenderName}}</option>
+                                            {{--<option value="{{$GenderInfo->id}}">{{$GenderInfo->GenderName}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("Gender",$Gender,null,["class"=>"form-control Gender required","id"=>"Gender"]) !!}--}}
@@ -325,7 +325,7 @@
                                                 <option value="{{$AgeInfo->id}}">{{$AgeInfo->age}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$AgeInfo->id}}">{{$AgeInfo->age}}</option>
+                                            {{--<option value="{{$AgeInfo->id}}">{{$AgeInfo->age}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}--}}
@@ -347,7 +347,7 @@
                                                 <option value="{{$education_data->id}}">{{$education_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$education_data->id}}">{{$education_data->name}}</option>
+                                            {{--<option value="{{$education_data->id}}">{{$education_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="Education-error" class="help-block"></span>
@@ -368,7 +368,7 @@
                                                 <option value="{{$passingYear_data->id}}">{{$passingYear_data->Name}}</option>
                                                 }
                                             @endif
-                                                                                        <option value="{{$passingYear_data->id}}">{{$passingYear_data->Name}}</option>
+                                            {{--<option value="{{$passingYear_data->id}}">{{$passingYear_data->Name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("PassingYear",['2007', '2008','2009','2010','2011','2012','2013'])!!}--}}
@@ -390,20 +390,20 @@
                                                 <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("SpouseProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
                                     <span id="SpouseProfession-error" class="help-block"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" id="form-SpouseOtherProfession-error">
-                                {!! Form::label("SpouseOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}
-                                <div class="col-md-12">
-                                    {!! Form::text("SpouseOtherProfession",null,["class"=>"form-control"]) !!}
-                                    <span id="SpouseOtherProfession-error" class="help-block"></span>
-                                </div>
-                            </div>
+                            {{--<div class="form-group col-md-6" id="form-SpouseOtherProfession-error">--}}
+                                {{--{!! Form::label("SpouseOtherProfession","অন্য পেশা(যদি থাকে)",["class"=>"control-label col-md-12"]) !!}--}}
+                                {{--<div class="col-md-12">--}}
+                                    {{--{!! Form::text("SpouseOtherProfession",null,["class"=>"form-control"]) !!}--}}
+                                    {{--<span id="SpouseOtherProfession-error" class="help-block"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group col-md-6" id="form-SpouseMobileNo-error">
                                 {!! Form::label("SpouseMobileNo","অভিভাবকের মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -416,7 +416,7 @@
                             <div class="form-group col-md-6" id="form-MaritalStatus-error">
                                 {!! Form::label("MaritalStatus","বৈবাহিক অবস্থা",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    {{--{!! Form::select("MaritalStatus",['1' => 'Married Single','2' => 'Married Multiple', '3' => 'Non-Married','4' => 'Widower','5'=>'Widow'])!!}--}}
+                                    {!! Form::select("MaritalStatus",['1' => 'Married Single','2' => 'Married Multiple', '3' => 'Non-Married','4' => 'Widower','5'=>'Widow'])!!}
                                     <span id="MaritalStatus-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -462,7 +462,7 @@
                                                 <option value="{{$politicalStatus_data->id}}">{{$politicalStatus_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$politicalStatus_data->id}}">{{$politicalStatus_data->name}}</option>
+                                            {{--<option value="{{$politicalStatus_data->id}}">{{$politicalStatus_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("PoliticalStatus",['1' => 'Yes', '2' => 'No'])!!}--}}
@@ -487,7 +487,7 @@
                                                 <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="Distance-error" class="help-block"></span>
@@ -515,7 +515,7 @@
                                                 <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                            {{--<option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("WifeNameTitle",$NameTitle,null,["class"=>"form-control WifeNameTitle required","id"=>"WifeNameTitle"]) !!}--}}
@@ -563,7 +563,7 @@
                                                 <option value="{{$age_data->id}}">{{$age_data->age}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                            {{--<option value="{{$age_data->id}}">{{$age_data->age}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("WifeAge",['18', '19','20','21','22','30','30'])!!}--}}
@@ -595,7 +595,7 @@
                                                 <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("WifeProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
@@ -630,7 +630,7 @@
                                                 <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                            {{--<option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("FatherOrHasbandNAmeTitle",$NameTitle,null,["class"=>"form-control FatherOrHasbandNAmeTitle required","id"=>"FatherOrHasbandNAmeTitle"]) !!}--}}
@@ -679,7 +679,7 @@
                                                 <option value="{{$age_data->id}}">{{$age_data->age}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                            {{--<option value="{{$age_data->id}}">{{$age_data->age}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("FatherOrHasbandAge",['18', '19','20','21','22','30','30'])!!}--}}
@@ -701,7 +701,7 @@
                                                 <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("FatherProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
@@ -745,7 +745,7 @@
                                                 <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>
+                                            {{--<option value="{{$nameTitle_data->id}}">{{$nameTitle_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("MatherNameTitle",$NameTitle,null,["class"=>"form-control MatherNameTitle required","id"=>"MatherNameTitle"]) !!}--}}
@@ -795,7 +795,7 @@
                                                 <option value="{{$age_data->id}}">{{$age_data->age}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$age_data->id}}">{{$age_data->age}}</option>
+                                            {{--<option value="{{$age_data->id}}">{{$age_data->age}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("MotherAge",['18', '19','20','21','22','30','30'])!!}--}}
@@ -817,7 +817,7 @@
                                                 <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("MotherProfession",['1' => 'Agriculture', '2' => 'Service', '3' => 'Business', '4' => 'Others'])!!}--}}
@@ -862,34 +862,36 @@
                                                 <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
+                                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentCountry-error" class="help-block"></span>
                                 </div>
                             </div>
+
                             <div class="form-group col-md-6" id="form-PresentDivision-error">
                                 {!! Form::label("PresentDivision","বিভাগ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <select name="PresentDivision">
-                                    @foreach($division as $division_data )
-                                        @if($loan->PresentDivision==$division_data->id)
-                                            {
-                                            <option value="{{$division_data->id}}"
-                                                    selected>{{$division_data->DivisionName}}</option>
-                                            }
-                                        @else
-                                            {
-                                            <option value="{{$division_data->id}}">{{$division_data->DivisionName}}</option>
-                                            }
-                                        @endif
-                                        <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
-                                    @endforeach
+                                        @foreach($division as $division_data )
+                                            @if($loan->PresentDivision==$division_data->id)
+                                                {
+                                                <option value="{{$division_data->id}}"
+                                                        selected>{{$division_data->DivisionName}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$division_data->id}}">{{$division_data->DivisionName}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
+                                        @endforeach
                                     </select>
                                     {{--{!! Form::select("PresentDivision",$Division,null,["class"=>"form-control PresentDivision required","id"=>"PresentDivision"]) !!}--}}
                                     <span id="PresentDivision-error" class="help-block"></span>
                                 </div>
                             </div>
+
                             <div class="form-group col-md-6" id="form-PresentDistrict-error">
                                 {!! Form::label("PresentDistrict","জেলা",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
@@ -905,7 +907,7 @@
                                                 <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
+                                            {{--<option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentDistrict-error" class="help-block"></span>
@@ -927,7 +929,7 @@
                                                 <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
+                                            {{--<option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentThana-error" class="help-block"></span>
@@ -949,7 +951,7 @@
                                                 <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
+                                            {{--<option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentUnion-error" class="help-block"></span>
@@ -971,7 +973,7 @@
                                                 <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
                                                 }
                                             @endif
-                                                                                        <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
+                                            {{--<option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentPostOffice-error" class="help-block"></span>
@@ -993,7 +995,7 @@
                                                 <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
                                                 }
                                             @endif
-                                                                                        <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
+                                            {{--<option value="{{$word_data->id}}">{{$word_data->WordName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PresentWord-error" class="help-block"></span>
@@ -1040,7 +1042,7 @@
                                                 <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
+                                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentCountry-error" class="help-block"></span>
@@ -1062,7 +1064,7 @@
                                                 <option value="{{$division_data->id}}">{{$division_data->DivisionName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>
+                                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("PermanentDivision",$Division,null,["class"=>"form-control PermanentDivision required","id"=>"PermanentDivision"]) !!}--}}
@@ -1085,7 +1087,7 @@
                                                 <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>
+                                            {{--<option value="{{$district_data->id}}">{{$district_data->DistrictName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentDistrict-error" class="help-block"></span>
@@ -1107,7 +1109,7 @@
                                                 <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>
+                                            {{--<option value="{{$thana_data->id}}">{{$thana_data->ThanaName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentThana-error" class="help-block"></span>
@@ -1129,7 +1131,7 @@
                                                 <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>
+                                            {{--<option value="{{$union_data->id}}">{{$union_data->UnionName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentUnion-error" class="help-block"></span>
@@ -1151,7 +1153,7 @@
                                                 <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>
+                                            {{--<option value="{{$postoffice_data->id}}">{{$postoffice_data->PostofficeName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentPostOffice-error" class="help-block"></span>
@@ -1173,7 +1175,7 @@
                                                 <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$word_data->id}}">{{$word_data->WordName}}</option>
+                                            {{--<option value="{{$word_data->id}}">{{$word_data->WordName}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="PermanentWord-error" class="help-block"></span>
@@ -1222,7 +1224,7 @@
                                                 <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("CurrentProfession",['1' => 'Agriculture', '2' => 'Non-Agriculture', '3'=>'Others'])!!}--}}
@@ -1233,7 +1235,8 @@
                             <div class="form-group col-md-6" id="form-PreviousProfession-error">
                                 {!! Form::label("PreviousProfession","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12 PreviousProfession1" id="PreviousProfession1">
-                                    <select name="PreviousProfession" id="PreviousProfession" class="PreviousProfession">
+                                    <select name="PreviousProfession" id="PreviousProfession"
+                                            class="PreviousProfession">
                                         @foreach($profession as $profession_data )
                                             @if($loan->PreviousProfession==$profession_data->name)
                                                 {
@@ -1245,7 +1248,7 @@
                                                 <option value="{{$profession_data->name}}">{{$profession_data->name}}</option>
                                                 }
                                             @endif
-                                             <option value="{{$profession_data->id}}">{{$profession_data->name}}</option>
+                                            {{--<option value="{{$profession_data->id}}">{{$profession_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("PreviousProfession",['1' => 'Agriculture', '2' => 'Non-Agriculture', '3'=>'Others'])!!}--}}
@@ -1301,7 +1304,7 @@
                                                 <option value="{{$BusinessCategory_data->id}}">{{$BusinessCategory_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$BusinessCategory_data->id}}">{{$BusinessCategory_data->name}}</option>
+                                            {{--<option value="{{$BusinessCategory_data->id}}">{{$BusinessCategory_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("BusinessType",['1' => 'Single', '2' => 'Partnership'])!!}--}}
@@ -1312,8 +1315,8 @@
                             <div class="form-group col-md-6" id="form-BusinessFuturePlan-error">
                                 {!! Form::label("BusinessFuturePlan","ব্যবসার ভবিষ্যৎ পরিকল্পনা",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="BusinessFuturePlan"
-                                           value="{{$loan->BusinessFuturePlan}}">
+                                    <textarea class="form-control" type="text" name="BusinessFuturePlan"
+                                              value="{{$loan->BusinessFuturePlan}}"></textarea>
                                     {{--{!! Form::textarea("BusinessFuturePlan",null,["class"=>"form-control"]) !!}--}}
                                     <span id="BusinessFuturePlan-error" class="help-block"></span>
                                 </div>
@@ -1342,7 +1345,7 @@
                                                 <option value="{{$Familytype_data->id}}">{{$Familytype_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$Familytype_data->id}}">{{$Familytype_data->name}}</option>
+                                            {{--<option value="{{$Familytype_data->id}}">{{$Familytype_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     {{--{!! Form::select("FamilyType",['1' => 'Single', '2' => 'Combined'])!!}--}}
@@ -1365,7 +1368,7 @@
                                                 <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
                                     <span id="FamilyMember-error" class="help-block"></span>
@@ -1387,7 +1390,7 @@
                                                 <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
 
@@ -1410,7 +1413,7 @@
                                                 <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
 
@@ -1433,7 +1436,7 @@
                                                 <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
 
@@ -1456,7 +1459,7 @@
                                                 <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
 
@@ -1479,7 +1482,7 @@
                                                 <option value="{{$count_data->id}}">{{$count_data->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$count_data->id}}">{{$count_data->name}}</option>
+                                            {{--<option value="{{$count_data->id}}">{{$count_data->name}}</option>--}}
                                         @endforeach
                                     </select>
 
@@ -1517,7 +1520,7 @@
                             </div>
 
                         </div>
-                    {{--
+
                         <div class="borderportion">
                             <div class="box-header col-md-11">
                                 <h5 class="text-aqua">জমি ও ঘরবাড়ি সংক্রান্ত</h5>
@@ -1527,7 +1530,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="CultiviableLand"
                                            value="{{$loan->CultiviableLand}}">
-                                    --}}{{--{!! Form::number("CultiviableLand",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("CultiviableLand",null,["class"=>"form-control"]) !!}--}}
                                     <span id="CultiviableLand-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1537,7 +1540,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="NonCultivableLand"
                                            value="{{$loan->NonCultivableLand}}">
-                                    --}}{{--{!! Form::number("NonCultivableLand",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("NonCultivableLand",null,["class"=>"form-control"]) !!}--}}
                                     <span id="NonCultivableLand-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1547,7 +1550,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="Pond"
                                            value="{{$loan->Pond}}">
-                                    --}}{{--{!! Form::number("Pond",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("Pond",null,["class"=>"form-control"]) !!}--}}
                                     <span id="Pond-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1557,7 +1560,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="House"
                                            value="{{$loan->House}}">
-                                    --}}{{--{!! Form::number("House",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("House",null,["class"=>"form-control"]) !!}--}}
                                     <span id="House-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1567,7 +1570,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="TotalLand"
                                            value="{{$loan->TotalLand}}">
-                                    --}}{{--{!! Form::number("TotalLand",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("TotalLand",null,["class"=>"form-control"]) !!}--}}
                                     <span id="TotalLand-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1576,7 +1579,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="TinMadeHouse"
                                            value="{{$loan->TinMadeHouse}}">
-                                    --}}{{--{!! Form::number("TinMadeHouse",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("TinMadeHouse",null,["class"=>"form-control"]) !!}--}}
                                     <span id="TinMadeHouse-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1585,7 +1588,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="StrawMadeHouse"
                                            value="{{$loan->StrawMadeHouse}}">
-                                    --}}{{--{!! Form::number("StrawMadeHouse",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("StrawMadeHouse",null,["class"=>"form-control"]) !!}--}}
                                     <span id="StrawMadeHouse-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1594,7 +1597,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="BrickMadeHouse"
                                            value="{{$loan->BrickMadeHouse}}">
-                                    --}}{{--{!! Form::number("BrickMadeHouse",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("BrickMadeHouse",null,["class"=>"form-control"]) !!}--}}
                                     <span id="BrickMadeHouse-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1608,7 +1611,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="AgriculturalEarning"
                                            value="{{$loan->AgriculturalEarning}}">
-                                    --}}{{--{!! Form::number("AgriculturalEarning",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("AgriculturalEarning",null,["class"=>"form-control"]) !!}--}}
                                     <span id="AgriculturalEarning-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1618,7 +1621,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="NonAgriculturalEarning"
                                            value="{{$loan->NonAgriculturalEarning}}">
-                                    --}}{{--{!! Form::number("NonAgriculturalEarning",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("NonAgriculturalEarning",null,["class"=>"form-control"]) !!}--}}
                                     <span id="NonAgriculturalEarning-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1629,7 +1632,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="TotalEarning"
                                            value="{{$loan->TotalEarning}}">
-                                    --}}{{--{!! Form::number("TotalEarning",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("TotalEarning",null,["class"=>"form-control"]) !!}--}}
                                     <span id="TotalEarning-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1639,7 +1642,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="TotalExpenditure"
                                            value="{{$loan->TotalExpenditure}}">
-                                    --}}{{--{!! Form::number("TotalExpenditure",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("TotalExpenditure",null,["class"=>"form-control"]) !!}--}}
                                     <span id="TotalExpenditure-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1649,15 +1652,15 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="NetBalance"
                                            value="{{$loan->NetBalance}}">
-                                    --}}{{--{!! Form::number("NetBalance",null,["class"=>"form-control"]) !!}--}}{{--
+                                    {{--{!! Form::number("NetBalance",null,["class"=>"form-control"]) !!}--}}
                                     <span id="NetBalance-error" class="help-block"></span>
                                 </div>
                             </div>
 
                         </div>
-                    --}}
+
                     </div>
-{{--
+
 
                     <div class="tab-pane" id="44">
                         <div class="borderportion">
@@ -1669,7 +1672,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="ReceivedAmount"
                                            value="{{$loan->ReceivedAmount}}">
-                                    {!! Form::number("ReceivedAmount",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::number("ReceivedAmount",null,["class"=>"form-control"]) !!}--}}
                                     <span id="ReceivedAmount-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1679,7 +1682,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="PaidAmount"
                                            value="{{$loan->PaidAmount}}">
-                                    {!! Form::number("PaidAmount",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::number("PaidAmount",null,["class"=>"form-control"]) !!}--}}
                                     <span id="PaidAmount-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1689,7 +1692,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="RemainingAmountToPay"
                                            value="{{$loan->RemainingAmountToPay}}">
-                                    {!! Form::number("RemainingAmountToPay",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::number("RemainingAmountToPay",null,["class"=>"form-control"]) !!}--}}
                                     <span id="RemainingAmountToPay-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1699,7 +1702,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="FinancierCompany"
                                            value="{{$loan->FinancierCompany}}">
-                                    {!! Form::text("FinancierCompany",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::text("FinancierCompany",null,["class"=>"form-control"]) !!}--}}
                                     <span id="FinancierCompany-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1709,7 +1712,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="LoaningYear"
                                            value="{{$loan->LoaningYear}}">
-                                    {!! Form::number("LoaningYear",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::number("LoaningYear",null,["class"=>"form-control"]) !!}--}}
                                     <span id="LoaningYear-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1718,7 +1721,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="date" name="LastReceivedDate"
                                            value="{{$loan->LastReceivedDate}}">
-                                    {!! Form::date("LastReceivedDate",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::date("LastReceivedDate",null,["class"=>"form-control"]) !!}--}}
                                     <span id="LastReceivedDate-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1752,10 +1755,10 @@
                                                 <option value="{{$status_info->id}}">{{$status_info->name}}</option>
                                                 }
                                             @endif
-                                            <option value="{{$status_info->id}}">{{$status_info->Status}}</option>
+                                            {{--<option value="{{$status_info->id}}">{{$status_info->Status}}</option>--}}
                                         @endforeach
                                     </select>
-                                    {!! Form::select("IsHeSheWillingToTakeLoan",['1'=>'Yes', '2'=>'No'])!!}
+                                    {{--{!! Form::select("IsHeSheWillingToTakeLoan",['1'=>'Yes', '2'=>'No'])!!}--}}
                                     <span id="IsHeSheWillingToTakeLoan-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1764,7 +1767,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="InvestmentSector"
                                            value="{{$loan->InvestmentSector}}">
-                                    {!! Form::text("InvestmentSector",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::text("InvestmentSector",null,["class"=>"form-control"]) !!}--}}
                                     <span id="InvestmentSector-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1774,7 +1777,7 @@
                                 <div class="col-md-12">
                                     <input class="form-control" type="number" name="Amount"
                                            value="{{$loan->Amount}}">
-                                    {!! Form::number("Amount",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::number("Amount",null,["class"=>"form-control"]) !!}--}}
                                     <span id="Amount-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1783,7 +1786,7 @@
                                 {!! Form::label("Comment1","প্রথম ব্যক্তির মন্তব্য ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <textarea name="Comment1" cols="50" rows="3">{{$loan->Comment1}}</textarea>
-                                    {!! Form::textarea("Comment1",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::textarea("Comment1",null,["class"=>"form-control"]) !!}--}}
                                     <span id="Comment1-error" class="help-block"></span>
                                 </div>
                             </div>
@@ -1792,45 +1795,45 @@
                                 {!! Form::label("Comment2","দ্বিতীয় ব্যক্তির মন্তব্য ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <textarea name="Comment2" cols="50" rows="3">{{$loan->Comment2}}</textarea>
-                                    {!! Form::textarea("Comment2",null,["class"=>"form-control"]) !!}
+                                    {{--{!! Form::textarea("Comment2",null,["class"=>"form-control"]) !!}--}}
                                     <span id="Comment2-error" class="help-block"></span>
                                 </div>
                             </div>
                             <div class="form-group col-md-6" id="form-JoinDate-error">
-                            {!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
-                            <div class="col-md-12">
-                            {!! Form::date("JoinDate",null,["class"=>"form-control"]) !!}
-                            <span id="JoinDate-error" class="help-block"></span>
-                            </div>
+                                {!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    {!! Form::date("JoinDate",null,["class"=>"form-control"]) !!}
+                                    <span id="JoinDate-error" class="help-block"></span>
+                                </div>
                             </div>
                             <div class="form-group col-md-6" id="form-JoinDate-error">
-                            {!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
-                            <div class="col-md-12">
-                            {!! Form::date("JoinDate",null,["class"=>"form-control"]) !!}
-                            <span id="JoinDate-error" class="help-block"></span>
-                            </div>
+                                {!! Form::label("JoinDate","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    {!! Form::date("JoinDate",null,["class"=>"form-control"]) !!}
+                                    <span id="JoinDate-error" class="help-block"></span>
+                                </div>
                             </div>
                             <div class="form-group col-md-6" id="form-LastReceivedDate1-error">
-                            {!! Form::label("LastReceivedDate1","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
-                            <div class="col-md-12">
-                            {!! Form::date("LastReceivedDate1",null,["class"=>"form-control"]) !!}
-                            <span id="LastReceivedDate1-error" class="help-block"></span>
-                            </div>
+                                {!! Form::label("LastReceivedDate1","যোগদানের তারিখ",["class"=>"control-label col-md-12"]) !!}
+                                <div class="col-md-12">
+                                    {!! Form::date("LastReceivedDate1",null,["class"=>"form-control"]) !!}
+                                    <span id="LastReceivedDate1-error" class="help-block"></span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-push-4">
-                                <a href="javascript:ajaxLoad('survey/list')" class="btn btn-danger"><i
-                                            class="glyphicon glyphicon-backward"></i>
-                                    Back</a>
-                                {!! Form::button("<i class='glyphicon glyphicon-floppy-disk'></i> Save",["type" => "submit","class"=>"btn
-                                btn-primary"])!!}
-                            </div>
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<div class="col-md-6 col-md-push-4">--}}
+                                {{--<a href="javascript:ajaxLoad('survey/list')" class="btn btn-danger"><i--}}
+                                            {{--class="glyphicon glyphicon-backward"></i>--}}
+                                    {{--Back</a>--}}
+                                {{--{!! Form::button("<i class='glyphicon glyphicon-floppy-disk'></i> Save",["type" => "submit","class"=>"btn--}}
+                                {{--btn-primary"])!!}--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                     </div>
---}}
+
 
                 </div>
             </div>
@@ -1858,126 +1861,126 @@
     });
 
     $(document).ready(function () {
-//        $(document).on('change', '.DivisionId', function () {
-//            //console.log("yes it is change");
-//
-//            var op = " ";
-//            var DivisionId = $(this).val();
-//            //var div = $(this).parent();
-//            //console.log(DivisionId);
-//            $('#DistrictId').empty();
-//            $.ajax({
-//                type: 'get',
-//                url: 'getDistrict',
-//                data: {'id': DivisionId},
-//                success: function (data) {
-//                    $.each(data, function (index, subcatObj) {
-//                        $('#DistrictId').append('<option value="'+subcatObj.id+'">'+subcatObj.DistrictName +'</option>')
-//                    });
-//                },
-//                error: function () {
-//
-//                }
-//            });
-//        });
-//        $(document).on('change', '.DistrictId', function () {
-//            //console.log("yes it is change");
-//
-//            var op = " ";
-//            var DistrictId = $(this).val();
-//            //var div = $(this).parent();
-//            //console.log(DivisionId);
-//            $('#ThanaId').empty();
-//            $.ajax({
-//                type: 'get',
-//                url: 'getThana',
-//                data: {'id': DistrictId},
-//                success: function (data) {
-//                    $.each(data, function (index, subcatObj1) {
-//                        $('#ThanaId').append('<option value="'+subcatObj1.id+'">'+subcatObj1.ThanaName +'</option>')
-//                    });
-//                },
-//                error: function () {
-//
-//                }
-//            });
-//        });
-//
-//        $(document).on('change', '.ThanaId', function () {
-//            //console.log("yes it is change");
-//
-//            var op = " ";
-//            var ThanaId = $(this).val();
-//            //var div = $(this).parent();
-//            //console.log(DivisionId);
-//            $('#UnionId').empty();
-//            $.ajax({
-//                type: 'get',
-//                url: 'getUnion',
-//                data: {'id': ThanaId},
-//                success: function (data) {
-//                    $.each(data, function (index, subcatObj2) {
-//                        $('#UnionId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.UnionName +'</option>')
-//                    });
-//                },
-//                error: function () {
-//
-//                }
-//            });
-//        });
-//
-//        $(document).on('change', '.UnionId', function () {
-//            //console.log("yes it is change");
-//
-//            var op = " ";
-//            var UnionId = $(this).val();
-//            //var div = $(this).parent();
-//            //console.log(DivisionId);
-//            $('#WordId').empty();
-//            $.ajax({
-//                type: 'get',
-//                url: 'getWord',
-//                data: {'id': UnionId},
-//                success: function (data) {
-//                    $.each(data, function (index, subcatObj2) {
-//                        $('#WordId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.WardName +'</option>')
-//                    });
-//                },
-//                error: function () {
-//
-//                }
-//            });
-//        });
-//
-//        $(document).on('change', '.DistrictId', function () {
-//            //console.log("yes it is change");
-//
-//            var op = " ";
-//            var DistrictId = $(this).val();
-//            //var div = $(this).parent();
-//            //console.log(DistrictId);
-//            $('#PostOfficeId').empty();
-//            $.ajax({
-//                type: 'get',
-//                url: 'getPostOffice',
-//                data: {'id': DistrictId},
-//                success: function (data) {
-//                    $.each(data, function (index, subcatObj3) {
-//                        $('#PostOfficeId').append('<option value="'+subcatObj3.id+'">'+subcatObj3.PostofficeName +'</option>')
-//                    });
-//                },
-//                error: function () {
-//
-//                }
-//            });
-//        });
+        $(document).on('change', '.DivisionId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DivisionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#DistrictId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getDistrict',
+                data: {'id': DivisionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj) {
+                        $('#DistrictId').append('<option value="'+subcatObj.id+'">'+subcatObj.DistrictName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+        $(document).on('change', '.DistrictId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DistrictId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#ThanaId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getThana',
+                data: {'id': DistrictId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj1) {
+                        $('#ThanaId').append('<option value="'+subcatObj1.id+'">'+subcatObj1.ThanaName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.ThanaId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ThanaId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#UnionId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getUnion',
+                data: {'id': ThanaId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj2) {
+                        $('#UnionId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.UnionName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.UnionId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var UnionId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#WordId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getWord',
+                data: {'id': UnionId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj2) {
+                        $('#WordId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.WardName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $(document).on('change', '.DistrictId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var DistrictId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            $('#PostOfficeId').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getPostOffice',
+                data: {'id': DistrictId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj3) {
+                        $('#PostOfficeId').append('<option value="'+subcatObj3.id+'">'+subcatObj3.PostofficeName +'</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+        });
         $(document).on('change', '.SpouseProfession', function () {
             //console.log("yes it is change");
 
             var SpouseProfession = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
-            if(SpouseProfession=='Others') {
+            if (SpouseProfession == 'Others') {
                 $('#SpouseProfession1').empty();
 
                 $('#SpouseProfession1').append('<input type="text" class="form-control"  name="SpouseProfession" value="">')
@@ -1989,7 +1992,7 @@
             var WifeProfession = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
-            if(WifeProfession=='Others') {
+            if (WifeProfession == 'Others') {
                 $('#WifeProfession1').empty();
 
                 $('#WifeProfession1').append('<input type="text" class="form-control"  name="WifeProfession" value="">')
@@ -2001,7 +2004,7 @@
             var FatherProfession = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
-            if(FatherProfession=='Others') {
+            if (FatherProfession == 'Others') {
                 $('#FatherProfession1').empty();
 
                 $('#FatherProfession1').append('<input type="text" class="form-control"  name="FatherProfession" value="">')
@@ -2013,7 +2016,7 @@
             var MotherProfession = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
-            if(MotherProfession=='Others') {
+            if (MotherProfession == 'Others') {
                 $('#MotherProfession1').empty();
 
                 $('#MotherProfession1').append('<input type="text" class="form-control"  name="MotherProfession" value="">')
@@ -2025,7 +2028,7 @@
             var CurrentProfession = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
-            if(CurrentProfession=='Others') {
+            if (CurrentProfession == 'Others') {
                 $('#CurrentProfession1').empty();
 
                 $('#CurrentProfession1').append('<input type="text" class="form-control"  name="CurrentProfession" value="">')
@@ -2038,7 +2041,7 @@
             var PreviousProfession = $(this).val();
             //var div = $(this).parent();
             //console.log(DistrictId);
-            if(PreviousProfession=='Others') {
+            if (PreviousProfession == 'Others') {
                 $('#PreviousProfession1').empty();
 
                 $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousProfession" value="">')

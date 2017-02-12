@@ -244,24 +244,37 @@ class MemberController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }*/
+        $member = new Member();
         $nid=Session::get('loan_search1');
 
         $file = Input::file('MemberImage');
         $filefather = Input::file('FatherImage');
         $filemother = Input::file('MotherImage');
         // $input = array('image' => $file);
-
         $destinationPath = 'uploads/';
-        $filename = $nid.$file->getClientOriginalName();
-        Input::file('MemberImage')->move($destinationPath, $filename);
 
-        $filenamefather = $nid.$filefather->getClientOriginalName();
-        Input::file('FatherImage')->move($destinationPath, $filenamefather);
+        if(!empty($file)) {
+            $filename = $nid . $file->getClientOriginalName();
+            Input::file('MemberImage')->move($destinationPath, $filename);
 
-        $filenamemother = $nid.$filemother->getClientOriginalName();
-        Input::file('MotherImage')->move($destinationPath, $filenamemother);
+            $member->MemberImage =$nid."_". $filename;
 
-        $member = new Member();
+        }
+        if(!empty($file)) {
+
+            $filenamefather = $nid . $filefather->getClientOriginalName();
+            Input::file('FatherImage')->move($destinationPath, $filenamefather);
+            $member->FatherImage =$nid."_". $filenamefather;
+
+        }
+        if(!empty($filemother)) {
+
+            $filenamemother = $nid . $filemother->getClientOriginalName();
+            Input::file('MotherImage')->move($destinationPath, $filenamemother);
+            $member->MotherImage =$nid."_". $filenamemother;
+
+        }
+
         $member->Nid = $nid;
 
         $member->ZoneId = Input::get('ZoneId');
@@ -354,21 +367,22 @@ class MemberController extends Controller
         $member->BrickMadeHouse = Input::get('BrickMadeHouse');
         $member->AgriculturalEarning = Input::get('AgriculturalEarning');
         $member->NonAgriculturalEarning = Input::get('NonAgriculturalEarning');
-                       $member->TotalEarning = Input::get('TotalEarning');
-                       $member->TotalExpenditure = Input::get('TotalExpenditure');
-                       $member->NetBalance = Input::get('NetBalance');
-                       $member->ReceivedAmount = Input::get('ReceivedAmount');
-                       $member->PaidAmount = Input::get('PaidAmount');
-                       $member->RemainingAmountToPay = Input::get('RemainingAmountToPay');
-                       $member->FinancierCompany = Input::get('FinancierCompany');
-                       $member->LoaningYear = Input::get('LoaningYear');
-                       $member->LastReceivedDate = Input::get('LastReceivedDate');
-                       $member->RepaymentType = Input::get('RepaymentType');
-                       $member->IsHeSheWillingToTakeLoan = Input::get('IsHeSheWillingToTakeLoan');
-                       $member->InvestmentSector = Input::get('InvestmentSector');
-                       $member->Amount = Input::get('Amount');
-                       $member->Comment1 = Input::get('Comment1');
-                       $member->Comment2 = Input::get('Comment2');
+        $member->TotalEarning = Input::get('TotalEarning');
+        $member->TotalExpenditure = Input::get('TotalExpenditure');
+        $member->NetBalance = Input::get('NetBalance');
+        $member->ReceivedAmount = Input::get('ReceivedAmount');
+        $member->PaidAmount = Input::get('PaidAmount');
+        $member->RemainingAmountToPay = Input::get('RemainingAmountToPay');
+        $member->FinancierCompany = Input::get('FinancierCompany');
+        $member->LoaningYear = Input::get('LoaningYear');
+        $member->LastReceivedDate = Input::get('LastReceivedDate');
+        $member->RepaymentType = Input::get('RepaymentType');
+        $member->IsHeSheWillingToTakeLoan = Input::get('IsHeSheWillingToTakeLoan');
+        $member->InvestmentSector = Input::get('InvestmentSector');
+        $member->Amount = Input::get('Amount');
+        $member->Comment1 = Input::get('Comment1');
+        $member->Comment2 = Input::get('Comment2');
+
 
         $member->FatherNid = Input::get('FatherNid');
         $member->MotherNid = Input::get('MotherNid');
@@ -412,9 +426,7 @@ class MemberController extends Controller
         $member->ClosingIntervalClose = Input::get('ClosingIntervalClose');
         $member->WeekEnd = Input::get('WeekEnd');
         $member->OrgPermanentEmployee = Input::get('OrgPermanentEmployee');
-        $member->MemberImage =$nid."_". $filename;
-        $member->FatherImage =$nid."_". $filenamefather;
-        $member->MotherImage =$nid."_". $filenamemother;
+
         $member->LoanAccount =$nid."_".rand(50000,60000);
         $member->SavingAccount =$nid."_".rand(50000,60000);
         $member->save();

@@ -1,7 +1,7 @@
 <h1 class="page-header">জরীপ তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('survey/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
+                    class="glyphicon glyphicon-plus-sign"></i> নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
