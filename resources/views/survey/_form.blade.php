@@ -526,7 +526,19 @@
                             <span id="PermanentCountry-error" class="help-block"></span>
                         </div>
                     </div>
+                    <div class="form-group col-md-6" id="form-PermanentDivision-error">
+                        {!! Form::label("PermanentDivision","বিভাগ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
 
+                            {{--<select name="PermanentDivision">--}}
+                            {{--@foreach($country as $country_data )--}}
+                            {{--<option value="{{$country_data->id}}">{{$country_data->CountryName}}</option>--}}
+                            {{--@endforeach--}}
+                            {{--</select>--}}
+                            {!! Form::select("PermanentDivision",$Division,null,["class"=>"form-control PermanentDivision required","id"=>"PermanentDivision"]) !!}
+                            <span id="PermanentDivision-error" class="help-block"></span>
+                        </div>
+                    </div>
                     <div class="form-group col-md-6" id="form-PermanentDistrict-error">
                         {!! Form::label("PermanentDistrict","জেলা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">

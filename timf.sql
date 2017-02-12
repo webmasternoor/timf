@@ -1172,12 +1172,14 @@ CREATE TABLE IF NOT EXISTS `jamindars` (
   `JamindarAge` varchar(500) DEFAULT NULL,
   `JamindarEducation` varchar(500) DEFAULT NULL,
   `JamindarPassingYear` varchar(500) DEFAULT NULL,
+  `JamindarGender` varchar(500) DEFAULT NULL,
   `FatherOrHasbandNAmeTitle` varchar(500) DEFAULT NULL,
   `FatherOrHasbandFirstName` varchar(500) DEFAULT NULL,
   `FatherOrHasbandLastName` varchar(500) DEFAULT NULL,
   `FatherOrHasbandAge` varchar(500) DEFAULT NULL,
   `JamindarCountry` varchar(500) DEFAULT NULL,
   `JamindarDistrict` varchar(500) DEFAULT NULL,
+  `JamindarDivision` varchar(500) DEFAULT NULL,
   `JamindarThana` varchar(500) DEFAULT NULL,
   `JamindarPostoffice` varchar(500) DEFAULT NULL,
   `JamindarUnion` varchar(500) DEFAULT NULL,
@@ -1185,6 +1187,7 @@ CREATE TABLE IF NOT EXISTS `jamindars` (
   `JamindarVillage` varchar(500) DEFAULT NULL,
   `JamindarCountry1` varchar(500) DEFAULT NULL,
   `JamindarDistrict1` varchar(500) DEFAULT NULL,
+  `JamindarDivision1` varchar(500) DEFAULT NULL,
   `JamindarThana1` varchar(500) DEFAULT NULL,
   `JamindarPostoffice1` varchar(500) DEFAULT NULL,
   `JamindarUnion1` varchar(500) DEFAULT NULL,
@@ -1379,6 +1382,184 @@ INSERT INTO `maritalstatuses` (`id`, `name`, `others`, `created_at`, `updated_at
 DROP TABLE IF EXISTS `members`;
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ZoneId` int(11) DEFAULT '0',
+  `AreaId` int(11) DEFAULT '0',
+  `BranchId` int(11) DEFAULT '0',
+  `name` varchar(500) DEFAULT NULL,
+  `MemberImage` varchar(100) DEFAULT NULL,
+  `FatherImage` varchar(100) DEFAULT NULL,
+  `MotherImage` varchar(100) DEFAULT NULL,
+  `Nid` varchar(100) DEFAULT NULL,
+  `NameTitle` varchar(100) DEFAULT NULL,
+  `FirstName` varchar(100) DEFAULT NULL,
+  `LastName` varchar(100) DEFAULT NULL,
+  `FamilyName` varchar(100) DEFAULT NULL,
+  `FullNameBangla` varchar(100) DEFAULT NULL,
+  `Gender` varchar(100) DEFAULT NULL,
+  `Age` varchar(100) DEFAULT NULL,
+  `Education` varchar(100) DEFAULT NULL,
+  `PassingYear` varchar(100) DEFAULT NULL,
+  `SpouseProfession` varchar(100) DEFAULT NULL,
+  `SpouseOtherProfession` varchar(100) DEFAULT NULL,
+  `SpouseMobileNo` varchar(100) DEFAULT NULL,
+  `MaritalStatus` varchar(100) DEFAULT NULL,
+  `Mobile` varchar(100) DEFAULT NULL,
+  `Email` varchar(100) DEFAULT NULL,
+  `PoliticalStatus` varchar(100) DEFAULT NULL,
+  `Distance` varchar(100) DEFAULT NULL,
+  `WifeNameTitle` varchar(100) DEFAULT NULL,
+  `WifeFirstName` varchar(100) DEFAULT NULL,
+  `WifeLastName` varchar(100) DEFAULT NULL,
+  `WifeFamilyName` varchar(100) DEFAULT NULL,
+  `WifeAge` varchar(100) DEFAULT NULL,
+  `WifeMobileNo` varchar(100) DEFAULT NULL,
+  `WifeProfession` varchar(100) DEFAULT NULL,
+  `WifeOtherProfession` varchar(100) DEFAULT NULL,
+  `FatherOrHasbandNAmeTitle` varchar(100) DEFAULT NULL,
+  `FatherOrHasbandFirstName` varchar(100) DEFAULT NULL,
+  `FatherOrHasbandLastName` varchar(100) DEFAULT NULL,
+  `FatherOrHasbandFamilyName` varchar(100) DEFAULT NULL,
+  `FatherOrHasbandAge` varchar(100) DEFAULT NULL,
+  `FatherProfession` varchar(100) DEFAULT NULL,
+  `FatherMobileNo` varchar(100) DEFAULT NULL,
+  `MatherNameTitle` varchar(100) DEFAULT NULL,
+  `MotherFirstName` varchar(100) DEFAULT NULL,
+  `MotherLastName` varchar(100) DEFAULT NULL,
+  `MotherFamilyName` varchar(100) DEFAULT NULL,
+  `MotherAge` varchar(100) DEFAULT NULL,
+  `MotherProfession` varchar(100) DEFAULT NULL,
+  `MotherMobileNo` varchar(100) DEFAULT NULL,
+  `PresentCountry` varchar(100) DEFAULT NULL,
+  `PresentDivision` varchar(100) DEFAULT NULL,
+  `PresentDistrict` varchar(100) DEFAULT NULL,
+  `PresentThana` varchar(100) DEFAULT NULL,
+  `PresentUnion` varchar(100) DEFAULT NULL,
+  `PresentPostOffice` varchar(100) DEFAULT NULL,
+  `PresentWord` varchar(100) DEFAULT NULL,
+  `PresentVillage` varchar(100) DEFAULT NULL,
+  `PresentRoadNo` varchar(100) DEFAULT NULL,
+  `PermanentCountry` varchar(100) DEFAULT NULL,
+  `PermanentDivision` varchar(100) DEFAULT NULL,
+  `PermanentDistrict` varchar(100) DEFAULT NULL,
+  `PermanentThana` varchar(100) DEFAULT NULL,
+  `PermanentUnion` varchar(100) DEFAULT NULL,
+  `PermanentPostOffice` varchar(100) DEFAULT NULL,
+  `PermanentWord` varchar(100) DEFAULT NULL,
+  `PermanentVillage` varchar(100) DEFAULT NULL,
+  `PermanentRoadNo` varchar(100) DEFAULT NULL,
+  `CurrentProfession` varchar(100) DEFAULT NULL,
+  `PreviousProfession` varchar(100) DEFAULT NULL,
+  `DurationOfPreviousProfession` varchar(100) DEFAULT NULL,
+  `EarningAssetsByBusinessOrJob` varchar(100) DEFAULT NULL,
+  `EarningSourceWithoutBusiness` varchar(100) DEFAULT NULL,
+  `BusinessType1` varchar(100) DEFAULT NULL,
+  `BusinessFuturePlan` varchar(100) DEFAULT NULL,
+  `FamilyMember` varchar(100) DEFAULT NULL,
+  `EarningMale` varchar(100) DEFAULT NULL,
+  `EarningFemale` varchar(100) DEFAULT NULL,
+  `EarningPerson` varchar(100) DEFAULT NULL,
+  `MaleMember` varchar(100) DEFAULT NULL,
+  `FemaleMember` varchar(100) DEFAULT NULL,
+  `SickDescriptionOfFamilyMember` varchar(100) DEFAULT NULL,
+  `CaseDescriptionOfFamilyMember` varchar(100) DEFAULT NULL,
+  `IfAnyMemberInAbroad` varchar(100) DEFAULT NULL,
+  `FamilyType` varchar(100) DEFAULT NULL,
+  `CultiviableLand` varchar(100) DEFAULT NULL,
+  `NonCultivableLand` varchar(100) DEFAULT NULL,
+  `Pond` varchar(100) DEFAULT NULL,
+  `House` varchar(100) DEFAULT NULL,
+  `TotalLand` varchar(100) DEFAULT NULL,
+  `TinMadeHouse` varchar(100) DEFAULT NULL,
+  `StrawMadeHouse` varchar(100) DEFAULT NULL,
+  `BrickMadeHouse` varchar(100) DEFAULT NULL,
+  `AgriculturalEarning` varchar(100) DEFAULT NULL,
+  `NonAgriculturalEarning` varchar(100) DEFAULT NULL,
+  `TotalEarning` varchar(100) DEFAULT NULL,
+  `TotalExpenditure` varchar(100) DEFAULT NULL,
+  `NetBalance` varchar(100) DEFAULT NULL,
+  `ReceivedAmount` varchar(100) DEFAULT NULL,
+  `PaidAmount` varchar(100) DEFAULT NULL,
+  `RemainingAmountToPay` varchar(100) DEFAULT NULL,
+  `FinancierCompany` varchar(100) DEFAULT NULL,
+  `LoaningYear` varchar(100) DEFAULT NULL,
+  `LastReceivedDate` varchar(100) DEFAULT NULL,
+  `RepaymentType` varchar(100) DEFAULT NULL,
+  `IsHeSheWillingToTakeLoan` varchar(100) DEFAULT NULL,
+  `InvestmentSector` varchar(100) DEFAULT NULL,
+  `Amount` varchar(100) DEFAULT NULL,
+  `Comment1` varchar(100) DEFAULT NULL,
+  `Comment2` varchar(100) DEFAULT NULL,
+  `FatherNid` varchar(100) DEFAULT NULL,
+  `MotherNid` varchar(100) DEFAULT NULL,
+  `AccommodationLength` varchar(100) DEFAULT NULL,
+  `BusinessName` varchar(100) DEFAULT NULL,
+  `BusinessNature` varchar(100) DEFAULT NULL,
+  `BusinessExperience` varchar(100) DEFAULT NULL,
+  `BusinessCenterAddress` varchar(100) DEFAULT NULL,
+  `BusinessStartDate` varchar(100) DEFAULT NULL,
+  `Accommodation` varchar(100) DEFAULT NULL,
+  `AccommodationWidth` varchar(100) DEFAULT NULL,
+  `BusinessPlaceStatus` varchar(100) DEFAULT NULL,
+  `Direction` varchar(100) DEFAULT NULL,
+  `TradeLicenceNo` varchar(100) DEFAULT NULL,
+  `LicenceIssuingAuthority` varchar(100) DEFAULT NULL,
+  `InvestedCapital` varchar(100) DEFAULT NULL,
+  `MonthlyAvarageSale` varchar(100) DEFAULT NULL,
+  `BankContribution` varchar(100) DEFAULT NULL,
+  `NgoContribution` varchar(100) DEFAULT NULL,
+  `SelfContribution` varchar(100) DEFAULT NULL,
+  `BorrowMoney` varchar(100) DEFAULT NULL,
+  `MonthlyEarningFromBusiness` varchar(100) DEFAULT NULL,
+  `MonthlyExpenditureFromBusiness` varchar(100) DEFAULT NULL,
+  `SurplusMoney` varchar(100) DEFAULT NULL,
+  `IncomeFromOthersSources` varchar(100) DEFAULT NULL,
+  `OtherSources` varchar(100) DEFAULT NULL,
+  `MonthlyExpenditureFromOtherSources` varchar(100) DEFAULT NULL,
+  `MonthlySurplus` varchar(100) DEFAULT NULL,
+  `MonthlyTotalSurplus` varchar(100) DEFAULT NULL,
+  `BusinessType` varchar(100) DEFAULT NULL,
+  `OwnershipType` varchar(100) DEFAULT NULL,
+  `FirstHalfStart` varchar(100) DEFAULT NULL,
+  `FirstHalfEnd` varchar(100) DEFAULT NULL,
+  `SecondHalfStart` varchar(100) DEFAULT NULL,
+  `SecondHalfEnd` varchar(100) DEFAULT NULL,
+  `TotalTime` varchar(100) DEFAULT NULL,
+  `OrgOPeningTime` varchar(100) DEFAULT NULL,
+  `OrgClosingTime` varchar(100) DEFAULT NULL,
+  `ClosingIntervalStart` varchar(100) DEFAULT NULL,
+  `ClosingIntervalClose` varchar(100) DEFAULT NULL,
+  `WeekEnd` varchar(100) DEFAULT NULL,
+  `OrgPermanentEmployee` varchar(100) DEFAULT NULL,
+  `LoanAccount` varchar(100) DEFAULT NULL,
+  `SavingAccount` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.members: ~13 rows (approximately)
+DELETE FROM `members`;
+/*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` (`id`, `ZoneId`, `AreaId`, `BranchId`, `name`, `MemberImage`, `FatherImage`, `MotherImage`, `Nid`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `SpouseProfession`, `SpouseOtherProfession`, `SpouseMobileNo`, `MaritalStatus`, `Mobile`, `Email`, `PoliticalStatus`, `Distance`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeMobileNo`, `WifeProfession`, `WifeOtherProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandFamilyName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherMobileNo`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDivision`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType1`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `FamilyType`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `RepaymentType`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `LoanAccount`, `SavingAccount`, `created_at`, `updated_at`) VALUES
+	(1, 0, 0, 0, NULL, '123_1231.jpg', '123_1232.jpg', '123_1233.jpg', '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '123', '12', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_57275', '123_59531', '2017-02-12 06:13:23', '2017-02-12 06:13:23'),
+	(2, 1, 1, 1, NULL, '123_1233.jpg', '123_12313.jpg', '123_12311.jpg', '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56281', '123_57719', '2017-02-12 06:24:45', '2017-02-12 06:24:45'),
+	(3, 1, 1, 1, NULL, '123_12311.jpg', '123_12313.jpg', '123_1234.jpg', '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '234', '345', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52239', '123_57671', '2017-02-12 06:36:24', '2017-02-12 06:36:24'),
+	(4, 1, 1, 1, NULL, '123_1233.jpg', '123_12313.jpg', '123_12312.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', 'Agriculture', '', '5', NULL, '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_50206', '123_57883', '2017-02-12 07:00:49', '2017-02-12 07:00:49'),
+	(5, 1, 1, 1, NULL, '123_12311.jpg', '123_12313.jpg', '123_1233.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', 'Agriculture', '', '5', NULL, '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'Agriculture', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_50670', '123_58691', '2017-02-12 07:04:22', '2017-02-12 07:04:22'),
+	(6, 1, 1, 1, NULL, '123_12312.jpg', '123_1234.jpg', '123_12313.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', 'Agriculture', '', '5', NULL, '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_51406', '123_57049', '2017-02-12 07:11:08', '2017-02-12 07:11:08'),
+	(7, 1, 1, 1, NULL, '123_1232.jpg', '123_12313.jpg', '123_12311.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', 'Agriculture', '', '5', NULL, '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '45678', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_59414', '123_57646', '2017-02-12 07:13:48', '2017-02-12 07:13:48'),
+	(8, 1, 1, 1, NULL, '123_12313.jpg', '123_12315.jpg', '123_1236.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', 'Agriculture', '', '5', NULL, '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', 'asdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56732', '123_55700', '2017-02-12 07:20:20', '2017-02-12 07:20:20'),
+	(9, 1, 1, 1, NULL, '123_1232.jpg', '123_12312.jpg', '123_12313.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', 'Agriculture', '', '5', NULL, '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, 'wert', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_57405', '123_55766', '2017-02-12 07:27:32', '2017-02-12 07:27:32'),
+	(10, 1, 1, 1, NULL, '123_1232.jpg', '123_1235.jpg', '123_12315.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', 'Agriculture', '', '5', NULL, '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', 'ache....', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_58211', '123_51083', '2017-02-12 07:45:39', '2017-02-12 07:45:39'),
+	(11, 1, 1, 1, NULL, '123_12316426698_216526605478018_1313829118_n.png', '123_12316426698_216526605478018_1313829118_n.png', '123_12316426698_216526605478018_1313829118_n.png', '123', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Agriculture', '', '11', NULL, '1', '', '1', '1', '1', '1', '1', '1', '1', '1', 'Agriculture', '', '1', '1', '1', '1', '1', 'Agriculture', '1', '1', '1', '1', '1', '1', 'Agriculture', '1', '17', '1', '1', '1', '1', '1', '1', '1', '1', '17', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Agriculture', '', '1', '1', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_59904', '123_53758', '2017-02-12 09:01:01', '2017-02-12 09:01:01'),
+	(12, 1, 1, 1, NULL, NULL, NULL, NULL, '123', '1', '1', '1', '1', '', '1', '1', '1', '1', 'Agriculture', '', '', NULL, '', '', '1', '1', '1', '', '', '', '1', '', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52872', '123_55098', '2017-02-12 09:03:57', '2017-02-12 09:03:57'),
+	(13, 1, 1, 1, NULL, NULL, NULL, NULL, '123', '1', 'rockey', 'Ahmed', '1', '1', '1', '1', '1', '1', 'Agriculture', '', '1', NULL, '1', '', '1', '1', '1', '1', '1', '1', '1', '1', 'Agriculture', '1', '1', '1', '1', '1', '1', 'Agriculture', '1', '1', '1', '1', '1', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_54820', '123_57702', '2017-02-12 09:14:02', '2017-02-12 09:14:02');
+/*!40000 ALTER TABLE `members` ENABLE KEYS */;
+
+-- Dumping structure for table timf.members_12_02_2017
+DROP TABLE IF EXISTS `members_12_02_2017`;
+CREATE TABLE IF NOT EXISTS `members_12_02_2017` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
   `MemberImage` varchar(100) DEFAULT NULL,
   `NameTitle` varchar(100) DEFAULT NULL,
@@ -1438,10 +1619,10 @@ CREATE TABLE IF NOT EXISTS `members` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.members: ~0 rows (approximately)
-DELETE FROM `members`;
-/*!40000 ALTER TABLE `members` DISABLE KEYS */;
-/*!40000 ALTER TABLE `members` ENABLE KEYS */;
+-- Dumping data for table timf.members_12_02_2017: ~0 rows (approximately)
+DELETE FROM `members_12_02_2017`;
+/*!40000 ALTER TABLE `members_12_02_2017` DISABLE KEYS */;
+/*!40000 ALTER TABLE `members_12_02_2017` ENABLE KEYS */;
 
 -- Dumping structure for table timf.migrations
 DROP TABLE IF EXISTS `migrations`;
@@ -2316,6 +2497,27 @@ INSERT INTO `purposes` (`id`, `name`, `PurposeCode`, `PurposeName`, `created_at`
 	(2, NULL, '002', 'পুরুষ অধিকার সংঘ', '2017-01-11 10:16:52', '2017-01-11 10:16:52');
 /*!40000 ALTER TABLE `purposes` ENABLE KEYS */;
 
+-- Dumping structure for table timf.rollcatagories
+DROP TABLE IF EXISTS `rollcatagories`;
+CREATE TABLE IF NOT EXISTS `rollcatagories` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `others` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table timf.rollcatagories: ~4 rows (approximately)
+DELETE FROM `rollcatagories`;
+/*!40000 ALTER TABLE `rollcatagories` DISABLE KEYS */;
+INSERT INTO `rollcatagories` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
+	(1, 'Branch Manager', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2, 'Branch Officer', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(3, 'Field Officer', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(4, 'Others', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `rollcatagories` ENABLE KEYS */;
+
 -- Dumping structure for table timf.saving1s
 DROP TABLE IF EXISTS `saving1s`;
 CREATE TABLE IF NOT EXISTS `saving1s` (
@@ -2550,11 +2752,13 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `created_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.surveys: ~0 rows (approximately)
+-- Dumping data for table timf.surveys: ~1 rows (approximately)
 DELETE FROM `surveys`;
 /*!40000 ALTER TABLE `surveys` DISABLE KEYS */;
+INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `AreaId`, `BranchId`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeOtherProfession`, `WifeMobileNo`, `WifeProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherOtherProfession`, `FatherOrHasbandFamilyName`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherOtherProfession`, `MotherMobileNo`, `SpouseProfession`, `MaritalStatus`, `PoliticalStatus`, `Nid`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDistrict`, `PermanentDivision`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `Mobile`, `Email`, `SpouseMobileNo`, `Distance`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `FamilyType`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `RepaymentType`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `LastReceivedDate1`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `unitprice`, `JoinDate`, `created_at`, `updated_at`) VALUES
+	(1, '', '', '1', '1', '1', '1', '', '', '', '', '1', '1', '1', '1', '1', '', '', '', '1', NULL, '', 'Agriculture', '1', '', '', '1', 'Agriculture', NULL, '', '', '1', '', '', '', '1', 'Agriculture', NULL, '', '1', '1', '1', '123', '1', NULL, '1', '1', '1', '1', '1', '', '', '1', '1', NULL, '1', '1', '1', '1', '', '', '', '', '', '', 'Agriculture', 'Agriculture', '', '', '', '1', '', '0', '0', '0', '0', '0', '0', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, NULL, '2017-02-12 07:55:54', '2017-02-12 07:55:54');
 /*!40000 ALTER TABLE `surveys` ENABLE KEYS */;
 
 -- Dumping structure for table timf.taggables
@@ -6198,7 +6402,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 	(1500, 'Dr. Geovanny Nitzsche', 'botsford.colt@gmail.com', '$2y$10$A6DBrS.v7EUlemzuF9LL/OYjDl7Ca8bnbtPWia5nha2u/4BBGEQr6', NULL, '2017-01-30 06:26:09', '2017-01-30 06:26:09', NULL),
 	(1501, 'Miss Hope Jacobson', 'stracke.beth@hotmail.com', '$2y$10$Y.0O5.zSwS0y6WPGhsZMQe2m.7nAJRkaoEYjY.XoMuLdS1BoVC7E.', NULL, '2017-01-30 06:26:09', '2017-01-30 06:26:09', NULL),
 	(1502, 'Cody Hermiston IV', 'bdamore@hotmail.com', '$2y$10$P1ef2hmZckPIJtHax2fiVuCUNUjoZWtX7KFDunm85YBEkHIQA9m1K', NULL, '2017-01-30 06:26:09', '2017-01-30 06:26:09', NULL),
-	(1503, 'Noor', 'webmaster.noor@gmail.com', '$2y$10$ZC5dIutmuUlhVtLXYECHR.7EZmOHT4SWjaoNXYukyG7y9PGkBER5O', 'ctT0e3yoMGNgJNimIQgklxniGsNGi0xosQCeCtPKl2KmgpL3woF0omxhOB8N', '2017-01-30 06:29:23', '2017-01-31 05:21:58', NULL),
+	(1503, 'Noor', 'webmaster.noor@gmail.com', '$2y$10$ZC5dIutmuUlhVtLXYECHR.7EZmOHT4SWjaoNXYukyG7y9PGkBER5O', 'CeDTI4fulqOS3LoMW1CB7Ecj722RHY2KlxxGV6pkmTkQKW4xsszvMxWcIWzR', '2017-01-30 06:29:23', '2017-02-12 04:53:32', NULL),
 	(1504, 'Rockey', 'rockeycse@gmail.com', '$2y$10$4orSqPHflvKn9EuO9jCiA.1gTxoitMvlDO3a5uLKD.Z2P2O/pd3R6', NULL, '2017-02-06 05:42:19', '2017-02-06 05:42:19', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
@@ -6218,6 +6422,7 @@ CREATE TABLE IF NOT EXISTS `userstimfs` (
   `office_id` int(11) DEFAULT NULL,
   `SamityID` int(11) DEFAULT NULL,
   `designation` varchar(500) DEFAULT NULL,
+  `RollType` varchar(500) DEFAULT NULL,
   `address` varchar(500) DEFAULT NULL,
   `phone1` varchar(500) DEFAULT NULL,
   `phone2` varchar(500) DEFAULT NULL,
@@ -6242,9 +6447,9 @@ CREATE TABLE IF NOT EXISTS `userstimfs` (
 -- Dumping data for table timf.userstimfs: ~2 rows (approximately)
 DELETE FROM `userstimfs`;
 /*!40000 ALTER TABLE `userstimfs` DISABLE KEYS */;
-INSERT INTO `userstimfs` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`, `employee_id`, `employee_code`, `employee_firstname`, `employee_lastname`, `ZoneID`, `AreaID`, `office_id`, `SamityID`, `designation`, `address`, `phone1`, `phone2`, `email`, `altemail`, `gender`, `birthdate`, `joiningdate`, `status`, `releasedate`, `username`, `password12`, `comment`, `photo`, `org_id`, `IsActiveDate`, `created_at`, `updated_at`) VALUES
-	(1, NULL, NULL, NULL, '1', '1', 'Noor', 'Alom', 4, 1, 1, 1, '25', 'hjedfsfag', '123', '34', '', '', '1', '2017-02-27', '2017-02-06', '', '2017-02-21', '', '', '', NULL, NULL, NULL, '2017-02-11 06:37:18', '2017-02-11 06:47:12'),
-	(2, NULL, NULL, NULL, '12', '12', 'Rockey', 'Ahmed', 1, 1, 1, 1, '1', 'erfdgh', '23432', '234234', 'rockeycse@gmail.com', 'we@ghbfgi.com', '1', '1992-02-15', '2017-02-01', '1', '2017-03-14', 'rockeycse@gmail.com', '', '1', 'micro5.jpg', NULL, NULL, '2017-02-11 06:40:51', '2017-02-11 06:46:14');
+INSERT INTO `userstimfs` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`, `employee_id`, `employee_code`, `employee_firstname`, `employee_lastname`, `ZoneID`, `AreaID`, `office_id`, `SamityID`, `designation`, `RollType`, `address`, `phone1`, `phone2`, `email`, `altemail`, `gender`, `birthdate`, `joiningdate`, `status`, `releasedate`, `username`, `password12`, `comment`, `photo`, `org_id`, `IsActiveDate`, `created_at`, `updated_at`) VALUES
+	(1, NULL, NULL, NULL, '1', NULL, 'Noor', 'Alom', NULL, NULL, NULL, 1, '1', '1', 'hjedfsfag', '123', '34', '', '', '1', '2017-02-27', '2017-02-06', '', '2017-02-21', '', '123456', '', NULL, NULL, '1', '2017-02-11 06:37:18', '2017-02-12 05:53:07'),
+	(2, NULL, NULL, NULL, '12', NULL, 'Rockey', 'Ahmed', NULL, NULL, NULL, 1, '1', '2', 'erfdgh', '23432', '234234', 'rockeycse@gmail.com', 'we@ghbfgi.com', '1', '1992-02-15', '2017-02-01', '1', '2017-03-14', 'rockeycse@gmail.com', '123456', '1', 'micro5.jpg', NULL, '1', '2017-02-11 06:40:51', '2017-02-12 05:52:53');
 /*!40000 ALTER TABLE `userstimfs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_2
