@@ -2,7 +2,12 @@
     <div class="form-group required col-md-4" id="form-MemberId-error">
         {!! Form::label("MemberId","সদস্য আইডি",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::text("MemberId",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <select name="MemberId" id="" class="form-control">
+                @foreach($Member_info as $members12)
+                <option value="{{$members12->id}}">{{$members12->FirstName}}&nbsp;{{$members12->lastName}}&nbsp;{{$members12->FamilyName}}</option>
+                    @endforeach;
+            </select>
+            {{--{!! Form::select("MemberId",$Member_info,null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
             <span id="MemberId-error" class="help-block"></span>
         </div>
     </div>
@@ -16,7 +21,7 @@
     <div class="form-group required col-md-4" id="form-SavingAmount-error">
         {!! Form::label("SavingAmount","টাকা Collection",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::number("SavingAmount",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::number("SavingAmount",null,["class"=>"form-control required", 'placeholder'=>'100',"id"=>"focus"]) !!}
             <span id="SavingAmount-error" class="help-block"></span>
         </div>
     </div>
