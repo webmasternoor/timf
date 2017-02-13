@@ -249,3 +249,13 @@ div.zoneareabran ul li span{
     font-weight: bold;
     color: navy;
 }
+div.waitingapproval .form-group input.form-control,
+div.waitingapproval .form-group select.form-control,
+div.waitingapproval .form-group textarea.form-control{
+    pointer-events: none;
+    background: #f2f2f2;
+}
+div.waitingapproval .form-group textarea.form-control.montobbo{
+  pointer-events: auto;
+  background: transparent;
+}
