@@ -7,17 +7,6 @@
 
         <div class="col-md-12">
 
-            <!-- <div class="box box-header">
-                <h5>নাম</h5>
-            </div> -->
-
-        <!-- <div class="form-group required col-md-6" id="form-name-error">
-                {!! Form::label("name","প্রথম নাম",["class"=>"control-label col-md-12"]) !!}
-                <div class="col-md-12">
-                    {!! Form::text("name",null,["class"=>"form-control required"]) !!}
-                <span id="name-error" class="help-block"></span>
-            </div>
-        </div> -->
             <div class="form-group required col-md-3" id="form-JamindarNameTitle-error">
                 {!! Form::label("JamindarNameTitle","টাইটেল:",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
@@ -87,9 +76,44 @@
                     <span id="JamindarPassingYear-error" class="help-block"></span>
                 </div>
             </div>
+            <div class="form-group required col-md-6" id="form-JamindarMobile1-error">
+                {!! Form::label("JamindarMobile1","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
+                <div class="col-md-12">
+                    {!! Form::text("JamindarMobile1",null,["class"=>"form-control required"]) !!}
+                    <span id="JamindarMobile1-error" class="help-block"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group required col-md-6" id="form-JamindarEmail-error">
+                {!! Form::label("JamindarEmail","ইমেইল",["class"=>"control-label col-md-12"]) !!}
+                <div class="col-md-12">
+                    {!! Form::email("JamindarEmail",null,["class"=>"form-control required"]) !!}
+                    <span id="JamindarEmail-error" class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="form-group required col-md-6" id="form-JamindarNid-error">
+                {!! Form::label("JamindarNid","জাতীয় পরিচয় পত্র",["class"=>"control-label col-md-12"]) !!}
+                <div class="col-md-12">
+                    {!! Form::text("JamindarNid",null,["class"=>"form-control required"]) !!}
+                    <span id="JamindarNid-error" class="help-block"></span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="borderportion">
+        <div class="form-group required col-md-12" id="form-photo-error">
+            <?php
+            if(!empty($jamindar->jamindarphoto))
+            {
+            ?>
+
+            <img src="uploads/{{$jamindar->jamindarphoto}}">
+            <?php
+            }
+            ?>
+        </div>
         <div class="box-header col-md-11">
             <h5 class="text-aqua"><u>ছবি আপলোড করুন</u></h5>
         </div>
@@ -101,6 +125,7 @@
             </div>
         </div>
     </div>
+
     <div class="borderportion">
 
         <div class="box-header col-md-12">
@@ -260,6 +285,7 @@
             </div>
         </div>
     </div>
+
     <div class="borderportion">
         <div class="col-md-12">
             <div class="box box-header">
@@ -331,32 +357,10 @@
 
         </div>
     </div>
+
     <div class="borderportion">
         <div class="col-md-12">
-            <div class="form-group required col-md-6" id="form-JamindarMobile1-error">
-                {!! Form::label("JamindarMobile1","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
-                <div class="col-md-12">
-                    {!! Form::text("JamindarMobile1",null,["class"=>"form-control required"]) !!}
-                    <span id="JamindarMobile1-error" class="help-block"></span>
-                </div>
-            </div>
 
-
-            <div class="form-group required col-md-6" id="form-JamindarEmail-error">
-                {!! Form::label("JamindarEmail","ইমেইল",["class"=>"control-label col-md-12"]) !!}
-                <div class="col-md-12">
-                    {!! Form::email("JamindarEmail",null,["class"=>"form-control required"]) !!}
-                    <span id="JamindarEmail-error" class="help-block"></span>
-                </div>
-            </div>
-
-            <div class="form-group required col-md-6" id="form-JamindarNid-error">
-                {!! Form::label("JamindarNid","জাতীয় পরিচয় পত্র",["class"=>"control-label col-md-12"]) !!}
-                <div class="col-md-12">
-                    {!! Form::text("JamindarNid",null,["class"=>"form-control required"]) !!}
-                    <span id="JamindarNid-error" class="help-block"></span>
-                </div>
-            </div>
             <div class="form-group required col-md-6" id="form-JamindarBusinessOrJobAddress-error">
                 {!! Form::label("JamindarBusinessOrJobAddress","ব্যবসা বা চাকুরীর ঠিকানা",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">

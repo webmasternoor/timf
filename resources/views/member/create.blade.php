@@ -1732,7 +1732,7 @@
                             <div class="form-group col-md-6" id="form-RepaymentType-error">
                                 {!! Form::label("RepaymentType","পরিশোধের ধরণ ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
-                                    {!! Form::select("RepaymentType",['1'=>'Regular', '2'=>'Irregular'])!!}
+                                    {{--{!! Form::select("RepaymentType",['1'=>'Regular', '2'=>'Irregular'])!!}--}}
                                     <span id="RepaymentType-error" class="help-block"></span>
                                 </div>
                             </div>

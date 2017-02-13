@@ -3,12 +3,15 @@ namespace App\Http\Controllers;
 
 use App\Accommodation;
 use App\Age;
+use App\Count;
 use App\Education;
+use App\Familytype;
 use App\Gender;
 use App\Maritalstatus;
 use App\Nametitle;
 use App\Politicalstatus;
 use App\Profession;
+use App\Status;
 use App\Year_calendar;
 use DB;
 use App\Post;
@@ -420,12 +423,16 @@ class SurveyController extends Controller
         $ZoneInfo = Zone::lists('ZoneName', 'id');
         $AreaInfo = Area::lists('AreaName', 'id');
         $BranchInfo = Brn::lists('BranchName', 'id');
+        $Familytypes = Familytype::lists('name','id');
+        $Count_Data = Count::lists('name','id');
+        $Status = Status::lists('Status','id');
         return view('survey.create')->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
             ->with('Age', $Age)->with('Profession', $Profession)->with('Accommodation', $Accommodation)->with('Gender', $Gender)
             ->with('PassingYear', $PassingYear)->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)
-            ->with('Division', $Division)->with('profession', $profession);
+            ->with('Division', $Division)->with('profession', $profession)->with('Familytypes',$Familytypes)->with('Count_Data',$Count_Data)
+            ->with('Status',$Status);
 
         /*return view('survey.create')->with('Zone_info', $Zone_info)->with('Branch_info', $Branch_info)->with('Area_info', $Area_info)
             ->with('country', $country)->with('district', $district)->with('thana', $thana)->with('postoffice', $postoffice)
