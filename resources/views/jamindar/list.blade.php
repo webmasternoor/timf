@@ -111,7 +111,7 @@
                class="glyphicon  {{ Session::get('jamindar_field')=='JamindarNid'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">অ্যাকশন সমূহ</th>
+        {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
     </thead>
     <tbody>
@@ -130,7 +130,7 @@
             <td>{{$jamindar->JamindarMobile1}}</td>
             <td>{{$jamindar->JamindarEmail}}</td>
             <td>{{$jamindar->JamindarNid}}</td>
-            <td style="text-align: center">
+            {{--<td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('jamindar/update/{{$jamindar->id}}')">
                     <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
@@ -138,7 +138,7 @@
                    href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('jamindar/delete/{{$jamindar->id}}')">
                     <i class="glyphicon glyphicon-trash"></i> ডিলিট
                 </a>
-            </td>
+            </td>--}}
         </tr>
     @endforeach
     </tbody>

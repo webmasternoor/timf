@@ -1,5 +1,9 @@
 <h1 class="page-header">সদস্য তালিকা
     <div class="pull-right">
+        <a href="javascript:ajaxLoad('member/list')" class="btn btn-primary pull-right"><i
+                    class="glyphicon glyphicon-plus-sign"></i> Approved</a>
+        <a href="javascript:ajaxLoad('member/listpending')" class="btn btn-primary pull-right"><i
+                    class="glyphicon glyphicon-plus-sign"></i> Pending</a>
         <a href="javascript:ajaxLoad('member/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i> নতুন</a>
     </div>
@@ -87,7 +91,8 @@
                class="glyphicon  {{ Session::get('survey_field')=='created_at'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">Actions</th>
+        <th width="140px">Approvals</th>
+        {{--<th width="140px">Actions</th>--}}
     </tr>
     </thead>
     <tbody>
@@ -103,7 +108,22 @@
             <td>{{$member->BusinessStartDate}}</td>
             <td>{{$member->Accommodation}}</td>
             <td>{{$member->AccommodationWidth}}</td>
-            <td style="text-align: center">
+            <td>
+                <?php
+                if($member->grouppresident == '0'){
+                ?>
+                    <a class="btn btn-primary btn-xs" title="Edit"
+                       href="javascript:ajaxLoad('member/approve/{{$member->id}}')">
+                        <i class="glyphicon glyphicon-edit"></i> Approve</a>
+                <?php
+                    }else{
+                    ?>
+                    OK
+                    <?php
+                    }
+                ?>
+            </td>
+            {{--<td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('member/update/{{$member->id}}')">
                     <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
@@ -111,7 +131,7 @@
                    href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('member/delete/{{$member->id}}')">
                     <i class="glyphicon glyphicon-trash"></i> ডিলিট
                 </a>
-            </td>
+            </td>--}}
         </tr>
     @endforeach
     </tbody>

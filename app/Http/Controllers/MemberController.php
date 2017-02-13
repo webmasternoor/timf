@@ -53,7 +53,15 @@ class MemberController extends Controller
         Session::put('member_search', Input::has('ok') ? Input::get('search') : (Session::has('member_search') ? Session::get('member_search') : ''));
         Session::put('member_field', Input::has('field') ? Input::get('field') : (Session::has('member_field') ? Session::get('member_field') : 'id'));
         Session::put('member_sort', Input::has('sort') ? Input::get('sort') : (Session::has('member_sort') ? Session::get('member_sort') : 'asc'));
-        $members = Member::where('id', 'like', '%' . Session::get('member_search') . '%')
+        /*$members = Member::where('id', 'like', '%' . Session::get('member_search') . '%')
+            ->orderBy(Session::get('member_field'), Session::get('member_sort'))->paginate(8);*/
+        $members = Member::where('grouppresident', '1'  . Session::get('member_search') . '%')
+            ->orderBy(Session::get('member_field'), Session::get('member_sort'))->paginate(8);
+        return view('member.list', ['members' => $members]);
+    }
+
+    public function getListpending(){
+        $members = Member::where('grouppresident', '0'  . Session::get('member_search') . '%')
             ->orderBy(Session::get('member_field'), Session::get('member_sort'))->paginate(8);
         return view('member.list', ['members' => $members]);
     }
@@ -93,6 +101,74 @@ class MemberController extends Controller
             ->with('Weekend',$Weekend)->with('OrgPermanentEmployee',$OrgPermanentEmployee)->with('BusinessLeader',$BusinessLeader);
 
         //return view('member.update', ['member' => Member::find($id)]);
+    }
+
+    public function getApprove($id)
+    {
+        //$zone = Zone::all();
+        //$area = Area::all();
+        //$branch = Brn::all();
+        $zone = Zone::all();
+        $area = Area::all();
+        $branch = Brn::all();
+        $Direction = Direction::lists('name','id');
+        $Accommodation = Accommodation::lists('name','id');
+        $BusinessPlaceStatus = BusinessPlaceStatus::lists('name','id');
+        $Licenceauthority = Licenceauthority::lists('name','id');
+        $OtherSources = Othersource::lists('name','id');
+        $BusinessType = Businesstype::lists('name','id');
+        $OwnershipType = Ownershiptype::lists('name','id');
+        $Weekend = Weekend::lists('name','id');
+        $OrgPermanentEmployee = Permanentemployee::lists('name','id');
+        $BusinessLeader = Businessleader::lists('name','id');
+        $Country = Countr::lists('CountryName','id');
+        $District = District::lists('DistrictName','id');
+        $Thana = Thana::lists('ThanaName','id');
+        $PostOffice = Postoffice::lists('PostofficeName','id');
+        $Union = Union::lists('UnionName','id');
+        $Word = Ward::lists('WardName','id');
+        $ZoneInfo = Zone::lists('ZoneName', 'id');
+        $AreaInfo = Area::lists('AreaName', 'id');
+        $BranchInfo = Brn::lists('BranchName', 'id');
+        $NameTitle = Nametitle::lists('name', 'id');
+        $Age = Age::lists('age', 'id');
+        $PassingYear = Year_calendar::lists('Name', 'id');
+        $Profession = Profession::lists('name', 'id');
+        $profession = Profession::all();
+        $MaritalStatus = Maritalstatus::lists('name', 'id');
+        $Accommodation = Accommodation::lists('name', 'id');
+        $Education = Education::lists('name', 'id');
+        $PoliticalStatus = Politicalstatus::lists('name', 'id');
+        $Gender = Gender::lists('GenderName', 'id');
+        $Country = Countr::lists('CountryName', 'id');
+        $Division = Division::lists('DivisionName', 'id');
+        $District = District::lists('DistrictName', 'id');
+        $Thana = Thana::lists('ThanaName', 'id');
+        $PostOffice = Postoffice::lists('PostofficeName', 'id');
+        $Union = Union::lists('UnionName', 'id');
+        $Word = Ward::lists('WardName', 'id');
+        return view('member.approve', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
+            ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
+            ->with('Union', $Union)->with('Word', $Word)->with('Accommodation',$Accommodation)
+            ->with("Direction",$Direction)->with('BusinessPlaceStatus',$BusinessPlaceStatus)->with('Licenceauthority',$Licenceauthority)
+            ->with('OtherSources',$OtherSources)->with('BusinessType',$BusinessType)->with('OwnershipType',$OwnershipType)
+            ->with('Weekend',$Weekend)->with('OrgPermanentEmployee',$OrgPermanentEmployee)->with('BusinessLeader',$BusinessLeader)
+            ->with('ZoneInfo',$ZoneInfo)->with('AreaInfo',$AreaInfo)->with('BranchInfo',$BranchInfo)
+            ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
+            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
+            ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
+            ->with('PassingYear', $PassingYear)->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)
+            ->with('profession', $profession);
+
+        //return view('member.update', ['member' => Member::find($id)]);
+    }
+
+    public function postApprove($id){
+        $memberapprove = Member::find($id);
+        $memberapprove->grouppresident = '1';
+        $memberapprove->remarks = Input::get('remarks');
+        $memberapprove->save();
+        return ['url' => 'member/list'];
     }
 
     public function postUpdate($id)
@@ -617,7 +693,6 @@ class MemberController extends Controller
         $member->Comment1 = Input::get('Comment1');
         $member->Comment2 = Input::get('Comment2');
 
-
         $member->FatherNid = Input::get('FatherNid');
         $member->MotherNid = Input::get('MotherNid');
         $member->BusinessName = Input::get('BusinessName');
@@ -663,6 +738,7 @@ class MemberController extends Controller
 
         $member->LoanAccount =$nid."_".rand(50000,60000);
         $member->SavingAccount =$nid."_".rand(50000,60000);
+
         $member->save();
         return ['url' => 'member/list'];
     }

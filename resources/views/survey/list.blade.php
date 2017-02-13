@@ -95,7 +95,7 @@
                class="glyphicon  {{ Session::get('survey_field')=='created_at'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">Actions</th>
+        {{--<th width="140px">Actions</th>--}}
     </tr>
     </thead>
     <tbody>
