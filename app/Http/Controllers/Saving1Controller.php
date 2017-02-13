@@ -76,7 +76,7 @@ class Saving1Controller extends Controller
         $saving1->ProductId = Input::get('ProductId');
         $saving1->MemberId = Input::get('MemberId');
         $saving1->SavingAmount = Input::get('SavingAmount');
-        $saving1->WithdrawAmount = Input::get('WithdrawAmount');
+        /*$saving1->WithdrawAmount = Input::get('WithdrawAmount');*/
         $saving1->TransactionDate = Input::get('TransactionDate');
         $saving1->EntryDate = Input::get('EntryDate');
         $saving1->save();

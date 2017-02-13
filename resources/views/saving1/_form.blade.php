@@ -1,41 +1,41 @@
 <div class="col-md-12">
-    <div class="form-group required col-md-6" id="form-ProductId-error">
-        {!! Form::label("ProductId","প্রোডাক্টের নাম",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
-            {!! Form::select("ProductId",$Product_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
-            <span id="ProductId-error" class="help-block"></span>
-        </div>
-    </div>
-    <div class="form-group required col-md-6" id="form-MemberId-error">
-        {!! Form::label("MemberId","সদস্য আইডি",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
+    <div class="form-group required col-md-4" id="form-MemberId-error">
+        {!! Form::label("MemberId","সদস্য আইডি",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             {!! Form::text("MemberId",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="MemberId-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-SavingAmount-error">
-        {!! Form::label("SavingAmount","জমা টাকা",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
+    <div class="form-group required col-md-4" id="form-ProductId-error">
+        {!! Form::label("ProductId","প্রোডাক্টের নাম",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("ProductId",$Product_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="ProductId-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-4" id="form-SavingAmount-error">
+        {!! Form::label("SavingAmount","টাকা Collection",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             {!! Form::number("SavingAmount",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="SavingAmount-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-WithdrawAmount-error">
+    {{--<div class="form-group required col-md-6" id="form-WithdrawAmount-error">
         {!! Form::label("WithdrawAmount","টাকা উত্তোলন",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
             {!! Form::number("WithdrawAmount",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="WithdrawAmount-error" class="help-block"></span>
         </div>
-    </div>
+    </div>--}}
     <div class="form-group required col-md-6" id="form-TransactionDate-error">
-        {!! Form::label("TransactionDate","লেনদেনের তারিখ",["class"=>"control-label col-md-3"]) !!}
+        {!! Form::label("TransactionDate","লেনদেনের তারিখ",["class"=>"control-label col-md-4"]) !!}
         <div class="col-md-6">
             {!! Form::date("TransactionDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="TransactionDate-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-6" id="form-EntryDate-error">
-        {!! Form::label("EntryDate","এন্ট্রি তারিখ",["class"=>"control-label col-md-3"]) !!}
+        {!! Form::label("EntryDate","এন্ট্রি তারিখ",["class"=>"control-label col-md-4"]) !!}
         <div class="col-md-6">
             {!! Form::date("EntryDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="EntryDate-error" class="help-block"></span>
