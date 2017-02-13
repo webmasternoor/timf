@@ -1,7 +1,7 @@
 <h1 class="page-header">ঋণ তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('loan/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> New</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">

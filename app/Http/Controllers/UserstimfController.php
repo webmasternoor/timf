@@ -66,6 +66,19 @@ class UserstimfController extends Controller
         }*/
         //$userstimf->UserstimfyName = Input::get('UserstimfyName');
         //$userstimf->UserstimfyCode = Input::get('UserstimfyCode');
+        $file = Input::file('photo');
+        // $input = array('image' => $file);
+
+        $destinationPath = 'uploads/';
+        if (!empty($file)) {
+            $filename = $file->getClientOriginalName();
+
+            Input::file('photo')->move($destinationPath, $filename);
+            $userstimf->photo = $filename;
+        }
+
+        //$userstimf->UserstimfyName = Input::get('UserstimfyName');
+        //$userstimf->UserstimfyCode = Input::get('UserstimfyCode');
         $userstimf->employee_id = Input::get('employee_id');
         $userstimf->employee_code = Input::get('employee_code');
         $userstimf->employee_firstname = Input::get('employee_firstname');
@@ -93,6 +106,7 @@ class UserstimfController extends Controller
         //$userstimf->photo = Input::get('photo');
         $userstimf->org_id = Input::get('org_id');
         $userstimf->IsActiveDate = Input::get('IsActiveDate');
+
         $userstimf->save();
         return ['url' => 'userstimf/list'];
     }
@@ -130,17 +144,21 @@ class UserstimfController extends Controller
             );
         }*/
 
-        $nid=Session::get('loan_search1');
+        //$nid=Session::get('loan_search1');
+
+        $userstimf = new Userstimf();
 
         $file = Input::file('photo');
         // $input = array('image' => $file);
 
         $destinationPath = 'uploads/';
-        $filename = $file->getClientOriginalName();
+        if (!empty($file)) {
+            $filename = $file->getClientOriginalName();
 
-        Input::file('photo')->move($destinationPath, $filename);
+            Input::file('photo')->move($destinationPath, $filename);
+            $userstimf->photo = $filename;
+        }
 
-        $userstimf = new Userstimf();
         //$userstimf->UserstimfyName = Input::get('UserstimfyName');
         //$userstimf->UserstimfyCode = Input::get('UserstimfyCode');
         $userstimf->employee_id = Input::get('employee_id');
@@ -170,7 +188,7 @@ class UserstimfController extends Controller
         //$userstimf->photo = Input::get('photo');
         $userstimf->org_id = Input::get('org_id');
         $userstimf->IsActiveDate = Input::get('IsActiveDate');
-        $userstimf->photo = $filename;
+
         $userstimf->save();
         return ['url' => 'userstimf/list'];
     }

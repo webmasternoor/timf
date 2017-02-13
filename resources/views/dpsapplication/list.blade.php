@@ -1,7 +1,7 @@
 <h1 class="page-header">ডিপিএস আবেদন তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('dpsapplication/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -69,13 +69,13 @@
             <td>{{$dpsapplication->DpsAmount}}</td>
             <td>{{$dpsapplication->DpsDepositDate}}</td>
             <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('dpsapplication/update/{{$dpsapplication->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('dpsapplication/delete/{{$dpsapplication->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('dpsapplication/update/{{$dpsapplication->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('dpsapplication/delete/{{$dpsapplication->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
             </td>
         </tr>
     @endforeach

@@ -71,13 +71,13 @@
             <td>{{$producttype->ProductInstallments}}</td>
             <td>{{$producttype->ProductRate}}</td>
             <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('producttype/update/{{$producttype->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('producttype/delete/{{$producttype->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('producttype/update/{{$producttype->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('producttype/delete/{{$producttype->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
             </td>
         </tr>
     @endforeach

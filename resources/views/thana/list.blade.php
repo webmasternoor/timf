@@ -1,7 +1,7 @@
 <h1 class="page-header">থানা তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('thana/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -62,13 +62,13 @@
             <!-- <td>{{$district_info[$k++]->DistrictName}}</td> -->
             <td>{{$thana->DistrictId}}</td>
             <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('thana/update/{{$thana->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('thana/delete/{{$thana->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('thana/update/{{$thana->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('thana/delete/{{$thana->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
             </td>
         </tr>
     @endforeach

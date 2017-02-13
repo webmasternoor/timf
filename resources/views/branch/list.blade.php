@@ -68,13 +68,13 @@
             <td>{{$branch->testfield}}</td>
             <td align="right">$ {{$branch->unitprice}}</td>
             <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('branch/update/{{$branch->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> Edit</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('branch/delete/{{$branch->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> Delete
-                </a>
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('branch/update/{{$branch->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> Edit</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('branch/delete/{{$branch->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> Delete--}}
+                {{--</a>--}}
             </td>
         </tr>
     @endforeach

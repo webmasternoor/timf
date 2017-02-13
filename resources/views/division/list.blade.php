@@ -1,7 +1,7 @@
 <h1 class="page-header">বিভাগের তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('division/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> New</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -50,13 +50,13 @@
             <td>{{$division->DivisionName}}</td>
             <td>{{$division->DivisionNameBangla}}</td>
             <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('division/update/{{$division->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> বিভাগের নাম</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('division/delete/{{$division->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('division/update/{{$division->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> বিভাগের নাম</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('division/delete/{{$division->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
             </td>
         </tr>
     @endforeach
