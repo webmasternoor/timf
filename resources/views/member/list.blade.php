@@ -37,7 +37,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=Gender&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Gender
+                Name
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('survey_field')=='Gender'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -45,7 +45,7 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=Age&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Age
+                Photo
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('survey_field')=='Age'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -59,14 +59,14 @@
                class="glyphicon  {{ Session::get('survey_field')=='Nid'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th>
-            <a href="javascript:ajaxLoad('survey/list?field=PresentDistrict&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Ditrict
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('survey_field')=='PresentDistrict'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+        {{--<th>--}}
+            {{--<a href="javascript:ajaxLoad('survey/list?field=PresentDistrict&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">--}}
+                {{--Ditrict--}}
+            {{--</a>--}}
+            {{--<i style="font-size: 12px"--}}
+               {{--class="glyphicon  {{ Session::get('survey_field')=='PresentDistrict'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">--}}
+            {{--</i>--}}
+        {{--</th>--}}
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=Mobile&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
                 Mobile
@@ -83,14 +83,14 @@
                class="glyphicon  {{ Session::get('survey_field')=='Email'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th>
-            <a href="javascript:ajaxLoad('survey/list?field=created_at&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Survey Date
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('survey_field')=='created_at'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+        {{--<th>--}}
+            {{--<a href="javascript:ajaxLoad('survey/list?field=created_at&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">--}}
+                {{--Survey Date--}}
+            {{--</a>--}}
+            {{--<i style="font-size: 12px"--}}
+               {{--class="glyphicon  {{ Session::get('survey_field')=='created_at'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">--}}
+            {{--</i>--}}
+        {{--</th>--}}
         <th width="140px">Approvals</th>
         {{--<th width="140px">Actions</th>--}}
     </tr>
@@ -101,8 +101,11 @@
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$member->id}}</td>
-            <td>{{$member->BusinessName}}</td>
-            <td>{{$member->BusinessNature}}</td>
+            <td>{{$member->NameTitle}} {{$member->FirstName}} {{$member->LastName}} {{$member->FamilyName}}</td>
+            <td>@if(!empty($member->MemberImage))
+                    <img src="uploads/{{$member->MemberImage}}">
+                @endif
+            </td>
             <td>{{$member->BusinessExperience}}</td>
             <td>{{$member->BusinessCenterAddress}}</td>
             <td>{{$member->BusinessStartDate}}</td>

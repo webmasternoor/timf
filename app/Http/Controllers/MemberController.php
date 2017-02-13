@@ -21,6 +21,7 @@ use App\Permanentemployee;
 use App\Politicalstatus;
 use App\Post;
 use App\Profession;
+use App\Repaymenttype;
 use App\Status;
 use App\Survey;
 use App\Countr;
@@ -377,6 +378,7 @@ class MemberController extends Controller
         $gender = Gender::all();
         $familytype = Familytype::all();
         $Familytype  = Familytype::lists('name','id');
+        $Repaymenttype  = Repaymenttype::all();
         $count = Count::all();
         $status = Status::all();
 
@@ -420,7 +422,8 @@ class MemberController extends Controller
             ->with('education',$education)->with('politicalStatus',$politicalStatus)->with('gender',$gender)->with('country',$country)
             ->with('district',$district)->with('thana',$thana)->with('postOffice',$postOffice)->with('union',$union)->with('word',$word)
             ->with('BusinessCategory',$BusinessCategory)->with('familytype',$familytype)->with('count',$count)->with('status',$status)
-            ->with('division',$division)->with('Division',$Division)->with('Familytype',$Familytype);
+            ->with('division',$division)->with('Division',$Division)->with('Familytype',$Familytype)
+            ->with('Repaymenttype',$Repaymenttype);
         //return view('member.create')->with;
     }
 
@@ -445,28 +448,37 @@ class MemberController extends Controller
         $file = Input::file('MemberImage');
         $filefather = Input::file('FatherImage');
         $filemother = Input::file('MotherImage');
+        $fileNomineeImage = Input::file('NomineeImage');
         // $input = array('image' => $file);
         $destinationPath = 'uploads/';
 
         if(!empty($file)) {
-            $filename = $nid . $file->getClientOriginalName();
+            $filename =$file->getClientOriginalName();
             Input::file('MemberImage')->move($destinationPath, $filename);
 
-            $member->MemberImage =$nid."_". $filename;
+            $member->MemberImage =$filename;
 
         }
-        if(!empty($file)) {
+        if(!empty($filefather)) {
 
-            $filenamefather = $nid . $filefather->getClientOriginalName();
+            $filenamefather = $filefather->getClientOriginalName();
             Input::file('FatherImage')->move($destinationPath, $filenamefather);
-            $member->FatherImage =$nid."_". $filenamefather;
+            $member->FatherImage =$filenamefather;
 
         }
         if(!empty($filemother)) {
 
-            $filenamemother = $nid . $filemother->getClientOriginalName();
+            $filenamemother = $filemother->getClientOriginalName();
             Input::file('MotherImage')->move($destinationPath, $filenamemother);
-            $member->MotherImage =$nid."_". $filenamemother;
+            $member->MotherImage =$filenamemother;
+
+        }
+
+        if(!empty($fileNomineeImage)) {
+
+            $fileNomineeImage = $fileNomineeImage->getClientOriginalName();
+            Input::file('MotherImage')->move($destinationPath, $fileNomineeImage);
+            $member->NomineeImage =$fileNomineeImage;
 
         }
 

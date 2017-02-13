@@ -1732,6 +1732,21 @@
                             <div class="form-group col-md-6" id="form-RepaymentType-error">
                                 {!! Form::label("RepaymentType","পরিশোধের ধরণ ",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
+                                    <select name="RepaymentType">
+                                        @foreach($Repaymenttype as $Repayment_info )
+                                            @if($loan->RepaymentType==$Repayment_info->id)
+                                                {
+                                                <option value="{{$Repayment_info->id}}"
+                                                        selected>{{$Repayment_info->name}}</option>
+                                                }
+                                            @else
+                                                {
+                                                <option value="{{$Repayment_info->id}}">{{$Repayment_info->name}}</option>
+                                                }
+                                            @endif
+                                            {{--<option value="{{$Repayment_info->id}}">{{$Repayment_info->Status}}</option>--}}
+                                        @endforeach
+                                    </select>
                                     {{--{!! Form::select("RepaymentType",['1'=>'Regular', '2'=>'Irregular'])!!}--}}
                                     <span id="RepaymentType-error" class="help-block"></span>
                                 </div>
@@ -1751,11 +1766,11 @@
                                             @if($loan->IsHeSheWillingToTakeLoan==$status_info->id)
                                                 {
                                                 <option value="{{$status_info->id}}"
-                                                        selected>{{$status_info->name}}</option>
+                                                        selected>{{$status_info->Status}}</option>
                                                 }
                                             @else
                                                 {
-                                                <option value="{{$status_info->id}}">{{$status_info->name}}</option>
+                                                <option value="{{$status_info->id}}">{{$status_info->Status}}</option>
                                                 }
                                             @endif
                                             {{--<option value="{{$status_info->id}}">{{$status_info->Status}}</option>--}}

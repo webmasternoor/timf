@@ -15,12 +15,34 @@
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>ছবি আপলোড করুন</u></h5>
                     </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->MemberImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->MemberImage}}">
+                        <?php
+                        }
+                        ?>
+                    </div>
                     <div class="form-group col-md-6" id="form-MemberImage-error">
                         {!! Form::label("MemberImage","সদস্যের ছবি",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::file("MemberImage",null,["class"=>"form-control required"]) !!}
                             <span id="MemberImage-error" class="help-block"></span>
                         </div>
+                    </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->FatherImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->FatherImage}}">
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-group col-md-6" id="form-FatherImage-error">
                         {!! Form::label("FatherImage","পিতার ছবি",["class"=>"control-label col-md-12"]) !!}
@@ -35,6 +57,17 @@
                             {!! Form::text("FatherNid",null,["class"=>"form-control required"]) !!}
                             <span id="FatherNid-error" class="help-block"></span>
                         </div>
+                    </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->MotherImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->MotherImage}}">
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-group col-md-6" id="form-MotherImage-error">
                         {!! Form::label("MotherImage","মায়ের ছবি",["class"=>"control-label col-md-12"]) !!}
