@@ -104,11 +104,11 @@
             <td>{{$jamindar->JamindarMobile1}}</td>
             <td>{{$jamindar->JamindarEmail}}</td>
             <td>{{$jamindar->JamindarNid}}</td>
-            <td>@if(!empty($jamindar->jamindarphoto))
-                    <img src="uploads/{{$jamindar->jamindarphoto}}">
+            <td>@if(!empty($jamindar->Jamindarphoto))
+                    <img src="uploads/{{$jamindar->Jamindarphoto}}" width="70" height="60">
                 @endif
             </td>
-            <td style="text-align: center">
+            {{--<td style="text-align: center">--}}
                 {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
                    {{--href="javascript:ajaxLoad('jamindar/update/{{$jamindar->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
@@ -116,7 +116,7 @@
                    {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('jamindar/delete/{{$jamindar->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-            </td>
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

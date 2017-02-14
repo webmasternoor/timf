@@ -21,7 +21,7 @@
                         {
                         ?>
 
-                        <img src="uploads/{{$member->MemberImage}}">
+                        <img src="uploads/{{$member->MemberImage}}" width="60" height="60">
                         <?php
                         }
                         ?>
@@ -39,7 +39,7 @@
                         {
                         ?>
 
-                        <img src="uploads/{{$member->FatherImage}}">
+                        <img src="uploads/{{$member->FatherImage}}" width="60" height="60">
                         <?php
                         }
                         ?>
@@ -64,7 +64,7 @@
                         {
                         ?>
 
-                        <img src="uploads/{{$member->MotherImage}}">
+                        <img src="uploads/{{$member->MotherImage}}" width="60" height="60">
                         <?php
                         }
                         ?>
@@ -139,6 +139,17 @@
                                 {!! Form::text("NomineeRelation",null,["class"=>"form-control required"]) !!}
                                 <span id="NomineeRelation-error" class="help-block"></span>
                             </div>
+                        </div>
+                        <div class="form-group required col-md-12" id="form-photo-error">
+                            <?php
+                            if(!empty($member->NomineeImage))
+                            {
+                            ?>
+
+                            <img src="uploads/{{$member->NomineeImage}}" width="70" height="70" width="60" height="60">
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-md-6" id="form-NomineeImage-error">
                             {!! Form::label("NomineeImage","ছবি",["class"=>"control-label col-md-12"]) !!}

@@ -106,7 +106,7 @@
                     </div>
                     <div class="form-group col-md-6" id="form-Education-error">
                         {!! Form::label("Education","সর্বোচ্চ শিক্ষাগত যোগ্যতা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                        <div class="col-md-12 Education" id="Education">
                             {!! Form::select("Education",$Education,null,["class"=>"form-control Education required","id"=>"Education"]) !!}
                             <span id="Education-error" class="help-block"></span>
                         </div>
@@ -170,7 +170,7 @@
                     <div class="form-group col-md-6" id="form-Email-error">
                         {!! Form::label("Email","ইমেইল",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::text("Email",null,["class"=>"form-control required"]) !!}
+                            {!! Form::email("Email",null,["class"=>"form-control required"]) !!}
                             <span id="Email-error" class="help-block"></span>
                         </div>
                     </div>
@@ -667,7 +667,7 @@
                     <div class="form-group col-md-6" id="form-EarningAssetsByBusinessOrJob-error">
                         {!! Form::label("EarningAssetsByBusinessOrJob","চাকুরি/ব্যবসা করে অর্জিত সম্পদের বিবরণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::text("EarningAssetsByBusinessOrJob",null,["class"=>"form-control required"]) !!}
+                            {!! Form::textarea("EarningAssetsByBusinessOrJob",null,["class"=>"form-control required"]) !!}
                             <span id="EarningAssetsByBusinessOrJob-error" class="help-block"></span>
                         </div>
                     </div>
@@ -1435,6 +1435,18 @@
                 $('#PreviousProfession1').empty();
 
                 $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousOtherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.Education', function () {
+            //console.log("yes it is change");
+
+            var Education = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(Education=='9') {
+                $('#Education').empty();
+
+                $('#Education').append('<input type="text" class="form-control"  name="EducationOther" value="">')
             }
         });
     });

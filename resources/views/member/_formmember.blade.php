@@ -11,7 +11,7 @@
             {{--<li><a href="#4" data-toggle="tab">পারিবারিক তথ্য</a></li>--}}
             {{--<li><a href="#5" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>--}}
             <li><a href="#13" data-toggle="tab">ব্যবসায়িক তথ্য</a></li>
-            <li><a href="#131" data-toggle="tab">Montobbo</a></li>
+            <li><a href="#131" data-toggle="tab">মন্তব্য</a></li>
         </ul>
 
         <div class="tab-content">
@@ -61,12 +61,34 @@
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>ছবি আপলোড করুন</u></h5>
                     </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->MemberImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->MemberImage}}">
+                        <?php
+                        }
+                        ?>
+                    </div>
                     <div class="form-group col-md-6" id="form-MemberImage-error">
                         {!! Form::label("MemberImage","সদস্যের ছবি",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::file("MemberImage",null,["class"=>"form-control required"]) !!}
                             <span id="MemberImage-error" class="help-block"></span>
                         </div>
+                    </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->FatherImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->FatherImage}}">
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-group col-md-6" id="form-FatherImage-error">
                         {!! Form::label("FatherImage","পিতার ছবি",["class"=>"control-label col-md-12"]) !!}
@@ -81,6 +103,17 @@
                             {!! Form::text("FatherNid",null,["class"=>"form-control required"]) !!}
                             <span id="FatherNid-error" class="help-block"></span>
                         </div>
+                    </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->MotherImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->MotherImage}}">
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-group col-md-6" id="form-MotherImage-error">
                         {!! Form::label("MotherImage","মায়ের ছবি",["class"=>"control-label col-md-12"]) !!}
@@ -1515,7 +1548,7 @@
             </div>
             <div class="tab-pane" id="131">
                 <div class="form-group col-md-12" id="form-remarks-error">
-                    {!! Form::label("remarks","Montobbo",["class"=>"control-label col-md-12"]) !!}
+                    {!! Form::label("remarks","মন্তব্য",["class"=>"control-label col-md-12"]) !!}
                     <div class="col-md-12">
                         {!! Form::textarea("remarks",null,["class"=>"form-control montobbo required"]) !!}
                         <span id="remarks-error" class="help-block"></span>

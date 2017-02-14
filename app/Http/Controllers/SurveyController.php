@@ -73,12 +73,16 @@ class SurveyController extends Controller
         $ZoneInfo = Zone::lists('ZoneName', 'id');
         $AreaInfo = Area::lists('AreaName', 'id');
         $BranchInfo = Brn::lists('BranchName', 'id');
+        $Familytypes = Familytype::lists('name','id');
+        $Count_Data = Count::lists('name','id');
+        $Status = Status::lists('Status','id');
         return view('survey.update', ['survey' => Survey::find($id)])->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
-            ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
+            ->with('Age', $Age)->with('Profession', $Profession)->with('Accommodation', $Accommodation)->with('Gender', $Gender)
             ->with('PassingYear', $PassingYear)->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)
-            ->with('profession', $profession);
+            ->with('Division', $Division)->with('profession', $profession)->with('Familytypes',$Familytypes)->with('Count_Data',$Count_Data)
+            ->with('Status',$Status);
 
         //return view('survey.update', ['survey' => Survey::find($id)]);
     }
@@ -463,9 +467,26 @@ class SurveyController extends Controller
         $survey->FullNameBangla = Input::get('FullNameBangla');
         $survey->Gender = Input::get('Gender');
         $survey->Age = Input::get('Age');
-        $survey->Education = Input::get('Education');
+//        $survey->Education = Input::get('Education');
         $survey->PassingYear = Input::get('PassingYear');
 
+        $EducationOther = Input::get('EducationOther');
+
+        if (!empty($EducationOther)) {
+
+            $Education_data = Education::where('name', $EducationOther)->count();
+
+            if ($Education_data == 0) {
+                $Education = new Education();
+                $Education->name = $EducationOther;
+                $Education->save();
+                $Education_data = Education::where('name', $EducationOther);
+                $survey->Education = $Education_data[0]->id;
+            }
+
+        } else {
+            $survey->Education = Input::get('Education');
+        }
         $SpouseOtherProfession = Input::get('SpouseOtherProfession');
 
         if (!empty($SpouseOtherProfession)) {

@@ -98,7 +98,7 @@ class JamindarController extends Controller
             $filename = $jamindarnid."_".$file->getClientOriginalName();
 
             Input::file('JamindarImage')->move($destinationPath, $filename);
-            $jamindar->jamindarphoto = $filename;
+            $jamindar->Jamindarphoto = $filename;
         }
 
 
@@ -209,7 +209,7 @@ class JamindarController extends Controller
             $filename = $jamindarnid."_".$file->getClientOriginalName();
 
             Input::file('JamindarImage')->move($destinationPath, $filename);
-            $jamindar->jamindarphoto = $filename;
+            $jamindar->Jamindarphoto = $filename;
         }
 
 
