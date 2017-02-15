@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `areas_feb_1` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.areas_feb_1: ~1 rows (approximately)
+-- Dumping data for table timf.areas_feb_1: ~0 rows (approximately)
 DELETE FROM `areas_feb_1`;
 /*!40000 ALTER TABLE `areas_feb_1` DISABLE KEYS */;
 INSERT INTO `areas_feb_1` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `assets` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.assets: ~1 rows (approximately)
+-- Dumping data for table timf.assets: ~0 rows (approximately)
 DELETE FROM `assets`;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
 INSERT INTO `assets` (`id`, `name`, `AssetDescription`, `created_at`, `updated_at`) VALUES
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `blog_post` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.blog_post: ~1 rows (approximately)
+-- Dumping data for table timf.blog_post: ~0 rows (approximately)
 DELETE FROM `blog_post`;
 /*!40000 ALTER TABLE `blog_post` DISABLE KEYS */;
 INSERT INTO `blog_post` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
@@ -323,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `brns_feb_1` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.brns_feb_1: ~1 rows (approximately)
+-- Dumping data for table timf.brns_feb_1: ~0 rows (approximately)
 DELETE FROM `brns_feb_1`;
 /*!40000 ALTER TABLE `brns_feb_1` DISABLE KEYS */;
 INSERT INTO `brns_feb_1` (`id`, `name`, `AreaId`, `BranchName`, `BranchCode`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `created_at`, `updated_at`) VALUES
@@ -455,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `cashinflows` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.cashinflows: ~1 rows (approximately)
+-- Dumping data for table timf.cashinflows: ~0 rows (approximately)
 DELETE FROM `cashinflows`;
 /*!40000 ALTER TABLE `cashinflows` DISABLE KEYS */;
 INSERT INTO `cashinflows` (`id`, `name`, `TotalIncomeDescription`, `created_at`, `updated_at`) VALUES
@@ -956,7 +956,7 @@ CREATE TABLE IF NOT EXISTS `education` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.education: ~10 rows (approximately)
+-- Dumping data for table timf.education: ~9 rows (approximately)
 DELETE FROM `education`;
 /*!40000 ALTER TABLE `education` DISABLE KEYS */;
 INSERT INTO `education` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -1544,21 +1544,26 @@ CREATE TABLE IF NOT EXISTS `members` (
   `OrgPermanentEmployee` varchar(100) DEFAULT NULL,
   `LoanAccount` varchar(100) DEFAULT NULL,
   `SavingAccount` varchar(100) DEFAULT NULL,
+  `MemberId` varchar(100) NOT NULL,
+  `SavingPolicy` varchar(50) NOT NULL,
+  `SavingTypes` varchar(100) NOT NULL,
+  `MemberType` varchar(100) NOT NULL,
+  `SamityName` varchar(100) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.members: ~6 rows (approximately)
 DELETE FROM `members`;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` (`id`, `grouppresident`, `fieldofficer`, `supervisor`, `manager`, `finalapproved`, `remarks`, `ZoneId`, `AreaId`, `BranchId`, `name`, `MemberImage`, `FatherImage`, `MotherImage`, `Nid`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `SpouseProfession`, `SpouseOtherProfession`, `SpouseMobileNo`, `MaritalStatus`, `Mobile`, `Email`, `PoliticalStatus`, `Distance`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeMobileNo`, `NomineeImage`, `WifeProfession`, `WifeOtherProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandFamilyName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherMobileNo`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDivision`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType1`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `FamilyType`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `RepaymentType`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `LoanAccount`, `SavingAccount`, `created_at`, `updated_at`) VALUES
-	(1, 1, 0, 0, 0, 0, 'এই ব্যক্তিকে সদস্য করা জেতে পারে ', 1, 1, 1, NULL, '69c78a4ddf4d708ac0518cdbc192d094.jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '38B3rpeD.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', NULL, NULL, '5', '1', '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '1', '', '', '', '1', NULL, '', '1', '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '12', '12', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52259', '123_58181', '2017-02-13 11:10:39', '2017-02-14 05:34:39'),
-	(2, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 2, NULL, 'images (3).jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '123', '1', 'Rockey', 'Ahmed', 'Molla', 'রকি আহমেদ', '1', '25', '5', '15', NULL, NULL, '01234567890', '1', '01738349723', 'rockeycse@gmail.com', '2', '1', '1', '', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '1', '', '', '', '1', NULL, '', '1', '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2017-02-03', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56598', '123_53686', '2017-02-14 05:07:58', '2017-02-14 09:56:52'),
-	(3, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল ', 4, 1, 2, NULL, 'images (9).jpg', 'images (4).jpg', 'images (12).jpg', '456', '1', 'Noor', 'Alom', 'Khan', 'নুর - ই - আলম খান', '1', '40', '6', '9', 'Agriculture', NULL, '1234567895', '1', '0123456789', 'webmaster.noor@gmail.com', '2', '1', '1', '', '', '', '1', '', 'images (10).jpg', 'Agriculture', NULL, '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2017-02-23', '1', '1', '', '', '', '', '1263456', '786786', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '456_53179', '456_51128', '2017-02-14 09:52:30', '2017-02-14 09:57:28'),
-	(4, 0, 0, 0, 0, 0, NULL, 4, 1, 2, NULL, NULL, NULL, NULL, '456', '1', 'Noor', 'Alom', 'Khan', 'নুর - ই - আলম খান', '1', '40', '6', '9', 'Agriculture', NULL, '1234567895', '1', '0123456789', 'webmaster.noor@gmail.com', '2', '1', '1', '', '', '', '1', '', NULL, 'Agriculture', NULL, '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2017-02-23', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '456_59212', '456_57690', '2017-02-14 09:52:43', '2017-02-14 09:52:43'),
-	(5, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 1, NULL, 'images (7).jpg', 'images (1).jpg', 'images (11).jpg', '789', '1', 'Zeaur', 'Rahman', 'Sordar', 'জিয়াউর রহমান', '1', '26', '5', '15', 'Agriculture', NULL, '21342145', '1', '1245678', 'zea@gmail.com', '2', '1', '1', '1', '1', '1', '1', '1234324', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', 'Agriculture', NULL, '1', '1', '1', '1', '14', 'Agriculture', '1112121', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '345', '345', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '789_52270', '789_52625', '2017-02-14 09:53:52', '2017-02-14 09:57:57'),
-	(6, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 1, NULL, 'images.jpg', '3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', 'images (14).jpg', '5656', '1', 'samsur', 'Rahman', 'asd', 'সামসুর রহমান', '1', '34', '1', '13', 'Agriculture', NULL, '12324', '1', '1245678', 'zea@gmail.com', '2', '5', '1', '', '', '', '1', '', 'iTJq5781.jpg', 'Agriculture', NULL, '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '12', '1', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '5656_50597', '5656_54334', '2017-02-14 09:56:19', '2017-02-14 09:58:22');
+INSERT INTO `members` (`id`, `grouppresident`, `fieldofficer`, `supervisor`, `manager`, `finalapproved`, `remarks`, `ZoneId`, `AreaId`, `BranchId`, `name`, `MemberImage`, `FatherImage`, `MotherImage`, `Nid`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `SpouseProfession`, `SpouseOtherProfession`, `SpouseMobileNo`, `MaritalStatus`, `Mobile`, `Email`, `PoliticalStatus`, `Distance`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeMobileNo`, `NomineeImage`, `WifeProfession`, `WifeOtherProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandFamilyName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherMobileNo`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDivision`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType1`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `FamilyType`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `RepaymentType`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `LoanAccount`, `SavingAccount`, `MemberId`, `SavingPolicy`, `SavingTypes`, `MemberType`, `SamityName`, `created_at`, `updated_at`) VALUES
+	(1, 1, 0, 0, 0, 0, 'এই ব্যক্তিকে সদস্য করা জেতে পারে ', 1, 1, 1, NULL, '69c78a4ddf4d708ac0518cdbc192d094.jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '38B3rpeD.jpg', '123', '1', '1', '2', '3', '4', '1', '1', '1', '1', NULL, NULL, '5', '1', '', '7@gmail.com', '1', '1', '1', '2', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '1', '', '', '', '1', NULL, '', '1', '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '12', '12', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52259', '123_58181', '', '', '', '', '', '2017-02-13 11:10:39', '2017-02-14 05:34:39'),
+	(2, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 2, NULL, 'images (3).jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '123', '1', 'Rockey', 'Ahmed', 'Molla', 'রকি আহমেদ', '1', '25', '5', '15', NULL, NULL, '01234567890', '1', '01738349723', 'rockeycse@gmail.com', '2', '1', '1', '', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '1', '', '', '', '1', NULL, '', '1', '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2017-02-03', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56598', '123_53686', '', '', '', '', '', '2017-02-14 05:07:58', '2017-02-14 09:56:52'),
+	(3, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল ', 4, 1, 2, NULL, 'images (9).jpg', 'images (4).jpg', 'images (12).jpg', '456', '1', 'Noor', 'Alom', 'Khan', 'নুর - ই - আলম খান', '1', '40', '6', '9', 'Agriculture', NULL, '1234567895', '1', '0123456789', 'webmaster.noor@gmail.com', '2', '1', '1', '', '', '', '1', '', 'images (10).jpg', 'Agriculture', NULL, '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2017-02-23', '1', '1', '', '', '', '', '1263456', '786786', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '456_53179', '456_51128', '', '', '', '', '', '2017-02-14 09:52:30', '2017-02-14 09:57:28'),
+	(5, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 1, NULL, 'images (7).jpg', 'images (1).jpg', 'images (11).jpg', '789', '1', 'Zeaur', 'Rahman', 'Sordar', 'জিয়াউর রহমান', '1', '26', '5', '15', 'Agriculture', NULL, '21342145', '1', '1245678', 'zea@gmail.com', '2', '1', '1', '1', '1', '1', '1', '1234324', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', 'Agriculture', NULL, '1', '1', '1', '1', '14', 'Agriculture', '1112121', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '345', '345', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '789_52270', '789_52625', '', '', '', '', '', '2017-02-14 09:53:52', '2017-02-14 09:57:57'),
+	(6, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 1, NULL, 'images.jpg', '3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', 'images (14).jpg', '5656', '1', 'samsur', 'Rahman', 'asd', 'সামসুর রহমান', '1', '34', '1', '13', 'Agriculture', NULL, '12324', '1', '1245678', 'zea@gmail.com', '2', '5', '1', '', '', '', '1', '', 'iTJq5781.jpg', 'Agriculture', NULL, '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '12', '1', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '5656_50597', '5656_54334', '', '', '', '', '', '2017-02-14 09:56:19', '2017-02-14 09:58:22'),
+	(11, 1, 0, 0, 0, 0, 'everything is ok', 4, 1, 1, NULL, '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '69c78a4ddf4d708ac0518cdbc192d094.jpg', 'images (14).jpg', '987', '1', 'Sotej', 'Chakma', 'Chakma', 'সতেজ চাকমা', '1', '1', '1', '1', 'Agriculture', NULL, '1223456', '1', '123654', '', '1', '1', '1', '', '', '', '1', '', 'download (1).jpg', 'Agriculture', NULL, '1', '', '', '', '1', 'Agriculture', '', '1', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '1', '', '', '', '', '213213', '123124', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '987_51346', '987_56154', '1002', '1', '1', '1', '1', '2017-02-15 10:18:31', '2017-02-15 10:29:09');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 
 -- Dumping structure for table timf.members_feb_12.1
@@ -1880,6 +1885,25 @@ CREATE TABLE IF NOT EXISTS `members_latest` (
 DELETE FROM `members_latest`;
 /*!40000 ALTER TABLE `members_latest` DISABLE KEYS */;
 /*!40000 ALTER TABLE `members_latest` ENABLE KEYS */;
+
+-- Dumping structure for table timf.membertypes
+DROP TABLE IF EXISTS `membertypes`;
+CREATE TABLE IF NOT EXISTS `membertypes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `others` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table timf.membertypes: ~2 rows (approximately)
+DELETE FROM `membertypes`;
+/*!40000 ALTER TABLE `membertypes` DISABLE KEYS */;
+INSERT INTO `membertypes` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
+	(1, 'সাধারণ সদস্য', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2, 'ME সদস্য', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `membertypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.migrations
 DROP TABLE IF EXISTS `migrations`;
@@ -2721,7 +2745,7 @@ CREATE TABLE IF NOT EXISTS `professions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.professions: ~8 rows (approximately)
+-- Dumping data for table timf.professions: ~7 rows (approximately)
 DELETE FROM `professions`;
 /*!40000 ALTER TABLE `professions` DISABLE KEYS */;
 INSERT INTO `professions` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
@@ -2800,17 +2824,45 @@ CREATE TABLE IF NOT EXISTS `saving1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
   `Saving1yName` varchar(500) DEFAULT NULL,
+  `MemberId` varchar(500) DEFAULT NULL,
+  `Column 5` varchar(500) DEFAULT NULL,
+  `Column 6` varchar(500) DEFAULT NULL,
   `CollectionAmount` float DEFAULT NULL,
+  `SavingAmount` float DEFAULT NULL,
+  `WithdrawAmount` float DEFAULT NULL,
   `SavingDate` datetime DEFAULT NULL,
+  `TransactionDate` datetime DEFAULT NULL,
+  `EntryDate` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.saving1s: ~0 rows (approximately)
 DELETE FROM `saving1s`;
 /*!40000 ALTER TABLE `saving1s` DISABLE KEYS */;
+INSERT INTO `saving1s` (`id`, `name`, `Saving1yName`, `MemberId`, `Column 5`, `Column 6`, `CollectionAmount`, `SavingAmount`, `WithdrawAmount`, `SavingDate`, `TransactionDate`, `EntryDate`, `created_at`, `updated_at`) VALUES
+	(1, NULL, NULL, '1', NULL, NULL, NULL, 100, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-02-15 11:01:44', '2017-02-15 11:01:44');
 /*!40000 ALTER TABLE `saving1s` ENABLE KEYS */;
+
+-- Dumping structure for table timf.savingpolicies
+DROP TABLE IF EXISTS `savingpolicies`;
+CREATE TABLE IF NOT EXISTS `savingpolicies` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `others` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table timf.savingpolicies: ~2 rows (approximately)
+DELETE FROM `savingpolicies`;
+/*!40000 ALTER TABLE `savingpolicies` DISABLE KEYS */;
+INSERT INTO `savingpolicies` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
+	(1, 'Weekly', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2, 'Monthly', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `savingpolicies` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savings
 DROP TABLE IF EXISTS `savings`;
@@ -2834,6 +2886,84 @@ CREATE TABLE IF NOT EXISTS `savings` (
 DELETE FROM `savings`;
 /*!40000 ALTER TABLE `savings` DISABLE KEYS */;
 /*!40000 ALTER TABLE `savings` ENABLE KEYS */;
+
+-- Dumping structure for table timf.savingsledger
+DROP TABLE IF EXISTS `savingsledger`;
+CREATE TABLE IF NOT EXISTS `savingsledger` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `MemberId` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SavingType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `MemberType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SavingPolicy` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SamityName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Rate` float NOT NULL,
+  `Amount` float NOT NULL,
+  `Date` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table timf.savingsledger: ~0 rows (approximately)
+DELETE FROM `savingsledger`;
+/*!40000 ALTER TABLE `savingsledger` DISABLE KEYS */;
+/*!40000 ALTER TABLE `savingsledger` ENABLE KEYS */;
+
+-- Dumping structure for table timf.savingtransactionsetups
+DROP TABLE IF EXISTS `savingtransactionsetups`;
+CREATE TABLE IF NOT EXISTS `savingtransactionsetups` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `MemberId` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SavingType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `MemberType` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SavingPolicy` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SamityName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Rate` float NOT NULL,
+  `Amount` float NOT NULL,
+  `Date` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table timf.savingtransactionsetups: ~12 rows (approximately)
+DELETE FROM `savingtransactionsetups`;
+/*!40000 ALTER TABLE `savingtransactionsetups` DISABLE KEYS */;
+INSERT INTO `savingtransactionsetups` (`id`, `MemberId`, `SavingType`, `MemberType`, `SavingPolicy`, `SamityName`, `Rate`, `Amount`, `Date`, `created_at`, `updated_at`) VALUES
+	(1, '1001', '1', '1', '1', '1', 0, 10, '2017-03-15', '2017-02-15 10:19:20', '2017-02-15 10:19:20'),
+	(2, '1001', '1', '1', '1', '1', 0, 10, '2017-04-15', '2017-02-15 10:19:20', '2017-02-15 10:19:20'),
+	(3, '1001', '1', '1', '1', '1', 0, 10, '2017-05-15', '2017-02-15 10:19:20', '2017-02-15 10:19:20'),
+	(4, '1001', '1', '1', '1', '1', 0, 10, '2017-06-15', '2017-02-15 10:19:20', '2017-02-15 10:19:20'),
+	(5, '1001', '1', '1', '1', '1', 0, 10, '2017-07-15', '2017-02-15 10:19:20', '2017-02-15 10:19:20'),
+	(6, '1001', '1', '1', '1', '1', 0, 10, '2017-08-15', '2017-02-15 10:19:20', '2017-02-15 10:19:20'),
+	(7, '1002', '1', '1', '1', '1', 0, 10, '2017-03-15', '2017-02-15 10:29:09', '2017-02-15 10:29:09'),
+	(8, '1002', '1', '1', '1', '1', 0, 10, '2017-04-15', '2017-02-15 10:29:09', '2017-02-15 10:29:09'),
+	(9, '1002', '1', '1', '1', '1', 0, 10, '2017-05-15', '2017-02-15 10:29:09', '2017-02-15 10:29:09'),
+	(10, '1002', '1', '1', '1', '1', 0, 10, '2017-06-15', '2017-02-15 10:29:09', '2017-02-15 10:29:09'),
+	(11, '1002', '1', '1', '1', '1', 0, 10, '2017-07-15', '2017-02-15 10:29:09', '2017-02-15 10:29:09'),
+	(12, '1002', '1', '1', '1', '1', 0, 10, '2017-08-15', '2017-02-15 10:29:09', '2017-02-15 10:29:09');
+/*!40000 ALTER TABLE `savingtransactionsetups` ENABLE KEYS */;
+
+-- Dumping structure for table timf.savingtypes
+DROP TABLE IF EXISTS `savingtypes`;
+CREATE TABLE IF NOT EXISTS `savingtypes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `others` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table timf.savingtypes: ~4 rows (approximately)
+DELETE FROM `savingtypes`;
+/*!40000 ALTER TABLE `savingtypes` DISABLE KEYS */;
+INSERT INTO `savingtypes` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
+	(1, 'মুদারাবা সাধারণ সঞ্চয়', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2, 'মুদারাবা বিশেষ সঞ্চয়', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(3, 'মুদারাবা TSS সঞ্চয়', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(4, 'মুদারাবা স্থায়ী আমানত (MFD)', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `savingtypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savsummary
 DROP TABLE IF EXISTS `savsummary`;
@@ -3028,9 +3158,9 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `created_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.surveys: ~5 rows (approximately)
+-- Dumping data for table timf.surveys: ~6 rows (approximately)
 DELETE FROM `surveys`;
 /*!40000 ALTER TABLE `surveys` DISABLE KEYS */;
 INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `AreaId`, `BranchId`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeOtherProfession`, `WifeMobileNo`, `WifeProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherOtherProfession`, `FatherOrHasbandFamilyName`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherOtherProfession`, `MotherMobileNo`, `SpouseProfession`, `MaritalStatus`, `PoliticalStatus`, `Nid`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDistrict`, `PermanentDivision`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `Mobile`, `Email`, `SpouseMobileNo`, `Distance`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `FamilyType`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `RepaymentType`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `LastReceivedDate1`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `unitprice`, `JoinDate`, `created_at`, `updated_at`) VALUES
@@ -3038,7 +3168,8 @@ INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `AreaId`, `BranchId
 	(2, '', '', '4', '1', '2', '1', 'Noor', 'Alom', 'Khan', 'নুর - ই - আলম খান', '1', '40', '6', '9', '1', '', '', '', '1', NULL, '', 'Agriculture', '1', '', '', '1', 'Agriculture', NULL, '', '', '1', '', '', '', '1', 'Agriculture', NULL, '', '1', '1', '2', '456', '1', NULL, '1', '1', '1', '1', '1', '', '', '1', '1', NULL, '1', '1', '1', '1', '', '', '0123456789', 'webmaster.noor@gmail.com', '1234567895', '1', 'Agriculture', 'Agriculture', '', '', '', '1', '', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '2017-02-23', '2017-02-12', '1', '', '', '', '', NULL, NULL, '2017-02-14 05:00:00', '2017-02-14 05:00:00'),
 	(3, '', '', '4', '1', '1', '1', 'Zeaur', 'Rahman', 'Sordar', 'জিয়াউর রহমান', '1', '26', '5', '15', '1', '1', '1', '1', '1', NULL, '1234324', 'Agriculture', '1', '1', '1', '14', 'Agriculture', NULL, '1', '1112121', '1', '', '', '', '1', 'Agriculture', NULL, '', '1', '1', '2', '789', '1', NULL, '1', '1', '1', '1', '1', '', '', '1', '1', NULL, '1', '1', '1', '1', '', '', '1245678', 'zea@gmail.com', '21342145', '1', 'Agriculture', 'Agriculture', '', '', '', '1', '', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, '2017-02-14 15:16:07', '2017-02-14 09:13:33', '2017-02-14 09:16:07'),
 	(4, '', '', '4', '1', '1', '1', 'samsur', 'Rahman', 'asd', 'সামসুর রহমান', '1', '34', '', '13', '1', '', '', '', '1', NULL, '', 'Agriculture', '1', '', '', '1', 'Agriculture', NULL, '', '', '1', '', '', '', '1', 'Agriculture', NULL, '', '8', '3', '2', '5656', '1', NULL, '1', '1', '1', '1', '1', '', '', '1', '1', NULL, '1', '1', '1', '1', '', '', '1245678', 'zea@gmail.com', '12324', '5', 'Agriculture', 'Agriculture', '', '', '', '1', '', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, '2017-02-14 15:29:43', '2017-02-14 09:22:19', '2017-02-14 09:29:43'),
-	(5, '', '', '4', '1', '1', '1', 'Arman', 'Hussain', 'Sheikh', 'আরমান হুসাইন', '1', '25', '', '15', '1', '', '', '', '1', NULL, '', 'Agriculture', '1', '', '', '1', 'Agriculture', NULL, '', '', '1', '', '', '', '1', 'Agriculture', NULL, '', '1', '1', '1', '5555', '1', NULL, '1', '1', '1', '1', '1', '', '', '1', '1', NULL, '1', '1', '1', '1', '', '', '214325', 'zea@gmail.com', '4356789', '12', 'Agriculture', 'Agriculture', '', '', '', '1', '', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, NULL, '2017-02-14 09:42:05', '2017-02-14 09:42:05');
+	(5, '', '', '4', '1', '1', '1', 'Arman', 'Hussain', 'Sheikh', 'আরমান হুসাইন', '1', '25', '', '15', '1', '', '', '', '1', NULL, '', 'Agriculture', '1', '', '', '1', 'Agriculture', NULL, '', '', '1', '', '', '', '1', 'Agriculture', NULL, '', '1', '1', '1', '5555', '1', NULL, '1', '1', '1', '1', '1', '', '', '1', '1', NULL, '1', '1', '1', '1', '', '', '214325', 'zea@gmail.com', '4356789', '12', 'Agriculture', 'Agriculture', '', '', '', '1', '', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, NULL, '2017-02-14 09:42:05', '2017-02-14 09:42:05'),
+	(6, '', '', '4', '1', '1', '1', 'Sotej', 'Chakma', 'Chakma', 'সতেজ চাকমা', '1', '1', '1', '1', '1', '', '', '', '1', NULL, '', 'Agriculture', '1', '', '', '1', 'Agriculture', NULL, '', '', '1', '', '', '', '1', 'Agriculture', NULL, '', '1', '1', '1', '987', '1', NULL, '1', '1', '1', '1', '1', '', '', '1', '1', NULL, '1', '1', '1', '1', '', '', '123654', '', '1223456', '', 'Agriculture', 'Agriculture', '', '', '', '1', '', '1', '1', '1', '1', '1', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '1', '', '', '', '', NULL, '2017-02-15 12:58:26', '2017-02-15 06:55:20', '2017-02-15 06:55:20');
 /*!40000 ALTER TABLE `surveys` ENABLE KEYS */;
 
 -- Dumping structure for table timf.taggables
@@ -6166,7 +6297,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2006 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.users: ~501 rows (approximately)
+-- Dumping data for table timf.users: ~460 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -6755,7 +6886,7 @@ CREATE TABLE IF NOT EXISTS `userstimfs_feb_2` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.userstimfs_feb_2: ~1 rows (approximately)
+-- Dumping data for table timf.userstimfs_feb_2: ~0 rows (approximately)
 DELETE FROM `userstimfs_feb_2`;
 /*!40000 ALTER TABLE `userstimfs_feb_2` DISABLE KEYS */;
 INSERT INTO `userstimfs_feb_2` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`, `employee_id`, `employee_code`, `employee_firstname`, `employee_lastname`, `ZoneID`, `AreaID`, `office_id`, `designation`, `address`, `phone1`, `phone2`, `email`, `altemail`, `gender`, `birthdate`, `joiningdate`, `status`, `releasedate`, `username`, `password12`, `comment`, `photo`, `org_id`, `IsActiveDate`, `created_at`, `updated_at`) VALUES
@@ -7011,7 +7142,7 @@ CREATE TABLE IF NOT EXISTS `zones_feb_1` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.zones_feb_1: ~1 rows (approximately)
+-- Dumping data for table timf.zones_feb_1: ~0 rows (approximately)
 DELETE FROM `zones_feb_1`;
 /*!40000 ALTER TABLE `zones_feb_1` DISABLE KEYS */;
 INSERT INTO `zones_feb_1` (`id`, `name`, `ZoneName`, `ZoneEmail`, `ZoneCode`, `ZoneAddress`, `ZoneMobileNo`, `ZoneThanaId`, `ZoneDistrictId`, `unitprice`, `created_at`, `updated_at`) VALUES

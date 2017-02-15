@@ -45,7 +45,7 @@ class Saving1Controller extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }
-        $saving1->ProductId = Input::get('ProductId');
+//        $saving1->ProductId = Input::get('ProductId');
         $saving1->MemberId = Input::get('MemberId');
         $saving1->SavingAmount = Input::get('SavingAmount');
         $saving1->WithdrawAmount = Input::get('WithdrawAmount');
@@ -76,7 +76,7 @@ class Saving1Controller extends Controller
             );
         }
         $saving1 = new Saving1();
-        $saving1->ProductId = Input::get('ProductId');
+//        $saving1->ProductId = Input::get('ProductId');
         $saving1->MemberId = Input::get('MemberId');
         $saving1->SavingAmount = Input::get('SavingAmount');
         /*$saving1->WithdrawAmount = Input::get('WithdrawAmount');*/
