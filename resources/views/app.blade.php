@@ -16,6 +16,8 @@
 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/demo.css') }}" rel="stylesheet">
+    <link href="{{ asset('/jqueryui/jquery-ui.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/jqueryui/jquery-ui.theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/datatables.bootstrap.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,800' rel='stylesheet'
           type='text/css'>
@@ -26,6 +28,7 @@
     <link href="{{ asset('/css/bootstrap-combined.min.css') }}" rel="stylesheet">
 <!-- <link href="{{ asset('bootstrap-3.3.6/css/bootstrap.min.css') }}" rel="stylesheet"> -->
     <script src="{{ asset('highlight/highlight.pack.js')  }}"></script>
+
     <script>hljs.initHighlightingOnLoad();</script>
     <style type="text/css">
         .dropdown-menu {
@@ -76,9 +79,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 
-
+    <script src="//code.jqyery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-u.js"></script>
     <![endif]-->
 </head>
 <body>

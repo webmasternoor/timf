@@ -84,6 +84,10 @@ Route::get('getSamity','SelectBoxController@getSamity');
 
 Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
+//Route::get('autocomplete','SelectBoxController@autocomplete');
+
+Route::get('autocomplete','SelectBoxController@search');
+
 Route::get('{view}', function ($view) {
     if (view()->exists($view)) {
         return view($view);

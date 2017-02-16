@@ -172,6 +172,7 @@ class JamindarController extends Controller
 
 
         $zone = Zone::all();
+        $ZoneInfo  = Zone::all();
         $area = Area::all();
         $branch = Brn::all();
 
@@ -179,7 +180,7 @@ class JamindarController extends Controller
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Ward', $Ward)->with('NameTitle',$NameTitle)->with('Age',$Age)->with('PassingYear',$PassingYear)
             ->with('Education', $Education)->with('Profession',$Profession)->with('Gender',$Gender)->with('Division',$Division)
-            ->with('loan1s', $loan1s);
+            ->with('loan1s', $loan1s)->with('ZoneInfo',$ZoneInfo);
        // return view('jamindar.create');
     }
 

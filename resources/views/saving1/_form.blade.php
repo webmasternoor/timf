@@ -25,13 +25,13 @@
             <span id="SavingAmount-error" class="help-block"></span>
         </div>
     </div>
-    {{--<div class="form-group required col-md-6" id="form-WithdrawAmount-error">
+    <div class="form-group required col-md-6" id="form-WithdrawAmount-error">
         {!! Form::label("WithdrawAmount","টাকা উত্তোলন",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-6">
-            {!! Form::number("WithdrawAmount",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::text("WithdrawAmount",null,["class"=>"form-control WithdrawAmount required","id"=>"WithdrawAmount"]) !!}
             <span id="WithdrawAmount-error" class="help-block"></span>
         </div>
-    </div>--}}
+    </div>
     <div class="form-group required col-md-6" id="form-TransactionDate-error">
         {!! Form::label("TransactionDate","লেনদেনের তারিখ",["class"=>"control-label col-md-4"]) !!}
         <div class="col-md-6">
@@ -47,6 +47,7 @@
         </div>
     </div>
 </div>
+
 <div class="form-group">
     <div class="col-md-6 col-md-push-3">
         <a href="javascript:ajaxLoad('saving1/list')" class="btn btn-danger"><i
@@ -56,6 +57,7 @@
     btn-primary"])!!}
     </div>
 </div>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 <script>
     $("#frm").submit(function (event) {
         event.preventDefault();
@@ -97,5 +99,16 @@
             }
         });
         return false;
+    });
+    $(function() {
+        $("#WithdrawAmount").autocomplete({
+            source:"autocomplete",
+            minLength:3,
+            select: function( event, ui ) {
+                $('#data').val(ui.item.id);
+                $('#WithdrawAmount').val(ui.item.value);
+//                $('#search').hide();
+            }
+        });
     });
 </script>
