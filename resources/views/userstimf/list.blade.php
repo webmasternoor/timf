@@ -1,7 +1,7 @@
 <h1 class="page-header">ব্যবহারকারী তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('userstimf/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নিউ</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -88,6 +88,14 @@
                class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
+        <th>
+            <a href="javascript:ajaxLoad('userstimf/list?field=photo&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+                ফটো
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('userstimf_field')=='photo'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
         <th width="140px">অ্যাকশন সমূহ</th>
     </tr>
     </thead>
@@ -104,6 +112,11 @@
             <td>{{$userstimf->address}}</td>
             <td>{{$userstimf->phone1}}</td>
             <td>{{$userstimf->email}}</td>
+            <td>
+                @if(!empty($userstimf->photo))
+                    <img src="uploads/{{$userstimf->photo}}">
+                @endif
+            </td>
             <td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('userstimf/update/{{$userstimf->id}}')">

@@ -121,7 +121,46 @@ class SelectBoxController extends Controller
     {
         //
     }
+//    public function autocomplete(){
+//        $term = Input::get('term');
+//
+//        $results = array();
+//
+//        $queries = DB::table('members')
+//            ->where('MemberId', 'LIKE', '%'.$term.'%')
+////            ->orWhere('FirstName', 'LIKE', '%'.$term.'%')
+//            ->take(5)->get();
+//
+//        foreach ($queries as $query)
+//        {
+//            $results[] = [ 'id' => $query->id, 'value' => $query->MemberId.' '.$query->id ];
+//        }
+////        foreach ( $persons as $query ){
+////            $data[] = array('value' => $row->$column, 'id' =>$row->id);
+////        }
+////        return Response::json($data);
+//        return Response::json($results);
+//    }
+    public function search(){
+        $term = Input::get('term');
 
+//        $fest = Session::get('festival');
+//        $festival = Festival::find($fest);
+
+//        $persons = DB::table('fs_persons')
+//            ->join('fs_festival_persons', 'person_id','=','fs_persons.id')
+//            ->where('festival_id', '=', $fest)
+//            ->get();
+        $queries = DB::table('members')
+            ->where('FirstName', 'LIKE', '%'.$term.'%')
+////            ->orWhere('FirstName', 'LIKE', '%'.$term.'%')
+            ->get();
+
+        foreach ( $queries as $query ){
+            $data[] = array('value' => $query->FirstName, 'id' =>$query->id);
+        }
+        return Response::json($data);
+    }
     /**
      * Display the specified resource.
      *

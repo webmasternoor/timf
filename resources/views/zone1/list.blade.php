@@ -1,7 +1,7 @@
 <h1 class="page-header">সমিতি তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('zone1/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নতুন </a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -77,13 +77,13 @@
             <td>{{$zone1->SamitiOpenDate}}</td>
             <td>{{$zone1->SamitiEndDate}}</td>
             <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('zone1/update/{{$zone1->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('zone1/delete/{{$zone1->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('zone1/update/{{$zone1->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('zone1/delete/{{$zone1->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
             </td>
         </tr>
     @endforeach

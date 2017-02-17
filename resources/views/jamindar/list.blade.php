@@ -1,7 +1,7 @@
 <h1 class="page-header">জামিনদার তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('jamindar/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> নতুন</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -25,36 +25,13 @@
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
             <a href="javascript:ajaxLoad('jamindar/list?field=JamindarNameTitle&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
-                টাইটেল
+                নাম
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('jamindar_field')=='JamindarNameTitle'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th>
-            <a href="javascript:ajaxLoad('jamindar/list?field=JamindarFirstName&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
-                ১ম অংশ
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('jamindar_field')=='JamindarFirstName'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
-        <th>
-            <a href="javascript:ajaxLoad('jamindar/list?field=JamindarLastName&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
-                ২য় অংশ
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('jamindar_field')=='JamindarLastName'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
-        <th>
-            <a href="javascript:ajaxLoad('jamindar/list?field=JamindarFamilyName&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
-               পারিবারিক নাম
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('jamindar_field')=='JamindarFamilyName'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+
         <th>
             <a href="javascript:ajaxLoad('jamindar/list?field=JamindarRelation&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
                গ্রাহকের সাথে সম্পর্ক
@@ -63,14 +40,7 @@
                class="glyphicon  {{ Session::get('jamindar_field')=='JamindarRelation'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th>
-            <a href="javascript:ajaxLoad('jamindar/list?field=JamindarAge&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
-               বয়স(বছর)
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('jamindar_field')=='JamindarAge'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+
         <th>
             <a href="javascript:ajaxLoad('jamindar/list?field=JamindarEducation&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
                শিক্ষাগত যোগ্যতা
@@ -111,7 +81,15 @@
                class="glyphicon  {{ Session::get('jamindar_field')=='JamindarNid'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">অ্যাকশন সমূহ</th>
+        <th>
+            <a href="javascript:ajaxLoad('jamindar/list?field=jamindarphoto&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
+               ফটো
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('jamindar_field')=='jamindarphoto'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
     </thead>
     <tbody>
@@ -119,26 +97,26 @@
     @foreach($jamindars as $key=>$jamindar)
         <tr>
             <td align="center">{{$i++}}</td>
-            <td>{{$jamindar->JamindarNameTitle}}</td>
-            <td>{{$jamindar->JamindarFirstName}}</td>
-            <td>{{$jamindar->JamindarLastName}}</td>
-            <td>{{$jamindar->JamindarFamilyName}}</td>
+            <td>{{$jamindar->JamindarNameTitle}} {{$jamindar->JamindarFirstName}} {{$jamindar->JamindarLastName}}</td>
             <td>{{$jamindar->JamindarRelation}}</td>
-            <td>{{$jamindar->JamindarAge}}</td>
             <td>{{$jamindar->JamindarEducation}}</td>
             <td>{{$jamindar->JamindarPassingYear}}</td>
             <td>{{$jamindar->JamindarMobile1}}</td>
             <td>{{$jamindar->JamindarEmail}}</td>
             <td>{{$jamindar->JamindarNid}}</td>
-            <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('jamindar/update/{{$jamindar->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('jamindar/delete/{{$jamindar->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
+            <td>@if(!empty($jamindar->Jamindarphoto))
+                    <img src="uploads/{{$jamindar->Jamindarphoto}}" width="70" height="60">
+                @endif
             </td>
+            {{--<td style="text-align: center">--}}
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('jamindar/update/{{$jamindar->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('jamindar/delete/{{$jamindar->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

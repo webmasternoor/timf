@@ -1,5 +1,9 @@
 <h1 class="page-header">সদস্য তালিকা
     <div class="pull-right">
+        <a href="javascript:ajaxLoad('member/list')" class="btn btn-primary pull-right"><i
+                    class="glyphicon glyphicon-plus-sign"></i> Approved</a>
+        <a href="javascript:ajaxLoad('member/listpending')" class="btn btn-primary pull-right"><i
+                    class="glyphicon glyphicon-plus-sign"></i> Pending</a>
         <a href="javascript:ajaxLoad('member/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i> নতুন</a>
     </div>
@@ -25,7 +29,7 @@
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=id&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                ID
+                আইডি
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('survey_field')=='id'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -33,39 +37,39 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=Gender&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Gender
+                নাম
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('survey_field')=='Gender'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('survey/list?field=Age&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Age
+            <a href="javascript:ajaxLoad('survey/list?field=MemberImage&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
+                ফটো
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('survey_field')=='Age'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('survey_field')=='MemberImage'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=Nid&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                NID
+                জাতীয় পরিচয় পত্র
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('survey_field')=='Nid'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th>
-            <a href="javascript:ajaxLoad('survey/list?field=PresentDistrict&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Ditrict
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('survey_field')=='PresentDistrict'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+        {{--<th>--}}
+            {{--<a href="javascript:ajaxLoad('survey/list?field=PresentDistrict&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">--}}
+                {{--Ditrict--}}
+            {{--</a>--}}
+            {{--<i style="font-size: 12px"--}}
+               {{--class="glyphicon  {{ Session::get('survey_field')=='PresentDistrict'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">--}}
+            {{--</i>--}}
+        {{--</th>--}}
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=Mobile&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Mobile
+                মোবাইল নং
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('survey_field')=='Mobile'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -73,21 +77,30 @@
         </th>
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=Email&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Email
+                ইমেইল
             </a>
             <i style="font-size: 12px"
                class="glyphicon  {{ Session::get('survey_field')=='Email'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
+        {{--<th>--}}
+            {{--<a href="javascript:ajaxLoad('survey/list?field=created_at&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">--}}
+                {{--Survey Date--}}
+            {{--</a>--}}
+            {{--<i style="font-size: 12px"--}}
+               {{--class="glyphicon  {{ Session::get('survey_field')=='created_at'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">--}}
+            {{--</i>--}}
+        {{--</th>--}}
         <th>
-            <a href="javascript:ajaxLoad('survey/list?field=created_at&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                Survey Date
+            <a href="javascript:ajaxLoad('survey/list?field=grouppresident&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
+                অনুমোদন
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('survey_field')=='created_at'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('survey_field')=='grouppresident'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">Actions</th>
+        {{--<th width="140px">অনুমোদন</th>--}}
+        {{--<th width="140px">Actions</th>--}}
     </tr>
     </thead>
     <tbody>
@@ -96,22 +109,40 @@
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$member->id}}</td>
-            <td>{{$member->BusinessName}}</td>
-            <td>{{$member->BusinessNature}}</td>
-            <td>{{$member->BusinessExperience}}</td>
-            <td>{{$member->BusinessCenterAddress}}</td>
-            <td>{{$member->BusinessStartDate}}</td>
-            <td>{{$member->Accommodation}}</td>
-            <td>{{$member->AccommodationWidth}}</td>
-            <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('member/update/{{$member->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('member/delete/{{$member->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
+            <td>{{$member->NameTitle}} {{$member->FirstName}} {{$member->LastName}} {{$member->FamilyName}}</td>
+            <td>@if(!empty($member->MemberImage))
+                    <img src="uploads/{{$member->MemberImage}}" width="60" height="60">
+                @endif
             </td>
+            <td>{{$member->Nid}}</td>
+            <td>{{$member->Mobile}}</td>
+            <td>{{$member->Email}}</td>
+            {{--<td>{{$member->Accommodation}}</td>--}}
+            {{--<td>{{$member->AccommodationWidth}}</td>--}}
+            <td>
+                <?php
+                if($member->grouppresident == '0'){
+                ?>
+                    <a class="btn btn-primary btn-xs" title="Edit"
+                       href="javascript:ajaxLoad('member/approve/{{$member->id}}')">
+                        <i class="glyphicon glyphicon-edit"></i> Approve</a>
+                <?php
+                    }else{
+                    ?>
+                    OK
+                    <?php
+                    }
+                ?>
+            </td>
+            {{--<td style="text-align: center">--}}
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('member/update/{{$member->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('member/delete/{{$member->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

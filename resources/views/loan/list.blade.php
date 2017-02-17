@@ -1,7 +1,7 @@
 <h1 class="page-header">ঋণ তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('loan/create')" class="btn btn-primary pull-right"><i
-                    class="glyphicon glyphicon-plus-sign"></i> New</a>
+                    class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
     </div>
 </h1>
 <div class="col-sm-7 form-group">
@@ -55,7 +55,7 @@
                class="glyphicon  {{ Session::get('loan_field')=='JobDesignation'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">অ্যাকশন সমূহ</th>
+        {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
     </thead>
     <tbody>
@@ -67,7 +67,7 @@
             <td>{{$loan->JobOrgPlace}}</td>
             <td>{{$loan->JobIdNo}}</td>
             <td>{{$loan->JobDesignation}}</td>
-            <td style="text-align: center">
+            {{--<td style="text-align: center">
                 <a class="btn btn-primary btn-xs" title="Edit"
                    href="javascript:ajaxLoad('loan/update/{{$loan->id}}')">
                     <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
@@ -75,7 +75,7 @@
                    href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('loan/delete/{{$loan->id}}')">
                     <i class="glyphicon glyphicon-trash"></i> ডিলিট
                 </a>
-            </td>
+            </td>--}}
         </tr>
     @endforeach
     </tbody>

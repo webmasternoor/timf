@@ -2,7 +2,8 @@
 
     <div id="exTab2" class="">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#111" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
+            <li class="active"><a href="#114" data-toggle="tab">TIMF সদস্যের ধরণ</a></li>
+            <li class=""><a href="#111" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
             <li><a href="#12" data-toggle="tab">নমিনি ও ব্যাংক</a></li>
             {{--<li><a href="#4" data-toggle="tab">পারিবারিক তথ্য</a></li>--}}
             {{--<li><a href="#5" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>--}}
@@ -10,10 +11,58 @@
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane active" id="111">
+            <div class="tab-pane active" id="114">
+                <div class="borderportion">
+                    <div class="form-group col-md-4" id="form-SamityName-error">
+                        {!! Form::label("SamityName","সমিতির নাম",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {{--{!! Form::select("SamityName",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
+                            {!! Form::select("SamityName",$SamityName,null,["class"=>"form-control SamityName required","id"=>"SamityName"]) !!}
+                            <span id="SamityName-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" id="form-MemberType-error">
+                        {!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {{--{!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
+                            {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control MemberType required","id"=>"MemberType"]) !!}
+                            <span id="MemberType-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" id="form-SavingTypes-error">
+                        {!! Form::label("SavingTypes","সঞ্চয়ের ধরণ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {{--{!! Form::select("SavingTypes",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
+                            {!! Form::select("SavingTypes",$SavingTypes,null,["class"=>"form-control SavingTypes required","id"=>"SavingTypes"]) !!}
+                            <span id="SavingTypes-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" id="form-SavingPolicy-error">
+                        {!! Form::label("SavingPolicy","সঞ্চয় Policy",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {{--{!! Form::select("SavingPolicy",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
+                            {!! Form::select("SavingPolicy",$SavingPolicy,null,["class"=>"form-control SavingPolicy required","id"=>"SavingPolicy"]) !!}
+                            <span id="SavingPolicy-error" class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="111">
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>ছবি আপলোড করুন</u></h5>
+                    </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->MemberImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->MemberImage}}" width="60" height="60">
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-group col-md-6" id="form-MemberImage-error">
                         {!! Form::label("MemberImage","সদস্যের ছবি",["class"=>"control-label col-md-12"]) !!}
@@ -21,6 +70,17 @@
                             {!! Form::file("MemberImage",null,["class"=>"form-control required"]) !!}
                             <span id="MemberImage-error" class="help-block"></span>
                         </div>
+                    </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->FatherImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->FatherImage}}" width="60" height="60">
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-group col-md-6" id="form-FatherImage-error">
                         {!! Form::label("FatherImage","পিতার ছবি",["class"=>"control-label col-md-12"]) !!}
@@ -35,6 +95,17 @@
                             {!! Form::text("FatherNid",null,["class"=>"form-control required"]) !!}
                             <span id="FatherNid-error" class="help-block"></span>
                         </div>
+                    </div>
+                    <div class="form-group required col-md-12" id="form-photo-error">
+                        <?php
+                        if(!empty($member->MotherImage))
+                        {
+                        ?>
+
+                        <img src="uploads/{{$member->MotherImage}}" width="60" height="60">
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-group col-md-6" id="form-MotherImage-error">
                         {!! Form::label("MotherImage","মায়ের ছবি",["class"=>"control-label col-md-12"]) !!}
@@ -52,6 +123,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="tab-pane" id="12">
                 <div class="col-md-12">
                     <div class="borderportion">
@@ -107,6 +179,17 @@
                                 <span id="NomineeRelation-error" class="help-block"></span>
                             </div>
                         </div>
+                        <div class="form-group required col-md-12" id="form-photo-error">
+                            <?php
+                            if(!empty($member->NomineeImage))
+                            {
+                            ?>
+
+                            <img src="uploads/{{$member->NomineeImage}}" width="70" height="70" width="60" height="60">
+                            <?php
+                            }
+                            ?>
+                        </div>
                         <div class="form-group col-md-6" id="form-NomineeImage-error">
                             {!! Form::label("NomineeImage","ছবি",["class"=>"control-label col-md-12"]) !!}
                             <div class="col-md-12">
@@ -131,6 +214,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="tab-pane" id="13">
                 <div class="borderportion">
 
@@ -502,6 +586,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

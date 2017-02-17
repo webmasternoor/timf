@@ -106,7 +106,7 @@
                     </div>
                     <div class="form-group col-md-6" id="form-Education-error">
                         {!! Form::label("Education","সর্বোচ্চ শিক্ষাগত যোগ্যতা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                        <div class="col-md-12 Education" id="Education">
                             {!! Form::select("Education",$Education,null,["class"=>"form-control Education required","id"=>"Education"]) !!}
                             <span id="Education-error" class="help-block"></span>
                         </div>
@@ -170,7 +170,7 @@
                     <div class="form-group col-md-6" id="form-Email-error">
                         {!! Form::label("Email","ইমেইল",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::text("Email",null,["class"=>"form-control required"]) !!}
+                            {!! Form::email("Email",null,["class"=>"form-control required"]) !!}
                             <span id="Email-error" class="help-block"></span>
                         </div>
                     </div>
@@ -667,7 +667,7 @@
                     <div class="form-group col-md-6" id="form-EarningAssetsByBusinessOrJob-error">
                         {!! Form::label("EarningAssetsByBusinessOrJob","চাকুরি/ব্যবসা করে অর্জিত সম্পদের বিবরণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::text("EarningAssetsByBusinessOrJob",null,["class"=>"form-control required"]) !!}
+                            {!! Form::textarea("EarningAssetsByBusinessOrJob",null,["class"=>"form-control required"]) !!}
                             <span id="EarningAssetsByBusinessOrJob-error" class="help-block"></span>
                         </div>
                     </div>
@@ -708,7 +708,8 @@
                     <div class="form-group col-md-6" id="form-FamilyType-error">
                         {!! Form::label("FamilyType","পরিবারের প্রকৃতি",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FamilyType",['1' => 'Single', '2' => 'Combined'])!!}
+                            {{--{!! Form::select("FamilyType",['1' => 'Single', '2' => 'Combined'])!!}--}}
+                            {!! Form::select("FamilyType",$Familytypes,null,["class"=>"form-control FamilyType required","id"=>"FamilyType"]) !!}
                             <span id="FamilyType-error" class="help-block"></span>
                         </div>
                     </div>
@@ -716,39 +717,16 @@
                     <div class="form-group col-md-6" id="form-FamilyMember-error">
                         {!! Form::label("FamilyMember","পরিবারের সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FamilyMember",['1', '2', '3','4', '5', '6'])!!}
+                            {{--{!! Form::select("FamilyMember",['1', '2', '3','4', '5', '6'])!!}--}}
+                            {!! Form::select("FamilyMember",$Count_Data,null,["class"=>"form-control FamilyMember required","id"=>"FamilyMember"]) !!}
                             <span id="FamilyMember-error" class="help-block"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-6" id="form-EarningMale-error">
-                        {!! Form::label("EarningMale","উপার্জনক্ষম পুরুষের সংখ্যা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("EarningMale",['1', '2', '3','4', '5', '6'])!!}
-                            <span id="EarningMale-error" class="help-block"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-6" id="form-EarningFemale-error">
-                        {!! Form::label("EarningFemale","উপার্জনক্ষম মহিলার সংখ্যা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("EarningFemale",['1', '2', '3','4', '5', '6'])!!}
-                            <span id="EarningFemale-error" class="help-block"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-6" id="form-EarningPerson-error">
-                        {!! Form::label("EarningPerson","উপার্জনক্ষম সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("EarningPerson",['1', '2', '3','4', '5', '6'])!!}
-                            <span id="EarningPerson-error" class="help-block"></span>
                         </div>
                     </div>
 
                     <div class="form-group col-md-6" id="form-MaleMember-error">
                         {!! Form::label("MaleMember","পুরুষ সদস্য সংখ্যা ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("MaleMember",['1', '2', '3','4', '5', '6'])!!}
+                            {!! Form::select("MaleMember",$Count_Data,null,["class"=>"form-control MaleMember required","id"=>"MaleMember"]) !!}
                             <span id="MaleMember-error" class="help-block"></span>
                         </div>
                     </div>
@@ -756,8 +734,32 @@
                     <div class="form-group col-md-6" id="form-FemaleMember-error">
                         {!! Form::label("FemaleMember","মহিলা সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("FemaleMember",['1', '2', '3','4', '5', '6'])!!}
+                            {!! Form::select("FemaleMember",$Count_Data,null,["class"=>"form-control FemaleMember required","id"=>"FemaleMember"]) !!}
                             <span id="FemaleMember-error" class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="form-EarningPerson-error">
+                        {!! Form::label("EarningPerson","উপার্জনক্ষম সদস্য সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::select("EarningPerson",$Count_Data,null,["class"=>"form-control EarningPerson required","id"=>"EarningPerson"]) !!}
+                            <span id="EarningPerson-error" class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="form-EarningMale-error">
+                        {!! Form::label("EarningMale","উপার্জনক্ষম পুরুষের সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::select("EarningMale",$Count_Data,null,["class"=>"form-control EarningMale required","id"=>"EarningMale"]) !!}
+                            <span id="EarningMale-error" class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="form-EarningFemale-error">
+                        {!! Form::label("EarningFemale","উপার্জনক্ষম মহিলার সংখ্যা",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::select("EarningFemale",$Count_Data,null,["class"=>"form-control EarningFemale required","id"=>"EarningFemale"]) !!}
+                            <span id="EarningFemale-error" class="help-block"></span>
                         </div>
                     </div>
 
@@ -959,17 +961,17 @@
                             <span id="RepaymentType-error" class="help-block"></span>
                         </div>
                     </div>
-                    <p style="clear: both;
-border: 1px solid #f2f2f2;
-line-height: 0px;
-margin-top: 10%;
-padding-top: 0px;
-display: block;
-position: relative;">&nbsp;</p>
+                    <!-- <p style="clear: both;
+                    border: 1px solid #f2f2f2;
+                    line-height: 0px;
+                    margin-top: 10%;
+                    padding-top: 0px;
+                    display: block;
+                    position: relative;">&nbsp;</p> -->
                     <div class="form-group col-md-6" id="form-IsHeSheWillingToTakeLoan-error">
                         {!! Form::label("IsHeSheWillingToTakeLoan","TIMF হতে বিনিয়োগ/ঋণ গ্রহন করতে আগ্রহী কি না-",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("IsHeSheWillingToTakeLoan",['1'=>'Yes', '2'=>'No'])!!}
+                            {!! Form::select("IsHeSheWillingToTakeLoan",$Status,null,["class"=>"form-control IsHeSheWillingToTakeLoan required","id"=>"IsHeSheWillingToTakeLoan"]) !!}
                             <span id="IsHeSheWillingToTakeLoan-error" class="help-block"></span>
                         </div>
                     </div>
@@ -1433,6 +1435,18 @@ position: relative;">&nbsp;</p>
                 $('#PreviousProfession1').empty();
 
                 $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousOtherProfession" value="">')
+            }
+        });
+        $(document).on('change', '.Education', function () {
+            //console.log("yes it is change");
+
+            var Education = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DistrictId);
+            if(Education=='9') {
+                $('#Education').empty();
+
+                $('#Education').append('<input type="text" class="form-control"  name="EducationOther" value="">')
             }
         });
     });

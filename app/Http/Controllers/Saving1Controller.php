@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Saving1;
+use App\Member;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -44,7 +45,7 @@ class Saving1Controller extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }
-        $saving1->ProductId = Input::get('ProductId');
+//        $saving1->ProductId = Input::get('ProductId');
         $saving1->MemberId = Input::get('MemberId');
         $saving1->SavingAmount = Input::get('SavingAmount');
         $saving1->WithdrawAmount = Input::get('WithdrawAmount');
@@ -56,8 +57,10 @@ class Saving1Controller extends Controller
 
     public function getCreate()
     {
+        $Member_info = Member::all();
         $Product_info = Product::lists('ProductName', 'id');
-        return view('saving1.create',compact('Product_info'));
+        //return view('saving1.create',compact('Product_info'));
+        return view('saving1.create')->with('Product_info', $Product_info)->with('Member_info', $Member_info);
     }
 
     public function postCreate()
@@ -73,10 +76,10 @@ class Saving1Controller extends Controller
             );
         }
         $saving1 = new Saving1();
-        $saving1->ProductId = Input::get('ProductId');
+//        $saving1->ProductId = Input::get('ProductId');
         $saving1->MemberId = Input::get('MemberId');
         $saving1->SavingAmount = Input::get('SavingAmount');
-        $saving1->WithdrawAmount = Input::get('WithdrawAmount');
+        /*$saving1->WithdrawAmount = Input::get('WithdrawAmount');*/
         $saving1->TransactionDate = Input::get('TransactionDate');
         $saving1->EntryDate = Input::get('EntryDate');
         $saving1->save();
