@@ -63,12 +63,12 @@
     <tbody>
     <?php $i = 1;
     $j=0;?>
-    @foreach($districts as $key=>$district)
+    @foreach($DivInfo as $key=>$district)
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$district->DistrictName}}</td>
             <td>{{$district->DistrictNameBangla}}</td>
-            <td>{{$DivInfo[$j++]->DivisionName}}</td>
+            <td>{{$district->DivisionName}}</td>
             {{--<td>{{$district->DivisionId}}</td>--}}
             <td>{{$district->website}}</td>
             <td style="text-align: center">

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Zone;
 use DB;
 use App\District;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,13 @@ class DistrictController extends Controller
             ->get();
         return view('area.list', ['areas' => $areas],['zone_data' => $zone_data]);*/
 
-        $DivInfo = DB::table('divisions') -> join('districts', 'divisions.id', '=','districts.DivisionId') -> select('*')->paginate(8);
+        $DivInfo = District::select('district.DistrictName','district.DivisionId','district.id','divisions.DivisionName','divisions.id')
+            -> join('divisions', 'districts.DivisionId', '=','divisions.id')
+           ->where('DistrictName', 'like', '%' . Session::get('district_search') . '%')
+            ->orderBy(Session::get('district_field'), Session::get('district_sort'))
+            ->select('*')
+            ->paginate(8);
+      //return $DivInfo;
         return view('district.list', ['districts' => $districts], ['DivInfo' => $DivInfo]);
     }
 

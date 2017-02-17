@@ -78,12 +78,12 @@
     <?php $i = 1;
     $j = 0;
     ?>
-    @foreach($areas as $key=>$area)
+    @foreach($zone_data as $key=>$area)
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$area->AreaName}}</td>
             <td>{{$area->AreaCode}}</td>
-            <td>{{$zone_data[$j++]->ZoneName}}</td>
+            <td>{{$area->ZoneName}}</td>
             <td>{{$area->AreaAddress}}</td>
             <td>{{$area->AreaMobileNo}}</td>
             <td>{{$area->AreaEmail}}</td>

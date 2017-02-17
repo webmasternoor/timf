@@ -84,6 +84,7 @@ Route::get('getSamity','SelectBoxController@getSamity');
 
 Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
+Route::get('getList','DistrictController@getList');
 Route::get('{view}', function ($view) {
     if (view()->exists($view)) {
         return view($view);
