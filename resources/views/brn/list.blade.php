@@ -71,7 +71,7 @@
                class="glyphicon  {{ Session::get('brn_field')=='AreaName'?(Session::get('brn_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">অ্যাকশন সমূহ</th>
+        {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
     </thead>
     <tbody>
@@ -83,11 +83,11 @@
             <td align="center">{{$i++}}</td>
             <td>{{$brn->BranchName}}</td>
             <td>{{$brn->BranchCode}}</td>
-            <td>{{$area_data[$j++]->AreaName}}</td>
+            <td>{{$brn->AreaName}}</td>
             <td>{{$brn->BranchAddress}}</td>
             <td>{{$brn->BranchMobileNo}}</td>
             <td>{{$brn->BranchEmail}}</td>
-            <td style="text-align: center">
+            {{--<td style="text-align: center">--}}
                 {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
                    {{--href="javascript:ajaxLoad('brn/update/{{$brn->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
@@ -95,7 +95,7 @@
                    {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('brn/delete/{{$brn->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-            </td>
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

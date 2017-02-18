@@ -47,21 +47,21 @@
                class="glyphicon  {{ Session::get('thana_field')=='DistrictName'?(Session::get('thana_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">অ্যাকশন সমূহ</th>
+        {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
     </thead>
     <tbody>
     <?php $i = 1;
     $k=0;
     ?>
-    @foreach($thanas as $key=>$thana)
+    @foreach($ThanaInfo as $key=>$thana)
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$thana->ThanaName}}</td>
             <td>{{$thana->ThanaNameBangla}}</td>
-            <!-- <td>{{$district_info[$k++]->DistrictName}}</td> -->
-            <td>{{$thana->DistrictId}}</td>
-            <td style="text-align: center">
+            <td>{{$thana->DistrictName}}</td>
+            {{--<td>{{$thana->DistrictId}}</td>--}}
+            {{--<td style="text-align: center">--}}
                 {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
                    {{--href="javascript:ajaxLoad('thana/update/{{$thana->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
@@ -69,7 +69,7 @@
                    {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('thana/delete/{{$thana->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-            </td>
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

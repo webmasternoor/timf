@@ -85,7 +85,7 @@ Route::get('getSamity','SelectBoxController@getSamity');
 Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
 
-Route::get('getList','DistrictController@getList');
+Route::get('getList','JamindarController@getList');
 
 //Route::get('autocomplete','SelectBoxController@autocomplete');
 

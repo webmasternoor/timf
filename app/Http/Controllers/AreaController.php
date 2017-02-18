@@ -24,20 +24,25 @@ class AreaController extends Controller
     public function getList()
     {
         Session::put('area_search', Input::has('ok') ? Input::get('search') : (Session::has('area_search') ? Session::get('area_search') : ''));
-        Session::put('area_field', Input::has('field') ? Input::get('field') : (Session::has('area_field') ? Session::get('area_field') : 'id'));
+        Session::put('area_field', Input::has('field') ? Input::get('field') : (Session::has('area_field') ? Session::get('area_field') : 'AreaName'));
         Session::put('area_sort', Input::has('sort') ? Input::get('sort') : (Session::has('area_sort') ? Session::get('area_sort') : 'asc'));
-        $areas = Area::where('id', 'like', '%' . Session::get('area_search') . '%')
+        $areas = Area::where('AreaName', 'like', '%' . Session::get('area_search') . '%')
             ->orderBy(Session::get('area_field'), Session::get('area_sort'))->paginate(8);
+        $DistrictInfo = Area::select('*')
+            -> join('zones', 'areas.ZoneId', '=','zones.id')
+//            ->where('AreaName', 'like', '%' . Session::get('area_search') . '%')
+//            ->orderBy(Session::get('area_field'), Session::get('area_sort'))
+//            ->select('*')
+            ->paginate(8);
+//        $users = User::select('users.id ','users.name ','angular_models.id  as angular_id','angular_models.email')
+//            ->join('angular_models','users.id ', '=', 'angular_models.user_id')
+//            ->get();
 //        $zone_data=DB::table('areas')
 //            ->join('zones', 'areas.ZoneId', '=', 'zones.id')
-//            ->select('*')
-//            ->get();
-        $zone_data=DB::table('areas')
-            ->join('zones', 'areas.ZoneId', '=', 'zones.id')
-            ->select('*')
-            ->paginate(8);
-
-        return view('area.list', ['areas' => $areas],['zone_data' => $zone_data]);
+////            ->select('*')
+//            ->paginate(8);
+//return $DistrictInfo;
+        return view('area.list', ['areas' => $areas],['DistrictInfo' => $DistrictInfo]);
         //return view('area.list')->with('areas', $areas)->with('zone_data',$zone_data);
     }
 

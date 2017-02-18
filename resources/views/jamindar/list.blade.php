@@ -100,7 +100,7 @@
             <td>{{$jamindar->JamindarNameTitle}} {{$jamindar->JamindarFirstName}} {{$jamindar->JamindarLastName}}</td>
             <td>{{$jamindar->JamindarRelation}}</td>
             <td>{{$jamindar->JamindarEducation}}</td>
-            <td>{{$jamindar->JamindarPassingYear}}</td>
+            <td>{{$jamindar->JamindarProfession1}}</td>
             <td>{{$jamindar->JamindarMobile1}}</td>
             <td>{{$jamindar->JamindarEmail}}</td>
             <td>{{$jamindar->JamindarNid}}</td>

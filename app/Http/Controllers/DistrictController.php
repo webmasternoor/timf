@@ -30,14 +30,14 @@ class DistrictController extends Controller
             ->get();
         return view('area.list', ['areas' => $areas],['zone_data' => $zone_data]);*/
 
-        $DivInfo = District::select('district.DistrictName','district.DivisionId','district.id','divisions.DivisionName','divisions.id')
+        $DistrictInfo = District::select('*')
             -> join('divisions', 'districts.DivisionId', '=','divisions.id')
            ->where('DistrictName', 'like', '%' . Session::get('district_search') . '%')
             ->orderBy(Session::get('district_field'), Session::get('district_sort'))
-            ->select('*')
+//            ->select('*')
             ->paginate(8);
       //return $DivInfo;
-        return view('district.list', ['districts' => $districts], ['DivInfo' => $DivInfo]);
+        return view('district.list', ['districts' => $districts], ['DistrictInfo' => $DistrictInfo]);
     }
 
     public function getUpdate($id)

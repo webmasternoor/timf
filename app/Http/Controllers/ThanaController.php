@@ -22,14 +22,20 @@ class ThanaController extends Controller
         Session::put('thana_search', Input::has('ok') ? Input::get('search') : (Session::has('thana_search') ? Session::get('thana_search') : ''));
         Session::put('thana_field', Input::has('field') ? Input::get('field') : (Session::has('thana_field') ? Session::get('thana_field') : 'id'));
         Session::put('thana_sort', Input::has('sort') ? Input::get('sort') : (Session::has('thana_sort') ? Session::get('thana_sort') : 'asc'));
-        $thanas = Thana::where('id', 'like', '%' . Session::get('thana_search') . '%')
+        $thanas = Thana::where('ThanaName', 'like', '%' . Session::get('thana_search') . '%')
             ->orderBy(Session::get('thana_field'), Session::get('thana_sort'))->paginate(8);
 
-        $district_info=DB::table('thanas')
-            ->join('districts', 'thanas.DistrictId', '=', 'districts.id')
-            ->select('*')
-            ->get();
-        return view('thana.list', ['thanas' => $thanas],['district_info'=>$district_info]);
+//        $district_info=DB::table('thanas')
+//            ->join('districts', 'thanas.DistrictId', '=', 'districts.id')
+//            ->select('*')
+//            ->get();
+        $ThanaInfo = Thana::select('*')
+            -> join('districts', 'thanas.DistrictId', '=', 'districts.id')
+//            ->where('id', 'like', '%' . Session::get('thana_search') . '%')
+//            ->orderBy(Session::get('thana_field'), Session::get('thana_sort'))
+//            ->select('*')
+            ->paginate(8);
+        return view('thana.list', ['thanas' => $thanas],['ThanaInfo'=>$ThanaInfo]);
     }
 
     public function getUpdate($id)

@@ -57,21 +57,21 @@
         </th>
 
 
-        <th width="140px">অ্যাকশন সমূহ</th>
+        {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
     </thead>
     <tbody>
     <?php $i = 1;
     $j=0;
     ?>
-    @foreach($unions as $key=>$union)
+    @foreach($UnionInfo as $key=>$union)
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$union->UnionName}}</td>
-            <td>{{$thana_data[$j++]->ThanaName}}</td>
-            <td>{{$union->DistrictId}}</td>
-            <td>{{$union->DivisionId}}</td>
-            <td style="text-align: center">
+            <td>{{$union->ThanaName}}</td>
+            <td>{{$union->DistrictName}}</td>
+            <td>{{$union->DivisionName}}</td>
+            {{--<td style="text-align: center">--}}
                 {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
                    {{--href="javascript:ajaxLoad('union/update/{{$union->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
@@ -79,7 +79,7 @@
                    {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('union/delete/{{$union->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-            </td>
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

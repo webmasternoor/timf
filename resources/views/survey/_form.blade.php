@@ -11,7 +11,7 @@
             <div class="tab-pane active" id="1">
                 <div class="borderportion">
                     <div class="form-group col-md-4" id="form-ZoneId-error">
-                        {!! Form::label("ZoneId","জোন",["class"=>"control-label col-md-12"]) !!}
+                        {!! Form::label("ZoneId","জোন অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                         <!-- {{--<select name="ZoneId">--}}
                         {{--@foreach($zone as $zone_data )--}}
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4" id="form-AreaId-error">
-                        {!! Form::label("AreaId","এলাকা",["class"=>"control-label col-md-12"]) !!}
+                        {!! Form::label("AreaId","এরিয়া অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                        {{--<select name="AreaId">--}}
                         {{--@foreach($area as $area_data )--}}
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4" id="form-BranchId-error">
-                        {!! Form::label("BranchId","শাখা",["class"=>"control-label col-md-12"]) !!}
+                        {!! Form::label("BranchId","শাখা অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                         <!-- {{--<select name="BranchId">--}}
                         {{--@foreach($branch as $branch_data )--}}

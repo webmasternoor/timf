@@ -36,10 +36,16 @@ class BrnController extends Controller
 //            ->select('users.id', 'contacts.phone', 'orders.price')
 //            ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
 //            ->get();
-        $area_data=DB::table('brns')
-            ->join('areas', 'brns.AreaId', '=', 'areas.id')
-            ->select('*')
-            ->get();
+        $area_data = Brn::select('*')
+            -> join('areas','brns.AreaId', '=', 'areas.id')
+//            ->where('id', 'like', '%' . Session::get('brn_search') . '%')
+//            ->orderBy(Session::get('brn_field'), Session::get('brn_sort'))
+            ->paginate(8);
+
+//        $area_data=DB::table('brns')
+//            ->join('areas', 'brns.AreaId', '=', 'areas.id')
+//            ->select('*')
+//            ->get();
         return view('brn.list', ['brns' => $brns],['area_data' => $area_data]);
 
         //return view('brn.list', ['brns' => $brns],['area_data' => $area_data]);

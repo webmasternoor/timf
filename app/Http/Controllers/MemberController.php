@@ -64,6 +64,14 @@ class MemberController extends Controller
         $members = Member::where('Mobile', 'like', '%' . Session::get('member_search') . '%')
             ->where('grouppresident', '1' . Session::get('member_search') . '%')
             ->orderBy(Session::get('member_field'), Session::get('member_sort'))->paginate(8);
+
+        $UnionInfo = Union::select('*')
+            -> join('districts', 'unions.DistrictId', '=','districts.id')
+            -> join('thanas', 'unions.ThanaId', '=', 'thanas.id')
+            -> join('divisions', 'unions.DivisionId', '=', 'divisions.id')
+//            ->where('id', 'like', '%' . Session::get('union_search') . '%')
+//            ->orderBy(Session::get('union_field'), Session::get('union_sort'))
+            ->paginate(100);
         return view('member.list', ['members' => $members]);
     }
 
@@ -262,26 +270,8 @@ class MemberController extends Controller
 //        $Savingtypes = Input::get('SavingTypes');
             $SavingPolicy = Input::get('SavingPolicy');
 
-//        $date = DATE();
-//        $a_date = "2009-11-23";
-//        echo date("Y-m-t", strtotime($a_date));
-//
-//        $Today = date('y:m:d');
-//
-//// add 3 days to date
-//        $NewDate = Date('y:m:d', strtotime("+3 days"));
-//
-//// subtract 3 days from date
-//        $NewDate = Date('y:m:d', strtotime("-3 days"));
-//
-//// PHP returns last sunday's date
-//        $NewDate = Date('y:m:d', strtotime("Last Sunday"));
-//
-//// One week from last sunday
-//        $NewDate = Date('y:m:d', strtotime("+7 days Last Sunday"));
 
-//            $datemaker='+'.$i.'months';
-//            $date = date('d/m/Y', strtotime('+' . $i . ' months'));
+
             $NewDate = Date('y:m:d', strtotime('+' . $i . ' months'));
             if ($membertypes == '1') {
                 if ($SavingPolicy == '1') {

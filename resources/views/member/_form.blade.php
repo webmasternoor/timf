@@ -21,30 +21,30 @@
                             <span id="SamityName-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4" id="form-MemberType-error">
-                        {!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                    {{--<div class="form-group col-md-4" id="form-MemberType-error">--}}
+                        {{--{!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
                             {{--{!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control MemberType required","id"=>"MemberType"]) !!}
-                            <span id="MemberType-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4" id="form-SavingTypes-error">
-                        {!! Form::label("SavingTypes","সঞ্চয়ের ধরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                            {{--{!! Form::select("MemberType",$MemberType,null,["class"=>"form-control MemberType required","id"=>"MemberType"]) !!}--}}
+                            {{--<span id="MemberType-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="form-group col-md-4" id="form-SavingTypes-error">--}}
+                        {{--{!! Form::label("SavingTypes","সঞ্চয়ের ধরণ",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
                             {{--{!! Form::select("SavingTypes",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("SavingTypes",$SavingTypes,null,["class"=>"form-control SavingTypes required","id"=>"SavingTypes"]) !!}
-                            <span id="SavingTypes-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4" id="form-SavingPolicy-error">
-                        {!! Form::label("SavingPolicy","সঞ্চয় Policy",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                            {{--{!! Form::select("SavingTypes",$SavingTypes,null,["class"=>"form-control SavingTypes required","id"=>"SavingTypes"]) !!}--}}
+                            {{--<span id="SavingTypes-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="form-group col-md-4" id="form-SavingPolicy-error">--}}
+                        {{--{!! Form::label("SavingPolicy","সঞ্চয় Policy",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
                             {{--{!! Form::select("SavingPolicy",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("SavingPolicy",$SavingPolicy,null,["class"=>"form-control SavingPolicy required","id"=>"SavingPolicy"]) !!}
-                            <span id="SavingPolicy-error" class="help-block"></span>
-                        </div>
-                    </div>
+                            {{--{!! Form::select("SavingPolicy",$SavingPolicy,null,["class"=>"form-control SavingPolicy required","id"=>"SavingPolicy"]) !!}--}}
+                            {{--<span id="SavingPolicy-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
             </div>
 
@@ -144,7 +144,7 @@
                                 <span id="BankName-error" class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group col-md-6" id="form-BankAddress-error">
+                        <div class="form-group col-md-12" id="form-BankAddress-error">
                             {!! Form::label("BankAddress","ব্যাংকের ঠিকানা",["class"=>"control-label col-md-12"]) !!}
                             <div class="col-md-12">
                                 {!! Form::textarea("BankAddress",null,["class"=>"form-control required"]) !!}

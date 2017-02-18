@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Zone extends Model
 {
-    public function areas()
-    {
-        return $this->hasMany(Area::class);
-    }
+//    public function areas()
+//    {
+//        return $this->hasMany(Area::class);
+//    }
 }

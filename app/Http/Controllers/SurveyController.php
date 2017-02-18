@@ -45,6 +45,14 @@ class SurveyController extends Controller
         Session::put('survey_sort', Input::has('sort') ? Input::get('sort') : (Session::has('survey_sort') ? Session::get('survey_sort') : 'asc'));
         $surveys = Survey::where('id', 'like', '%' . Session::get('survey_search') . '%')
             ->orderBy(Session::get('survey_field'), Session::get('survey_sort'))->paginate(8);
+
+        $surveysInfo = Union::select('*')
+            -> join('districts', 'unions.DistrictId', '=','districts.id')
+            -> join('thanas', 'unions.ThanaId', '=', 'thanas.id')
+            -> join('divisions', 'unions.DivisionId', '=', 'divisions.id')
+//            ->where('id', 'like', '%' . Session::get('union_search') . '%')
+//            ->orderBy(Session::get('union_field'), Session::get('union_sort'))
+            ->paginate(100);
         return view('survey.list', ['surveys' => $surveys]);
     }
 

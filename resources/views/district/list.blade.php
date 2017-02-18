@@ -56,22 +56,21 @@
                class="glyphicon  {{ Session::get('district_field')=='Website'?(Session::get('district_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">অ্যাকশন সমূহ</th>
+        {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
 
     </thead>
     <tbody>
     <?php $i = 1;
     $j=0;?>
-    @foreach($DivInfo as $key=>$district)
+    @foreach($DistrictInfo as $key=>$district)
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$district->DistrictName}}</td>
             <td>{{$district->DistrictNameBangla}}</td>
             <td>{{$district->DivisionName}}</td>
-            {{--<td>{{$district->DivisionId}}</td>--}}
-            <td>{{$district->website}}</td>
-            <td style="text-align: center">
+            <td>{{$district->Website}}</td>
+            {{--<td style="text-align: center">--}}
                 {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
                    {{--href="javascript:ajaxLoad('district/update/{{$district->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
@@ -79,7 +78,7 @@
                    {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('district/delete/{{$district->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-            </td>
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

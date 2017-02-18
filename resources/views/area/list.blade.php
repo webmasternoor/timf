@@ -78,7 +78,7 @@
     <?php $i = 1;
     $j = 0;
     ?>
-    @foreach($zone_data as $key=>$area)
+    @foreach($DistrictInfo as $key=>$area)
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$area->AreaName}}</td>

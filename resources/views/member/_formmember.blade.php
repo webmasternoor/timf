@@ -18,7 +18,7 @@
             <div class="tab-pane active" id="112">
                 <div class="borderportion">
                     <div class="form-group col-md-4" id="form-ZoneId-error">
-                        {!! Form::label("ZoneId","জোন",["class"=>"control-label col-md-12"]) !!}
+                        {!! Form::label("ZoneId","জোন অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                         <!-- {{--<select name="ZoneId">--}}
                         {{--@foreach($zone as $zone_data )--}}
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4" id="form-AreaId-error">
-                        {!! Form::label("AreaId","এলাকা",["class"=>"control-label col-md-12"]) !!}
+                        {!! Form::label("AreaId","এরিয়া অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {{--<select name="AreaId">--}}
                             {{--@foreach($area as $area_data )--}}
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4" id="form-BranchId-error">
-                        {!! Form::label("BranchId","শাখা",["class"=>"control-label col-md-12"]) !!}
+                        {!! Form::label("BranchId","শাখা অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                         <!-- {{--<select name="BranchId">--}}
                         {{--@foreach($branch as $branch_data )--}}
@@ -57,35 +57,35 @@
                     <div class="form-group col-md-4" id="form-SamityName-error">
                         {!! Form::label("SamityName","সমিতির নাম",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {{--{!! Form::select("SamityName",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
+                            {!! Form::select("SamityName",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}
                             {!! Form::select("SamityName",$SamityName,null,["class"=>"form-control SamityName required","id"=>"SamityName"]) !!}
                             <span id="SamityName-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4" id="form-MemberType-error">
-                        {!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                    {{--<div class="form-group col-md-4" id="form-MemberType-error">--}}
+                        {{--{!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
                             {{--{!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control MemberType required","id"=>"MemberType"]) !!}
-                            <span id="MemberType-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4" id="form-SavingTypes-error">
-                        {!! Form::label("SavingTypes","সঞ্চয়ের ধরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                            {{--{!! Form::select("MemberType",$MemberType,null,["class"=>"form-control MemberType required","id"=>"MemberType"]) !!}--}}
+                            {{--<span id="MemberType-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="form-group col-md-4" id="form-SavingTypes-error">--}}
+                        {{--{!! Form::label("SavingTypes","সঞ্চয়ের ধরণ",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
                             {{--{!! Form::select("SavingTypes",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("SavingTypes",$SavingTypes,null,["class"=>"form-control SavingTypes required","id"=>"SavingTypes"]) !!}
-                            <span id="SavingTypes-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4" id="form-SavingPolicy-error">
-                        {!! Form::label("SavingPolicy","সঞ্চয় Policy",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
+                            {{--{!! Form::select("SavingTypes",$SavingTypes,null,["class"=>"form-control SavingTypes required","id"=>"SavingTypes"]) !!}--}}
+                            {{--<span id="SavingTypes-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="form-group col-md-4" id="form-SavingPolicy-error">--}}
+                        {{--{!! Form::label("SavingPolicy","সঞ্চয় Policy",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
                             {{--{!! Form::select("SavingPolicy",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("SavingPolicy",$SavingPolicy,null,["class"=>"form-control SavingPolicy required","id"=>"SavingPolicy"]) !!}
-                            <span id="SavingPolicy-error" class="help-block"></span>
-                        </div>
-                    </div>
+                            {{--{!! Form::select("SavingPolicy",$SavingPolicy,null,["class"=>"form-control SavingPolicy required","id"=>"SavingPolicy"]) !!}--}}
+                            {{--<span id="SavingPolicy-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
                 </div>
             </div>

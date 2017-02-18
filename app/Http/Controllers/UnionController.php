@@ -25,11 +25,19 @@ class UnionController extends Controller
         Session::put('union_sort', Input::has('sort') ? Input::get('sort') : (Session::has('union_sort') ? Session::get('union_sort') : 'asc'));
         $unions = Union::where('id', 'like', '%' . Session::get('union_search') . '%')
             ->orderBy(Session::get('union_field'), Session::get('union_sort'))->paginate(100);
-        $thana_data=DB::table('unions')
-            ->join('thanas', 'unions.ThanaId', '=', 'thanas.id')
-            ->select('*')
-            ->get();
-        return view('union.list', ['unions' => $unions],['thana_data'=>$thana_data]);
+//        $thana_data=DB::table('unions')
+//            ->join('thanas', 'unions.ThanaId', '=', 'thanas.id')
+//            ->select('*')
+//            ->get();
+
+        $UnionInfo = Union::select('*')
+            -> join('districts', 'unions.DistrictId', '=','districts.id')
+            -> join('thanas', 'unions.ThanaId', '=', 'thanas.id')
+            -> join('divisions', 'unions.DivisionId', '=', 'divisions.id')
+//            ->where('id', 'like', '%' . Session::get('union_search') . '%')
+//            ->orderBy(Session::get('union_field'), Session::get('union_sort'))
+            ->paginate(100);
+        return view('union.list', ['unions' => $unions],['UnionInfo'=>$UnionInfo]);
     }
 
     public function getUpdate($id)
