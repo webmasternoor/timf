@@ -36,7 +36,7 @@ use App\Union;
 use App\Postoffice;
 use App\Ward;
 use App\WeekEnd;
-use App\Year_calendar;
+use App\Yearcalendar;
 use App\Zone;
 use App\Area;
 use App\Brn;
@@ -134,7 +134,7 @@ class MemberController extends Controller
         $OtherSources = Othersource::lists('name', 'id');
         $BusinessType = Businesstype::lists('name', 'id');
         $OwnershipType = Ownershiptype::lists('name', 'id');
-        $Weekend = Weekend::lists('name', 'id');
+        $Weekend = WeekEnd::lists('name', 'id');
         $OrgPermanentEmployee = Permanentemployee::lists('name', 'id');
         $BusinessLeader = Businessleader::lists('name', 'id');
         $Country = Countr::lists('CountryName', 'id');
@@ -213,7 +213,7 @@ class MemberController extends Controller
         $BranchInfo = Brn::lists('BranchName', 'id');
         $NameTitle = Nametitle::lists('name', 'id');
         $Age = Age::lists('age', 'id');
-        $PassingYear = Year_calendar::lists('Name', 'id');
+        $PassingYear = Yearcalendar::lists('Name', 'id');
         $Profession = Profession::lists('name', 'id');
         $profession = Profession::all();
         $MaritalStatus = Maritalstatus::lists('name', 'id');
@@ -513,8 +513,8 @@ class MemberController extends Controller
         $nameTitle = Nametitle::all();
         $Age = Age::lists('age', 'id');
         $age = Age::all();
-        $PassingYear = Year_calendar::lists('Name', 'id');
-        $passingYear = Year_calendar::all();
+        $PassingYear = Yearcalendar::lists('Name', 'id');
+        $passingYear = Yearcalendar::all();
         $Profession = Profession::lists('name', 'id');
         $profession = Profession::all();
         $MaritalStatus = Maritalstatus::lists('name', 'id');
@@ -539,7 +539,7 @@ class MemberController extends Controller
         $OtherSources = Othersource::lists('name', 'id');
         $BusinessType = Businesstype::lists('name', 'id');
         $OwnershipType = Ownershiptype::lists('name', 'id');
-        $Weekend = Weekend::lists('name', 'id');
+        $Weekend = WeekEnd::lists('name', 'id');
         $OrgPermanentEmployee = Permanentemployee::lists('name', 'id');
         $BusinessLeader = Businessleader::lists('name', 'id');
         $Country = Countr::lists('CountryName', 'id');
