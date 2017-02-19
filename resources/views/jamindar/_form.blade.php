@@ -544,6 +544,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.DistrictId', function () {
             //console.log("yes it is change");
@@ -566,6 +567,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.ThanaId', function () {
@@ -589,6 +591,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.UnionId', function () {
@@ -612,6 +615,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.DistrictId', function () {
@@ -635,6 +639,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.Division1', function () {
             //console.log("yes it is change");
@@ -657,6 +662,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.District1', function () {
             //console.log("yes it is change");
@@ -679,6 +685,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.Thana1', function () {
@@ -702,6 +709,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.Union1', function () {
@@ -725,6 +733,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.District1', function () {
@@ -748,6 +757,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.SpouseProfession1', function () {
             //console.log("yes it is change");

@@ -308,6 +308,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.AreaId', function () {
@@ -331,6 +332,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.office_id', function () {
             //console.log("yes it is change");
@@ -353,6 +355,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
     });

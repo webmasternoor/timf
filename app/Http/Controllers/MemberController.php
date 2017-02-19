@@ -65,21 +65,21 @@ class MemberController extends Controller
             ->where('grouppresident', '1' . Session::get('member_search') . '%')
             ->orderBy(Session::get('member_field'), Session::get('member_sort'))->paginate(8);
 
-        $UnionInfo = Union::select('*')
-            -> join('districts', 'unions.DistrictId', '=','districts.id')
-            -> join('thanas', 'unions.ThanaId', '=', 'thanas.id')
-            -> join('divisions', 'unions.DivisionId', '=', 'divisions.id')
+        $membersInfo = Member::select('nametitles.name as NameTitles1','members.id','members.Nid','members.Mobile','members.Email','members.MemberImage',
+            'members.FirstName','members.LastName','members.FamilyName')
+            -> join('nametitles', 'members.NameTitle', '=','nametitles.id')
 //            ->where('id', 'like', '%' . Session::get('union_search') . '%')
 //            ->orderBy(Session::get('union_field'), Session::get('union_sort'))
             ->paginate(100);
-        return view('member.list', ['members' => $members]);
+
+        return view('member.list', ['members' => $members])->with('membersInfo',$membersInfo);
     }
 
     public function getListpending()
     {
         $members = Member::where('grouppresident', '0' . Session::get('member_search') . '%')
             ->orderBy(Session::get('member_field'), Session::get('member_sort'))->paginate(8);
-        return view('member.list', ['members' => $members]);
+        return view('member.list1', ['members' => $members]);
     }
 
     /*public function getUpdate($id)

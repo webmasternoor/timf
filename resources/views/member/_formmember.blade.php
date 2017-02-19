@@ -1674,6 +1674,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.AreaId', function () {
             //console.log("yes it is change");
@@ -1697,6 +1698,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.PresentDivision', function () {
@@ -1720,6 +1722,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.PresentDistrict', function () {
             //console.log("yes it is change");
@@ -1742,6 +1745,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.PresentThana', function () {
@@ -1765,6 +1769,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.PresentUnion', function () {
@@ -1788,6 +1793,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.PresentDistrict', function () {
@@ -1811,6 +1817,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.PermanentDivision', function () {
             //console.log("yes it is change");
@@ -1833,6 +1840,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.PermanentDistrict', function () {
             //console.log("yes it is change");
@@ -1855,6 +1863,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.PermanentThana', function () {
@@ -1878,6 +1887,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.PermanentUnion', function () {
@@ -1901,6 +1911,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.PermanentDistrict', function () {
@@ -1924,6 +1935,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.SpouseProfession1', function () {
             //console.log("yes it is change");

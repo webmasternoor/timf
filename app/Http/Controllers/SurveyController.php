@@ -46,14 +46,16 @@ class SurveyController extends Controller
         $surveys = Survey::where('id', 'like', '%' . Session::get('survey_search') . '%')
             ->orderBy(Session::get('survey_field'), Session::get('survey_sort'))->paginate(8);
 
-        $surveysInfo = Union::select('*')
-            -> join('districts', 'unions.DistrictId', '=','districts.id')
-            -> join('thanas', 'unions.ThanaId', '=', 'thanas.id')
-            -> join('divisions', 'unions.DivisionId', '=', 'divisions.id')
-//            ->where('id', 'like', '%' . Session::get('union_search') . '%')
-//            ->orderBy(Session::get('union_field'), Session::get('union_sort'))
-            ->paginate(100);
-        return view('survey.list', ['surveys' => $surveys]);
+        $surveysInfo = Survey::select('surveys.id','nametitles.name as NameTitles1','surveys.FirstName','surveys.LastName','surveys.FamilyName','surveys.Age','surveys.Nid',
+            'surveys.Nid','surveys.Mobile','surveys.Email','surveys.created_at','genders.GenderName','districts.DistrictName')
+            -> join('nametitles', 'surveys.NameTitle', '=','nametitles.id')
+            -> join('districts', 'surveys.PresentDistrict', '=','districts.id')
+            -> join('genders', 'surveys.Gender', '=','genders.id')
+//            ->where('DistrictName', 'like', '%' . Session::get('district_search') . '%')
+//            ->orderBy(Session::get('district_field'), Session::get('district_sort'))
+//            ->select('*')
+            ->paginate(8);
+        return view('survey.list', ['surveys' => $surveys])->with('surveysInfo',$surveysInfo);
     }
 
     public function getUpdate($id)

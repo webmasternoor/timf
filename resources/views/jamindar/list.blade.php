@@ -24,6 +24,14 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
+            <a href="javascript:ajaxLoad('jamindar/list?field=jamindarphoto&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
+                ফটো
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('jamindar_field')=='jamindarphoto'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
             <a href="javascript:ajaxLoad('jamindar/list?field=JamindarNameTitle&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
                 নাম
             </a>
@@ -81,33 +89,27 @@
                class="glyphicon  {{ Session::get('jamindar_field')=='JamindarNid'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th>
-            <a href="javascript:ajaxLoad('jamindar/list?field=jamindarphoto&sort={{Session::get("jamindar_sort")=="asc"?"desc":"asc"}}')">
-               ফটো
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('jamindar_field')=='jamindarphoto'?(Session::get('jamindar_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+
         {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
     </tr>
     </thead>
     <tbody>
     <?php $i = 1;?>
-    @foreach($jamindars as $key=>$jamindar)
+    @foreach($jamindarsInfo as $key=>$jamindar)
         <tr>
             <td align="center">{{$i++}}</td>
-            <td>{{$jamindar->JamindarNameTitle}} {{$jamindar->JamindarFirstName}} {{$jamindar->JamindarLastName}}</td>
-            <td>{{$jamindar->JamindarRelation}}</td>
-            <td>{{$jamindar->JamindarEducation}}</td>
-            <td>{{$jamindar->JamindarProfession1}}</td>
-            <td>{{$jamindar->JamindarMobile1}}</td>
-            <td>{{$jamindar->JamindarEmail}}</td>
-            <td>{{$jamindar->JamindarNid}}</td>
             <td>@if(!empty($jamindar->Jamindarphoto))
                     <img src="uploads/{{$jamindar->Jamindarphoto}}" width="70" height="60">
                 @endif
             </td>
+            <td>{{$jamindar->NameTitles1}} {{$jamindar->JamindarFirstName}} {{$jamindar->JamindarLastName}} {{$jamindar->JamindarFamilyName}}</td>
+            <td>{{$jamindar->JamindarRelation}}</td>
+            <td>{{$jamindar->EducationName}}</td>
+            <td>{{$jamindar->professionName}}</td>
+            <td>{{$jamindar->JamindarMobile1}}</td>
+            <td>{{$jamindar->JamindarEmail}}</td>
+            <td>{{$jamindar->JamindarNid}}</td>
+
             {{--<td style="text-align: center">--}}
                 {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
                    {{--href="javascript:ajaxLoad('jamindar/update/{{$jamindar->id}}')">--}}

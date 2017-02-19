@@ -112,6 +112,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
         $(document).on('change', '.DistrictId', function () {
             //console.log("yes it is change");
@@ -134,6 +135,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.ThanaId', function () {
@@ -157,6 +159,7 @@
 
                 }
             });
+            $.ajax(clear);
         });
 
     });

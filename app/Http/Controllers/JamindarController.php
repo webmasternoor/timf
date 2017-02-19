@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Age;
 use App\Education;
 use App\Gender;
+use App\Member;
 use App\Nametitle;
 use App\Post;
 use App\Profession;
@@ -39,8 +40,20 @@ class JamindarController extends Controller
         Session::put('jamindar_field', Input::has('field') ? Input::get('field') : (Session::has('jamindar_field') ? Session::get('jamindar_field') : 'name'));
         Session::put('jamindar_sort', Input::has('sort') ? Input::get('sort') : (Session::has('jamindar_sort') ? Session::get('jamindar_sort') : 'asc'));
         $jamindars = Jamindar::where('id', 'like', '%' . Session::get('jamindar_search') . '%')
-            ->orderBy(Session::get('jamindar_field'), Session::get('jamindar_sort'))->paginate(8);
-        return view('jamindar.list', ['jamindars' => $jamindars]);
+            ->orderBy(Session::get('jamindar_field'), Session::get('jamindar_sort'))
+            ->paginate(8);
+        $jamindarsInfo = Jamindar::select('nametitles.name as NameTitles1','education.name as EducationName','professions.name as professionName'
+        ,'jamindars.JamindarRelation','jamindars.JamindarMobile1','jamindars.JamindarEmail','jamindars.JamindarNid','jamindars.Jamindarphoto'
+        ,'jamindars.JamindarFirstName','jamindars.JamindarLastName','jamindars.JamindarFamilyName')
+            -> join('nametitles', 'jamindars.JamindarNameTitle', '=','nametitles.id')
+            -> join('education', 'jamindars.JamindarEducation', '=','education.id')
+            -> join('professions', 'jamindars.JamindarProfession1', '=','professions.id')
+//            ->where('DistrictName', 'like', '%' . Session::get('district_search') . '%')
+//            ->orderBy(Session::get('district_field'), Session::get('district_sort'))
+//            ->select('*')
+            ->paginate(8);
+
+        return view('jamindar.list', ['jamindars' => $jamindars])->with('jamindarsInfo',$jamindarsInfo);
     }
 
     public function getUpdate($id)
@@ -151,7 +164,7 @@ class JamindarController extends Controller
         Session::put('loan_search2', Input::has('ok') ? Input::get('search2') : (Session::has('loan_search2') ? Session::get('loan_search2') : ''));
         Session::put('loan_field', Input::has('field') ? Input::get('field') : (Session::has('loan_field') ? Session::get('loan_field') : 'Nid'));
         Session::put('loan_sort', Input::has('sort') ? Input::get('sort') : (Session::has('loan_sort') ? Session::get('loan_sort') : 'asc'));
-        $loan1s = Survey::where('Nid', 'like', '%' . Session::get('loan_search2') . '%')
+        $loan1s = Member::where('Nid', 'like', '%' . Session::get('loan_search2') . '%')
             ->orderBy(Session::get('loan_field'), Session::get('loan_sort'))->paginate(1);
         $Nidsession = Session::get('loan_search2');
 

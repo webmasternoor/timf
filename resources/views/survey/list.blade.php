@@ -23,14 +23,14 @@
     <thead>
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
-        <th>
-            <a href="javascript:ajaxLoad('survey/list?field=id&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
-                ID
-            </a>
-            <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('survey_field')=='id'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-            </i>
-        </th>
+        {{--<th>--}}
+            {{--<a href="javascript:ajaxLoad('survey/list?field=id&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">--}}
+                {{--ID--}}
+            {{--</a>--}}
+            {{--<i style="font-size: 12px"--}}
+               {{--class="glyphicon  {{ Session::get('survey_field')=='id'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">--}}
+            {{--</i>--}}
+        {{--</th>--}}
         <th>
             <a href="javascript:ajaxLoad('survey/list?field=FirstName&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
                 Name
@@ -100,15 +100,15 @@
     </thead>
     <tbody>
     <?php $i = 1;?>
-    @foreach($surveys as $key=>$survey)
+    @foreach($surveysInfo as $key=>$survey)
         <tr>
             <td>{{$i++}}</td>
-            <td>{{$survey->id}}</td>
-            <td>{{$survey->NameTitle}}&nbsp;{{$survey->FirstName}}&nbsp;{{$survey->LastName}}&nbsp;{{$survey->FamilyName}}</td>
-            <td>{{$survey->Gender}}</td>
+            {{--<td>{{$survey->id}}</td>--}}
+            <td>{{$survey->NameTitles1}}&nbsp;{{$survey->FirstName}}&nbsp;{{$survey->LastName}}&nbsp;{{$survey->FamilyName}}</td>
+            <td>{{$survey->GenderName}}</td>
             <td>{{$survey->Age}}</td>
             <td>{{$survey->Nid}}</td>
-            <td>{{$survey->PresentDistrict}}</td>
+            <td>{{$survey->DistrictName}}</td>
             <td>{{$survey->Mobile}}</td>
             <td>{{$survey->Email}}</td>
             <td>{{$survey->created_at}}</td>

@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `areas` (
   `AreaAddress` varchar(500) DEFAULT NULL,
   `AreaMobileNo` varchar(500) DEFAULT NULL,
   `AreaEmail` varchar(500) DEFAULT NULL,
-  `ZoneId` varchar(500) DEFAULT NULL,
+  `ZoneId` int(11) DEFAULT NULL,
   `AreaDistrictId` int(11) DEFAULT NULL,
   `AreaUnionId` int(11) DEFAULT NULL,
   `AreaDivisionId` int(11) DEFAULT NULL,
@@ -187,11 +187,11 @@ CREATE TABLE IF NOT EXISTS `areas` (
 DELETE FROM `areas`;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
 INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaUnionId`, `AreaDivisionId`, `AreaWardId`, `AreaPostOfficeId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 'Pabna', '2001', 'Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 1, 5, 1, 2, 374, '2017-02-09 10:37:27', '2017-02-09 10:37:27'),
-	(2, NULL, 'Sujanagor', '2002', 'Sujanagor, Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 2, 5, 5, 4, 374, '2017-02-09 10:38:25', '2017-02-09 10:38:25'),
-	(3, NULL, 'Atgharia', '2003', 'Atgharia, Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 1, 5, 1, 1, 368, '2017-02-09 10:39:52', '2017-02-09 10:39:52'),
-	(4, NULL, 'Ataikula', '2004', 'Ataikula, Pabna', '01738349723', 'rockeycse@gmail.com', '4', 23, 1, 5, 3, 3, 374, '2017-02-09 10:41:08', '2017-02-09 10:41:08'),
-	(5, NULL, 'Shanthia', '2005', 'Shanthia, Pabna', '01738349723', 'rockeycse@gmail.com', '1', 23, 3, 5, 4, 1, 374, '2017-02-09 10:42:37', '2017-02-09 10:42:37');
+	(1, NULL, 'Pabna', '2001', 'Pabna', '01738349723', 'rockeycse@gmail.com', 4, 23, 1, 5, 1, 2, 374, '2017-02-09 10:37:27', '2017-02-09 10:37:27'),
+	(2, NULL, 'Sujanagor', '2002', 'Sujanagor, Pabna', '01738349723', 'rockeycse@gmail.com', 4, 23, 2, 5, 5, 4, 374, '2017-02-09 10:38:25', '2017-02-09 10:38:25'),
+	(3, NULL, 'Atgharia', '2003', 'Atgharia, Pabna', '01738349723', 'rockeycse@gmail.com', 4, 23, 1, 5, 1, 1, 368, '2017-02-09 10:39:52', '2017-02-09 10:39:52'),
+	(4, NULL, 'Ataikula', '2004', 'Ataikula, Pabna', '01738349723', 'rockeycse@gmail.com', 4, 23, 1, 5, 3, 3, 374, '2017-02-09 10:41:08', '2017-02-09 10:41:08'),
+	(5, NULL, 'Shanthia', '2005', 'Shanthia, Pabna', '01738349723', 'rockeycse@gmail.com', 1, 23, 3, 5, 4, 1, 374, '2017-02-09 10:42:37', '2017-02-09 10:42:37');
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas_feb_1
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `areas_feb_1` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.areas_feb_1: ~1 rows (approximately)
+-- Dumping data for table timf.areas_feb_1: ~0 rows (approximately)
 DELETE FROM `areas_feb_1`;
 /*!40000 ALTER TABLE `areas_feb_1` DISABLE KEYS */;
 INSERT INTO `areas_feb_1` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `assets` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.assets: ~1 rows (approximately)
+-- Dumping data for table timf.assets: ~0 rows (approximately)
 DELETE FROM `assets`;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
 INSERT INTO `assets` (`id`, `name`, `AssetDescription`, `created_at`, `updated_at`) VALUES
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `blog_post` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.blog_post: ~1 rows (approximately)
+-- Dumping data for table timf.blog_post: ~0 rows (approximately)
 DELETE FROM `blog_post`;
 /*!40000 ALTER TABLE `blog_post` DISABLE KEYS */;
 INSERT INTO `blog_post` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
@@ -295,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `brns` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.brns: ~5 rows (approximately)
+-- Dumping data for table timf.brns: ~4 rows (approximately)
 DELETE FROM `brns`;
 /*!40000 ALTER TABLE `brns` DISABLE KEYS */;
 INSERT INTO `brns` (`id`, `name`, `ZoneId`, `AreaId`, `BranchName`, `BranchCode`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `BranchDivisionId`, `BranchUnionId`, `BranchWardId`, `BranchPostOfficeId`, `created_at`, `updated_at`) VALUES
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `brns_feb_1` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.brns_feb_1: ~1 rows (approximately)
+-- Dumping data for table timf.brns_feb_1: ~0 rows (approximately)
 DELETE FROM `brns_feb_1`;
 /*!40000 ALTER TABLE `brns_feb_1` DISABLE KEYS */;
 INSERT INTO `brns_feb_1` (`id`, `name`, `AreaId`, `BranchName`, `BranchCode`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `created_at`, `updated_at`) VALUES
@@ -456,7 +456,7 @@ CREATE TABLE IF NOT EXISTS `cashinflows` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.cashinflows: ~1 rows (approximately)
+-- Dumping data for table timf.cashinflows: ~0 rows (approximately)
 DELETE FROM `cashinflows`;
 /*!40000 ALTER TABLE `cashinflows` DISABLE KEYS */;
 INSERT INTO `cashinflows` (`id`, `name`, `TotalIncomeDescription`, `created_at`, `updated_at`) VALUES
@@ -957,7 +957,7 @@ CREATE TABLE IF NOT EXISTS `education` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.education: ~10 rows (approximately)
+-- Dumping data for table timf.education: ~9 rows (approximately)
 DELETE FROM `education`;
 /*!40000 ALTER TABLE `education` DISABLE KEYS */;
 INSERT INTO `education` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -1174,7 +1174,7 @@ CREATE TABLE IF NOT EXISTS `jamindars` (
   `JamindarFamilyName` varchar(500) DEFAULT NULL,
   `JamindarRelation` varchar(500) DEFAULT NULL,
   `JamindarAge` varchar(500) DEFAULT NULL,
-  `JamindarEducation` varchar(500) DEFAULT NULL,
+  `JamindarEducation` int(11) DEFAULT NULL,
   `JamindarPassingYear` varchar(500) DEFAULT NULL,
   `FatherOrHasbandNAmeTitle` varchar(500) DEFAULT NULL,
   `FatherOrHasbandFirstName` varchar(500) DEFAULT NULL,
@@ -1198,7 +1198,7 @@ CREATE TABLE IF NOT EXISTS `jamindars` (
   `JamindarEmail` varchar(500) DEFAULT NULL,
   `JamindarNid` varchar(500) DEFAULT NULL,
   `JamindarBusinessOrJobAddress` varchar(500) DEFAULT NULL,
-  `JamindarProfession1` varchar(500) DEFAULT NULL,
+  `JamindarProfession1` int(11) DEFAULT NULL,
   `JamindarMonthlyNetIncome` varchar(500) DEFAULT NULL,
   `JamindarMonthlyNetExpences` varchar(500) DEFAULT NULL,
   `JamindarMonthlyNetSurplus` varchar(500) DEFAULT NULL,
@@ -1215,8 +1215,8 @@ CREATE TABLE IF NOT EXISTS `jamindars` (
 DELETE FROM `jamindars`;
 /*!40000 ALTER TABLE `jamindars` DISABLE KEYS */;
 INSERT INTO `jamindars` (`id`, `name`, `Nid`, `JamindarNameTitle`, `JamindarFirstName`, `JamindarLastName`, `JamindarFamilyName`, `JamindarRelation`, `JamindarAge`, `JamindarEducation`, `JamindarPassingYear`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `JamindarCountry`, `JamindarDistrict`, `JamindarThana`, `JamindarPostoffice`, `JamindarUnion`, `JamindarWord`, `JamindarVillage`, `JamindarCountry1`, `JamindarDistrict1`, `JamindarThana1`, `JamindarPostoffice1`, `JamindarUnion1`, `JamindarWord1`, `JamindarVillage1`, `JamindarMobile1`, `JamindarEmail`, `JamindarNid`, `JamindarBusinessOrJobAddress`, `JamindarProfession1`, `JamindarMonthlyNetIncome`, `JamindarMonthlyNetExpences`, `JamindarMonthlyNetSurplus`, `JamindarGender`, `JamindarTotalNetMoney`, `JamindarSocialStatus`, `Jamindarphoto`, `created_at`, `updated_at`) VALUES
-	(1, NULL, NULL, '1', 'Rockey', 'Ahmed', 'Molla', 'vai', '25', '5', '15', '1', '111', '1', '14', '1', '1', '1', '1', '1', '1', '', '1', '1', '1', '1', '1', '1', '', '123456789', 'rockeycse@gmail.com', '123456', '', '1', '', '', '', '1', '', '', '123456_3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', '2017-02-14 04:22:23', '2017-02-14 04:22:23'),
-	(2, NULL, NULL, '1', 'Rockey', 'Ahmed', 'Molla', 'Brother', '25', '6', '15', '1', '1', '1', '17', '17', '23', '426', '1', '1', '1', '', '1', '1', '1', '1', '1', '1', '', '01738349723', 'rockeycse@gmail.com', '123456', '', '1', '', '', '', '1', '', '', '123456_3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', '2017-02-14 04:22:41', '2017-02-14 04:22:41');
+	(1, NULL, NULL, '1', 'Rockey', 'Ahmed', 'Molla', 'vai', '25', 5, '15', '1', '111', '1', '14', '1', '1', '1', '1', '1', '1', '', '1', '1', '1', '1', '1', '1', '', '123456789', 'rockeycse@gmail.com', '123456', '', 1, '', '', '', '1', '', '', '123456_3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', '2017-02-14 04:22:23', '2017-02-14 04:22:23'),
+	(2, NULL, NULL, '1', 'Rockey', 'Ahmed', 'Molla', 'Brother', '25', 6, '15', '1', '1', '1', '17', '17', '23', '426', '1', '1', '1', '', '1', '1', '1', '1', '1', '1', '', '01738349723', 'rockeycse@gmail.com', '123456', '', 1, '', '', '', '1', '', '', '123456_3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', '2017-02-14 04:22:41', '2017-02-14 04:22:41');
 /*!40000 ALTER TABLE `jamindars` ENABLE KEYS */;
 
 -- Dumping structure for table timf.liabs
@@ -2746,7 +2746,7 @@ CREATE TABLE IF NOT EXISTS `professions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.professions: ~8 rows (approximately)
+-- Dumping data for table timf.professions: ~7 rows (approximately)
 DELETE FROM `professions`;
 /*!40000 ALTER TABLE `professions` DISABLE KEYS */;
 INSERT INTO `professions` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
@@ -2839,7 +2839,7 @@ CREATE TABLE IF NOT EXISTS `saving1s` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.saving1s: ~1 rows (approximately)
+-- Dumping data for table timf.saving1s: ~0 rows (approximately)
 DELETE FROM `saving1s`;
 /*!40000 ALTER TABLE `saving1s` DISABLE KEYS */;
 INSERT INTO `saving1s` (`id`, `name`, `Saving1yName`, `MemberId`, `Column 5`, `Column 6`, `CollectionAmount`, `SavingAmount`, `WithdrawAmount`, `SavingDate`, `TransactionDate`, `EntryDate`, `created_at`, `updated_at`) VALUES
@@ -3161,7 +3161,7 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.surveys: ~6 rows (approximately)
+-- Dumping data for table timf.surveys: ~5 rows (approximately)
 DELETE FROM `surveys`;
 /*!40000 ALTER TABLE `surveys` DISABLE KEYS */;
 INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `AreaId`, `BranchId`, `NameTitle`, `FirstName`, `LastName`, `FamilyName`, `FullNameBangla`, `Gender`, `Age`, `Education`, `PassingYear`, `WifeNameTitle`, `WifeFirstName`, `WifeLastName`, `WifeFamilyName`, `WifeAge`, `WifeOtherProfession`, `WifeMobileNo`, `WifeProfession`, `FatherOrHasbandNAmeTitle`, `FatherOrHasbandFirstName`, `FatherOrHasbandLastName`, `FatherOrHasbandAge`, `FatherProfession`, `FatherOtherProfession`, `FatherOrHasbandFamilyName`, `FatherMobileNo`, `MatherNameTitle`, `MotherFirstName`, `MotherLastName`, `MotherFamilyName`, `MotherAge`, `MotherProfession`, `MotherOtherProfession`, `MotherMobileNo`, `SpouseProfession`, `MaritalStatus`, `PoliticalStatus`, `Nid`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDistrict`, `PermanentDivision`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `Mobile`, `Email`, `SpouseMobileNo`, `Distance`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `FamilyType`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `RepaymentType`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `LastReceivedDate1`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `unitprice`, `JoinDate`, `created_at`, `updated_at`) VALUES
@@ -6298,7 +6298,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2006 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table timf.users: ~501 rows (approximately)
+-- Dumping data for table timf.users: ~460 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -6848,7 +6848,7 @@ DELETE FROM `userstimfs`;
 /*!40000 ALTER TABLE `userstimfs` DISABLE KEYS */;
 INSERT INTO `userstimfs` (`id`, `name`, `RollType`, `UserstimfyName`, `UserstimfyCode`, `employee_id`, `employee_code`, `employee_firstname`, `employee_lastname`, `ZoneID`, `AreaID`, `office_id`, `SamityID`, `designation`, `address`, `phone1`, `phone2`, `email`, `altemail`, `gender`, `birthdate`, `joiningdate`, `status`, `releasedate`, `username`, `password12`, `comment`, `photo`, `org_id`, `IsActiveDate`, `created_at`, `updated_at`) VALUES
 	(1, NULL, NULL, NULL, NULL, '1', '1', 'Noor', 'Alom', 4, 1, 1, 1, '25', 'hjedfsfag', '123', '34', '', '', '1', '2017-02-27', '2017-02-06', '', '2017-02-21', '', '', '', NULL, NULL, NULL, '2017-02-11 06:37:18', '2017-02-11 06:47:12'),
-	(2, NULL, NULL, NULL, NULL, '12', '12', 'Rockey', 'Ahmed', 1, 1, 1, 1, '1', 'erfdgh', '23432', '234234', 'rockeycse@gmail.com', 'we@ghbfgi.com', '1', '1992-02-15', '2017-02-01', '1', '2017-03-14', 'rockeycse@gmail.com', '', '1', 'micro5.jpg', NULL, NULL, '2017-02-11 06:40:51', '2017-02-11 06:46:14');
+	(2, NULL, NULL, NULL, NULL, '12', '12', 'Rockey', 'Ahmed', 1, 1, 1, 1, '1', 'erfdgh', '23432', '234234', 'rockeycse@gmail.com', 'we@ghbfgi.com', '1', '1992-02-15', '2017-02-01', '1', '2017-03-14', 'rockeycse@gmail.com', '', '1', '', NULL, NULL, '2017-02-11 06:40:51', '2017-02-11 06:46:14');
 /*!40000 ALTER TABLE `userstimfs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_2
@@ -6887,7 +6887,7 @@ CREATE TABLE IF NOT EXISTS `userstimfs_feb_2` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.userstimfs_feb_2: ~1 rows (approximately)
+-- Dumping data for table timf.userstimfs_feb_2: ~0 rows (approximately)
 DELETE FROM `userstimfs_feb_2`;
 /*!40000 ALTER TABLE `userstimfs_feb_2` DISABLE KEYS */;
 INSERT INTO `userstimfs_feb_2` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`, `employee_id`, `employee_code`, `employee_firstname`, `employee_lastname`, `ZoneID`, `AreaID`, `office_id`, `designation`, `address`, `phone1`, `phone2`, `email`, `altemail`, `gender`, `birthdate`, `joiningdate`, `status`, `releasedate`, `username`, `password12`, `comment`, `photo`, `org_id`, `IsActiveDate`, `created_at`, `updated_at`) VALUES
@@ -7143,7 +7143,7 @@ CREATE TABLE IF NOT EXISTS `zones_feb_1` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.zones_feb_1: ~1 rows (approximately)
+-- Dumping data for table timf.zones_feb_1: ~0 rows (approximately)
 DELETE FROM `zones_feb_1`;
 /*!40000 ALTER TABLE `zones_feb_1` DISABLE KEYS */;
 INSERT INTO `zones_feb_1` (`id`, `name`, `ZoneName`, `ZoneEmail`, `ZoneCode`, `ZoneAddress`, `ZoneMobileNo`, `ZoneThanaId`, `ZoneDistrictId`, `unitprice`, `created_at`, `updated_at`) VALUES
