@@ -85,7 +85,7 @@ Route::get('getSamity','SelectBoxController@getSamity');
 Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
 
-Route::get('getList','SurveyController@getList');
+Route::get('getList','UserstimfController@getList');
 
 //Route::get('autocomplete','SelectBoxController@autocomplete');
 

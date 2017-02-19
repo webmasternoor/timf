@@ -28,7 +28,17 @@ class UserstimfController extends Controller
         Session::put('userstimf_sort', Input::has('sort') ? Input::get('sort') : (Session::has('userstimf_sort') ? Session::get('userstimf_sort') : 'asc'));
         $userstimfs = Userstimf::where('id', 'like', '%' . Session::get('userstimf_search') . '%')
             ->orderBy(Session::get('userstimf_field'), Session::get('userstimf_sort'))->paginate(8);
-        return view('userstimf.list', ['userstimfs' => $userstimfs]);
+
+        $userstimfsInfo = Userstimf::select('userstimfs.employee_id','userstimfs.employee_code','userstimfs.photo','userstimfs.employee_firstname'
+            ,'userstimfs.employee_lastname','userstimfs.office_id','grades.designation as EmployeeDesignation','userstimfs.address','userstimfs.phone1'
+            ,'userstimfs.email')
+            -> join('grades', 'userstimfs.designation', '=','grades.id')
+//            ->where('DistrictName', 'like', '%' . Session::get('district_search') . '%')
+//            ->orderBy(Session::get('district_field'), Session::get('district_sort'))
+//            ->select('*')
+            ->paginate(8);
+
+        return view('userstimf.list', ['userstimfs' => $userstimfs])->with('userstimfsInfo',$userstimfsInfo);
     }
 
     public function getUpdate($id)

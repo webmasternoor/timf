@@ -34,7 +34,7 @@
 	        </th>
 	        <th>
 	            <a href="javascript:ajaxLoad('loan/list?field=LoanCode&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
-	                Father/Husband Name
+	               পিতা/স্বামীর নাম
 	            </a>
 	            <i style="font-size: 12px"
 	               class="glyphicon  {{ Session::get('loan_field')=='LoanCode'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
@@ -42,28 +42,21 @@
 	        </th>
 	        <th>
 	            <a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
-	                Mother Name
+	               মায়ের নাম
 	            </a>
 	            <i style="font-size: 12px"
 	               class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
 	            </i>
 	        </th>
-	        <th>
-	            <a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
-	                Gender
-	            </a>
-	            <i style="font-size: 12px"
-	               class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-	            </i>
-	        </th>
-	        <th>
-	            <a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
-	                Age
-	            </a>
-	            <i style="font-size: 12px"
-	               class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-	            </i>
-	        </th>
+
+	        {{--<th>--}}
+	            {{--<a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">--}}
+	                {{--Age--}}
+	            {{--</a>--}}
+	            {{--<i style="font-size: 12px"--}}
+	               {{--class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">--}}
+	            {{--</i>--}}
+	        {{--</th>--}}
 	        <th>
 	            <a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
 	                NID
@@ -72,14 +65,23 @@
 	               class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
 	            </i>
 	        </th>
-	        <th>
-	            <a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
-	                Address
-	            </a>
-	            <i style="font-size: 12px"
-	               class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
-	            </i>
-	        </th>
+
+			<th>
+				<a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
+					জেন্ডার
+				</a>
+				<i style="font-size: 12px"
+				   class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+				</i>
+			</th>
+	        {{--<th>--}}
+	            {{--<a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">--}}
+	                {{--Address--}}
+	            {{--</a>--}}
+	            {{--<i style="font-size: 12px"--}}
+	               {{--class="glyphicon  {{ Session::get('loan_field')=='unitprice'?(Session::get('loan_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">--}}
+	            {{--</i>--}}
+	        {{--</th>--}}
 	        <th>
 	            <a href="javascript:ajaxLoad('loan/list?field=unitprice&sort={{Session::get("loan_sort")=="asc"?"desc":"asc"}}')">
 	                Mobile
@@ -104,13 +106,17 @@
 	    @foreach($loan1s as $key=>$loan)
 	        <tr>
 	            <td align="center">{{$i++}}</td>
-	            <td>{{$loan->NameTitle}}&nbsp;{{$loan->FirstName}}&nbsp;{{$loan->LastName}}&nbsp;{{$loan->FamilyName}}</td>
-	            <td>{{$loan->Gender}}</td>
-	            <td>{{$loan->Age}}</td>
-	            <td>{{$loan->FatherOrHasbandNAmeTitle}}&nbsp;{{$loan->FatherOrHasbandFirstName}}&nbsp;{{$loan->FatherOrHasbandLastName}}&nbsp;</td>
-	            <td>{{$loan->MatherNameTitle}}&nbsp;{{$loan->MotherFirstName}}&nbsp;{{$loan->MotherLastName}}&nbsp;{{$loan->MaritalStatus}}&nbsp;</td>
-	            <td>{{$loan->Nid}}</td>
-	            <td>{{$loan->PresentRoadNo}}&nbsp;{{$loan->PresentVillage}}&nbsp;{{$loan->PresentWord}}&nbsp;{{$loan->PresentPostOffice}}&nbsp;{{$loan->PresentUnion}}&nbsp;{{$loan->PresentThana}}&nbsp;{{$loan->PresentDistrict}}</td>
+	            <td>{{$loan->FirstName}}&nbsp;{{$loan->LastName}}&nbsp;{{$loan->FamilyName}}</td>
+				<td>{{$loan->FatherOrHasbandFirstName}}&nbsp;{{$loan->FatherOrHasbandLastName}}&nbsp;</td>
+				<td>{{$loan->MotherFirstName}}&nbsp;{{$loan->MotherLastName}}</td>
+				<td>{{$loan->Nid}}</td>
+				<td>{{$loan->Gender}}</td>
+
+
+	            {{--<td>{{$loan->Age}}</td>--}}
+
+
+	            {{--<td>{{$loan->PresentRoadNo}}&nbsp;{{$loan->PresentVillage}}&nbsp;{{$loan->PresentWord}}&nbsp;{{$loan->PresentPostOffice}}&nbsp;{{$loan->PresentUnion}}&nbsp;{{$loan->PresentThana}}&nbsp;{{$loan->PresentDistrict}}</td>--}}
 	            <td>{{$loan->Mobile}}</td>
 	            <td>{{$loan->Email}}</td>
 	            <td style="text-align: center">

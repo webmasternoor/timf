@@ -114,8 +114,6 @@ class JamindarController extends Controller
             $jamindar->Jamindarphoto = $filename;
         }
 
-
-
         $jamindar->JamindarNameTitle = Input::get('JamindarNameTitle');
         $jamindar->JamindarFirstName = Input::get('JamindarFirstName');
         $jamindar->JamindarLastName = Input::get('JamindarLastName');

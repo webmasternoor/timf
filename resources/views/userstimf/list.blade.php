@@ -24,19 +24,19 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+            <a href="javascript:ajaxLoad('userstimf/list?field=employee_id&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
                 আইডি
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('userstimf_field')=='employee_id'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+            <a href="javascript:ajaxLoad('userstimf/list?field=employee_code&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
                 কোড
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('userstimf_field')=='employee_code'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
@@ -56,44 +56,44 @@
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+            <a href="javascript:ajaxLoad('userstimf/list?field=office_id&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
                 অফিস আইডি
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('userstimf_field')=='office_id'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+            <a href="javascript:ajaxLoad('userstimf/list?field=designation&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
                 পদবী
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('userstimf_field')=='designation'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyCode&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+            <a href="javascript:ajaxLoad('userstimf/list?field=address&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
                 ঠিকানা
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyCode'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('userstimf_field')=='address'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
         <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+            <a href="javascript:ajaxLoad('userstimf/list?field=phone1&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
                 ফোন নাম্বার
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('userstimf_field')=='phone1'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
 
         <th>
-            <a href="javascript:ajaxLoad('userstimf/list?field=UserstimfyName&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
+            <a href="javascript:ajaxLoad('userstimf/list?field=email&sort={{Session::get("userstimf_sort")=="asc"?"desc":"asc"}}')">
                 ইমেইল
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('userstimf_field')=='UserstimfyName'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('userstimf_field')=='email'?(Session::get('userstimf_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
 
@@ -102,7 +102,7 @@
     </thead>
     <tbody>
     <?php $i = 1;?>
-    @foreach($userstimfs as $key=>$userstimf)
+    @foreach($userstimfsInfo as $key=>$userstimf)
         <tr>
             <td align="center">{{$i++}}</td>
             <td>{{$userstimf->employee_id}}</td>
@@ -114,7 +114,7 @@
             </td>
             <td>{{$userstimf->employee_firstname}}&nbsp;{{$userstimf->employee_lastname}}</td>
             <td>{{$userstimf->office_id}}</td>
-            <td>{{$userstimf->designation}}</td>
+            <td>{{$userstimf->EmployeeDesignation}}</td>
             <td>{{$userstimf->address}}</td>
             <td>{{$userstimf->phone1}}</td>
             <td>{{$userstimf->email}}</td>
