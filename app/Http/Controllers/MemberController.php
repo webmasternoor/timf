@@ -35,7 +35,7 @@ use App\Thana;
 use App\Union;
 use App\Postoffice;
 use App\Ward;
-use App\Weekend;
+use App\WeekEnd;
 use App\Year_calendar;
 use App\Zone;
 use App\Area;

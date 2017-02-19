@@ -1,3 +1,5 @@
+@if (Auth::guest())
+@else
 <h1 class="page-header">সদস্য তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('member/list')" class="btn btn-primary pull-right"><i
@@ -159,3 +161,4 @@
         ajaxLoad($(this).attr('href'));
     });
 </script>
+@endif
