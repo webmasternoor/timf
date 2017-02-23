@@ -240,6 +240,7 @@ div.zoneareabran{
 }
 div.zoneareabran li {
     color: #ffffff;
+    /*clear: both;*/
 }
 div.footercopy{
     width: 100%;

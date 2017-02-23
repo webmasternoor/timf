@@ -109,9 +109,10 @@
             </ul> -->
             <div class="zoneareabran">
                 <ul class="nav navbar-nav navbar-custom">
-                    <li><span>Zone: </span>Bogra.</li>
-                    <li><span>Area: </span>Thengamara.</li>
-                    <li><span>Branch: </span>Gokul.</li>
+                    <li><span>Division: </span>Division Name</li>
+                    <li><span>Zone: </span>Bogra</li>
+                    <li><span>Area: </span>Central</li>
+                    <li><span>Branch: </span>Central</li>
                 </ul>
             </div>
 
