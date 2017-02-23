@@ -63,29 +63,29 @@ class SurveyController extends Controller
 //        $zone = Zone::lists('ZoneName', 'id');
 //        $area = Area::lists('AreaName', 'id');
 //        $branch = Brn::lists('BranchName', 'id');
-        $NameTitle = Nametitle::lists('name', 'id');
-        $Age = Age::lists('age', 'id');
-        $PassingYear = Yearcalendar::lists('Name', 'id');
-        $Profession = Profession::lists('name', 'id');
-        $profession = Profession::all();
-        $MaritalStatus = Maritalstatus::lists('name', 'id');
-        $Accommodation = Accommodation::lists('name', 'id');
-        $Education = Education::lists('name', 'id');
-        $PoliticalStatus = Politicalstatus::lists('name', 'id');
-        $Gender = Gender::lists('GenderName', 'id');
-        $Country = Countr::lists('CountryName', 'id');
-        $Division = Division::lists('DivisionName', 'id');
-        $District = District::lists('DistrictName', 'id');
-        $Thana = Thana::lists('ThanaName', 'id');
-        $PostOffice = Postoffice::lists('PostofficeName', 'id');
-        $Union = Union::lists('UnionName', 'id');
-        $Word = Ward::lists('WardName', 'id');
-        $ZoneInfo = Zone::lists('ZoneName', 'id');
-        $AreaInfo = Area::lists('AreaName', 'id');
-        $BranchInfo = Brn::lists('BranchName', 'id');
-        $Familytypes = Familytype::lists('name', 'id');
-        $Count_Data = Count::lists('name', 'id');
-        $Status = Status::lists('Status', 'id');
+        $NameTitle = [''=>'--select--'] +  Nametitle::lists('name', 'id')->all();
+        $Age = [''=>'--select--'] +  Age::lists('age', 'id')->all();
+        $PassingYear = [''=>'--select--'] +  Yearcalendar::lists('Name', 'id')->all();
+        $Profession = [''=>'--select--'] +  Profession::lists('name', 'id')->all();
+        $profession =  Profession::all();
+        $MaritalStatus = [''=>'--select--'] +  Maritalstatus::lists('name', 'id')->all();
+        $Accommodation = [''=>'--select--'] +  Accommodation::lists('name', 'id')->all();
+        $Education = [''=>'--select--'] +  Education::lists('name', 'id')->all();
+        $PoliticalStatus = [''=>'--select--'] +  Politicalstatus::lists('name', 'id')->all();
+        $Gender = [''=>'--select--'] +  Gender::lists('GenderName', 'id')->all();
+        $Country = [''=>'--select--'] +  Countr::lists('CountryName', 'id')->all();
+        $Division = [''=>'--select--'] +  Division::lists('DivisionName', 'id')->all();
+        $District = [''=>'--select--'] +  District::lists('DistrictName', 'id')->all();
+        $Thana = [''=>'--select--'] +  Thana::lists('ThanaName', 'id')->all();
+        $PostOffice = [''=>'--select--'] +  Postoffice::lists('PostofficeName', 'id')->all();
+        $Union = [''=>'--select--'] +  Union::lists('UnionName', 'id')->all();
+        $Word = [''=>'--select--'] +  Ward::lists('WardName', 'id')->all();
+        $ZoneInfo = [''=>'--select--'] + Zone::lists('ZoneName', 'id')->all();
+        $AreaInfo = [''=>'--select--'] + Area::lists('AreaName', 'id')->all();
+        $BranchInfo = [''=>'--select--'] +  Brn::lists('BranchName', 'id')->all();
+        $Familytypes = [''=>'--select--'] + Familytype::lists('name', 'id')->all();
+        $Count_Data = [''=>'--select--'] +  Count::lists('name', 'id')->all();
+        $Status = [''=>'--select--'] + Status::lists('Status', 'id')->all();
         return view('survey.update', ['survey' => Survey::find($id)])->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
@@ -432,29 +432,29 @@ class SurveyController extends Controller
 
     public function getCreate()
     {
-        $NameTitle = Nametitle::lists('name', 'id');
-        $Age = Age::lists('age', 'id');
-        $PassingYear = Yearcalendar::lists('Name', 'id');
-        $Profession = Profession::lists('name', 'id');
-        $profession = Profession::all();
-        $MaritalStatus = Maritalstatus::lists('name', 'id');
-        $Accommodation = Accommodation::lists('name', 'id');
-        $Education = Education::lists('name', 'id');
-        $PoliticalStatus = Politicalstatus::lists('name', 'id');
-        $Gender = Gender::lists('GenderName', 'id');
-        $Country = Countr::lists('CountryName', 'id');
-        $Division = Division::lists('DivisionName', 'id');
-        $District = District::lists('DistrictName', 'id');
-        $Thana = Thana::lists('ThanaName', 'id');
-        $PostOffice = Postoffice::lists('PostofficeName', 'id');
-        $Union = Union::lists('UnionName', 'id');
-        $Word = Ward::lists('WardName', 'id');
-        $ZoneInfo = Zone::lists('ZoneName', 'id');
-        $AreaInfo = Area::lists('AreaName', 'id');
-        $BranchInfo = Brn::lists('BranchName', 'id');
-        $Familytypes = Familytype::lists('name', 'id');
-        $Count_Data = Count::lists('name', 'id');
-        $Status = Status::lists('Status', 'id');
+        $NameTitle = [''=>'--select--'] +  Nametitle::lists('name', 'id')->all();
+        $Age = [''=>'--select--'] +  Age::lists('age', 'id')->all();
+        $PassingYear = [''=>'--select--'] +  Yearcalendar::lists('Name', 'id')->all();
+        $Profession = [''=>'--select--'] +  Profession::lists('name', 'id')->all();
+        $profession =  Profession::all();
+        $MaritalStatus = [''=>'--select--'] +  Maritalstatus::lists('name', 'id')->all();
+        $Accommodation = [''=>'--select--'] +  Accommodation::lists('name', 'id')->all();
+        $Education = [''=>'--select--'] +  Education::lists('name', 'id')->all();
+        $PoliticalStatus = [''=>'--select--'] +  Politicalstatus::lists('name', 'id')->all();
+        $Gender = [''=>'--select--'] +  Gender::lists('GenderName', 'id')->all();
+        $Country = [''=>'--select--'] +  Countr::lists('CountryName', 'id')->all();
+        $Division = [''=>'--select--'] +  Division::lists('DivisionName', 'id')->all();
+        $District = [''=>'--select--'] +  District::lists('DistrictName', 'id')->all();
+        $Thana = [''=>'--select--'] +  Thana::lists('ThanaName', 'id')->all();
+        $PostOffice = [''=>'--select--'] +  Postoffice::lists('PostofficeName', 'id')->all();
+        $Union = [''=>'--select--'] +  Union::lists('UnionName', 'id')->all();
+        $Word = [''=>'--select--'] +  Ward::lists('WardName', 'id')->all();
+        $ZoneInfo = [''=>'--select--'] + Zone::lists('ZoneName', 'id')->all();
+        $AreaInfo = [''=>'--select--'] + Area::lists('AreaName', 'id')->all();
+        $BranchInfo = [''=>'--select--'] +  Brn::lists('BranchName', 'id')->all();
+        $Familytypes = [''=>'--select--'] + Familytype::lists('name', 'id')->all();
+        $Count_Data = [''=>'--select--'] +  Count::lists('name', 'id')->all();
+        $Status = [''=>'--select--'] + Status::lists('Status', 'id')->all();
         return view('survey.create')->with('ZoneInfo', $ZoneInfo)->with('BranchInfo', $BranchInfo)->with('AreaInfo', $AreaInfo)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)

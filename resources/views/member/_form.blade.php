@@ -556,7 +556,7 @@
                     <div class="form-group col-md-6" id="form-MohajonName-error">
                         {!! Form::label("MohajonName","মহাজজনের নাম",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::text("MohajonName",null,["class"=>"form-control required", 'readonly' => 'true']) !!}
+                            {!! Form::text("MohajonName",null,["class"=>"form-control required"]) !!}
                             <span id="MohajonName-error" class="help-block"></span>
                         </div>
                     </div>
@@ -564,14 +564,14 @@
                     <div class="form-group col-md-6" id="form-MohajonAddress-error">
                         {!! Form::label("MohajonAddress","মহাজজনের ঠিকানা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::textarea("MohajonAddress",null,["class"=>"form-control required", 'readonly' => 'true']) !!}
+                            {!! Form::textarea("MohajonAddress",null,["class"=>"form-control required"]) !!}
                             <span id="MohajonAddress-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-6" id="form-MohajonPhonOrMobileNo-error">
                         {!! Form::label("MohajonPhonOrMobileNo","ফোন/মোবাইল নং",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("MohajonPhonOrMobileNo",null,["class"=>"form-control required", 'readonly' => 'true']) !!}
+                            {!! Form::number("MohajonPhonOrMobileNo",null,["class"=>"form-control required"]) !!}
                             <span id="MohajonPhonOrMobileNo-error" class="help-block"></span>
                         </div>
                     </div>
