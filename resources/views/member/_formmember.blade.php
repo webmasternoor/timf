@@ -904,7 +904,7 @@
                     <div class="form-group col-md-6" id="form-CultiviableLand-error">
                         {!! Form::label("CultiviableLand","আবাদি জমি (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("CultiviableLand",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("CultiviableLand",null,["class"=>"form-control required","id"=>"CultiviableLand"]) !!}
                             <span id="CultiviableLand-error" class="help-block"></span>
                         </div>
                     </div>
@@ -912,7 +912,7 @@
                     <div class="form-group col-md-6" id="form-NonCultivableLand-error">
                         {!! Form::label("NonCultivableLand","অনাবাদি জমি (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("NonCultivableLand",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("NonCultivableLand",null,["class"=>"form-control required","id"=>"NonCultivableLand"]) !!}
                             <span id="NonCultivableLand-error" class="help-block"></span>
                         </div>
                     </div>
@@ -920,7 +920,7 @@
                     <div class="form-group col-md-6" id="form-Pond-error">
                         {!! Form::label("Pond","পুকুর (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("Pond",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("Pond",null,["class"=>"form-control required","id"=>"Pond"]) !!}
                             <span id="Pond-error" class="help-block"></span>
                         </div>
                     </div>
@@ -928,7 +928,7 @@
                     <div class="form-group col-md-6" id="form-House-error">
                         {!! Form::label("House","বসত বাড়ী(শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("House",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("House",null,["class"=>"form-control required","id"=>"House"]) !!}
                             <span id="House-error" class="help-block"></span>
                         </div>
                     </div>
@@ -936,7 +936,7 @@
                     <div class="form-group col-md-6" id="form-TotalLand-error">
                         {!! Form::label("TotalLand","মোট জমি (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("TotalLand",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("TotalLand",null,["class"=>"form-control required","id"=>"TotalLand"]) !!}
                             <span id="TotalLand-error" class="help-block"></span>
                         </div>
                     </div>
@@ -967,35 +967,34 @@
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua">বাৎসরিক মোট আয় ও ব্যয়</h5>
                     </div>
-                    <div class="form-group col-md-6" id="form-AgriculturalEarning-error">
+                    <div class="form-group col-md-4" id="form-AgriculturalEarning-error">
                         {!! Form::label("AgriculturalEarning","কৃষিজ আয় (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("AgriculturalEarning",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("AgriculturalEarning",null,["class"=>"form-control required", "id"=>"AgriculturalEarning"]) !!}
                             <span id="AgriculturalEarning-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-NonAgriculturalEarning-error">
+                    <div class="form-group col-md-4" id="form-NonAgriculturalEarning-error">
                         {!! Form::label("NonAgriculturalEarning","অকৃষিজ আয় (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("NonAgriculturalEarning",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("NonAgriculturalEarning",null,["class"=>"form-control required", "id"=>"NonAgriculturalEarning"]) !!}
                             <span id="NonAgriculturalEarning-error" class="help-block"></span>
                         </div>
                     </div>
 
-
-                    <div class="form-group col-md-6" id="form-TotalEarning-error">
+                    <div class="form-group col-md-4" id="form-TotalEarning-error">
                         {!! Form::label("TotalEarning","মোট আয় (টাকা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("TotalEarning",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("TotalEarning",null,["class"=>"form-control required" , "id"=>"TotalEarning"]) !!}
                             <span id="TotalEarning-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-TotalExpenditure-error">
+                    <div class="form-group col-md-4" id="form-TotalExpenditure-error">
                         {!! Form::label("TotalExpenditure","মোট ব্যয় (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("TotalExpenditure",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("TotalExpenditure",null,["class"=>"form-control required", "id"=>"TotalExpenditure"]) !!}
                             <span id="TotalExpenditure-error" class="help-block"></span>
                         </div>
                     </div>
@@ -1003,7 +1002,7 @@
                     <div class="form-group col-md-6" id="form-NetBalance-error">
                         {!! Form::label("NetBalance","উদ্বৃত্ত/ঘাটতি (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("NetBalance",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("NetBalance",null,["class"=>"form-control required", "id"=>"NetBalance"]) !!}
                             <span id="NetBalance-error" class="help-block"></span>
                         </div>
                     </div>
@@ -1080,11 +1079,11 @@
                     <div class="form-group col-md-6" id="form-IsHeSheWillingToTakeLoan-error">
                         {!! Form::label("IsHeSheWillingToTakeLoan","TIMF হতে বিনিয়োগ/ঋণ গ্রহন করতে আগ্রহী কি না-",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("IsHeSheWillingToTakeLoan",['1'=>'Yes', '2'=>'No'])!!}
+                            {!! Form::select("IsHeSheWillingToTakeLoan",$Status,null,["class"=>"form-control IsHeSheWillingToTakeLoan required","id"=>"IsHeSheWillingToTakeLoan"]) !!}
                             <span id="IsHeSheWillingToTakeLoan-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-InvestmentSector-error">
+                    <div class="form-group col-md-6" id="InvestmentSector">
                         {!! Form::label("InvestmentSector","বিনিয়োগের খাত",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::text("InvestmentSector",null,["class"=>"form-control required"]) !!}
@@ -1092,7 +1091,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-Amount-error">
+                    <div class="form-group col-md-6" id="Amount">
                         {!! Form::label("Amount","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::number("Amount",null,["class"=>"form-control required"]) !!}
@@ -1100,7 +1099,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-Comment1-error">
+                    <div class="form-group col-md-6" id="Comment1">
                         {!! Form::label("Comment1","প্রথম ব্যক্তির মন্তব্য ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::textarea("Comment1",null,["class"=>"form-control required"]) !!}
@@ -1108,7 +1107,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-Comment2-error">
+                    <div class="form-group col-md-6" id="Comment2">
                         {!! Form::label("Comment2","দ্বিতীয় ব্যক্তির মন্তব্য ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::textarea("Comment2",null,["class"=>"form-control required"]) !!}
@@ -2012,5 +2011,62 @@
                 $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousOtherProfession" value="">')
             }
         });
+        $(document).ready(function () {
+            //this calculates values automatically
+            TotalLand();
+            $("#CultiviableLand, #NonCultivableLand, #Pond, #House").on("keydown keyup", function () {
+                TotalLand();
+            });
+        });
+
+        function TotalLand() {
+
+            var CultiviableLand = document.getElementById('CultiviableLand').value;
+            var NonCultivableLand = document.getElementById('NonCultivableLand').value;
+            var  Pond = document.getElementById('Pond').value;
+            var  House = document.getElementById('House').value;
+
+            var TotalLand = parseFloat(CultiviableLand) + parseFloat(NonCultivableLand) + parseFloat(Pond) + parseFloat(House);
+            if (!isNaN(TotalLand)) {
+                document.getElementById('TotalLand').value = TotalLand;
+            }
+        }
+        $(document).ready(function () {
+            //this calculates values automatically
+            TotalIncome();
+            $("#AgriculturalEarning, #NonAgriculturalEarning").on("keydown keyup", function () {
+                TotalIncome();
+            });
+        });
+
+        function TotalIncome() {
+
+            var AgriculturalEarning = document.getElementById('AgriculturalEarning').value;
+            var NonAgriculturalEarning = document.getElementById('NonAgriculturalEarning').value;
+
+            var TotalEarning = parseFloat(AgriculturalEarning) + parseFloat(NonAgriculturalEarning);
+            if (!isNaN(TotalEarning)) {
+                document.getElementById('TotalEarning').value = TotalEarning;
+            }
+        }
+        $(document).ready(function () {
+            //this calculates values automatically
+            NetBalance();
+            $("#TotalExpenditure").on("keydown keyup", function () {
+                NetBalance();
+            });
+        });
+
+        function NetBalance() {
+
+            var TotalEarning = document.getElementById('TotalEarning').value;
+            var TotalExpenditure = document.getElementById('TotalExpenditure').value;
+
+            var NetBalance = parseFloat(TotalEarning) - parseFloat(TotalExpenditure);
+
+            if (!isNaN(NetBalance)) {
+                document.getElementById('NetBalance').value = NetBalance;
+            }
+        }
     });
 </script>

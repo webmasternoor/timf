@@ -26,9 +26,16 @@
     <link rel="stylesheet" href="{{ asset('highlight/styles/zenburn.css') }}">
     <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"> -->
     <link href="{{ asset('/css/bootstrap-combined.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//resources/demos/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <!-- <link href="{{ asset('bootstrap-3.3.6/css/bootstrap.min.css') }}" rel="stylesheet"> -->
     <script src="{{ asset('highlight/highlight.pack.js')  }}"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <style type="text/css">
         .dropdown-menu {
