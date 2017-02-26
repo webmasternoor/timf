@@ -120,6 +120,7 @@
                             <span id="Age-error" class="help-block"></span>
                         </div>
                     </div>
+
                     <div class="form-group col-md-4" id="form-Education-error">
                         {!! Form::label("Education","সর্বোচ্চ শিক্ষাগত যোগ্যতা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12 Education" id="Education">
@@ -852,7 +853,7 @@
                     <div class="form-group col-md-6" id="form-CultiviableLand-error">
                         {!! Form::label("CultiviableLand","আবাদি জমি (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("CultiviableLand",null,["class"=>"form-control required","id"=>"CultiviableLand"]) !!}
+                            {!! Form::number("CultiviableLand",0,["class"=>"form-control required","id"=>"CultiviableLand"]) !!}
                             <span id="CultiviableLand-error" class="help-block"></span>
                         </div>
                     </div>
@@ -860,7 +861,7 @@
                     <div class="form-group col-md-6" id="form-NonCultivableLand-error">
                         {!! Form::label("NonCultivableLand","অনাবাদি জমি (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("NonCultivableLand",null,["class"=>"form-control required","id"=>"NonCultivableLand"]) !!}
+                            {!! Form::number("NonCultivableLand",0,["class"=>"form-control required","id"=>"NonCultivableLand"]) !!}
                             <span id="NonCultivableLand-error" class="help-block"></span>
                         </div>
                     </div>
@@ -868,7 +869,7 @@
                     <div class="form-group col-md-6" id="form-Pond-error">
                         {!! Form::label("Pond","পুকুর (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("Pond",null,["class"=>"form-control required","id"=>"Pond"]) !!}
+                            {!! Form::number("Pond",0,["class"=>"form-control required","id"=>"Pond"]) !!}
                             <span id="Pond-error" class="help-block"></span>
                         </div>
                     </div>
@@ -876,7 +877,7 @@
                     <div class="form-group col-md-6" id="form-House-error">
                         {!! Form::label("House","বসত বাড়ী(শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("House",null,["class"=>"form-control required","id"=>"House"]) !!}
+                            {!! Form::number("House",0,["class"=>"form-control required","id"=>"House"]) !!}
                             <span id="House-error" class="help-block"></span>
                         </div>
                     </div>
@@ -884,7 +885,7 @@
                     <div class="form-group col-md-6" id="form-TotalLand-error">
                         {!! Form::label("TotalLand","মোট জমি (শতক)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("TotalLand",null,["class"=>"form-control required","id"=>"TotalLand"]) !!}
+                            {!! Form::number("TotalLand",0,["class"=>"form-control required","id"=>"TotalLand"]) !!}
                             <span id="TotalLand-error" class="help-block"></span>
                         </div>
                     </div>
@@ -918,7 +919,7 @@
                     <div class="form-group col-md-4" id="form-AgriculturalEarning-error">
                         {!! Form::label("AgriculturalEarning","কৃষিজ আয় (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("AgriculturalEarning",null,["class"=>"form-control required", "id"=>"AgriculturalEarning"]) !!}
+                            {!! Form::number("AgriculturalEarning",0,["class"=>"form-control required", "id"=>"AgriculturalEarning"]) !!}
                             <span id="AgriculturalEarning-error" class="help-block"></span>
                         </div>
                     </div>
@@ -926,7 +927,7 @@
                     <div class="form-group col-md-4" id="form-NonAgriculturalEarning-error">
                         {!! Form::label("NonAgriculturalEarning","অকৃষিজ আয় (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("NonAgriculturalEarning",null,["class"=>"form-control required", "id"=>"NonAgriculturalEarning"]) !!}
+                            {!! Form::number("NonAgriculturalEarning",0,["class"=>"form-control required", "id"=>"NonAgriculturalEarning"]) !!}
                             <span id="NonAgriculturalEarning-error" class="help-block"></span>
                         </div>
                     </div>
@@ -934,7 +935,7 @@
                     <div class="form-group col-md-4" id="form-TotalEarning-error">
                         {!! Form::label("TotalEarning","মোট আয় (টাকা",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("TotalEarning",null,["class"=>"form-control required" , "id"=>"TotalEarning"]) !!}
+                            {!! Form::number("TotalEarning",0,["class"=>"form-control required" , "id"=>"TotalEarning"]) !!}
                             <span id="TotalEarning-error" class="help-block"></span>
                         </div>
                     </div>
@@ -942,7 +943,7 @@
                     <div class="form-group col-md-4" id="form-TotalExpenditure-error">
                         {!! Form::label("TotalExpenditure","মোট ব্যয় (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("TotalExpenditure",null,["class"=>"form-control required", "id"=>"TotalExpenditure"]) !!}
+                            {!! Form::number("TotalExpenditure",0,["class"=>"form-control required", "id"=>"TotalExpenditure"]) !!}
                             <span id="TotalExpenditure-error" class="help-block"></span>
                         </div>
                     </div>
@@ -950,7 +951,7 @@
                     <div class="form-group col-md-6" id="form-NetBalance-error">
                         {!! Form::label("NetBalance","উদ্বৃত্ত/ঘাটতি (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("NetBalance",null,["class"=>"form-control required", "id"=>"NetBalance"]) !!}
+                            {!! Form::number("NetBalance",0,["class"=>"form-control required", "id"=>"NetBalance"]) !!}
                             <span id="NetBalance-error" class="help-block"></span>
                         </div>
                     </div>
@@ -963,31 +964,38 @@
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>বিনিয়োগ সংক্রান্ত</u></h5>
                     </div>
-                    <div class="form-group col-md-6" id="form-ReceivedAmount-error">
-                        {!! Form::label("ReceivedAmount","বিনিয়োগ/ঋণ গ্রহণ করলে গৃহীত টাকার পরিমাণ",["class"=>"control-label col-md-12"]) !!}
+                    <div class="form-group col-md-6" id="form-IsHeTakeLoan-error">
+                        {!! Form::label("IsHeTakeLoan","অন্য কোন প্রতিষ্ঠান থেকে বিনিয়োগ গ্রহন করেছেন কি?",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("ReceivedAmount",null,["class"=>"form-control required"]) !!}
+                            {!! Form::select("IsHeTakeLoan",$Status,null,["class"=>"form-control IsHeTakeLoan required","id"=>"IsHeTakeLoan"]) !!}
+                            <span id="IsHeTakeLoan-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" id="ReceivedAmount">
+                        {!! Form::label("ReceivedAmount","গৃহীত টাকার পরিমাণ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::number("ReceivedAmount",0,["class"=>"form-control required","id"=>"ReceivedAmount1"]) !!}
                             <span id="ReceivedAmount-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-PaidAmount-error">
+                    <div class="form-group col-md-6" id="PaidAmount">
                         {!! Form::label("PaidAmount","পরিশোধিত টাকার পরিমাণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("PaidAmount",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("PaidAmount",0,["class"=>"form-control required","id"=>"PaidAmount1"]) !!}
                             <span id="PaidAmount-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-RemainingAmountToPay-error">
+                    <div class="form-group col-md-6" id="RemainingAmountToPay">
                         {!! Form::label("RemainingAmountToPay","অবশিষ্ট টাকার পরিমাণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::number("RemainingAmountToPay",null,["class"=>"form-control required"]) !!}
+                            {!! Form::number("RemainingAmountToPay",0,["class"=>"form-control required","id"=>"RemainingAmountToPay1"]) !!}
                             <span id="RemainingAmountToPay-error" class="help-block"></span>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-FinancierCompany-error">
+                    <div class="form-group col-md-6" id="FinancierCompany">
                         {!! Form::label("FinancierCompany","লগ্নীকারী প্রতিষ্ঠানের নাম",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::text("FinancierCompany",null,["class"=>"form-control required"]) !!}
@@ -995,14 +1003,14 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-LoaningYear-error">
+                    <div class="form-group col-md-6" id="LoaningYear">
                         {!! Form::label("LoaningYear","কতদিন যাবৎ গ্রহন করছেন (মাস)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::number("LoaningYear",null,["class"=>"form-control required"]) !!}
                             <span id="LoaningYear-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-LastReceivedDate-error">
+                    <div class="form-group col-md-6" id="LastReceivedDate">
                         {!! Form::label("LastReceivedDate","সর্বশেষ কবে গ্রহণ করেছেন",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::date("LastReceivedDate",null,["class"=>"form-control required"]) !!}
@@ -1010,7 +1018,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6" id="form-RepaymentType-error">
+                    <div class="form-group col-md-6" id="RepaymentType">
                         {!! Form::label("RepaymentType","পরিশোধের ধরণ ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::select("RepaymentType",['1'=>'Regular', '2'=>'Irregular'])!!}
@@ -1142,21 +1150,68 @@
         });
         return false;
     });
-
     $(document).ready(function () {
+        //this calculates values automatically
+        RemainingAmountToPay();
+        $("#ReceivedAmount1,#PaidAmount1").on("keydown keyup", function () {
+            RemainingAmountToPay();
+        });
+    });
+
+    function RemainingAmountToPay() {
+
+        var ReceivedAmount = document.getElementById('ReceivedAmount1').value;
+        var PaidAmount = document.getElementById('PaidAmount1').value;
+
+        var RemainingAmountToPay = parseFloat(ReceivedAmount) - parseFloat(PaidAmount);
+
+        if (!isNaN(RemainingAmountToPay)) {
+            console.log(RemainingAmountToPay);
+            document.getElementById('RemainingAmountToPay1').value = RemainingAmountToPay;
+        }
+    }
+    $(document).ready(function () {
+        $(document).on('change', '.IsHeTakeLoan', function () {
+            //console.log("yes it is change");
+
+            var IsHeTakeLoan = $(this).val();
+            if (IsHeTakeLoan == '2') {
+                $('#ReceivedAmount').hide();
+                $('#PaidAmount').hide();
+                $('#RemainingAmountToPay').hide();
+                $('#FinancierCompany').hide();
+                $('#LoaningYear').hide();
+                $('#LastReceivedDate').hide();
+                $('#RepaymentType').hide();
+            }
+            else {
+                $('#ReceivedAmount').show();
+                $('#PaidAmount').show();
+                $('#RemainingAmountToPay').show();
+                $('#FinancierCompany').show();
+                $('#LoaningYear').show();
+                $('#LastReceivedDate').show();
+                $('#RepaymentType').show();
+            }
+
+        });
         $(document).on('change', '.IsHeSheWillingToTakeLoan', function () {
             //console.log("yes it is change");
 
             var op = " ";
             var IsHeSheWillingToTakeLoan = $(this).val();
             if (IsHeSheWillingToTakeLoan == '2') {
-                console.log(SpouseProfession1);
-                $('#InvestmentSector').empty();
 
                 $('#InvestmentSector').hide();
                 $('#Amount').hide();
                 $('#Comment1').hide();
                 $('#Comment2').hide();
+            }
+            else {
+                $('#InvestmentSector').show();
+                $('#Amount').show();
+                $('#Comment1').show();
+                $('#Comment2').show();
             }
 
         });

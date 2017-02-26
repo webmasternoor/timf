@@ -2011,62 +2011,6 @@
                 $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousOtherProfession" value="">')
             }
         });
-        $(document).ready(function () {
-            //this calculates values automatically
-            TotalLand();
-            $("#CultiviableLand, #NonCultivableLand, #Pond, #House").on("keydown keyup", function () {
-                TotalLand();
-            });
-        });
 
-        function TotalLand() {
-
-            var CultiviableLand = document.getElementById('CultiviableLand').value;
-            var NonCultivableLand = document.getElementById('NonCultivableLand').value;
-            var  Pond = document.getElementById('Pond').value;
-            var  House = document.getElementById('House').value;
-
-            var TotalLand = parseFloat(CultiviableLand) + parseFloat(NonCultivableLand) + parseFloat(Pond) + parseFloat(House);
-            if (!isNaN(TotalLand)) {
-                document.getElementById('TotalLand').value = TotalLand;
-            }
-        }
-        $(document).ready(function () {
-            //this calculates values automatically
-            TotalIncome();
-            $("#AgriculturalEarning, #NonAgriculturalEarning").on("keydown keyup", function () {
-                TotalIncome();
-            });
-        });
-
-        function TotalIncome() {
-
-            var AgriculturalEarning = document.getElementById('AgriculturalEarning').value;
-            var NonAgriculturalEarning = document.getElementById('NonAgriculturalEarning').value;
-
-            var TotalEarning = parseFloat(AgriculturalEarning) + parseFloat(NonAgriculturalEarning);
-            if (!isNaN(TotalEarning)) {
-                document.getElementById('TotalEarning').value = TotalEarning;
-            }
-        }
-        $(document).ready(function () {
-            //this calculates values automatically
-            NetBalance();
-            $("#TotalExpenditure").on("keydown keyup", function () {
-                NetBalance();
-            });
-        });
-
-        function NetBalance() {
-
-            var TotalEarning = document.getElementById('TotalEarning').value;
-            var TotalExpenditure = document.getElementById('TotalExpenditure').value;
-
-            var NetBalance = parseFloat(TotalEarning) - parseFloat(TotalExpenditure);
-
-            if (!isNaN(NetBalance)) {
-                document.getElementById('NetBalance').value = NetBalance;
-            }
-        }
     });
 </script>

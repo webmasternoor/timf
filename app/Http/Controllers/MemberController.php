@@ -532,17 +532,17 @@ class MemberController extends Controller
         $count = Count::all();
         $status = Status::all();
 
-        $Direction = Direction::lists('name', 'id');
-        $Accommodation = Accommodation::lists('name', 'id');
-        $BusinessPlaceStatus = BusinessPlaceStatus::lists('name', 'id');
-        $Licenceauthority = Licenceauthority::lists('name', 'id');
-        $OtherSources = Othersource::lists('name', 'id');
-        $BusinessType = Businesstype::lists('name', 'id');
-        $OwnershipType = Ownershiptype::lists('name', 'id');
-        $Weekend = WeekEnd::lists('name', 'id');
-        $OrgPermanentEmployee = Permanentemployee::lists('name', 'id');
-        $BusinessLeader = Businessleader::lists('name', 'id');
-        $Country = Countr::lists('CountryName', 'id');
+        $Direction = [''=>'--select--'] +  Direction::lists('name', 'id')->all();
+        $Accommodation = [''=>'--select--'] + Accommodation::lists('name', 'id')->all();
+        $BusinessPlaceStatus = [''=>'--select--'] + BusinessPlaceStatus::lists('name', 'id')->all();
+        $Licenceauthority = [''=>'--select--'] + Licenceauthority::lists('name', 'id')->all();
+        $OtherSources = [''=>'--select--'] + Othersource::lists('name', 'id')->all();
+        $BusinessType = [''=>'--select--'] + Businesstype::lists('name', 'id')->all();
+        $OwnershipType = [''=>'--select--'] + Ownershiptype::lists('name', 'id')->all();
+        $Weekend = [''=>'--select--'] + WeekEnd::lists('name', 'id')->all();
+        $OrgPermanentEmployee = [''=>'--select--'] + Permanentemployee::lists('name', 'id')->all();
+        $BusinessLeader = [''=>'--select--'] + Businessleader::lists('name', 'id')->all();
+        $Country = [''=>'--select--'] + Countr::lists('CountryName', 'id')->all();
         $country = Countr::all();
         $division = Division::all();
         $Division = Division::lists('DivisionName', 'id');
