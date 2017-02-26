@@ -62,6 +62,7 @@ Route::controllers([
     'saving1' => 'Saving1Controller',
     'investment' => 'InvestmentController',
     'dpsapplication' => 'DpsapplicationController',
+    'mikrofdivision'   => 'MikrofdivisionController',
 ]);
 
 Route::resource('users', 'UsersController');
