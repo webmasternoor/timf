@@ -1,4 +1,4 @@
-<h1 class="page-header">টোটাল ক্যাশইনফ্লো তালিকা
+<h1 class="page-header">বিভাগীয় অফিসের তালিকা
     <div class="pull-right">
         <a href="javascript:ajaxLoad('mikrofdivision/create')" class="btn btn-primary pull-right"><i
                     class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
@@ -24,31 +24,74 @@
     <tr>
         <th width="50px" style="text-align: center">ক্রমিক নং</th>
         <th>
-            <a href="javascript:ajaxLoad('mikrofdivision/list?field=TotalIncomeDescription&sort={{Session::get("mikrofdivision_sort")=="asc"?"desc":"asc"}}')">
-                আয়ের বিবরণ
+            <a href="javascript:ajaxLoad('mikrofdivision/list?field=DivisionOfficeName&sort={{Session::get("mikrofdivision_sort")=="asc"?"desc":"asc"}}')">
+                অফিসের নাম
             </a>
             <i style="font-size: 12px"
-               class="glyphicon  {{ Session::get('mikrofdivision_field')=='TotalIncomeDescription'?(Session::get('mikrofdivision_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+               class="glyphicon  {{ Session::get('mikrofdivision_field')=='DivisionOfficeName'?(Session::get('mikrofdivision_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
             </i>
         </th>
-        <th width="140px">অ্যাকশন সমূহ</th>
-    </tr>
+        <th>
+            <a href="javascript:ajaxLoad('mikrofdivision/list?field=DivisionOfficeNameBangla&sort={{Session::get("mikrofdivision_sort")=="asc"?"desc":"asc"}}')">
+                অফিসের নাম বাংলা
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('mikrofdivision_field')=='DivisionOfficeNameBangla'?(Session::get('mikrofdivision_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('mikrofdivision/list?field=DivisionOfficeCode&sort={{Session::get("mikrofdivision_sort")=="asc"?"desc":"asc"}}')">
+                অফিসের কোড
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('mikrofdivision_field')=='DivisionOfficeCode'?(Session::get('mikrofdivision_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('mikrofdivision/list?field=DivisionOfficeAddress&sort={{Session::get("mikrofdivision_sort")=="asc"?"desc":"asc"}}')">
+                অফিসের ঠিকানা
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('mikrofdivision_field')=='DivisionOfficeAddress'?(Session::get('mikrofdivision_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('mikrofdivision/list?field=DivisionOfficeMobileNo&sort={{Session::get("mikrofdivision_sort")=="asc"?"desc":"asc"}}')">
+               মোবাইল নং
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('mikrofdivision_field')=='DivisionOfficeMobileNo'?(Session::get('mikrofdivision_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
+        <th>
+            <a href="javascript:ajaxLoad('mikrofdivision/list?field=DivisionOfficeEmail&sort={{Session::get("mikrofdivision_sort")=="asc"?"desc":"asc"}}')">
+                ইমেইল নং
+            </a>
+            <i style="font-size: 12px"
+               class="glyphicon  {{ Session::get('mikrofdivision_field')=='DivisionOfficeEmail'?(Session::get('mikrofdivision_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+            </i>
+        </th>
     </thead>
     <tbody>
     <?php $i = 1;?>
     @foreach($mikrofdivisions as $key=>$mikrofdivision)
         <tr>
             <td align="center">{{$i++}}</td>
-            <td>{{$mikrofdivision->TotalIncomeDescription}}</td>
-            <td style="text-align: center">
-                <a class="btn btn-primary btn-xs" title="Edit"
-                   href="javascript:ajaxLoad('mikrofdivision/update/{{$mikrofdivision->id}}')">
-                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
-                <a class="btn btn-danger btn-xs" title="Delete"
-                   href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('mikrofdivision/delete/{{$mikrofdivision->id}}')">
-                    <i class="glyphicon glyphicon-trash"></i> ডিলিট
-                </a>
-            </td>
+            <td>{{$mikrofdivision->DivisionOfficeName}}</td>
+            <td>{{$mikrofdivision->DivisionOfficeNameBangla}}</td>
+            <td>{{$mikrofdivision->DivisionOfficeCode}}</td>
+            <td>{{$mikrofdivision->DivisionOfficeAddress}}</td>
+            <td>{{$mikrofdivision->DivisionOfficeMobileNo}}</td>
+            <td>{{$mikrofdivision->DivisionOfficeEmail}}</td>
+            {{--<td style="text-align: center">--}}
+                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
+                   {{--href="javascript:ajaxLoad('mikrofdivision/update/{{$mikrofdivision->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
+                   {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('mikrofdivision/delete/{{$mikrofdivision->id}}')">--}}
+                    {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
+                {{--</a>--}}
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

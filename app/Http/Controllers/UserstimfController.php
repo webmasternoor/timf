@@ -1,11 +1,16 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Area;
+use App\Gender;
+use App\Grade;
+use App\Mikrofdivision;
 use App\Organization;
 use App\Rollcatagory;
 use App\Status;
 use App\Statuseser;
 use App\Userstimf;
+use App\Zone;
 use App\Zone1;
 use DB;
 use App\Brn;
@@ -43,16 +48,17 @@ class UserstimfController extends Controller
 
     public function getUpdate($id)
     {
-        $GenderInfo = DB::table('genders')->get();
-        $BranchInfo = Brn::lists('BranchName', 'id');
-        $OrganizationInfo=Organization::lists('OrganizationName','id');
-        $zones= DB::table('zones')->get();
-        $areas= DB::table('areas')->get();
-        $StatusInfo = Status::all();
-        $SamityInfo = Zone1::lists('SomitiName','id');
-        $RollCategory = Rollcatagory::lists('name','id');
-        // $branchs= DB::table('brns')->get();
-        $designations= DB::table('grades')->get();
+        $DivisionOfficeInfo = [''=>'--select--'] + Mikrofdivision::lists('DivisionOfficeName', 'id')->all();
+        $GenderInfo =[''=>'--select--'] + Gender::lists('GenderName','id')->all();
+        $BranchInfo =[''=>'--select--'] + Brn::lists('BranchName', 'id')->all();
+        $OrganizationInfo=[''=>'--select--'] + Organization::lists('OrganizationName','id')->all();
+        $zones=[''=>'--select--'] + Zone::lists('ZoneName','id')->all();
+        $areas=[''=>'--select--'] + Area::lists('AreaName','id')->all();
+        $StatusInfo =[''=>'--select--'] + Status::lists('Status','id')->all();
+        $SamityInfo =[''=>'--select--'] + Zone1::lists('SomitiName','id')->all();
+        $RollCategory =[''=>'--select--'] + Rollcatagory::lists('name','id')->all();
+        // $branchs=[''=>'--select--'] + DB::table('brns')->get();
+        $designations=[''=>'--select--'] + Grade::lists('designation', 'id')->all();
         return view('userstimf.update',['userstimf' => Userstimf::find($id)])
             ->with('designations', $designations)->with('BranchInfo', $BranchInfo)
             ->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)
@@ -123,16 +129,17 @@ class UserstimfController extends Controller
 
     public function getCreate()
     {
-        $GenderInfo = DB::table('genders')->get();
-        $BranchInfo = Brn::lists('BranchName', 'id');
-        $OrganizationInfo=Organization::lists('OrganizationName','id');
-        $zones= DB::table('zones')->get();
-        $areas= DB::table('areas')->get();
-        $StatusInfo = Status::all();
-        $SamityInfo = Zone1::lists('SomitiName','id');
-        $RollCategory = Rollcatagory::lists('name','id');
-       // $branchs= DB::table('brns')->get();
-        $designations= DB::table('grades')->get();
+        $DivisionOfficeInfo = [''=>'--select--'] + Mikrofdivision::lists('DivisionOfficeName', 'id')->all();
+        $GenderInfo =[''=>'--select--'] + Gender::lists('GenderName','id')->all();
+        $BranchInfo =[''=>'--select--'] + Brn::lists('BranchName', 'id')->all();
+        $OrganizationInfo=[''=>'--select--'] +Organization::lists('OrganizationName','id')->all();
+        $zones=[''=>'--select--'] + Zone::lists('ZoneName','id')->all();
+        $areas=[''=>'--select--'] + Area::lists('AreaName','id')->all();
+        $StatusInfo =[''=>'--select--'] + Status::lists('Status','id')->all();
+        $SamityInfo =[''=>'--select--'] + Zone1::lists('SomitiName','id')->all();
+        $RollCategory =[''=>'--select--'] + Rollcatagory::lists('name','id')->all();
+       // $branchs=[''=>'--select--'] + DB::table('brns')->get();
+        $designations=[''=>'--select--'] + Grade::lists('designation', 'id')->all();
         //$designations = DB::table('designations')-> select('*')->get();
         return view('userstimf.create')->with('designations', $designations)->with('BranchInfo', $BranchInfo)
             ->with('zones', $zones)->with('areas', $areas)->with('OrganizationInfo',$OrganizationInfo)

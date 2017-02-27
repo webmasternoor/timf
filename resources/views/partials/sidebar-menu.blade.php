@@ -47,8 +47,9 @@
     </li>
     <li class="dropdown-submenu pull-right"><a tabindex="-1" href="#">সেটিং</a>
         <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="{{ url('/mikrofdivision') }}">MiKrof Division</a></li>
-            <li><a tabindex="-1" href="{{ url('/configurationsav') }}">Configuration Savings</a></li>
+
+
+            <li><a tabindex="-1" href="{{ url('/mikrofdivision') }}">মাইক্রোফ বিভাগ</a></li>
             <li><a tabindex="-1" href="{{ url('/zone') }}">জোন</a></li>
             <li><a tabindex="-1" href="{{ url('/area') }}">এরিয়া</a></li>
             <li><a tabindex="-1" href="{{ url('/brn') }}">ব্রাঞ্চ</a></li>
@@ -74,6 +75,7 @@
             <li><a tabindex="-1" href="{{ url('/zone1') }}">সমিতি</a></li>
             <li><a tabindex="-1" href="{{ url('/holiday') }}">ছুটির দিনপঞ্জিকা</a></li>
             <li><a tabindex="-1" href="{{ url('/userstimf') }}">ব্যবহারকারীগণ</a></li>
+            <li><a tabindex="-1" href="{{ url('/configurationsav') }}">সঞ্চয় কনফিগারেশন</a></li>
             <li><a tabindex="-1" href="{{ url('/users') }}">Super Admin</a></li>
         </ul>
     </li>

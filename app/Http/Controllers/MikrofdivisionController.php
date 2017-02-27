@@ -1,6 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Division;
+use App\Postoffice;
+use App\Thana;
+use App\Union;
+use App\Ward;
+use App\Zone;
 use App\Mikrofdivision;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -26,15 +33,23 @@ class MikrofdivisionController extends Controller
 
     public function getUpdate($id)
     {
-        return view('mikrofdivision.update', ['mikrofdivision' => Mikrofdivision::find($id)]);
+        $ThanaInfo = [''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $DivisionInfo = [''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $UnionInfo = [''=>'--select--'] +  Union::lists('UnionName', 'id')->all();
+        $WardInfo = [''=>'--select--'] + Ward::lists('WardName', 'id')->all();
+        $PostOfficeInfo = [''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+        $district_info = [''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+        return view('mikrofdivision.update', ['mikrofdivision' => Mikrofdivision::find($id)])->with('ThanaInfo', $ThanaInfo)->with('district_info', $district_info)->with('DivisionInfo', $DivisionInfo)
+            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo);
+
     }
 
     public function postUpdate($id)
     {
         $mikrofdivision = Mikrofdivision::find($id);
-        $rules = ["TotalIncomeDescription" => "required"];
-        if ($mikrofdivision->TotalIncomeDescription != Input::get('TotalIncomeDescription'))
-            $rules += ['TotalIncomeDescription' => 'required|unique:mikrofdivisions'];
+        $rules = ["DivisionOfficeCode" => "required"];
+        if ($mikrofdivision->DivisionOfficeCode != Input::get('DivisionOfficeCode'))
+            $rules += ['DivisionOfficeCode' => 'required|unique:mikrofdivisions'];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
             return array(
@@ -42,20 +57,41 @@ class MikrofdivisionController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }
-        $mikrofdivision->TotalIncomeDescription = Input::get('TotalIncomeDescription');
+        $mikrofdivision->DivisionOfficeName = Input::get('DivisionOfficeName');
+        $mikrofdivision->DivisionOfficeNameBangla = Input::get('DivisionOfficeNameBangla');
+        $mikrofdivision->DivisionOfficeCode = Input::get('DivisionOfficeCode');
+        $mikrofdivision->DivisionOfficeAddress = Input::get('DivisionOfficeAddress');
+        $mikrofdivision->DivisionOfficeMobileNo = Input::get('DivisionOfficeMobileNo');
+        $mikrofdivision->DivisionOfficeEmail = Input::get('DivisionOfficeEmail');
+        $mikrofdivision->DivisionOfficeDivisionId = Input::get('DivisionOfficeDivisionId');
+        $mikrofdivision->DivisionOfficeDistrictId = Input::get('DivisionOfficeDistrictId');
+        $mikrofdivision->DivisionOfficeThanaId = Input::get('DivisionOfficeThanaId');
+        $mikrofdivision->DivisionOfficeUnionId = Input::get('DivisionOfficeUnionId');
+        $mikrofdivision->DivisionOfficeWardId = Input::get('DivisionOfficeWardId');
+        $mikrofdivision->DivisionOfficeRoadNo = Input::get('DivisionOfficeRoadNo');
+        $mikrofdivision->DivisionOfficePostOfficeId = Input::get('DivisionOfficePostOfficeId');
         $mikrofdivision->save();
         return ['url' => 'mikrofdivision/list'];
     }
 
     public function getCreate()
     {
-        return view('mikrofdivision.create');
+        $ThanaInfo = [''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $DivisionInfo = [''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $UnionInfo = [''=>'--select--'] +  Union::lists('UnionName', 'id')->all();
+        $WardInfo = [''=>'--select--'] + Ward::lists('WardName', 'id')->all();
+        $PostOfficeInfo = [''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+        $district_info = [''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+        return view('mikrofdivision.create')->with('ThanaInfo', $ThanaInfo)->with('district_info', $district_info)->with('DivisionInfo', $DivisionInfo)
+            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo);
+
+//        return view('mikrofdivision.create');
     }
 
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
-            "TotalIncomeDescription" => "required|unique:mikrofdivisions"
+            "DivisionOfficeCode" => "required|unique:mikrofdivisions"
         ]);
         if ($validator->fails()) {
             return array(
@@ -64,7 +100,19 @@ class MikrofdivisionController extends Controller
             );
         }
         $mikrofdivision = new Mikrofdivision();
-        $mikrofdivision->TotalIncomeDescription = Input::get('TotalIncomeDescription');
+        $mikrofdivision->DivisionOfficeName = Input::get('DivisionOfficeName');
+        $mikrofdivision->DivisionOfficeNameBangla = Input::get('DivisionOfficeNameBangla');
+        $mikrofdivision->DivisionOfficeCode = Input::get('DivisionOfficeCode');
+        $mikrofdivision->DivisionOfficeAddress = Input::get('DivisionOfficeAddress');
+        $mikrofdivision->DivisionOfficeMobileNo = Input::get('DivisionOfficeMobileNo');
+        $mikrofdivision->DivisionOfficeEmail = Input::get('DivisionOfficeEmail');
+        $mikrofdivision->DivisionOfficeDivisionId = Input::get('DivisionOfficeDivisionId');
+        $mikrofdivision->DivisionOfficeDistrictId = Input::get('DivisionOfficeDistrictId');
+        $mikrofdivision->DivisionOfficeThanaId = Input::get('DivisionOfficeThanaId');
+        $mikrofdivision->DivisionOfficeUnionId = Input::get('DivisionOfficeUnionId');
+        $mikrofdivision->DivisionOfficeWardId = Input::get('DivisionOfficeWardId');
+        $mikrofdivision->DivisionOfficeRoadNo = Input::get('DivisionOfficeRoadNo');
+        $mikrofdivision->DivisionOfficePostOfficeId = Input::get('DivisionOfficePostOfficeId');
         $mikrofdivision->save();
         return ['url' => 'mikrofdivision/list'];
     }

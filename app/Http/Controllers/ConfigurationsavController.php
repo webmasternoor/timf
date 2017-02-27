@@ -2,6 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Configurationsav;
+use App\Product;
+use App\Status;
+use App\Statuseser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -21,20 +24,34 @@ class ConfigurationsavController extends Controller
         Session::put('configurationsav_sort', Input::has('sort') ? Input::get('sort') : (Session::has('configurationsav_sort') ? Session::get('configurationsav_sort') : 'asc'));
         $configurationsavs = Configurationsav::where('id', 'like', '%' . Session::get('configurationsav_search') . '%')
             ->orderBy(Session::get('configurationsav_field'), Session::get('configurationsav_sort'))->paginate(8);
-        return view('configurationsav.list', ['configurationsavs' => $configurationsavs]);
+
+        $configurationsavsInfo = Configurationsav::select('*')
+            -> join('products', 'configurationsavs.ProductID', '=','products.id')
+            -> join('statuses', 'configurationsavs.IsActive', '=','statuses.id')
+            -> join('statusesers', 'configurationsavs.MultipleSavings', '=','statusesers.id')
+//            ->where('id', 'like', '%' . Session::get('configurationsav_search') . '%')
+//            ->orderBy(Session::get('configurationsav_field'), Session::get('configurationsav_sort'))
+            ->paginate(8);
+
+        return view('configurationsav.list', ['configurationsavs' => $configurationsavs])->with('configurationsavsInfo',$configurationsavsInfo);
     }
 
     public function getUpdate($id)
     {
-        return view('configurationsav.update', ['configurationsav' => Configurationsav::find($id)]);
+        $StatusInfo =[''=>'--select--'] + Status::lists('Status','id')->all();
+        $StatuserInfo =[''=>'--select--'] + Statuseser::lists('name','id')->all();
+        $ProductInfo =[''=>'--select--'] + Product::lists('ProductName','id')->all();
+
+        return view('configurationsav.update', ['configurationsav' => Configurationsav::find($id)])->with('StatusInfo',$StatusInfo)->with('ProductInfo',$ProductInfo)
+            ->with('StatuserInfo',$StatuserInfo);
     }
 
     public function postUpdate($id)
     {
         $configurationsav = Configurationsav::find($id);
-        $rules = ["TotalIncomeDescription" => "required"];
-        if ($configurationsav->TotalIncomeDescription != Input::get('TotalIncomeDescription'))
-            $rules += ['TotalIncomeDescription' => 'required|unique:configurationsavs'];
+        $rules = ["ProductID" => "required"];
+        if ($configurationsav->ProductID != Input::get('ProductID'))
+            $rules += ['ProductID' => 'required'];
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
             return array(
@@ -42,20 +59,34 @@ class ConfigurationsavController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }
-        $configurationsav->TotalIncomeDescription = Input::get('TotalIncomeDescription');
+
+        $configurationsav->ProductID = Input::get('ProductID');
+        $configurationsav->InterestPercentage = Input::get('InterestPercentage');
+        $configurationsav->EffectiveFrom = Input::get('EffectiveFrom');
+        $configurationsav->EffectiveTo = Input::get('EffectiveTo');
+        $configurationsav->IsActive = Input::get('IsActive');
+        $configurationsav->MultipleSavings = Input::get('MultipleSavings');
+        $configurationsav->WithdrawlFacility = Input::get('WithdrawlFacility');
+        $configurationsav->MinAmount = Input::get('MinAmount');
+        $configurationsav->MaxAmount = Input::get('MaxAmount');
+        $configurationsav->MinBalance = Input::get('MinBalance');
+        $configurationsav->MaxDueCycle = Input::get('MaxDueCycle');
         $configurationsav->save();
         return ['url' => 'configurationsav/list'];
     }
 
     public function getCreate()
     {
-        return view('configurationsav.create');
+        $StatusInfo =[''=>'--select--'] + Status::lists('Status','id')->all();
+        $StatuserInfo =[''=>'--select--'] + Statuseser::lists('name','id')->all();
+        $ProductInfo =[''=>'--select--'] + Product::lists('ProductName','id')->all();
+        return view('configurationsav.create')->with('StatusInfo',$StatusInfo)->with('ProductInfo',$ProductInfo) ->with('StatuserInfo',$StatuserInfo);
     }
 
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
-            "TotalIncomeDescription" => "required|unique:configurationsavs"
+            "ProductID" => "required"
         ]);
         if ($validator->fails()) {
             return array(
@@ -64,7 +95,17 @@ class ConfigurationsavController extends Controller
             );
         }
         $configurationsav = new Configurationsav();
-        $configurationsav->TotalIncomeDescription = Input::get('TotalIncomeDescription');
+        $configurationsav->ProductID = Input::get('ProductID');
+        $configurationsav->InterestPercentage = Input::get('InterestPercentage');
+        $configurationsav->EffectiveFrom = Input::get('EffectiveFrom');
+        $configurationsav->EffectiveTo = Input::get('EffectiveTo');
+        $configurationsav->IsActive = Input::get('IsActive');
+        $configurationsav->MultipleSavings = Input::get('MultipleSavings');
+        $configurationsav->WithdrawlFacility = Input::get('WithdrawlFacility');
+        $configurationsav->MinAmount = Input::get('MinAmount');
+        $configurationsav->MaxAmount = Input::get('MaxAmount');
+        $configurationsav->MinBalance = Input::get('MinBalance');
+        $configurationsav->MaxDueCycle = Input::get('MaxDueCycle');
         $configurationsav->save();
         return ['url' => 'configurationsav/list'];
     }

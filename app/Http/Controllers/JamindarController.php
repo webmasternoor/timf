@@ -58,19 +58,18 @@ class JamindarController extends Controller
 
     public function getUpdate($id)
     {
-        $NameTitle = Nametitle::lists('name', 'id');
-        $Age = Age::lists('age', 'id');
-        $PassingYear = Year_calendar::lists('Name', 'id');
-        $Profession = Profession::lists('name', 'id');
-        $Education = Education::lists('name', 'id');
-        $Gender = Gender::lists('GenderName', 'id');
-        $Country = Countr::lists('CountryName', 'id');
-        $Division = Division::lists('DivisionName', 'id');
-        $District = District::lists('DistrictName', 'id');
-        $Thana = Thana::lists('ThanaName', 'id');
-        $PostOffice = Postoffice::lists('PostofficeName', 'id');
-        $Union = Union::lists('UnionName', 'id');
-        $Ward = Ward::lists('WardName', 'id');
+        $Age =[''=>'--select--'] + Age::lists('age', 'id')->all();
+        $PassingYear =[''=>'--select--'] + Year_calendar::lists('Name', 'id')->all();
+        $Profession =[''=>'--select--'] + Profession::lists('name', 'id')->all();
+        $Education =[''=>'--select--'] + Education::lists('name', 'id')->all();
+        $Gender =[''=>'--select--'] + Gender::lists('GenderName', 'id')->all();
+        $Country =[''=>'--select--'] + Countr::lists('CountryName', 'id')->all();
+        $Division =[''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $District =[''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+        $Thana =[''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $PostOffice =[''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+        $Union =[''=>'--select--'] + Union::lists('UnionName', 'id')->all();
+        $Ward =[''=>'--select--'] + Ward::lists('WardName', 'id')->all();
 
 
         $zone = Zone::all();
@@ -79,7 +78,7 @@ class JamindarController extends Controller
 
         return view('jamindar.update', ['jamindar' => Jamindar::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
-            ->with('Union', $Union)->with('Ward', $Ward)->with('NameTitle',$NameTitle)->with('Age',$Age)->with('PassingYear',$PassingYear)
+            ->with('Union', $Union)->with('Ward', $Ward)->with('Age',$Age)->with('PassingYear',$PassingYear)
             ->with('Education', $Education)->with('Profession',$Profession)->with('Gender',$Gender)->with('Division',$Division);
         //return view('survey.list', ['surveys' => $surveys]);    
 
@@ -167,31 +166,31 @@ class JamindarController extends Controller
         $Nidsession = Session::get('loan_search2');
 
 
-        $NameTitle = Nametitle::lists('name', 'id');
-        $Age = Age::lists('age', 'id');
-        $PassingYear = Year_calendar::lists('Name', 'id');
-        $Profession = Profession::lists('name', 'id');
-        $Education = Education::lists('name', 'id');
-        $Gender = Gender::lists('GenderName', 'id');
-        $Country = Countr::lists('CountryName', 'id');
-        $Division = Division::lists('DivisionName', 'id');
-        $District = District::lists('DistrictName', 'id');
-        $Thana = Thana::lists('ThanaName', 'id');
-        $PostOffice = Postoffice::lists('PostofficeName', 'id');
-        $Union = Union::lists('UnionName', 'id');
-        $Ward = Ward::lists('WardName', 'id');
+//        $NameTitle = Nametitle::lists('name', 'id');
+        $Age =[''=>'--select--'] + Age::lists('age', 'id')->all();
+        $PassingYear =[''=>'--select--'] + Year_calendar::lists('Name', 'id')->all();
+        $Profession =[''=>'--select--'] + Profession::lists('name', 'id')->all();
+        $Education =[''=>'--select--'] + Education::lists('name', 'id')->all();
+        $Gender =[''=>'--select--'] + Gender::lists('GenderName', 'id')->all();
+        $Country =[''=>'--select--'] + Countr::lists('CountryName', 'id')->all();
+        $Division =[''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $District =[''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+        $Thana =[''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $PostOffice =[''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+        $Union =[''=>'--select--'] + Union::lists('UnionName', 'id')->all();
+        $Ward =[''=>'--select--'] + Ward::lists('WardName', 'id')->all();
 
 
-        $zone = Zone::all();
-        $ZoneInfo  = Zone::all();
-        $area = Area::all();
-        $branch = Brn::all();
+//        $zone = Zone::all();
+//        $ZoneInfo  = Zone::all();
+//        $area = Area::all();
+//        $branch = Brn::all();
 
-        return view('jamindar.create')->with('zone', $zone)->with('branch', $branch)->with('area', $area)
+        return view('jamindar.create')
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
-            ->with('Union', $Union)->with('Ward', $Ward)->with('NameTitle',$NameTitle)->with('Age',$Age)->with('PassingYear',$PassingYear)
+            ->with('Union', $Union)->with('Ward', $Ward)->with('Age',$Age)->with('PassingYear',$PassingYear)
             ->with('Education', $Education)->with('Profession',$Profession)->with('Gender',$Gender)->with('Division',$Division)
-            ->with('loan1s', $loan1s)->with('ZoneInfo',$ZoneInfo);
+            ->with('loan1s', $loan1s);
        // return view('jamindar.create');
     }
 

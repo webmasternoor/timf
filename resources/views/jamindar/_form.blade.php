@@ -7,31 +7,31 @@
 
         <div class="col-md-12">
 
-            <div class="form-group required col-md-3" id="form-JamindarNameTitle-error">
-                {!! Form::label("JamindarNameTitle","টাইটেল:",["class"=>"control-label col-md-12"]) !!}
-                <div class="col-md-12">
-                    {!! Form::select("JamindarNameTitle",$NameTitle,null,["class"=>"form-control JamindarNameTitle required","id"=>"JamindarNameTitle"]) !!}
-                    <span id="JamindarNameTitle-error" class="help-block"></span>
-                </div>
-            </div>
+            {{--<div class="form-group required col-md-3" id="form-JamindarNameTitle-error">--}}
+                {{--{!! Form::label("JamindarNameTitle","টাইটেল:",["class"=>"control-label col-md-12"]) !!}--}}
+                {{--<div class="col-md-12">--}}
+                    {{--{!! Form::select("JamindarNameTitle",$NameTitle,null,["class"=>"form-control JamindarNameTitle required","id"=>"JamindarNameTitle"]) !!}--}}
+                    {{--<span id="JamindarNameTitle-error" class="help-block"></span>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-            <div class="form-group required col-md-3" id="form-JamindarFirstName-error">
-                {!! Form::label("JamindarFirstName","১ম অংশ",["class"=>"control-label col-md-12"]) !!}
+            <div class="form-group required col-md-4" id="form-JamindarFirstName-error">
+                {!! Form::label("JamindarFirstName","পূর্ন নাম(ইংরেজী)",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::text("JamindarFirstName",null,["class"=>"form-control required"]) !!}
                     <span id="JamindarFirstName-error" class="help-block"></span>
                 </div>
             </div>
 
-            <div class="form-group required col-md-3" id="form-JamindarLastName-error">
-                {!! Form::label("JamindarLastName","২য় অংশ",["class"=>"control-label col-md-12"]) !!}
+            <div class="form-group required col-md-4" id="form-JamindarLastName-error">
+                {!! Form::label("JamindarLastName","পূর্ন নাম(বাংলা)",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::text("JamindarLastName",null,["class"=>"form-control required"]) !!}
                     <span id="JamindarLastName-error" class="help-block"></span>
                 </div>
             </div>
 
-            <div class="form-group required col-md-3" id="form-JamindarFamilyName-error">
+            <div class="form-group required col-md-4" id="form-JamindarFamilyName-error">
                 {!! Form::label("JamindarFamilyName","পারিবারিক নাম",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::text("JamindarFamilyName",null,["class"=>"form-control required"]) !!}
@@ -54,7 +54,7 @@
                     <span id="JamindarAge-error" class="help-block"></span>
                 </div>
             </div>
-            <div class="form-group col-md-6" id="form-JamindarGender-error">
+            <div class="form-group col-md-4" id="form-JamindarGender-error">
                 {!! Form::label("JamindarGender","জেন্ডার",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarGender",$Gender,null,["class"=>"form-control JamindarGender required","id"=>"JamindarGender"]) !!}
@@ -69,14 +69,14 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-JamindarPassingYear-error">
-                {!! Form::label("JamindarPassingYear","পাশের বছর",["class"=>"control-label col-md-12"]) !!}
-                <div class="col-md-12">
-                    {!! Form::select("JamindarPassingYear",$PassingYear,null,["class"=>"form-control JamindarPassingYear required","id"=>"JamindarPassingYear"]) !!}
-                    <span id="JamindarPassingYear-error" class="help-block"></span>
-                </div>
-            </div>
-            <div class="form-group required col-md-6" id="form-JamindarMobile1-error">
+            {{--<div class="form-group required col-md-6" id="form-JamindarPassingYear-error">--}}
+                {{--{!! Form::label("JamindarPassingYear","পাশের বছর",["class"=>"control-label col-md-12"]) !!}--}}
+                {{--<div class="col-md-12">--}}
+                    {{--{!! Form::select("JamindarPassingYear",$PassingYear,null,["class"=>"form-control JamindarPassingYear required","id"=>"JamindarPassingYear"]) !!}--}}
+                    {{--<span id="JamindarPassingYear-error" class="help-block"></span>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            <div class="form-group required col-md-4" id="form-JamindarMobile1-error">
                 {!! Form::label("JamindarMobile1","মোবাইল নং ",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::text("JamindarMobile1",null,["class"=>"form-control required"]) !!}
@@ -85,7 +85,7 @@
             </div>
 
 
-            <div class="form-group required col-md-6" id="form-JamindarEmail-error">
+            <div class="form-group required col-md-4" id="form-JamindarEmail-error">
                 {!! Form::label("JamindarEmail","ইমেইল",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::email("JamindarEmail",null,["class"=>"form-control required"]) !!}
@@ -93,7 +93,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-JamindarNid-error">
+            <div class="form-group required col-md-4" id="form-JamindarNid-error">
                 {!! Form::label("JamindarNid","জাতীয় পরিচয় পত্র",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::text("JamindarNid",null,["class"=>"form-control required"]) !!}
@@ -131,38 +131,38 @@
         <div class="box-header col-md-12">
             <h5 class="text-aqua"><u>পিতা/ স্বামীর নাম</u></h5>
         </div>
-        <div class="form-group required col-md-3" id="form-FatherOrHasbandNAmeTitle-error">
-            {!! Form::label("FatherOrHasbandNAmeTitle","টাইটেল",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::select("FatherOrHasbandNAmeTitle",$NameTitle,null,["class"=>"form-control FatherOrHasbandNAmeTitle required","id"=>"FatherOrHasbandNAmeTitle"]) !!}
-                <span id="FatherOrHasbandNAmeTitle-error" class="help-block"></span>
-            </div>
-        </div>
+        {{--<div class="form-group required col-md-3" id="form-FatherOrHasbandNAmeTitle-error">--}}
+            {{--{!! Form::label("FatherOrHasbandNAmeTitle","টাইটেল",["class"=>"control-label col-md-12"]) !!}--}}
+            {{--<div class="col-md-12">--}}
+                {{--{!! Form::select("FatherOrHasbandNAmeTitle",$NameTitle,null,["class"=>"form-control FatherOrHasbandNAmeTitle required","id"=>"FatherOrHasbandNAmeTitle"]) !!}--}}
+                {{--<span id="FatherOrHasbandNAmeTitle-error" class="help-block"></span>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
 
-        <div class="form-group required col-md-3" id="form-FatherOrHasbandFirstName-error">
-            {!! Form::label("FatherOrHasbandFirstName","প্রথম অংশ",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-FatherOrHasbandFirstName-error">
+            {!! Form::label("FatherOrHasbandFirstName","পূর্ন নাম(ইংরেজী)",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
                 {!! Form::text("FatherOrHasbandFirstName",null,["class"=>"form-control required"]) !!}
                 <span id="FatherOrHasbandFirstName-error" class="help-block"></span>
             </div>
         </div>
 
-        <div class="form-group required col-md-3" id="form-FatherOrHasbandLastName-error">
-            {!! Form::label("FatherOrHasbandLastName","দ্বিতীয় অংশ",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-FatherOrHasbandLastName-error">
+            {!! Form::label("FatherOrHasbandLastName","পূর্ন নাম(বাংলা)",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
                 {!! Form::text("FatherOrHasbandLastName",null,["class"=>"form-control required"]) !!}
                 <span id="FatherOrHasbandLastName-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-3" id="form-FatherOrHasbandFamilyName-error">
-            {!! Form::label("FatherOrHasbandFamilyName","পারিবারিক নাম",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::text("FatherOrHasbandFamilyName",null,["class"=>"form-control required"]) !!}
-                <span id="FatherOrHasbandFamilyName-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="form-group required col-md-3" id="form-FatherOrHasbandAge-error">
+        {{--<div class="form-group required col-md-3" id="form-FatherOrHasbandFamilyName-error">--}}
+            {{--{!! Form::label("FatherOrHasbandFamilyName","পারিবারিক নাম",["class"=>"control-label col-md-12"]) !!}--}}
+            {{--<div class="col-md-12">--}}
+                {{--{!! Form::text("FatherOrHasbandFamilyName",null,["class"=>"form-control required"]) !!}--}}
+                {{--<span id="FatherOrHasbandFamilyName-error" class="help-block"></span>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        <div class="form-group required col-md-4" id="form-FatherOrHasbandAge-error">
             {!! Form::label("FatherOrHasbandAge","বয়স",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
                 {!! Form::select("FatherOrHasbandAge",$Age,null,["class"=>"form-control FatherOrHasbandAge required","id"=>"FatherOrHasbandAge"]) !!}
@@ -175,37 +175,37 @@
         <div class="box-header col-md-11">
             <h5 class="text-aqua"><u>মায়ের নাম</u></h5>
         </div>
-        <div class="form-group col-md-6" id="form-JamindarMatherNameTitle-error">
-            {!! Form::label("JamindarMatherNameTitle","টাইটেল",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::select("JamindarMatherNameTitle",$NameTitle,null,["class"=>"form-control JamindarMatherNameTitle required","id"=>"JamindarMatherNameTitle"]) !!}
-                <span id="JamindarMatherNameTitle-error" class="help-block"></span>
-            </div>
-        </div>
+        {{--<div class="form-group col-md-6" id="form-JamindarMatherNameTitle-error">--}}
+            {{--{!! Form::label("JamindarMatherNameTitle","টাইটেল",["class"=>"control-label col-md-12"]) !!}--}}
+            {{--<div class="col-md-12">--}}
+                {{--{!! Form::select("JamindarMatherNameTitle",$NameTitle,null,["class"=>"form-control JamindarMatherNameTitle required","id"=>"JamindarMatherNameTitle"]) !!}--}}
+                {{--<span id="JamindarMatherNameTitle-error" class="help-block"></span>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <div class="form-group col-md-6" id="form-JamindarMotherFirstName-error">
-            {!! Form::label("JamindarMotherFirstName","প্রথম অংশ",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group col-md-4" id="form-JamindarMotherFirstName-error">
+            {!! Form::label("JamindarMotherFirstName","পূর্ন নাম(ইংরেজী)",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
                 {!! Form::text("JamindarMotherFirstName",null,["class"=>"form-control required"]) !!}
                 <span id="JamindarMotherFirstName-error" class="help-block"></span>
             </div>
         </div>
 
-        <div class="form-group col-md-6" id="form-JamindarMotherLastName-error">
-            {!! Form::label("JamindarMotherLastName","দ্বিতীয় অংশ",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group col-md-4" id="form-JamindarMotherLastName-error">
+            {!! Form::label("JamindarMotherLastName","পূর্ন নাম(বাংলা)",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
                 {!! Form::text("JamindarMotherLastName",null,["class"=>"form-control required"]) !!}
                 <span id="JamindarMotherLastName-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-3" id="form-JamindarMotherFamilyName-error">
-            {!! Form::label("JamindarMotherFamilyName","পারিবারিক নাম",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::text("JamindarMotherFamilyName",null,["class"=>"form-control required"]) !!}
-                <span id="JamindarMotherFamilyName-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="form-group col-md-6" id="form-JamindarMotherAge-error">
+        {{--<div class="form-group required col-md-3" id="form-JamindarMotherFamilyName-error">--}}
+            {{--{!! Form::label("JamindarMotherFamilyName","পারিবারিক নাম",["class"=>"control-label col-md-12"]) !!}--}}
+            {{--<div class="col-md-12">--}}
+                {{--{!! Form::text("JamindarMotherFamilyName",null,["class"=>"form-control required"]) !!}--}}
+                {{--<span id="JamindarMotherFamilyName-error" class="help-block"></span>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        <div class="form-group col-md-4" id="form-JamindarMotherAge-error">
             {!! Form::label("JamindarMotherAge","বয়সঃ",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
                 {!! Form::select("JamindarMotherAge",$Age,null,["class"=>"form-control JamindarMotherAge required","id"=>"JamindarMotherAge"]) !!}
@@ -220,7 +220,7 @@
             <div class="box-header col-md-12">
                 <h5 class="text-aqua"><u>বর্তমান ঠিকানা</u></h5>
             </div>
-            <div class="form-group required col-md-6" id="form-JamindarCountry-error">
+            <div class="form-group required col-md-4" id="form-JamindarCountry-error">
                 {!! Form::label("JamindarCountry","দেশ",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarCountry",$Country,null,["class"=>"form-control JamindarCountry required","id"=>"JamindarCountry"]) !!}
@@ -228,7 +228,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-DivisionId-error">
+            <div class="form-group required col-md-4" id="form-DivisionId-error">
                 {!! Form::label("DivisionId","বিভাগ",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarDivision",$Division,null,["class"=>"form-control DivisionId required","id"=>"DivisionId"]) !!}
@@ -236,7 +236,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-DistrictId-error">
+            <div class="form-group required col-md-4" id="form-DistrictId-error">
                 {!! Form::label("DistrictId","জেলা",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarDistrict",$District,null,["class"=>"form-control DistrictId required","id"=>"DistrictId"]) !!}
@@ -244,7 +244,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-ThanaId-error">
+            <div class="form-group required col-md-4" id="form-ThanaId-error">
                 {!! Form::label("ThanaId","থানা",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarThana",$Thana,null,["class"=>"form-control ThanaId required","id"=>"ThanaId"]) !!}
@@ -252,15 +252,15 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-PostofficeId-error">
+            <div class="form-group required col-md-4" id="form-PostofficeId-error">
                 {!! Form::label("PostofficeId","পোষ্ট অফিস",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
-                    {!! Form::select("JamindarPostoffice",$PostOffice,null,["class"=>"form-control PostofficeId required","id"=>"PostofficeId"]) !!}
+                    {!! Form::text("PostofficeId",null,["class"=>"form-control required"]) !!}
                     <span id="PostofficeId-error" class="help-block"></span>
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-UnionId-error">
+            <div class="form-group required col-md-4" id="form-UnionId-error">
                 {!! Form::label("UnionId","ইউনিয়ন",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarUnion",$Union,null,["class"=>"form-control UnionId required","id"=>"UnionId"]) !!}
@@ -268,7 +268,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-WordId-error">
+            <div class="form-group required col-md-4" id="form-WordId-error">
                 {!! Form::label("WordId","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarWord",$Ward,null,["class"=>"form-control WordId required","id"=>"WordId"]) !!}
@@ -276,7 +276,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-JamindarVillage-error">
+            <div class="form-group required col-md-4" id="form-JamindarVillage-error">
                 {!! Form::label("JamindarVillage","গ্রাম",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::text("JamindarVillage",null,["class"=>"form-control required"]) !!}
@@ -291,7 +291,7 @@
             <div class="box box-header">
                 <h5 class="col-md-offset-1">স্থায়ী ঠিকানা</h5>
             </div>
-            <div class="form-group required col-md-6" id="form-JamindarCountry1-error">
+            <div class="form-group required col-md-4" id="form-JamindarCountry1-error">
                 {!! Form::label("JamindarCountry1","দেশ",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarCountry1",$Country,null,["class"=>"form-control JamindarCountry1 required","id"=>"JamindarCountry1"]) !!}
@@ -299,7 +299,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-Division1-error">
+            <div class="form-group required col-md-4" id="form-Division1-error">
                 {!! Form::label("Division1","বিভাগ",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarDivision1",$Division,null,["class"=>"form-control Division1 required","id"=>"Division1"]) !!}
@@ -307,7 +307,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-District1-error">
+            <div class="form-group required col-md-4" id="form-District1-error">
                 {!! Form::label("District1","জেলা",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarDistrict1",$District,null,["class"=>"form-control District1 required","id"=>"District1"]) !!}
@@ -315,7 +315,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-Thana1-error">
+            <div class="form-group required col-md-4" id="form-Thana1-error">
                 {!! Form::label("Thana1","থানা",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarThana1",$Thana,null,["class"=>"form-control Thana1 required","id"=>"Thana1"]) !!}
@@ -323,15 +323,15 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-Postoffice1-error">
+            <div class="form-group required col-md-4" id="form-Postoffice1-error">
                 {!! Form::label("Postoffice1","পোষ্ট অফিস",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
-                    {!! Form::select("JamindarPostoffice1",$PostOffice,null,["class"=>"form-control Postoffice1 required","id"=>"Postoffice1"]) !!}
+                    {!! Form::text("Postoffice1",null,["class"=>"form-control required"]) !!}
                     <span id="Postoffice1-error" class="help-block"></span>
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-Union1-error">
+            <div class="form-group required col-md-4" id="form-Union1-error">
                 {!! Form::label("Union1","ইউনিয়ন",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarUnion1",$Union,null,["class"=>"form-control Union1 required","id"=>"Union1"]) !!}
@@ -339,7 +339,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-Word1-error">
+            <div class="form-group required col-md-4" id="form-Word1-error">
                 {!! Form::label("Word1","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::select("JamindarWord1",$Ward,null,["class"=>"form-control Word1 required","id"=>"Word1"]) !!}
@@ -347,7 +347,7 @@
                 </div>
             </div>
 
-            <div class="form-group required col-md-6" id="form-JamindarVillage1-error">
+            <div class="form-group required col-md-4" id="form-JamindarVillage1-error">
                 {!! Form::label("JamindarVillage1","গ্রাম",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
                     {!! Form::text("JamindarVillage1",null,["class"=>"form-control required"]) !!}

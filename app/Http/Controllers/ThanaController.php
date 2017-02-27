@@ -20,7 +20,7 @@ class ThanaController extends Controller
     public function getList()
     {
         Session::put('thana_search', Input::has('ok') ? Input::get('search') : (Session::has('thana_search') ? Session::get('thana_search') : ''));
-        Session::put('thana_field', Input::has('field') ? Input::get('field') : (Session::has('thana_field') ? Session::get('thana_field') : 'id'));
+        Session::put('thana_field', Input::has('field') ? Input::get('field') : (Session::has('thana_field') ? Session::get('thana_field') : 'ThanaName'));
         Session::put('thana_sort', Input::has('sort') ? Input::get('sort') : (Session::has('thana_sort') ? Session::get('thana_sort') : 'asc'));
         $thanas = Thana::where('ThanaName', 'like', '%' . Session::get('thana_search') . '%')
             ->orderBy(Session::get('thana_field'), Session::get('thana_sort'))->paginate(8);
@@ -31,8 +31,8 @@ class ThanaController extends Controller
 //            ->get();
         $ThanaInfo = Thana::select('*')
             -> join('districts', 'thanas.DistrictId', '=', 'districts.id')
-//            ->where('id', 'like', '%' . Session::get('thana_search') . '%')
-//            ->orderBy(Session::get('thana_field'), Session::get('thana_sort'))
+            ->where('ThanaName', 'like', '%' . Session::get('thana_search') . '%')
+            ->orderBy(Session::get('thana_field'), Session::get('thana_sort'))
 //            ->select('*')
             ->paginate(8);
         return view('thana.list', ['thanas' => $thanas],['ThanaInfo'=>$ThanaInfo]);

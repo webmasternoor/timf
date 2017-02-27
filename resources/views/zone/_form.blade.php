@@ -1,5 +1,12 @@
 <div class="col-md-12">
     <div class="borderportion">
+        <div class="form-group required col-md-6" id="form-ZoneDivisionOfficeId-error">
+            {!! Form::label("ZoneDivisionOfficeId","বিভাগীয় অফিস",["class"=>"control-label test col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("ZoneDivisionOfficeId",$DivisionOfficeInfo,null,["class"=>"form-control required","id"=>"ZoneDivisionOfficeId"]) !!}
+                <span id="ZoneDivisionOfficeId-error" class="help-block"></span>
+            </div>
+        </div>
         <div class="form-group required col-md-6" id="form-ZoneName-error">
             {!! Form::label("ZoneName","জোন নাম",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">

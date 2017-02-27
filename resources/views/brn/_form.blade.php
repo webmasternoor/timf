@@ -1,12 +1,12 @@
 <div class="col-md-12">
     <div class="borderportion">
-        {{--<div class="form-group required col-md-6" id="form-BranchId-error">--}}
-        {{--{!! Form::label("BranchId","এরিয়া",["class"=>"control-label col-md-3"]) !!}--}}
-        {{--<div class="col-md-6">--}}
-        {{--{!! Form::select("BranchId",['1' => 'Pabna', '2' => 'Shujanagor', '3' => 'Chatmohor'])!!}--}}
-        {{--<span id="BranchId-error" class="help-block"></span>--}}
-        {{--</div>--}}
-        {{--</div>--}}
+        <div class="form-group required col-md-6" id="form-DivisionOfficeId-error">
+            {!! Form::label("DivisionOfficeId","বিভাগীয় অফিস",["class"=>"control-label test col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("DivisionOfficeId",$DivisionOfficeInfo,null,["class"=>"form-control required","id"=>"DivisionOfficeId"]) !!}
+                <span id="DivisionOfficeId-error" class="help-block"></span>
+            </div>
+        </div>
         <div class="form-group required col-md-3" id="form-ZoneId-error">
             {!! Form::label("ZoneId","Zone",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">

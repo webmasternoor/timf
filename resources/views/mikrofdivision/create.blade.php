@@ -1,4 +1,4 @@
-<h2 class="page-header">নতুন টোটাল ক্যাশইনফ্লো যোগ করুন</h2>
+<h2 class="page-header">নতুন বিভাগীয় অফিস যোগ করুন</h2>
 {!! Form::open(["id"=>"frm","class"=>"form-horizontal"]) !!}
 @include("mikrofdivision._form")
 {!! Form::close() !!}

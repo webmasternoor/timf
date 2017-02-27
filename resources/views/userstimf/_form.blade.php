@@ -34,14 +34,14 @@
         {{--</div>--}}
     {{--</div>--}}
     <div class="form-group required col-md-4" id="form-employee_firstname-error">
-        {!! Form::label("employee_firstname","নামের প্রথম অংশ",["class"=>"control-label col-md-12"]) !!}
+        {!! Form::label("employee_firstname","পূর্ন নাম(ইংরেজী)",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("employee_firstname",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="employee_firstname-error" class="help-block"></span>
         </div>
     </div>
     <div class="form-group required col-md-4" id="form-employee_lastname-error">
-        {!! Form::label("employee_lastname","নামের দ্বিতীয় অংশ",["class"=>"control-label col-md-12"]) !!}
+        {!! Form::label("employee_lastname","পূর্ন নাম(বাংলা)",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::text("employee_lastname",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="employee_lastname-error" class="help-block"></span>
@@ -50,12 +50,14 @@
     <div class="form-group required col-md-8" id="form-designation-error">
         {!! Form::label("designation","পদবী",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-6">
-            <select name="designation">
-                @foreach($designations as $designation )
-                    <option value="{{$designation->id}}">{{$designation->designation}}</option>
-                @endforeach
-            </select>
-        <!-- {!! Form::text("designation",null,["class"=>"form-control required","id"=>"focus"]) !!} -->
+            {{--<select name="designation">--}}
+                {{--@foreach($designations as $designation )--}}
+                    {{--<option value="{{$designation->id}}">{{$designation->designation}}</option>--}}
+                {{--@endforeach--}}
+            {{--</select>--}}
+            {!! Form::select("designation",$designations,null,["class"=>"form-control designation required","id"=>"designation"]) !!}
+
+            {{--{!! Form::text("designation",null,["class"=>"form-control required","id"=>"focus"]) !!} --}}
             <span id="designation-error" class="help-block"></span>
         </div>
     </div>
@@ -63,7 +65,7 @@
         {!! Form::label("RollType","রোল",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-6">
         {!! Form::select("RollType",$RollCategory,null,["class"=>"form-control RollType required","id"=>"RollType"]) !!}
-        <!-- {!! Form::text("RollType",null,["class"=>"form-control RollType required","id"=>"RollType"]) !!} -->
+        {{--<!-- {!! Form::text("RollType",null,["class"=>"form-control RollType required","id"=>"RollType"]) !!} -->--}}
             <span id="RollType-error" class="help-block"></span>
         </div>
     </div>
@@ -141,11 +143,12 @@
     <div class="form-group required col-md-6" id="form-gender-error">
         {!! Form::label("gender","জেন্ডার",["class"=>"control-label col-md-3"]) !!}
         <div class="col-md-12">
-            <select name="gender">
-                @foreach($GenderInfo as $GenderInfoData )
-                    <option value="{{$GenderInfoData->id}}">{{$GenderInfoData->GenderName}}</option>
-                @endforeach
-            </select>
+            {{--<select name="gender">--}}
+                {{--@foreach($GenderInfo as $GenderInfoData )--}}
+                    {{--<option value="{{$GenderInfoData->id}}">{{$GenderInfoData->GenderName}}</option>--}}
+                {{--@endforeach--}}
+            {{--</select>--}}
+            {!! Form::select("gender",$GenderInfo,null,["class"=>"form-control gender required","id"=>"gender"]) !!}
             <span id="gender-error" class="help-block"></span>
         </div>
     </div>
@@ -210,11 +213,12 @@
     <div class="form-group required col-md-4" id="form-IsActiveDate-error">
         {!! Form::label("IsActiveDate","সক্রিয়তা",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            <select name="IsActiveDate">
-                @foreach($StatusInfo as $StatusInfoData )
-                    <option value="{{$StatusInfoData->id}}">{{$StatusInfoData->Status}}</option>
-                @endforeach
-            </select>
+            {{--<select name="IsActiveDate">--}}
+                {{--@foreach($StatusInfo as $StatusInfoData )--}}
+                    {{--<option value="{{$StatusInfoData->id}}">{{$StatusInfoData->Status}}</option>--}}
+                {{--@endforeach--}}
+            {{--</select>--}}
+            {!! Form::select("IsActiveDate",$StatusInfo,null,["class"=>"form-control IsActiveDate required","id"=>"IsActiveDate"]) !!}
             <span id="IsActiveDate-error" class="help-block"></span>
         </div>
     </div>

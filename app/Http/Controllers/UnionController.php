@@ -21,9 +21,9 @@ class UnionController extends Controller
     public function getList()
     {
         Session::put('union_search', Input::has('ok') ? Input::get('search') : (Session::has('union_search') ? Session::get('union_search') : ''));
-        Session::put('union_field', Input::has('field') ? Input::get('field') : (Session::has('union_field') ? Session::get('union_field') : 'id'));
+        Session::put('union_field', Input::has('field') ? Input::get('field') : (Session::has('union_field') ? Session::get('union_field') : 'UnionName'));
         Session::put('union_sort', Input::has('sort') ? Input::get('sort') : (Session::has('union_sort') ? Session::get('union_sort') : 'asc'));
-        $unions = Union::where('id', 'like', '%' . Session::get('union_search') . '%')
+        $unions = Union::where('UnionName', 'like', '%' . Session::get('union_search') . '%')
             ->orderBy(Session::get('union_field'), Session::get('union_sort'))->paginate(100);
 //        $thana_data=DB::table('unions')
 //            ->join('thanas', 'unions.ThanaId', '=', 'thanas.id')
@@ -31,13 +31,12 @@ class UnionController extends Controller
 //            ->get();
 
         $UnionInfo = Union::select('*')
-            -> join('districts', 'unions.DistrictId', '=','districts.id')
-            -> join('thanas', 'unions.ThanaId', '=', 'thanas.id')
-            -> join('divisions', 'unions.DivisionId', '=', 'divisions.id')
-//            ->where('id', 'like', '%' . Session::get('union_search') . '%')
-//            ->orderBy(Session::get('union_field'), Session::get('union_sort'))
-            ->paginate(100);
-        return view('union.list', ['unions' => $unions],['UnionInfo'=>$UnionInfo]);
+            ->join('districts', 'unions.DistrictId', '=', 'districts.id')
+            ->join('thanas', 'unions.ThanaId', '=', 'thanas.id')
+            ->join('divisions', 'unions.DivisionId', '=', 'divisions.id')
+            ->where('UnionName', 'like', '%' . Session::get('union_search') . '%')
+            ->orderBy(Session::get('union_field'), Session::get('union_sort'))->paginate(100);
+        return view('union.list', ['unions' => $unions], ['UnionInfo' => $UnionInfo]);
     }
 
     public function getUpdate($id)
@@ -45,7 +44,7 @@ class UnionController extends Controller
         $DivisionInfo = Division::lists('DivisionName', 'id');
         $DistrictInfo = District::lists('DistrictName', 'id');
         $thana = Thana::lists('ThanaName', 'id');
-        return view('union.update', ['union' => Union::find($id)])->with('thana',$thana)->with('DistrictInfo',$DistrictInfo)->with('DivisionInfo',$DivisionInfo);
+        return view('union.update', ['union' => Union::find($id)])->with('thana', $thana)->with('DistrictInfo', $DistrictInfo)->with('DivisionInfo', $DivisionInfo);
     }
 
     public function postUpdate($id)
@@ -74,7 +73,7 @@ class UnionController extends Controller
         $DivisionInfo = Division::lists('DivisionName', 'id');
         $DistrictInfo = District::lists('DistrictName', 'id');
         $thana = Thana::lists('ThanaName', 'id');
-        return view('union.create')->with('thana',$thana)->with('DistrictInfo',$DistrictInfo)->with('DivisionInfo',$DivisionInfo);
+        return view('union.create')->with('thana', $thana)->with('DistrictInfo', $DistrictInfo)->with('DivisionInfo', $DivisionInfo);
     }
 
     public function postCreate()

@@ -111,7 +111,7 @@
                 <td>{{$userstimf->employee_code}}</td>
                 <td>
                     @if(!empty($userstimf->photo))
-                        <img src="uploads/{{$userstimf->photo}}">
+                        <img src="uploads/{{$userstimf->photo}}" width="60" height="60">
                     @endif
                 </td>
                 <td>{{$userstimf->employee_firstname}}&nbsp;{{$userstimf->employee_lastname}}</td>

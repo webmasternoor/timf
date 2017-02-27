@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\District;
 use App\Division;
+use App\Mikrofdivision;
 use App\Postoffice;
 use App\Thana;
 use App\Union;
@@ -33,6 +34,7 @@ class ZoneController extends Controller
 
     public function getUpdate($id)
     {
+        $DivisionOfficeInfo = [''=>'--select--'] + Mikrofdivision::lists('DivisionOfficeName', 'id')->all();
         $ThanaInfo = Thana::lists('ThanaName', 'id');
         $DivisionInfo = Division::lists('DivisionName', 'id');
         $UnionInfo = Union::lists('UnionName', 'id');
@@ -40,7 +42,7 @@ class ZoneController extends Controller
         $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
         $district_info = District::lists('DistrictName', 'id');
         return view('zone.update', ['zone' => Zone::find($id)])->with('ThanaInfo', $ThanaInfo)->with('district_info', $district_info)->with('DivisionInfo', $DivisionInfo)
-            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo);
+            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo)->with('DivisionOfficeInfo',$DivisionOfficeInfo);
     }
 
     public function postUpdate($id)
@@ -58,6 +60,7 @@ class ZoneController extends Controller
         }
         $zone->ZoneName = Input::get('ZoneName');
         $zone->ZoneCode = Input::get('ZoneCode');
+        $zone->ZoneDivisionOfficeId = Input::get('ZoneDivisionOfficeId');
         $zone->ZoneAddress = Input::get('ZoneAddress');
         $zone->ZoneMobileNo = Input::get('ZoneMobileNo');
         $zone->ZoneThanaId = Input::get('ZoneThanaId');
@@ -73,14 +76,15 @@ class ZoneController extends Controller
 
     public function getCreate()
     {
-        $ThanaInfo = Thana::lists('ThanaName', 'id');
-        $DivisionInfo = Division::lists('DivisionName', 'id');
-        $UnionInfo = Union::lists('UnionName', 'id');
-        $WardInfo = Ward::lists('WardName', 'id');
-        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
-        $district_info = District::lists('DistrictName', 'id');
+        $DivisionOfficeInfo = [''=>'--select--'] + Mikrofdivision::lists('DivisionOfficeName', 'id')->all();
+        $ThanaInfo = [''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $DivisionInfo = [''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $UnionInfo = [''=>'--select--'] +  Union::lists('UnionName', 'id')->all();
+        $WardInfo = [''=>'--select--'] + Ward::lists('WardName', 'id')->all();
+        $PostOfficeInfo = [''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+        $district_info = [''=>'--select--'] + District::lists('DistrictName', 'id')->all();
         return view('zone.create')->with('ThanaInfo', $ThanaInfo)->with('district_info', $district_info)->with('DivisionInfo', $DivisionInfo)
-            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo);
+            ->with('UnionInfo', $UnionInfo)->with('PostOfficeInfo', $PostOfficeInfo)->with('WardInfo', $WardInfo)->with('DivisionOfficeInfo',$DivisionOfficeInfo);
     }
 
     public function postCreate()
@@ -97,6 +101,7 @@ class ZoneController extends Controller
         $zone = new Zone();
         $zone->ZoneName = Input::get('ZoneName');
         $zone->ZoneCode = Input::get('ZoneCode');
+        $zone->ZoneDivisionOfficeId = Input::get('ZoneDivisionOfficeId');
         $zone->ZoneAddress = Input::get('ZoneAddress');
         $zone->ZoneMobileNo = Input::get('ZoneMobileNo');
         $zone->ZoneThanaId = Input::get('ZoneThanaId');

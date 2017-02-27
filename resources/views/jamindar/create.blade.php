@@ -9,7 +9,7 @@
 	    <div class="input-group">
 	        <input class="form-control" id="search2" value="{{ Session::get('loan_search2') }}"
 	               onkeydown="if (event.keyCode == 13) ajaxLoad('{{url('jamindar/create')}}?ok=1&search2='+this.value)"
-	               placeholder="Search by [Mobile no].."
+	               placeholder="Search by [NID no].."
 	               type="text">
 
 	        <div class="input-group-btn">

@@ -1,4 +1,4 @@
-<h2 class="page-header">আপডেট টোটাল ক্যাশইনফ্লো</h2>
+<h2 class="page-header">কনফিগারেশন আপডেট করুন</h2>
 {!! Form::model($configurationsav,["id"=>"frm","class"=>"form-horizontal"]) !!}
 @include("configurationsav._form")
 {!! Form::close() !!}

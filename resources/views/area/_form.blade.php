@@ -1,6 +1,12 @@
-
 <div class="col-md-12">
     <div class="borderportion">
+        <div class="form-group required col-md-6" id="form-AreaDivisionOfficeId-error">
+            {!! Form::label("AreaDivisionOfficeId","বিভাগীয় অফিস",["class"=>"control-label test col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("AreaDivisionOfficeId",$DivisionOfficeInfo,null,["class"=>"form-control required","id"=>"AreaDivisionOfficeId"]) !!}
+                <span id="AreaDivisionOfficeId-error" class="help-block"></span>
+            </div>
+        </div>
         <div class="form-group required col-md-4" id="form-ZoneId-error">
             {!! Form::label("ZoneId","জোন",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
@@ -82,13 +88,7 @@
                 <span id="AreaUnionId-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-6" id="form-AreaPostOfficeId-error">
-            {!! Form::label("AreaPostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::select("AreaPostOfficeId",$PostOfficeInfo,null,["class"=>"form-control PostOfficeId required","id"=>"PostOfficeId"]) !!}
-                <span id="AreaPostOfficeId-error" class="help-block"></span>
-            </div>
-        </div>
+
         <div class="form-group required col-md-6" id="form-AreaWardId-error">
             {!! Form::label("AreaWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
@@ -96,6 +96,15 @@
                 <span id="AreaWardId-error" class="help-block"></span>
             </div>
         </div>
+
+        <div class="form-group required col-md-6" id="form-AreaPostOfficeId-error">
+            {!! Form::label("AreaPostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::text("AreaPostOfficeId",null,["class"=>"form-control required","id"=>"focus"]) !!}
+                <span id="AreaPostOfficeId-error" class="help-block"></span>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -104,7 +113,7 @@
         <a href="javascript:ajaxLoad('area/list')" class="btn btn-danger"><i
                     class="glyphicon glyphicon-backward"></i>
             Back</a>
-        <?php if(!empty($area1[1]->ZoneName))
+        <?php if (!empty($area1[1]->ZoneName))
             echo $area1[1]->ZoneName;
         ?>
         {!! Form::button("<i class='glyphicon glyphicon-floppy-disk'></i> Save",["type" => "submit","class"=>"btn
@@ -172,7 +181,7 @@
                 data: {'id': DivisionId},
                 success: function (data) {
                     $.each(data, function (index, subcatObj) {
-                        $('#DistrictId').append('<option value="'+subcatObj.id+'">'+subcatObj.DistrictName +'</option>')
+                        $('#DistrictId').append('<option value="' + subcatObj.id + '">' + subcatObj.DistrictName + '</option>')
                     });
                 },
                 error: function () {
@@ -195,7 +204,7 @@
                 data: {'id': DistrictId},
                 success: function (data) {
                     $.each(data, function (index, subcatObj1) {
-                        $('#ThanaId').append('<option value="'+subcatObj1.id+'">'+subcatObj1.ThanaName +'</option>')
+                        $('#ThanaId').append('<option value="' + subcatObj1.id + '">' + subcatObj1.ThanaName + '</option>')
                     });
                 },
                 error: function () {
@@ -219,7 +228,7 @@
                 data: {'id': ThanaId},
                 success: function (data) {
                     $.each(data, function (index, subcatObj2) {
-                        $('#UnionId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.UnionName +'</option>')
+                        $('#UnionId').append('<option value="' + subcatObj2.id + '">' + subcatObj2.UnionName + '</option>')
                     });
                 },
                 error: function () {
@@ -243,7 +252,7 @@
                 data: {'id': UnionId},
                 success: function (data) {
                     $.each(data, function (index, subcatObj2) {
-                        $('#WordId').append('<option value="'+subcatObj2.id+'">'+subcatObj2.WardName +'</option>')
+                        $('#WordId').append('<option value="' + subcatObj2.id + '">' + subcatObj2.WardName + '</option>')
                     });
                 },
                 error: function () {
@@ -267,7 +276,7 @@
                 data: {'id': DistrictId},
                 success: function (data) {
                     $.each(data, function (index, subcatObj3) {
-                        $('#PostOfficeId').append('<option value="'+subcatObj3.id+'">'+subcatObj3.PostofficeName +'</option>')
+                        $('#PostOfficeId').append('<option value="' + subcatObj3.id + '">' + subcatObj3.PostofficeName + '</option>')
                     });
                 },
                 error: function () {
