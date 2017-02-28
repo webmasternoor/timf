@@ -116,7 +116,7 @@
                     @endif
                 </td>
                 {{--<td>{{$member->id}}</td>--}}
-                <td>{{$member->NameTitles1}} {{$member->FirstName}} {{$member->LastName}} {{$member->FamilyName}}</td>
+                <td>{{$member->FullNameBangla}}</td>
 
                 <td>{{$member->Nid}}</td>
                 <td>{{$member->Mobile}}</td>

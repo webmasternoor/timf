@@ -90,7 +90,7 @@
         <div class="form-group required col-md-6" id="form-BranchPostOfficeId-error">
             {!! Form::label("BranchPostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("BranchPostOfficeId",$PostOfficeInfo,null,["class"=>"form-control PostOfficeId required","id"=>"PostOfficeId"]) !!}
+                {!! Form::text("BranchPostOfficeId",null,["class"=>"form-control required","id"=>"focus"]) !!}
                 <span id="BranchPostOfficeId-error" class="help-block"></span>
             </div>
         </div>

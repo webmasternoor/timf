@@ -15,6 +15,7 @@ use App\Gender;
 use App\Licenceauthority;
 use App\Maritalstatus;
 use App\Membertype;
+use App\Mikrofdivision;
 use App\Nametitle;
 use App\OtherSource;
 use App\Ownershiptype;
@@ -65,12 +66,11 @@ class MemberController extends Controller
             ->where('grouppresident', '1' . Session::get('member_search') . '%')
             ->orderBy(Session::get('member_field'), Session::get('member_sort'))->paginate(8);
 
-        $membersInfo = Member::select('nametitles.name as NameTitles1','members.id','members.Nid','members.Mobile','members.Email','members.MemberImage',
-            'members.FirstName','members.LastName','members.FamilyName')
-            -> join('nametitles', 'members.NameTitle', '=','nametitles.id')
-//            ->where('id', 'like', '%' . Session::get('union_search') . '%')
-//            ->orderBy(Session::get('union_field'), Session::get('union_sort'))
-            ->paginate(100);
+        $membersInfo = Member::select('members.id','members.Nid','members.Mobile','members.Email','members.MemberImage',
+            'members.FullNameBangla')
+            ->where('grouppresident', '1' . Session::get('member_search') . '%')
+            ->orderBy(Session::get('member_field'), Session::get('member_sort'))
+            ->paginate(8);
 
         return view('member.list', ['members' => $members])->with('membersInfo',$membersInfo);
     }
@@ -192,47 +192,49 @@ class MemberController extends Controller
         $zone = Zone::all();
         $area = Area::all();
         $branch = Brn::all();
-        $Direction = Direction::lists('name', 'id');
-        $Accommodation = Accommodation::lists('name', 'id');
-        $BusinessPlaceStatus = BusinessPlaceStatus::lists('name', 'id');
-        $Licenceauthority = Licenceauthority::lists('name', 'id');
-        $OtherSources = Othersource::lists('name', 'id');
-        $BusinessType = Businesstype::lists('name', 'id');
-        $OwnershipType = Ownershiptype::lists('name', 'id');
-        $Weekend = Weekend::lists('name', 'id');
-        $OrgPermanentEmployee = Permanentemployee::lists('name', 'id');
-        $BusinessLeader = Businessleader::lists('name', 'id');
-        $Country = Countr::lists('CountryName', 'id');
-        $District = District::lists('DistrictName', 'id');
-        $Thana = Thana::lists('ThanaName', 'id');
-        $PostOffice = Postoffice::lists('PostofficeName', 'id');
-        $Union = Union::lists('UnionName', 'id');
-        $Word = Ward::lists('WardName', 'id');
-        $ZoneInfo = Zone::lists('ZoneName', 'id');
-        $AreaInfo = Area::lists('AreaName', 'id');
-        $BranchInfo = Brn::lists('BranchName', 'id');
-        $NameTitle = Nametitle::lists('name', 'id');
-        $Age = Age::lists('age', 'id');
-        $PassingYear = Yearcalendar::lists('Name', 'id');
-        $Profession = Profession::lists('name', 'id');
-        $profession = Profession::all();
-        $MaritalStatus = Maritalstatus::lists('name', 'id');
-        $Accommodation = Accommodation::lists('name', 'id');
-        $Education = Education::lists('name', 'id');
-        $PoliticalStatus = Politicalstatus::lists('name', 'id');
-        $Gender = Gender::lists('GenderName', 'id');
-        $Country = Countr::lists('CountryName', 'id');
-        $Division = Division::lists('DivisionName', 'id');
-        $District = District::lists('DistrictName', 'id');
-        $Thana = Thana::lists('ThanaName', 'id');
-        $PostOffice = Postoffice::lists('PostofficeName', 'id');
-        $Union = Union::lists('UnionName', 'id');
-        $Word = Ward::lists('WardName', 'id');
+        $DivisionOfficeInfo = [''=>'--select--'] + Mikrofdivision::lists('DivisionOfficeName', 'id')->all();
+        $divisionOfficeInfo = Mikrofdivision::all();
+        $Direction = [''=>'--select--'] +  Direction::lists('name', 'id')->all();
+        $BusinessPlaceStatus =[''=>'--select--'] +  BusinessPlaceStatus::lists('name', 'id')->all();
+        $Licenceauthority = [''=>'--select--'] + Licenceauthority::lists('name', 'id')->all();
+        $OtherSources = [''=>'--select--'] + Othersource::lists('name', 'id')->all();
+        $BusinessType = [''=>'--select--'] + Businesstype::lists('name', 'id')->all();
+        $OwnershipType = [''=>'--select--'] + Ownershiptype::lists('name', 'id')->all();
+        $Weekend = [''=>'--select--'] + Weekend::lists('name', 'id')->all();
+        $OrgPermanentEmployee = [''=>'--select--'] + Permanentemployee::lists('name', 'id')->all();
+        $BusinessLeader =[''=>'--select--'] +  Businessleader::lists('name', 'id')->all();
+        $Status = [''=>'--select--'] + Status::lists('Status', 'id')->all();
+//        $Country = [''=>'--select--'] + Countr::lists('CountryName', 'id')->all();
+//        $District = [''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+//        $Thana = [''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+//        $PostOffice = [''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+//        $Union = [''=>'--select--'] + Union::lists('UnionName', 'id')->all();
+//        $Word = [''=>'--select--'] + Ward::lists('WardName', 'id')->all();
+        $ZoneInfo =[''=>'--select--'] +  Zone::lists('ZoneName', 'id')->all();
+        $AreaInfo = [''=>'--select--'] + Area::lists('AreaName', 'id')->all();
+        $BranchInfo = [''=>'--select--'] + Brn::lists('BranchName', 'id')->all();
 
-        $MemberType = Membertype::lists('name', 'id');
-        $SavingTypes = Savingtype::lists('name', 'id');
-        $SavingPolicy = Savingpolicy::lists('name', 'id');
-        $SamityName = Zone1::lists('SomitiName', 'id');
+        $Age =[''=>'--select--'] +  Age::lists('age', 'id')->all();
+        $Familytypes = [''=>'--select--'] + Familytype::lists('name', 'id')->all();
+        $Profession = [''=>'--select--'] + Profession::lists('name', 'id')->all();
+        $profession = Profession::all();
+        $MaritalStatus = [''=>'--select--'] + Maritalstatus::lists('name', 'id')->all();
+        $Accommodation = [''=>'--select--'] + Accommodation::lists('name', 'id')->all();
+        $Education = [''=>'--select--'] + Education::lists('name', 'id')->all();
+        $PoliticalStatus = [''=>'--select--'] + Politicalstatus::lists('name', 'id')->all();
+        $Gender = [''=>'--select--'] + Gender::lists('GenderName', 'id')->all();
+        $Country = [''=>'--select--'] + Countr::lists('CountryName', 'id')->all();
+        $Division = [''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $District = [''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+        $Thana = [''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $PostOffice =[''=>'--select--'] +  Postoffice::lists('PostofficeName', 'id')->all();
+        $Union = [''=>'--select--'] + Union::lists('UnionName', 'id')->all();
+        $Word =[''=>'--select--'] +  Ward::lists('WardName', 'id')->all();
+        $Count_Data = [''=>'--select--'] +  Count::lists('name', 'id')->all();
+        $MemberType = [''=>'--select--'] + Membertype::lists('name', 'id')->all();
+        $SavingTypes = [''=>'--select--'] + Savingtype::lists('name', 'id')->all();
+        $SavingPolicy = [''=>'--select--'] + Savingpolicy::lists('name', 'id')->all();
+        $SamityName = [''=>'--select--'] + Zone1::lists('SomitiName', 'id')->all();
 
         return view('member.approve', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
@@ -240,13 +242,13 @@ class MemberController extends Controller
             ->with("Direction", $Direction)->with('BusinessPlaceStatus', $BusinessPlaceStatus)->with('Licenceauthority', $Licenceauthority)
             ->with('OtherSources', $OtherSources)->with('BusinessType', $BusinessType)->with('OwnershipType', $OwnershipType)
             ->with('Weekend', $Weekend)->with('OrgPermanentEmployee', $OrgPermanentEmployee)->with('BusinessLeader', $BusinessLeader)
-            ->with('ZoneInfo', $ZoneInfo)->with('AreaInfo', $AreaInfo)->with('BranchInfo', $BranchInfo)
+            ->with('ZoneInfo', $ZoneInfo)->with('AreaInfo', $AreaInfo)->with('BranchInfo', $BranchInfo)->with('Count_Data',$Count_Data)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
-            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('NameTitle', $NameTitle)
+            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('Status',$Status)
             ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
-            ->with('PassingYear', $PassingYear)->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)
+            ->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)->with('Familytypes',$Familytypes)
             ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)
-            ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName);
+            ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('DivisionOfficeInfo',$DivisionOfficeInfo)->with('divisionOfficeInfo',$divisionOfficeInfo);
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
@@ -508,26 +510,27 @@ class MemberController extends Controller
         $zone = Zone::all();
         $area = Area::all();
         $branch = Brn::all();
-
+        $DivisionOfficeInfo = [''=>'--select--'] + Mikrofdivision::lists('DivisionOfficeName', 'id')->all();
+        $divisionOfficeInfo = Mikrofdivision::all();
         $NameTitle = Nametitle::lists('name', 'id');
         $nameTitle = Nametitle::all();
         $Age = Age::lists('age', 'id');
         $age = Age::all();
-        $PassingYear = Yearcalendar::lists('Name', 'id');
-        $passingYear = Yearcalendar::all();
-        $Profession = Profession::lists('name', 'id');
+//        $PassingYear = Yearcalendar::lists('Name', 'id');
+//        $passingYear = Yearcalendar::all();
+        $Profession = [''=>'--select--'] +  Profession::lists('name', 'id')->all();
         $profession = Profession::all();
-        $MaritalStatus = Maritalstatus::lists('name', 'id');
+        $MaritalStatus =  [''=>'--select--'] +  Maritalstatus::lists('name', 'id')->all();
         $maritalStatus = Maritalstatus::all();
-        $Education = Education::lists('name', 'id');
+        $Education =  [''=>'--select--'] +  Education::lists('name', 'id')->all();
         $education = Education::all();
-        $PoliticalStatus = Politicalstatus::lists('name', 'id');
+        $PoliticalStatus = [''=>'--select--'] +   Politicalstatus::lists('name', 'id')->all();
         $politicalStatus = Politicalstatus::all();
         $BusinessCategory = Business_catagory::all();
-        $Gender = Gender::lists('GenderName', 'id');
+        $Gender = [''=>'--select--'] +  Gender::lists('GenderName', 'id')->all();
         $gender = Gender::all();
         $familytype = Familytype::all();
-        $Familytype = Familytype::lists('name', 'id');
+        $Familytype =  [''=>'--select--'] + Familytype::lists('name', 'id')->all();
         $Repaymenttype = Repaymenttype::all();
         $count = Count::all();
         $status = Status::all();
@@ -545,24 +548,24 @@ class MemberController extends Controller
         $Country = [''=>'--select--'] + Countr::lists('CountryName', 'id')->all();
         $country = Countr::all();
         $division = Division::all();
-        $Division = Division::lists('DivisionName', 'id');
-        $District = District::lists('DistrictName', 'id');
+        $Division = [''=>'--select--'] +  Division::lists('DivisionName', 'id')->all();
+        $District =  [''=>'--select--'] +  District::lists('DistrictName', 'id')->all();
         $district = District::all();
-        $Thana = Thana::lists('ThanaName', 'id');
+        $Thana =  [''=>'--select--'] +  Thana::lists('ThanaName', 'id')->all();
         $thana = Thana::all();
-        $PostOffice = Postoffice::lists('PostofficeName', 'id');
+        $PostOffice =  [''=>'--select--'] +  Postoffice::lists('PostofficeName', 'id')->all();
         $postOffice = Postoffice::all();
-        $Union = Union::lists('UnionName', 'id');
+        $Union =  [''=>'--select--'] +  Union::lists('UnionName', 'id')->all();
         $union = Union::all();
-        $Word = Ward::lists('WardName', 'id');
+        $Word =  [''=>'--select--'] +  Ward::lists('WardName', 'id')->all();
         $word = Ward::all();
-        $ZoneInfo = Zone::lists('ZoneName', 'id');
-        $AreaInfo = Area::lists('AreaName', 'id');
-        $BranchInfo = Brn::lists('BranchName', 'id');
-        $MemberType = Membertype::lists('name', 'id');
-        $SavingTypes = Savingtype::lists('name', 'id');
-        $SavingPolicy = Savingpolicy::lists('name', 'id');
-        $SamityName = Zone1::lists('SomitiName', 'id');
+        $ZoneInfo =  [''=>'--select--'] +  Zone::lists('ZoneName', 'id')->all();
+        $AreaInfo =  [''=>'--select--'] +  Area::lists('AreaName', 'id')->all();
+        $BranchInfo =  [''=>'--select--'] +  Brn::lists('BranchName', 'id')->all();
+        $MemberType =  [''=>'--select--'] +  Membertype::lists('name', 'id')->all();
+        $SavingTypes =  [''=>'--select--'] +  Savingtype::lists('name', 'id')->all();
+        $SavingPolicy =  [''=>'--select--'] +  Savingpolicy::lists('name', 'id')->all();
+        $SamityName =  [''=>'--select--'] +  Zone1::lists('SomitiName', 'id')->all();
         return view('member.create')->with('zone', $zone)->with('branch', $branch)->with('area', $area)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('loans', $loans)->with('Accommodation', $Accommodation)
@@ -570,15 +573,15 @@ class MemberController extends Controller
             ->with('OtherSources', $OtherSources)->with('BusinessType', $BusinessType)->with('OwnershipType', $OwnershipType)
             ->with('Weekend', $Weekend)->with('OrgPermanentEmployee', $OrgPermanentEmployee)->with('BusinessLeader', $BusinessLeader)
             ->with('ZoneInfo', $ZoneInfo)->with('AreaInfo', $AreaInfo)->with('BranchInfo', $BranchInfo)->with('NameTitle', $NameTitle)
-            ->with('Age', $Age)->with('PassingYear', $PassingYear)->with('Profession', $Profession)->with('MaritalStatus', $MaritalStatus)
+            ->with('Age', $Age)->with('Profession', $Profession)->with('MaritalStatus', $MaritalStatus)
             ->with('Education', $Education)->with('PoliticalStatus', $PoliticalStatus)->with('Gender', $Gender)->with('nameTitle', $nameTitle)
-            ->with('age', $age)->with('passingYear', $passingYear)->with('profession', $profession)->with('maritalStatus', $maritalStatus)
+            ->with('age', $age)->with('profession', $profession)->with('maritalStatus', $maritalStatus)
             ->with('education', $education)->with('politicalStatus', $politicalStatus)->with('gender', $gender)->with('country', $country)
             ->with('district', $district)->with('thana', $thana)->with('postOffice', $postOffice)->with('union', $union)->with('word', $word)
             ->with('BusinessCategory', $BusinessCategory)->with('familytype', $familytype)->with('count', $count)->with('status', $status)
             ->with('division', $division)->with('Division', $Division)->with('Familytype', $Familytype)
             ->with('Repaymenttype', $Repaymenttype)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)
-            ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName);
+            ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('divisionOfficeInfo',$divisionOfficeInfo)->with('DivisionOfficeInfo',$DivisionOfficeInfo);
         //return view('member.create')->with;
     }
 
@@ -599,7 +602,6 @@ class MemberController extends Controller
 
         $member = new Member();
         $nid = Session::get('loan_search1');
-
         $file = Input::file('MemberImage');
         $filefather = Input::file('FatherImage');
         $filemother = Input::file('MotherImage');
@@ -753,10 +755,7 @@ class MemberController extends Controller
         $member->AreaId = Input::get('AreaId');
         $member->BranchId = Input::get('BranchId');
 
-        $member->NameTitle = Input::get('NameTitle');
-        $member->FirstName = Input::get('FirstName');
-        $member->LastName = Input::get('LastName');
-        $member->FamilyName = Input::get('FamilyName');
+        $member->FullNameEnglish = Input::get('FullNameEnglish');
         $member->FullNameBangla = Input::get('FullNameBangla');
         $member->Gender = Input::get('Gender');
         $member->Age = Input::get('Age');
@@ -770,25 +769,21 @@ class MemberController extends Controller
         $member->Email = Input::get('Email');
         $member->PoliticalStatus = Input::get('PoliticalStatus');
         $member->Distance = Input::get('Distance');
-        $member->WifeNameTitle = Input::get('WifeNameTitle');
-        $member->WifeFirstName = Input::get('WifeFirstName');
-        $member->WifeLastName = Input::get('WifeLastName');
-        $member->WifeFamilyName = Input::get('WifeFamilyName');
+        $member->WifeFullNameEnglish = Input::get('WifeFullNameEnglish');
+        $member->WifeFullNameBangla = Input::get('WifeFullNameBangla');
         $member->WifeAge = Input::get('WifeAge');
         $member->WifeMobileNo = Input::get('WifeMobileNo');
 //        $member->WifeProfession = Input::get('WifeProfession');
 //        $member->WifeOtherProfession = Input::get('WifeOtherProfession');
-        $member->FatherOrHasbandNAmeTitle = Input::get('FatherOrHasbandNAmeTitle');
-        $member->FatherOrHasbandFirstName = Input::get('FatherOrHasbandFirstName');
-        $member->FatherOrHasbandLastName = Input::get('FatherOrHasbandLastName');
-        $member->FatherOrHasbandFamilyName = Input::get('FatherOrHasbandFamilyName');
+
+        $member->FatherOrHasbandFullNameEnglish = Input::get('FatherOrHasbandFullNameEnglish');
+        $member->FatherOrHasbandFullNameBangla = Input::get('FatherOrHasbandFullNameBangla');
+
         $member->FatherOrHasbandAge = Input::get('FatherOrHasbandAge');
 //        $member->FatherProfession = Input::get('FatherProfession');
         $member->FatherMobileNo = Input::get('FatherMobileNo');
-        $member->MatherNameTitle = Input::get('MatherNameTitle');
-        $member->MotherFirstName = Input::get('MotherFirstName');
-        $member->MotherLastName = Input::get('MotherLastName');
-        $member->MotherFamilyName = Input::get('MotherFamilyName');
+        $member->MotherFUllNameEnglish = Input::get('MotherFUllNameEnglish');
+        $member->MotherFUllNameBangla = Input::get('MotherFUllNameBangla');
         $member->MotherAge = Input::get('MotherAge');
 //       MotherAg $member->MotherProfession = Input::get('MotherProfession');
         $member->MotherMobileNo = Input::get('MotherMobileNo');

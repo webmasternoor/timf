@@ -34,11 +34,11 @@
             {{--</i>--}}
             {{--</th>--}}
             <th>
-                <a href="javascript:ajaxLoad('survey/list?field=FirstName&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
+                <a href="javascript:ajaxLoad('survey/list?field=FullNameEnglish&sort={{Session::get("survey_sort")=="asc"?"desc":"asc"}}')">
                     Name
                 </a>
                 <i style="font-size: 12px"
-                   class="glyphicon  {{ Session::get('survey_field')=='FirstName'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
+                   class="glyphicon  {{ Session::get('survey_field')=='FullNameEnglish'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
                 </i>
             </th>
             <th>
@@ -106,8 +106,7 @@
             <tr>
                 <td>{{$i++}}</td>
                 {{--<td>{{$survey->id}}</td>--}}
-                <td>{{$survey->NameTitles1}}&nbsp;{{$survey->FirstName}}&nbsp;{{$survey->LastName}}
-                    &nbsp;{{$survey->FamilyName}}</td>
+                <td>{{$survey->FullNameEnglish}}</td>
                 <td>{{$survey->GenderName}}</td>
                 <td>{{$survey->Age}}</td>
                 <td>{{$survey->Nid}}</td>
