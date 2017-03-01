@@ -81,17 +81,14 @@ class Saving1Controller extends Controller
         $saving1 = new Saving1();
         $saving1->ProductId = Input::get('ProductId');
         $saving1->MemberId = Input::get('MemberId');
-        $Ammount = Input::get('Amount');
-        if (Input::get('ProductId')=='1'){
-            $saving1->SavingAmount = $Ammount;
-        }
-        else{
-            $saving1->SavingAmount = $Ammount;
-        }
         $saving1->SavingAmount = Input::get('SavingAmount');
-        /*$saving1->WithdrawAmount = Input::get('WithdrawAmount');*/
+        $saving1->WithdrawAmount = Input::get('WithdrawAmount');
+        $saving1->SavingAmount = Input::get('SavingAmount');
+        $saving1->Balance = Input::get('Currentbalance');
         $saving1->TransactionDate = Input::get('TransactionDate');
         $saving1->EntryDate = Input::get('EntryDate');
+        $saving1->Remarks = Input::get('Remarks');
+        $saving1->Flag = Input::get('Flage');
         $saving1->save();
         return ['url' => 'saving1/list'];
     }

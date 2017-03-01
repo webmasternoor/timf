@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="form-group required col-md-4" id="form-MemberId-error">
+    <div class="form-group required col-md-6" id="form-MemberId-error">
         {!! Form::label("MemberId","সদস্য আইডি",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {{--<select name="MemberId" id="" class="form-control">--}}
@@ -8,12 +8,12 @@
                         {{--&nbsp;{{$members12->FamilyName}}</option>--}}
                 {{--@endforeach;--}}
             {{--</select>--}}
-            {!! Form::select("MemberId",$Member_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::select("MemberId",$Member_info,null,["class"=>"form-control MemberId required","id"=>"MemberId"]) !!}
             <span id="MemberId-error" class="help-block"></span>
         </div>
     </div>
 
-    <div class="form-group required col-md-4" id="form-ProductId-error">
+    <div class="form-group required col-md-6" id="form-ProductId-error">
         {!! Form::label("ProductId","প্রোডাক্টের নাম",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
             {!! Form::select("ProductId",$Product_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
@@ -21,21 +21,30 @@
         </div>
     </div>
 
-    <div class="form-group required col-md-4" id="form-ActionType-error">
-        {!! Form::label("ActionType","অ্যাকশন টাইপ",["class"=>"control-label col-md-12"]) !!}
+    <div class="form-group required col-md-6" id="form-SavingAmount-error">
+        {!! Form::label("SavingAmount","সঞ্চয়",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::select("IsActiveDate",[''=>'--select--','1'=>'Saving','2'=>'Withdraw'],["class"=>"form-control IsActiveDate required","id"=>"IsActiveDate"]) !!}
-            <span id="ActionType-error" class="help-block"></span>
+            {!! Form::text("SavingAmount",0,["class"=>"form-control SavingAmount required","id"=>"SavingAmount"]) !!}
+            <span id="SavingAmount-error" class="help-block"></span>
         </div>
     </div>
 
-    <div class="form-group required col-md-6" id="form-Amount-error">
-        {!! Form::label("Amount","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
+    <div class="form-group required col-md-6" id="form-WithdrawAmount-error">
+        {!! Form::label("WithdrawAmount","উত্তোলন",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::text("Amount",null,["class"=>"form-control Amount required","id"=>"Amount"]) !!}
-            <span id="Amount-error" class="help-block"></span>
+            {!! Form::text("WithdrawAmount",0,["class"=>"form-control WithdrawAmount required","id"=>"WithdrawAmount"]) !!}
+            <span id="WithdrawAmount-error" class="help-block"></span>
         </div>
     </div>
+
+    <div class="form-group required col-md-6" id="form-Currentbalance-error">
+        {!! Form::label("Currentbalance","বর্তমান ব্যাল্যান্স",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::text("Currentbalance",0,["class"=>"form-control Currentbalance required","id"=>"Currentbalance",'readonly']) !!}
+            <span id="Currentbalance-error" class="help-block"></span>
+        </div>
+    </div>
+
 
     <div class="form-group required col-md-6" id="form-TransactionDate-error">
         {!! Form::label("TransactionDate","লেনদেনের তারিখ",["class"=>"control-label col-md-12"]) !!}
@@ -50,6 +59,21 @@
         <div class="col-md-12">
             {!! Form::date("EntryDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="EntryDate-error" class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group required col-md-6" id="form-Flag-error">
+        {!! Form::label("Flag","ফ্ল্যাগ",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("Flag",['--select--','1','2','3'],["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="Flag-error" class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="form-group required col-md-12" id="form-Remarks-error">
+        {!! Form::label("Remarks","রিমার্ক",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::textarea("Remarks",null,["class"=>"form-control required","id"=>"focus"]) !!}
+            <span id="Remarks-error" class="help-block"></span>
         </div>
     </div>
 
@@ -107,15 +131,61 @@
         });
         return false;
     });
-    $(function () {
-        $("#WithdrawAmount").autocomplete({
-            source: "autocomplete",
-            minLength: 3,
-            select: function (event, ui) {
-                $('#data').val(ui.item.id);
-                $('#WithdrawAmount').val(ui.item.value);
-//                $('#search').hide();
-            }
+//    $(function () {
+//        $("#WithdrawAmount").autocomplete({
+//            source: "autocomplete",
+//            minLength: 3,
+//            select: function (event, ui) {
+//                $('#data').val(ui.item.id);
+//                $('#WithdrawAmount').val(ui.item.value);
+////                $('#search').hide();
+//            }
+//        });
+//    });
+    $(document).ready(function () {
+        $(document).on('change', '.MemberId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var MemberId = $(this).val();
+            var balance1 = 0;
+            $('#Currentbalance').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getBalance',
+                data: {'id': MemberId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObj3p) {
+                       var num=subcatObj3p.Balance;
+                        balance1 = num.toString();
+                        document.getElementById('Currentbalance').value = balance1;
+                    });
+                },
+                error: function () {
+
+                }
+            });
+            $.ajax(clear);
         });
     });
+    $(document).ready(function () {
+        //this calculates values automatically
+        CurrentBalance();
+        $("#SavingAmount, #WithdrawAmount").on("keydown keyup", function () {
+            CurrentBalance();
+        });
+    });
+
+    function CurrentBalance() {
+
+        var SavingAmount = document.getElementById('SavingAmount').value;
+        var WithdrawAmount = document.getElementById('WithdrawAmount').value;
+        var Currentbalance = document.getElementById('Currentbalance').value;
+
+        var Total = parseFloat(Currentbalance)+parseFloat(SavingAmount);
+        var TotalEarning = Total - parseFloat(WithdrawAmount);
+        if (!isNaN(TotalEarning)) {
+            document.getElementById('Currentbalance').value = TotalEarning.toString();
+        }
+    }
 </script>

@@ -111,6 +111,17 @@ class SelectBoxController extends Controller
         return response()->json($data);
     }
 
+    public function getBalance(Request $request)
+    {
+        $data=DB::table('saving1s')
+            ->select('Balance')
+            ->where('memberId',$request->id)
+            ->orderBy('id','desc')
+            ->limit(1)
+            ->get();
+        return response()->json($data);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
