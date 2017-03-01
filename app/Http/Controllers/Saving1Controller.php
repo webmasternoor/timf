@@ -28,8 +28,10 @@ class Saving1Controller extends Controller
 
     public function getUpdate($id)
     {
-        $Product_info = Product::lists('ProductName', 'id');
-        return view('saving1.update', ['saving1' => Saving1::find($id)],['Product_info'=>$Product_info]);
+        $Member_info = [''=>'--select--'] +  Member::lists('FullNameBangla', 'id')->all();
+        $Product_info =  [''=>'--select--'] + Product::lists('ProductName', 'id')->all();
+//        $Product_info = Product::lists('ProductName', 'id');
+        return view('saving1.update', ['saving1' => Saving1::find($id)],['Product_info'=>$Product_info])->with('Member_info',$Member_info);
     }
 
     public function postUpdate($id)
@@ -57,8 +59,9 @@ class Saving1Controller extends Controller
 
     public function getCreate()
     {
-        $Member_info = Member::all();
-        $Product_info = Product::lists('ProductName', 'id');
+        $Member_info = [''=>'--select--'] +  Member::lists('FullNameBangla', 'id')->all();
+        $Product_info =  [''=>'--select--'] + Product::lists('ProductName', 'id')->all();
+//        $Product_info = Product::lists('ProductName', 'id');
         //return view('saving1.create',compact('Product_info'));
         return view('saving1.create')->with('Product_info', $Product_info)->with('Member_info', $Member_info);
     }
@@ -76,8 +79,15 @@ class Saving1Controller extends Controller
             );
         }
         $saving1 = new Saving1();
-//        $saving1->ProductId = Input::get('ProductId');
+        $saving1->ProductId = Input::get('ProductId');
         $saving1->MemberId = Input::get('MemberId');
+        $Ammount = Input::get('Amount');
+        if (Input::get('ProductId')=='1'){
+            $saving1->SavingAmount = $Ammount;
+        }
+        else{
+            $saving1->SavingAmount = $Ammount;
+        }
         $saving1->SavingAmount = Input::get('SavingAmount');
         /*$saving1->WithdrawAmount = Input::get('WithdrawAmount');*/
         $saving1->TransactionDate = Input::get('TransactionDate');
@@ -86,8 +96,7 @@ class Saving1Controller extends Controller
         return ['url' => 'saving1/list'];
     }
 
-    public function getDelete($id)
-    {
+    public function getDelete($id){
         Saving1::destroy($id);
         return Redirect('saving1/list');
     }

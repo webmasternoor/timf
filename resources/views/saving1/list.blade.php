@@ -75,7 +75,7 @@
                 </i>
             </th>
 
-            {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
+            <th width="140px">অ্যাকশন সমূহ</th>
         </tr>
         </thead>
         <tbody>
@@ -89,7 +89,7 @@
                 <td>{{$saving1->WithdrawAmount}}</td>
                 <td>{{$saving1->TransactionDate}}</td>
                 <td>{{$saving1->EntryDate}}</td>
-                {{--<td style="text-align: center">
+                <td style="text-align: center">
                     <a class="btn btn-primary btn-xs" title="Edit"
                        href="javascript:ajaxLoad('saving1/update/{{$saving1->id}}')">
                         <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
@@ -97,7 +97,7 @@
                        href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('saving1/delete/{{$saving1->id}}')">
                         <i class="glyphicon glyphicon-trash"></i> ডিলিট
                     </a>
-                </td>--}}
+                </td>
             </tr>
         @endforeach
         </tbody>

@@ -2,15 +2,17 @@
     <div class="form-group required col-md-4" id="form-MemberId-error">
         {!! Form::label("MemberId","সদস্য আইডি",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            <select name="MemberId" id="" class="form-control">
-                @foreach($Member_info as $members12)
-                <option value="{{$members12->id}}">{{$members12->FirstName}}&nbsp;{{$members12->lastName}}&nbsp;{{$members12->FamilyName}}</option>
-                    @endforeach;
-            </select>
-            {{--{!! Form::select("MemberId",$Member_info,null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
+            {{--<select name="MemberId" id="" class="form-control">--}}
+                {{--@foreach($Member_info as $members12)--}}
+                    {{--<option value="{{$members12->id}}">{{$members12->FirstName}}&nbsp;{{$members12->lastName}}--}}
+                        {{--&nbsp;{{$members12->FamilyName}}</option>--}}
+                {{--@endforeach;--}}
+            {{--</select>--}}
+            {!! Form::select("MemberId",$Member_info,null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="MemberId-error" class="help-block"></span>
         </div>
     </div>
+
     <div class="form-group required col-md-4" id="form-ProductId-error">
         {!! Form::label("ProductId","প্রোডাক্টের নাম",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
@@ -18,34 +20,39 @@
             <span id="ProductId-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-4" id="form-SavingAmount-error">
-        {!! Form::label("SavingAmount","টাকা Collection",["class"=>"control-label col-md-12"]) !!}
+
+    <div class="form-group required col-md-4" id="form-ActionType-error">
+        {!! Form::label("ActionType","অ্যাকশন টাইপ",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::number("SavingAmount",null,["class"=>"form-control required", 'placeholder'=>'100',"id"=>"focus"]) !!}
-            <span id="SavingAmount-error" class="help-block"></span>
+            {!! Form::select("IsActiveDate",[''=>'--select--','1'=>'Saving','2'=>'Withdraw'],["class"=>"form-control IsActiveDate required","id"=>"IsActiveDate"]) !!}
+            <span id="ActionType-error" class="help-block"></span>
         </div>
     </div>
-    <div class="form-group required col-md-6" id="form-WithdrawAmount-error">
-        {!! Form::label("WithdrawAmount","টাকা উত্তোলন",["class"=>"control-label col-md-3"]) !!}
-        <div class="col-md-6">
-            {!! Form::text("WithdrawAmount",null,["class"=>"form-control WithdrawAmount required","id"=>"WithdrawAmount"]) !!}
-            <span id="WithdrawAmount-error" class="help-block"></span>
+
+    <div class="form-group required col-md-6" id="form-Amount-error">
+        {!! Form::label("Amount","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::text("Amount",null,["class"=>"form-control Amount required","id"=>"Amount"]) !!}
+            <span id="Amount-error" class="help-block"></span>
         </div>
     </div>
+
     <div class="form-group required col-md-6" id="form-TransactionDate-error">
-        {!! Form::label("TransactionDate","লেনদেনের তারিখ",["class"=>"control-label col-md-4"]) !!}
-        <div class="col-md-6">
+        {!! Form::label("TransactionDate","লেনদেনের তারিখ",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             {!! Form::date("TransactionDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="TransactionDate-error" class="help-block"></span>
         </div>
     </div>
+
     <div class="form-group required col-md-6" id="form-EntryDate-error">
-        {!! Form::label("EntryDate","এন্ট্রি তারিখ",["class"=>"control-label col-md-4"]) !!}
-        <div class="col-md-6">
+        {!! Form::label("EntryDate","এন্ট্রি তারিখ",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
             {!! Form::date("EntryDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="EntryDate-error" class="help-block"></span>
         </div>
     </div>
+
 </div>
 
 <div class="form-group">
@@ -100,11 +107,11 @@
         });
         return false;
     });
-    $(function() {
+    $(function () {
         $("#WithdrawAmount").autocomplete({
-            source:"autocomplete",
-            minLength:3,
-            select: function( event, ui ) {
+            source: "autocomplete",
+            minLength: 3,
+            select: function (event, ui) {
                 $('#data').val(ui.item.id);
                 $('#WithdrawAmount').val(ui.item.value);
 //                $('#search').hide();

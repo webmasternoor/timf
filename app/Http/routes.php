@@ -86,7 +86,6 @@ Route::get('getSamity','SelectBoxController@getSamity');
 
 Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
-
 Route::get('getList','UserstimfController@getList');
 
 //Route::get('autocomplete','SelectBoxController@autocomplete');
@@ -97,7 +96,6 @@ Route::get('{view}', function ($view) {
     if (view()->exists($view)) {
         return view($view);
     }
-
     return app()->abort(404, 'Page not found!');
 });
 
