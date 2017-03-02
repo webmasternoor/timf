@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Accommodation;
+use App\Product;
+use App\Accountstable;
 use App\Age;
 use App\Business_catagory;
 use App\Businessleader;
@@ -184,6 +186,20 @@ class MemberController extends Controller
         //return view('member.update', ['member' => Member::find($id)]);
     }
 
+    public function getAccount($id)
+    {
+        $product = Product::lists('ProductName', 'id');
+        return view('member.account', ['member' => Member::find($id)])->with('product', $product);
+    }
+    public function postAccount($id)
+    {
+        $memberaccount = new Accountstable();
+        $memberaccount->memberid = $id;
+        $memberaccount->accountsname = Input::get('accountnumber1');
+        $memberaccount->productid = Input::get('productname1');
+        $memberaccount->save();
+        return ['url' => 'member/list'];
+    }
     public function getApprove($id)
     {
         //$zone = Zone::all();
