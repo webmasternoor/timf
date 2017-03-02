@@ -24,7 +24,7 @@
     <div class="form-group required col-md-6" id="form-SavingAmount-error">
         {!! Form::label("SavingAmount","সঞ্চয়",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::text("SavingAmount",0,["class"=>"form-control SavingAmount required","id"=>"SavingAmount"]) !!}
+            {!! Form::text("SavingAmount",null,["class"=>"form-control SavingAmount required","id"=>"SavingAmount"]) !!}
             <span id="SavingAmount-error" class="help-block"></span>
         </div>
     </div>
@@ -32,18 +32,18 @@
     <div class="form-group required col-md-6" id="form-WithdrawAmount-error">
         {!! Form::label("WithdrawAmount","উত্তোলন",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::text("WithdrawAmount",0,["class"=>"form-control WithdrawAmount required","id"=>"WithdrawAmount"]) !!}
+            {!! Form::text("WithdrawAmount",null,["class"=>"form-control WithdrawAmount required","id"=>"WithdrawAmount"]) !!}
             <span id="WithdrawAmount-error" class="help-block"></span>
         </div>
     </div>
 
-    <div class="form-group required col-md-6" id="form-Currentbalance-error">
-        {!! Form::label("Currentbalance","বর্তমান ব্যাল্যান্স",["class"=>"control-label col-md-12"]) !!}
-        <div class="col-md-12">
-            {!! Form::text("Currentbalance",0,["class"=>"form-control Currentbalance required","id"=>"Currentbalance",'readonly']) !!}
-            <span id="Currentbalance-error" class="help-block"></span>
-        </div>
-    </div>
+    {{--<div class="form-group required col-md-6" id="form-Currentbalance-error">--}}
+        {{--{!! Form::label("Currentbalance","বর্তমান ব্যাল্যান্স",["class"=>"control-label col-md-12"]) !!}--}}
+        {{--<div class="col-md-12">--}}
+            {{--{!! Form::text("Currentbalance",0,["class"=>"form-control Currentbalance required","id"=>"Currentbalance",'readonly']) !!}--}}
+            {{--<span id="Currentbalance-error" class="help-block"></span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 
     <div class="form-group required col-md-6" id="form-TransactionDate-error">
@@ -64,7 +64,7 @@
     <div class="form-group required col-md-6" id="form-Flag-error">
         {!! Form::label("Flag","ফ্ল্যাগ",["class"=>"control-label col-md-12"]) !!}
         <div class="col-md-12">
-            {!! Form::select("Flag",['--select--','1','2','3'],["class"=>"form-control required","id"=>"focus"]) !!}
+            {!! Form::select("Flag",['1','2','3'],["class"=>"form-control required","id"=>"focus"]) !!}
             <span id="Flag-error" class="help-block"></span>
         </div>
     </div>
@@ -88,6 +88,7 @@
     btn-primary"])!!}
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 <script>
     $("#frm").submit(function (event) {
@@ -142,50 +143,52 @@
 //            }
 //        });
 //    });
-    $(document).ready(function () {
-        $(document).on('change', '.MemberId', function () {
-            //console.log("yes it is change");
-
-            var op = " ";
-            var MemberId = $(this).val();
-            var balance1 = 0;
-            $('#Currentbalance').empty();
-            $.ajax({
-                type: 'get',
-                url: 'getBalance',
-                data: {'id': MemberId},
-                success: function (data) {
-                    $.each(data, function (index, subcatObj3p) {
-                       var num=subcatObj3p.Balance;
-                        balance1 = num.toString();
-                        document.getElementById('Currentbalance').value = balance1;
-                    });
-                },
-                error: function () {
-
-                }
-            });
-            $.ajax(clear);
-        });
-    });
-    $(document).ready(function () {
-        //this calculates values automatically
-        CurrentBalance();
-        $("#SavingAmount, #WithdrawAmount").on("keydown keyup", function () {
-            CurrentBalance();
-        });
-    });
-
-    function CurrentBalance() {
-
-        var SavingAmount = document.getElementById('SavingAmount').value;
-        var WithdrawAmount = document.getElementById('WithdrawAmount').value;
-        var Currentbalance = document.getElementById('Currentbalance').value;
-
-        var Total = parseFloat(Currentbalance)+parseFloat(SavingAmount);
-        var TotalEarning = Total - parseFloat(WithdrawAmount);
-        if (!isNaN(TotalEarning)) {
-            document.getElementById('Currentbalance').value = TotalEarning.toString();
-        }
-    }
+//    $(document).ready(function () {
+//        $(document).on('change', '.MemberId', function () {
+//            //console.log("yes it is change");
+//
+//            var op = " ";
+//            var MemberId = $(this).val();
+//            var balance1 = 0;
+//            $('#Currentbalance').empty();
+//            $.ajax({
+//                type: 'get',
+//                url: 'getBalance',
+//                data: {'id': MemberId},
+//                success: function (data) {
+//                    $.each(data, function (index, subcatObj3p) {
+//                       var num=subcatObj3p.Balance;
+//                        balance1 = num.toString();
+//                        document.getElementById('Currentbalance').value = balance1;
+//                    });
+//                },
+//                error: function () {
+//
+//                }
+//            });
+////            $.ajax(clear);
+////            document.getElementById("MemberId").reset();
+//        });
+//    });
+//    $(document).ready(function () {
+//        //this calculates values automatically
+//        CurrentBalance();
+//        $("#SavingAmount, #WithdrawAmount,#Currentbalance").on("keydown keyup", function () {
+//            CurrentBalance();
+//        });
+//    });
+//
+//    function CurrentBalance() {
+//
+//        var SavingAmount = document.getElementById('SavingAmount').value;
+//        var WithdrawAmount = document.getElementById('WithdrawAmount').value;
+//        var Currentbalance = document.getElementById('Currentbalance').value;
+//
+//        var Total = parseFloat(Currentbalance)+parseFloat(SavingAmount);
+//        var TotalEarning = Total - parseFloat(WithdrawAmount);
+//        $('#Currentbalance').empty();
+//        if (!isNaN(TotalEarning)) {
+//            document.getElementById('Currentbalance').value = TotalEarning.toString();
+//        }
+//    }
 </script>

@@ -80,11 +80,11 @@
         </thead>
         <tbody>
         <?php $i = 1;?>
-        @foreach($saving1s as $key=>$saving1)
+        @foreach($saving1sInfo as $key=>$saving1)
             <tr>
                 <td align="center">{{$i++}}</td>
-                <td>{{$saving1->MemberId}}</td>
-                <td>{{$saving1->ProductId}}</td>
+                <td>{{$saving1->FullNameBangla}}</td>
+                <td>{{$saving1->ProductName}}</td>
                 <td>{{$saving1->SavingAmount}}</td>
                 <td>{{$saving1->WithdrawAmount}}</td>
                 <td>{{$saving1->TransactionDate}}</td>

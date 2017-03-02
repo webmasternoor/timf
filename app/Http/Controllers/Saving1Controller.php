@@ -23,7 +23,14 @@ class Saving1Controller extends Controller
         Session::put('saving1_sort', Input::has('sort') ? Input::get('sort') : (Session::has('saving1_sort') ? Session::get('saving1_sort') : 'asc'));
         $saving1s = Saving1::where('id', 'like', '%' . Session::get('saving1_search') . '%')
             ->orderBy(Session::get('saving1_field'), Session::get('saving1_sort'))->paginate(8);
-        return view('saving1.list', ['saving1s' => $saving1s]);
+
+        $saving1sInfo = Saving1::select('*')
+            -> join('members', 'saving1s.MemberId', '=','members.id')
+            -> join('products', 'saving1s.ProductId', '=','products.id')
+//            ->where('id', 'like', '%' . Session::get('saving1_search') . '%')
+//            ->orderBy(Session::get('saving1_field'), Session::get('saving1_sort'))
+            ->paginate(8);
+        return view('saving1.list', ['saving1s' => $saving1s])->with('saving1sInfo',$saving1sInfo);
     }
 
     public function getUpdate($id)

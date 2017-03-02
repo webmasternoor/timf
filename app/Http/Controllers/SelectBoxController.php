@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Saving1;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -113,8 +114,7 @@ class SelectBoxController extends Controller
 
     public function getBalance(Request $request)
     {
-        $data=DB::table('saving1s')
-            ->select('Balance')
+        $data=Saving1::select('Balance')
             ->where('memberId',$request->id)
             ->orderBy('id','desc')
             ->limit(1)
