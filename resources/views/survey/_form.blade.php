@@ -416,7 +416,7 @@
                     <div class="form-group col-md-4" id="form-PresentWord-error">
                         {!! Form::label("PresentWord","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("PresentWord",$Word,null,["class"=>"form-control PresentWord required","id"=>"PresentWord"]) !!}
+                            {!! Form::text("PresentWord",null,["class"=>"form-control required"]) !!}
                             <span id="PresentWord-error" class="help-block"></span>
                         </div>
                     </div>
@@ -524,7 +524,7 @@
                             {{--<option value="{{$word_data->id}}">{{$word_data->WordName}}</option>--}}
                             {{--@endforeach--}}
                             {{--</select>--}}
-                            {!! Form::select("PermanentWord",$Word,null,["class"=>"form-control PermanentWord required","id"=>"PermanentWord"]) !!}
+                            {!! Form::text("PermanentWord",null,["class"=>"form-control required"]) !!}
                             <span id="PermanentWord-error" class="help-block"></span>
                         </div>
                     </div>

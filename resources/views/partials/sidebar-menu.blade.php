@@ -12,8 +12,8 @@
         <ul class="dropdown-menu">
             <li><a tabindex="-1" href="{{ url('/survey') }}">জরীপ</a></li>
             <li><a tabindex="-1" href="{{ url('/member') }}">সদস্য</a></li>
-            <li><a tabindex="-1" href="{{ url('/loan') }}">ঋণ আবেদন</a></li>
-            <li><a tabindex="-1" href="{{ url('/') }}">ঋণ অনুমদন</a></li>
+            <li><a tabindex="-1" href="{{ url('/loan') }}">বিনিয়োগ আবেদন</a></li>
+            <li><a tabindex="-1" href="{{ url('/') }}">বিনিয়োগ অনুমদন</a></li>
             <li><a tabindex="-1" href="{{ url('/jamindar') }}">জামিনদার</a></li>
         </ul>
     </li>

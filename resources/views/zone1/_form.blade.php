@@ -77,14 +77,14 @@
         <div class="form-group required col-md-6" id="form-BranchPostOfficeId-error">
             {!! Form::label("BranchPostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("BranchPostOfficeId",$PostOfficeInfo,null,["class"=>"form-control PostOfficeId required","id"=>"PostOfficeId"]) !!}
+                {!! Form::text("BranchPostOfficeId",null,["class"=>"form-control required","id"=>"focus"]) !!}
                 <span id="BranchPostOfficeId-error" class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-6" id="form-BranchWardId-error">
             {!! Form::label("BranchWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("BranchWardId",$WardInfo,null,["class"=>"form-control WordId required","id"=>"WordId"]) !!}
+                {!! Form::text("BranchWardId",null,["class"=>"form-control required","id"=>"focus"]) !!}
                 <span id="BranchWardId-error" class="help-block"></span>
             </div>
         </div>

@@ -78,7 +78,7 @@
         <div class="form-group required col-md-6" id="form-ZoneWardId-error">
             {!! Form::label("ZoneWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZoneWardId",$WardInfo,null,["class"=>"form-control WordId required","id"=>"WordId"]) !!}
+                {!! Form::text("ZoneWardId",null,["class"=>"form-control required","id"=>"focus"]) !!}
                 <span id="ZoneWardId-error" class="help-block"></span>
             </div>
         </div>
@@ -86,7 +86,7 @@
         <div class="form-group required col-md-6" id="form-ZonePostOfficeId-error">
             {!! Form::label("ZonePostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ZonePostOfficeId",$PostOfficeInfo,null,["class"=>"form-control PostOfficeId required","id"=>"PostOfficeId"]) !!}
+                {!! Form::text("ZonePostOfficeId",null,["class"=>"form-control required","id"=>"focus"]) !!}
                 <span id="ZonePostOfficeId-error" class="help-block"></span>
             </div>
         </div>

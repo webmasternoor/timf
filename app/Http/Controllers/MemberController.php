@@ -528,7 +528,7 @@ class MemberController extends Controller
         Session::put('loan_sort', Input::has('sort') ? Input::get('sort') : (Session::has('loan_sort') ? Session::get('loan_sort') : 'asc'));
         $loans = Survey::where('Nid', 'like', '%' . Session::get('loan_search1') . '%')
             ->orderBy(Session::get('loan_field'), Session::get('loan_sort'))->paginate(1);
-        //$loan->Nid = Session::get('loan_search1');    
+        //$loan->Nid = Session::get('loan_search1');
 
         $zone = Zone::all();
         $area = Area::all();

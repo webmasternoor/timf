@@ -92,7 +92,7 @@
         <div class="form-group required col-md-6" id="form-AreaWardId-error">
             {!! Form::label("AreaWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("AreaWardId",$WardInfo,null,["class"=>"form-control WordId required","id"=>"WordId"]) !!}
+                {!! Form::text("AreaWardId",null,["class"=>"form-control required"]) !!}
                 <span id="AreaWardId-error" class="help-block"></span>
             </div>
         </div>

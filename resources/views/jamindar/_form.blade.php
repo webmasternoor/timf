@@ -102,6 +102,7 @@
             </div>
         </div>
     </div>
+
     <div class="borderportion">
         <div class="form-group required col-md-12" id="form-photo-error">
             <?php
@@ -271,7 +272,7 @@
             <div class="form-group required col-md-4" id="form-WordId-error">
                 {!! Form::label("WordId","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
-                    {!! Form::select("JamindarWord",$Ward,null,["class"=>"form-control WordId required","id"=>"WordId"]) !!}
+                    {!! Form::text("WordId",null,["class"=>"form-control required"]) !!}
                     <span id="WordId-error" class="help-block"></span>
                 </div>
             </div>
@@ -342,7 +343,7 @@
             <div class="form-group required col-md-4" id="form-Word1-error">
                 {!! Form::label("Word1","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                 <div class="col-md-12">
-                    {!! Form::select("JamindarWord1",$Ward,null,["class"=>"form-control Word1 required","id"=>"Word1"]) !!}
+                    {!! Form::text("Word1",null,["class"=>"form-control required"]) !!}
                     <span id="Word1-error" class="help-block"></span>
                 </div>
             </div>
