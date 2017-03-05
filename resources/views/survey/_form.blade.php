@@ -115,7 +115,7 @@
                     <div class="form-group col-md-4" id="form-Age-error">
                         {!! Form::label("Age","জন্ম তারিখ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::date("Age",null,["class"=>"form-control datepicker required","id"=>"datepicker"]) !!}
+                            {!! Form::text("Age",null,["class"=>"form-control datepicker required","id"=>"datepicker"]) !!}
                             {{--{!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}--}}
                             <span id="Age-error" class="help-block"></span>
                         </div>
@@ -1450,3 +1450,9 @@
         }
     }
 </script>
+
+{{--<script>--}}
+    {{--$(function() {--}}
+        {{--$("#datepicker" ).datepicker();--}}
+    {{--});--}}
+{{--</script>--}}

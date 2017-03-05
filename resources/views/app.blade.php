@@ -15,6 +15,7 @@
     <title>টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</title>
 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/datepicker3.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/demo.css') }}" rel="stylesheet">
     <link href="{{ asset('/jqueryui/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/jqueryui/jquery-ui.theme.min.css') }}" rel="stylesheet">
@@ -29,7 +30,7 @@
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- <link rel="stylesheet" href="//resources/demos/style.css"> -->
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -187,8 +188,9 @@
     </div>
 </div>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
-<!-- <script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script> -->
+<script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/datatables.bootstrap.js') }}"></script>
