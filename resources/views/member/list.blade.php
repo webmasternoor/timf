@@ -134,6 +134,8 @@
                     }else{
                     ?>
                     OK
+                        <a class="btn btn-primary btn-xs" title="View Details"
+                           href="javascript:ajaxLoad('member/view/{{$member->id}}')">View</a>
                         <a class="btn btn-primary btn-xs" title="Edit"
                            href="javascript:ajaxLoad('member/account/{{$member->id}}')">Open Account</a>
                     <?php

@@ -261,3 +261,29 @@ div.waitingapproval .form-group textarea.form-control.montobbo{
   pointer-events: auto;
   background: transparent;
 }
+div.memberdetails select, div.memberdetails input, div.memberdetails textarea{
+    pointer-events: none;
+    background: #f2f2f2;
+}
+div.memberdetails img {
+    width: 100px;
+    height: 100px;
+}
+div.memberdetails input{
+    width: 100%;
+    height: auto;
+}
+div.memberdetails .nav-tabs>li>a{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+p.savingsschedule{
+    border: 1px solid #cccccc;
+    width: 70%;
+    padding: 2%;
+    margin: auto;
+    text-align: center;
+}
+div.memberdetails h4{
+    text-align: center;
+}
