@@ -115,7 +115,7 @@
                     <div class="form-group col-md-4" id="form-Age-error">
                         {!! Form::label("Age","জন্ম তারিখ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::text("Age",null,["class"=>"form-control datepicker required","id"=>"datepicker"]) !!}
+                            {!! Form::date("Age",null,["class"=>"form-control datepicker required","id"=>"datepicker"]) !!}
                             {{--{!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}--}}
                             <span id="Age-error" class="help-block"></span>
                         </div>
@@ -781,7 +781,7 @@
                             <span id="TotalExpenditure-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="form-NetBalance-error">
+                    <div class="form-group col-md-4" id="form-NetBalance-error">
                         {!! Form::label("NetBalance","উদ্বৃত্ত/ঘাটতি (টাকা)",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {!! Form::number("NetBalance",0,["class"=>"form-control required", "id"=>"NetBalance"]) !!}

@@ -45,7 +45,7 @@ class SurveyController extends Controller
         Session::put('survey_field', Input::has('field') ? Input::get('field') : (Session::has('survey_field') ? Session::get('survey_field') : 'id'));
         Session::put('survey_sort', Input::has('sort') ? Input::get('sort') : (Session::has('survey_sort') ? Session::get('survey_sort') : 'asc'));
         $surveys = Survey::where('id', 'like', '%' . Session::get('survey_search') . '%')
-            ->orderBy(Session::get('survey_field'), Session::get('survey_sort'))->paginate(8);
+            ->orderBy(Session::get('survey_field'), Session::get('survey_sort'))->paginate(10);
 
         $surveysInfo = Survey::select('surveys.id','surveys.FullNameEnglish','surveys.Age', 'surveys.Nid',
             'surveys.Nid', 'surveys.Mobile', 'surveys.Email', 'surveys.created_at', 'genders.GenderName', 'districts.DistrictName')
@@ -54,7 +54,7 @@ class SurveyController extends Controller
 //            ->where('DistrictName', 'like', '%' . Session::get('district_search') . '%')
 //            ->orderBy(Session::get('district_field'), Session::get('district_sort'))
 //            ->select('*')
-            ->paginate(8);
+            ->paginate(10);
         return view('survey.list', ['surveys' => $surveys])->with('surveysInfo', $surveysInfo);
     }
 
@@ -200,7 +200,7 @@ class SurveyController extends Controller
     public function postUpdate($id)
     {
         $survey = Survey::find($id);
-        /*$rules = ["BranchId" => "required"];
+        $rules = ["BranchId" => "required"];
         if ($survey->ZoneId != Input::get('ZoneId'))
             $rules += ['ZoneId' => 'required'];
         $validator = Validator::make(Input::all(), $rules);
@@ -209,11 +209,12 @@ class SurveyController extends Controller
                 'fail' => true,
                 'errors' => $validator->getMessageBag()->toArray()
             );
-        }*/
+        }
 
         $survey->ZoneId = Input::get('ZoneId');
         $survey->AreaId = Input::get('AreaId');
         $survey->BranchId = Input::get('BranchId');
+        $survey->DivisionOfficeId = Input::get('DivisionOfficeId');
 //        $survey->NameTitle = Input::get('NameTitle');
         $survey->FullNameEnglish = Input::get('FullNameEnglish');
         $survey->FullNameBangla = Input::get('FullNameBangla');
@@ -396,10 +397,10 @@ class SurveyController extends Controller
         $survey->WifeOtherProfession = Input::get('WifeOtherProfession');
         $survey->FatherProfession = Input::get('FatherProfession');
         $survey->FatherOtherProfession = Input::get('FatherOtherProfession');
-        $survey->FatherOrHasbandFamilyName = Input::get('FatherOrHasbandFamilyName');
+//        $survey->FatherOrHasbandFamilyName = Input::get('FatherOrHasbandFamilyName');
         $survey->FatherMobileNo = Input::get('FatherMobileNo');
         $survey->MotherProfession = Input::get('MotherProfession');
-        $survey->MotherFamilyName = Input::get('MotherFamilyName');
+//        $survey->MotherFamilyName = Input::get('MotherFamilyName');
         $survey->MotherOtherProfession = Input::get('MotherOtherProfession');
         $survey->MotherMobileNo = Input::get('MotherMobileNo');
         $survey->JoinDate = Input::get('JoinDate');
@@ -449,21 +450,28 @@ class SurveyController extends Controller
 
     public function postCreate()
     {
-        /*$validator = Validator::make(Input::all(), [
-            "ZoneId" => "required|unique:surveys"
-            //"SurveyCode" => "required|unique:surveys",
-            //"unitpricea" => "required|numeric"
+        $validator = Validator::make(Input::all(), [
+            "DivisionOfficeId" => "required",
+            "ZoneId" => "required",
+//            "SurveyCode" => "required|unique:surveys",
+            "FullNameEnglish" => "required",
+            "Gender" => "required",
+            "Age" => "required",
+            "Nid" => "required|unique:surveys",
+            "PresentDistrict" => "required",
+            "Email" => "required",
         ]);
         if ($validator->fails()) {
             return array(
                 'fail' => true,
                 'errors' => $validator->getMessageBag()->toArray()
             );
-        }*/
+        }
         $survey = new Survey();
         $survey->ZoneId = Input::get('ZoneId');
         $survey->AreaId = Input::get('AreaId');
         $survey->BranchId = Input::get('BranchId');
+        $survey->DivisionOfficeId = Input::get('DivisionOfficeId');
 //        $survey->NameTitle = Input::get('NameTitle');
         $survey->FullNameEnglish = Input::get('FullNameEnglish');
         $survey->FullNameBangla = Input::get('FullNameBangla');
@@ -646,10 +654,10 @@ class SurveyController extends Controller
         $survey->WifeOtherProfession = Input::get('WifeOtherProfession');
         $survey->FatherProfession = Input::get('FatherProfession');
         $survey->FatherOtherProfession = Input::get('FatherOtherProfession');
-        $survey->FatherOrHasbandFamilyName = Input::get('FatherOrHasbandFamilyName');
+//        $survey->FatherOrHasbandFamilyName = Input::get('FatherOrHasbandFamilyName');
         $survey->FatherMobileNo = Input::get('FatherMobileNo');
         $survey->MotherProfession = Input::get('MotherProfession');
-        $survey->MotherFamilyName = Input::get('MotherFamilyName');
+//        $survey->MotherFamilyName = Input::get('MotherFamilyName');
         $survey->MotherOtherProfession = Input::get('MotherOtherProfession');
         $survey->MotherMobileNo = Input::get('MotherMobileNo');
         $survey->JoinDate = Input::get('JoinDate');
