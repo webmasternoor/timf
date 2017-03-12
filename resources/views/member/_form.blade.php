@@ -632,4 +632,27 @@
         });
         return false;
     });
+    $(document).ready(function () {
+        //this calculates values automatically
+
+        $("#Age").on("change", function () {
+            var age = document.getElementById('Age').value;
+            console.log(age);
+            $.ajax({
+                type: 'get',
+                url: 'DateCalculate',
+                data: {'id': age},
+                success: function (data) {
+
+                    document.getElementById('Age1').value = data;
+
+                },
+                error: function () {
+
+                }
+            });
+            $.ajax(clear);
+        });
+    });
+
 </script>

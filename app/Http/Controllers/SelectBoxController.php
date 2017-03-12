@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Age;
+use App\Count;
 use App\Saving1;
 use Illuminate\Http\Request;
 
@@ -189,9 +191,34 @@ class SelectBoxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function DateCalculate(Request $request)
+    {
+        $dateInput = $request->id;
+//        $date1 = "2007-03-24";
+        $date2 = date('y:m:d');
+
+        $diff = abs(strtotime($date2) - strtotime($dateInput));
+
+        $years = floor($diff / (365*60*60*24));
+        $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+        $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+
+//        printf("%d years, %d months, %d days\n", $years, $months, $days);
+        return  response()->json($years);
+    }
+
     public function edit($id)
     {
         //
+    }
+    public function datainsert()
+    {
+        for ($i=0;$i<=100;$i++){
+            $age = new Count();
+            $age->name = $i;
+            $age->save();
+        }
+        return "Data inserted";
     }
 
     /**

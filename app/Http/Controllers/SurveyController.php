@@ -220,7 +220,8 @@ class SurveyController extends Controller
         $survey->FullNameBangla = Input::get('FullNameBangla');
 //        $survey->FamilyName = Input::get('FamilyName');
         $survey->Gender = Input::get('Gender');
-        $survey->Age = Input::get('Age');
+        $survey->DateofBirth = Input::get('Age');
+        $survey->Age = Input::get('Age1');
 //        $survey->Education = Input::get('Education');
 //        $survey->PassingYear = Input::get('PassingYear');
 
@@ -477,7 +478,8 @@ class SurveyController extends Controller
         $survey->FullNameBangla = Input::get('FullNameBangla');
 //        $survey->FamilyName = Input::get('FamilyName');
         $survey->Gender = Input::get('Gender');
-        $survey->Age = Input::get('Age');
+        $survey->DateofBirth = Input::get('Age');
+        $survey->Age = Input::get('Age1');
 //        $survey->Education = Input::get('Education');
 //        $survey->PassingYear = Input::get('PassingYear');
 

@@ -190,6 +190,7 @@ class MemberController extends Controller
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
+
     public function getView($id)
     {
         $memberid = $id;
@@ -262,8 +263,15 @@ class MemberController extends Controller
 
     public function getAccount($id)
     {
-        $product = Product::lists('ProductName', 'id');
-        return view('member.account', ['member' => Member::find($id)])->with('product', $product);
+        $account_data = Accountstable::select('accountstables.memberid', 'accountstables.productid', 'accountstables.accountsname', 'products.ProductName')
+            ->join('products', 'accountstables.productid', '=', 'products.id')
+            ->where('memberid', '=', $id)
+            ->get();
+        $product =['' => '--select--'] + Product::lists('ProductName', 'id')->where('id','!=',1)->all();
+
+//        $account_data = Accountstable::where('memberid','=',$id)->get();
+
+        return view('member.account', ['member' => Member::find($id)])->with('product', $product)->with('account_data', $account_data);
     }
 
     public function postAccount($id)
@@ -271,12 +279,41 @@ class MemberController extends Controller
         for ($i = 1; $i <= 5; $i++) {
             $memberaccount = new Accountstable();
 
-            $accounttest = Input::get('accountnumber'.$i);
+            $accounttest = Input::get('accountnumber' . $i);
             if (!empty($accounttest)) {
                 $memberaccount->memberid = $id;
                 $memberaccount->accountsname = $accounttest;
-                $memberaccount->productid = Input::get('productname'.$i);
+                $memberaccount->productid = Input::get('productname' . $i);
                 $memberaccount->save();
+                for ($j = 1; $j <= 6; $j++) {
+                    $SavingSetup = new Savingtransactionsetup();
+                    $SavingSetup->MemberId = $id;
+                    $SavingSetup->SavingType = Input::get('SavingTypes');
+//                    $SavingSetup->MemberType = Input::get('MemberType');
+//                    $SavingSetup->SavingPolicy = Input::get('SavingPolicy');
+//                    $SavingSetup->SamityName = Input::get('SamityName');
+                    $membertypes = Input::get('productname' . $i);
+//        $Savingtypes = Input::get('SavingTypes');
+                    $SavingPolicy = Input::get('productname' . $i);
+
+
+                    $NewDate = Date('y:m:d', strtotime('+' . $j . ' months'));
+                    if ($membertypes == '1') {
+                        if ($SavingPolicy != '1') {
+                            $SavingSetup->Amount = 10;
+                            $SavingSetup->Rate = 0;
+                        } else {
+                            $SavingSetup->Amount = 50;
+                            $SavingSetup->Rate = 0;
+                        }
+                    } else {
+                        $SavingSetup->Amount = 100;
+                        $SavingSetup->Rate = 5;
+                    }
+                    $SavingSetup->Date = $NewDate;
+                    $SavingSetup->save();
+                }
+
             }
         }
         return ['url' => 'member/list'];
@@ -429,7 +466,6 @@ class MemberController extends Controller
             $filenamemother = $filemother->getClientOriginalName();
             Input::file('MotherImage')->move($destinationPath, $filenamemother);
             $member->MotherImage = $filenamemother;
-
         }
 
         if (!empty($fileNomineeImage)) {
@@ -856,6 +892,7 @@ class MemberController extends Controller
         $member->FullNameBangla = Input::get('FullNameBangla');
         $member->Gender = Input::get('Gender');
         $member->Age = Input::get('Age');
+        $member->DateofBirth = Input::get('Age1');
         $member->Education = Input::get('Education');
         $member->PassingYear = Input::get('PassingYear');
 //        $member->SpouseProfession = Input::get('SpouseProfession');

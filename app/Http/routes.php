@@ -88,6 +88,10 @@ Route::get('getProductInfo','SelectBoxController@getProductInfo');
 
 Route::get('getBalance','SelectBoxController@getBalance');
 
+Route::get('DateCalculate','SelectBoxController@DateCalculate');
+
+Route::get('datainsert','SelectBoxController@datainsert');
+
 Route::get('getList','UserstimfController@getList');
 
 //Route::get('autocomplete','SelectBoxController@autocomplete');

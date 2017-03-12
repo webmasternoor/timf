@@ -215,9 +215,19 @@
                                 <div class="form-group col-md-4" id="form-Age-error">
                                     {!! Form::label("Age","জন্ম তারিখ",["class"=>"control-label col-md-12"]) !!}
                                     <div class="col-md-12">
-                                        <input class="form-control" type="date" name="FullNameBangla"
-                                               value="{{$loan->Age}}"> {{--{!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}--}}
+                                        <input class="form-control" type="date" name="Age"
+                                               value="{{$loan->DateofBirth}}"> {{--{!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}--}}
                                         <span id="Age-error" class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4" id="form-Age1-error">
+                                    {!! Form::label("Age1","বয়স",["class"=>"control-label col-md-12"]) !!}
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="date" name="Age1"
+                                               value="{{$loan->Age}}">
+                                        {{--{!! Form::text("Age1",null,["class"=>"form-control Age1 required","id"=>"Age1"]) !!}--}}
+                                        {{--{!! Form::select("Age1",$Age1,null,["class"=>"form-control Age1 required","id"=>"Age1"]) !!}--}}
+                                        <span id="Age1-error" class="help-block"></span>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4" id="form-Education-error">

@@ -115,9 +115,17 @@
                     <div class="form-group col-md-4" id="form-Age-error">
                         {!! Form::label("Age","জন্ম তারিখ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::date("Age",null,["class"=>"form-control datepicker required","id"=>"datepicker"]) !!}
+                            {!! Form::date("Age",null,["class"=>"form-control Age required","id"=>"Age"]) !!}
                             {{--{!! Form::select("Age",$Age,null,["class"=>"form-control Age required","id"=>"Age"]) !!}--}}
                             <span id="Age-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" id="form-Age1-error">
+                        {!! Form::label("Age1","বয়স",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::text("Age1",null,["class"=>"form-control Age1 required","id"=>"Age1"]) !!}
+                            {{--{!! Form::select("Age1",$Age1,null,["class"=>"form-control Age1 required","id"=>"Age1"]) !!}--}}
+                            <span id="Age1-error" class="help-block"></span>
                         </div>
                     </div>
 
@@ -974,6 +982,44 @@
         }
     }
     $(document).ready(function () {
+        //this calculates values automatically
+
+        $("#Age").on("change", function () {
+            var age = document.getElementById('Age').value;
+            console.log(age);
+            $.ajax({
+                type: 'get',
+                url: 'DateCalculate',
+                data: {'id': age},
+                success: function (data) {
+
+                        document.getElementById('Age1').value = data;
+
+                },
+                error: function () {
+
+                }
+            });
+            $.ajax(clear);
+        });
+    });
+
+    $(document).ready(function () {
+//        $(document).on('keydown keyup', '.Age', function () {
+//            //console.log("yes it is change");
+//
+//            var Age = $(this).val();
+//            console.log(Age);
+//            //var div = $(this).parent();
+//            //console.log(DistrictId);
+//
+////            if (SpouseProfession1 == '7') {
+////                console.log(SpouseProfession1);
+////                $('#SpouseProfession').empty();
+////
+////                $('#SpouseProfession').append('<input type="text" class="form-control"  name="SpouseOtherProfession" value="">')
+////            }
+//        });
         $(document).on('change', '.IsHeTakeLoan', function () {
             //console.log("yes it is change");
 
@@ -1452,7 +1498,7 @@
 </script>
 
 {{--<script>--}}
-    {{--$(function() {--}}
-        {{--$("#datepicker" ).datepicker();--}}
-    {{--});--}}
+{{--$(function() {--}}
+{{--$("#datepicker" ).datepicker();--}}
+{{--});--}}
 {{--</script>--}}
