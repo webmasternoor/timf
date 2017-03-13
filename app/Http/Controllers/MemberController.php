@@ -289,9 +289,15 @@ class MemberController extends Controller
                     $SavingSetup = new Savingtransactionsetup();
                     $SavingSetup->MemberId = $id;
                     $SavingSetup->SavingType = Input::get('SavingTypes');
-//                    $SavingSetup->MemberType = Input::get('MemberType');
-//                    $SavingSetup->SavingPolicy = Input::get('SavingPolicy');
-//                    $SavingSetup->SamityName = Input::get('SamityName');
+
+                    $valsa = Member::where('id', $id)->get();
+                    foreach($valsa as $key):
+                        echo $SavingSetup->MemberType = $key->MemberType;
+                        echo $SavingSetup->SavingPolicy = $key->SavingPolicy;
+                        echo $SavingSetup->SamityName = $key->SamityName;
+                    endforeach;
+                    
+                    
                     $membertypes = Input::get('productname' . $i);
 //        $Savingtypes = Input::get('SavingTypes');
                     $SavingPolicy = Input::get('productname' . $i);
