@@ -296,8 +296,8 @@ class MemberController extends Controller
                         echo $SavingSetup->SavingPolicy = $key->SavingPolicy;
                         echo $SavingSetup->SamityName = $key->SamityName;
                     endforeach;
-                    
-                    
+
+
                     $membertypes = Input::get('productname' . $i);
 //        $Savingtypes = Input::get('SavingTypes');
                     $SavingPolicy = Input::get('productname' . $i);

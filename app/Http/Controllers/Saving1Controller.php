@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Saving1;
 use App\Member;
+use App\Zone1;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -22,7 +23,8 @@ class Saving1Controller extends Controller
         Session::put('saving1_field', Input::has('field') ? Input::get('field') : (Session::has('saving1_field') ? Session::get('saving1_field') : 'id'));
         Session::put('saving1_sort', Input::has('sort') ? Input::get('sort') : (Session::has('saving1_sort') ? Session::get('saving1_sort') : 'asc'));
         $saving1s = Saving1::where('id', 'like', '%' . Session::get('saving1_search') . '%')
-            ->orderBy(Session::get('saving1_field'), Session::get('saving1_sort'))->paginate(8);
+            ->orderBy(Session::get('saving1_field'), Session::get('saving1_sort'))
+            ->paginate(8);
 
         $saving1sInfo = Saving1::select('*')
             -> join('members', 'saving1s.MemberId', '=','members.id')
@@ -71,6 +73,16 @@ class Saving1Controller extends Controller
 //        $Product_info = Product::lists('ProductName', 'id');
         //return view('saving1.create',compact('Product_info'));
         return view('saving1.create')->with('Product_info', $Product_info)->with('Member_info', $Member_info);
+    }
+
+    public function getCreate1()
+    {
+        $Member_info = [''=>'--select--'] +  Member::lists('FullNameBangla', 'id')->all();
+        $Product_info =  [''=>'--select--'] + Product::lists('ProductName', 'id')->all();
+        $SamityId =  [''=>'--select--'] + Zone1::lists('SomitiName', 'id')->all();
+//        $Product_info = Product::lists('ProductName', 'id');
+        //return view('saving1.create',compact('Product_info'));
+        return view('saving1.create1')->with('Product_info', $Product_info)->with('Member_info', $Member_info)->with('SamityId',$SamityId);
     }
 
     public function postCreate()

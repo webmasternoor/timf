@@ -47,8 +47,6 @@
                             <span id="BranchId-error" class="help-block"></span>
                         </div>
                     </div>
-
-
                     <div class="form-group col-md-4" id="form-SamityName-error">
                         {!! Form::label("SamityName","সমিতির নাম",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
@@ -80,7 +78,6 @@
                             <span id="SavingPolicy-error" class="help-block"></span>
                         </div>
                     </div>
-
                 </div>
             </div>
 

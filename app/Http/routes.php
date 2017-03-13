@@ -92,6 +92,8 @@ Route::get('DateCalculate','SelectBoxController@DateCalculate');
 
 Route::get('datainsert','SelectBoxController@datainsert');
 
+Route::get('getSchedule','SelectBoxController@getSchedule');
+
 Route::get('getList','UserstimfController@getList');
 
 //Route::get('autocomplete','SelectBoxController@autocomplete');

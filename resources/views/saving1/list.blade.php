@@ -3,7 +3,11 @@
     <h1 class="page-header">সঞ্চয় তালিকা
         <div class="pull-right">
             <a href="javascript:ajaxLoad('saving1/create')" class="btn btn-primary pull-right"><i
-                        class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
+                        class="glyphicon glyphicon-plus-sign"></i>নতুন সঞ্চয়</a>
+        </div>
+        <div class="pull-right">
+            <a href="javascript:ajaxLoad('saving1/create1')" class="btn btn-success"><i
+                        class="glyphicon glyphicon-plus-sign"></i>একাধিক নতুন সঞ্চয়</a>
         </div>
     </h1>
     <div class="col-sm-7 form-group">

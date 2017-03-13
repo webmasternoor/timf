@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Age;
 use App\Count;
 use App\Saving1;
+use App\Savingtransactionsetup;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use App\District;
+
 class SelectBoxController extends Controller
 {
     /**
@@ -35,105 +37,121 @@ class SelectBoxController extends Controller
 
     public function getDistrict(Request $request)
     {
-        $data=DB::table('districts')
+        $data = DB::table('districts')
             ->select('*')
-            ->where('DivisionId',$request->id)
+            ->where('DivisionId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getThana(Request $request)
     {
-        $data=DB::table('thanas')
+        $data = DB::table('thanas')
             ->select('*')
-            ->where('DistrictId',$request->id)
+            ->where('DistrictId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getUnion(Request $request)
     {
-        $data=DB::table('unions')
+        $data = DB::table('unions')
             ->select('*')
-            ->where('ThanaId',$request->id)
+            ->where('ThanaId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getWord(Request $request)
     {
-        $data=DB::table('wards')
+        $data = DB::table('wards')
             ->select('*')
-            ->where('UnionId',$request->id)
+            ->where('UnionId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getPostOffice(Request $request)
     {
-        $data=DB::table('postoffices')
+        $data = DB::table('postoffices')
             ->select('*')
-            ->where('DistrictId',$request->id)
+            ->where('DistrictId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getArea(Request $request)
     {
-        $data=DB::table('areas')
+        $data = DB::table('areas')
             ->select('*')
-            ->where('ZoneId',$request->id)
+            ->where('ZoneId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getBranch(Request $request)
     {
-        $data=DB::table('brns')
+        $data = DB::table('brns')
             ->select('*')
-            ->where('AreaId',$request->id)
+            ->where('AreaId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getSamity(Request $request)
     {
-        $data=DB::table('zone1s')
+        $data = DB::table('zone1s')
             ->select('*')
-            ->where('BranchId',$request->id)
+            ->where('BranchId', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getProductInfo(Request $request)
     {
-        $data=DB::table('producttypes')
+        $data = DB::table('producttypes')
             ->select('*')
-            ->where('id',$request->id)
+            ->where('id', $request->id)
             ->get();
         return response()->json($data);
     }
 
     public function getBalance(Request $request)
     {
-        $data=Saving1::select('Balance')
-            ->where('memberId',$request->id)
-            ->orderBy('id','desc')
+        $data = Saving1::select('Balance')
+            ->where('memberId', $request->id)
+            ->orderBy('id', 'desc')
             ->limit(1)
             ->get();
         return response()->json($data);
     }
 
+    public function getSchedule()
+    {
+//echo $datetest = '2017-04-02';
+        $data = DB::table('savingtransactionsetups')
+            ->select('*')
+            ->where('SamityName', 1)
+//            ->where('Date', $datetest)
+            ->get();
+        foreach ($data as $data1):
+            echo $data1->MemberId."</br>";
+        endforeach;
+//        return response()->json($data);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
     }
+
+
 //    public function autocomplete(){
 //        $term = Input::get('term');
 //
@@ -154,7 +172,8 @@ class SelectBoxController extends Controller
 ////        return Response::json($data);
 //        return Response::json($results);
 //    }
-    public function search(){
+    public function search()
+    {
         $term = Input::get('term');
 
 //        $fest = Session::get('festival');
@@ -165,19 +184,20 @@ class SelectBoxController extends Controller
 //            ->where('festival_id', '=', $fest)
 //            ->get();
         $queries = DB::table('members')
-            ->where('FirstName', 'LIKE', '%'.$term.'%')
+            ->where('FirstName', 'LIKE', '%' . $term . '%')
 ////            ->orWhere('FirstName', 'LIKE', '%'.$term.'%')
             ->get();
 
-        foreach ( $queries as $query ){
-            $data[] = array('value' => $query->FirstName, 'id' =>$query->id);
+        foreach ($queries as $query) {
+            $data[] = array('value' => $query->FirstName, 'id' => $query->id);
         }
         return Response::json($data);
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -188,7 +208,7 @@ class SelectBoxController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function DateCalculate(Request $request)
@@ -199,21 +219,22 @@ class SelectBoxController extends Controller
 
         $diff = abs(strtotime($date2) - strtotime($dateInput));
 
-        $years = floor($diff / (365*60*60*24));
-        $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-        $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+        $years = floor($diff / (365 * 60 * 60 * 24));
+        $months = floor(($diff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+        $days = floor(($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
 
 //        printf("%d years, %d months, %d days\n", $years, $months, $days);
-        return  response()->json($years);
+        return response()->json($years);
     }
 
     public function edit($id)
     {
         //
     }
+
     public function datainsert()
     {
-        for ($i=0;$i<=100;$i++){
+        for ($i = 0; $i <= 100; $i++) {
             $age = new Count();
             $age->name = $i;
             $age->save();
@@ -224,8 +245,8 @@ class SelectBoxController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -236,7 +257,7 @@ class SelectBoxController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
