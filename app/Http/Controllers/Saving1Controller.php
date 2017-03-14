@@ -6,6 +6,7 @@ use App\Saving1;
 use App\Member;
 use App\Zone1;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -77,12 +78,30 @@ class Saving1Controller extends Controller
 
     public function getCreate1()
     {
+//        Session::put('saving1_search', Input::has('ok') ? Input::get('search') : (Session::has('saving1_search') ? Session::get('saving1_search') : ''));
+//        Session::put('saving1_field', Input::has('field') ? Input::get('field') : (Session::has('saving1_field') ? Session::get('saving1_field') : 'id'));
+//        Session::put('saving1_sort', Input::has('sort') ? Input::get('sort') : (Session::has('saving1_sort') ? Session::get('saving1_sort') : 'asc'));
+//        $saving1s = Saving1::where('id', 'like', '%' . Session::get('saving1_search') . '%')
+//            ->orderBy(Session::get('saving1_field'), Session::get('saving1_sort'))
+//            ->paginate(8);
+
+        $data = DB ::table('savingtransactionsetups')
+            ->select('*')
+            ->where('SamityName',  1 )
+//            ->where('Date', $datetest)
+            ->get();
+        $saving1sInfo = Saving1::select('*')
+            -> join('members', 'saving1s.MemberId', '=','members.id')
+            -> join('products', 'saving1s.ProductId', '=','products.id')
+//            ->where('id', 'like', '%' . Session::get('saving1_search') . '%')
+//            ->orderBy(Session::get('saving1_field'), Session::get('saving1_sort'))
+            ->paginate(8);
         $Member_info = [''=>'--select--'] +  Member::lists('FullNameBangla', 'id')->all();
         $Product_info =  [''=>'--select--'] + Product::lists('ProductName', 'id')->all();
-        $SamityId =  [''=>'--select--'] + Zone1::lists('SomitiName', 'id')->all();
+        $SamityId = [''=>'--select--'] + Zone1::lists('SomitiName','id')->all();
 //        $Product_info = Product::lists('ProductName', 'id');
         //return view('saving1.create',compact('Product_info'));
-        return view('saving1.create1')->with('Product_info', $Product_info)->with('Member_info', $Member_info)->with('SamityId',$SamityId);
+        return view('saving1.create1')->with('Product_info', $Product_info)->with('Member_info', $Member_info)->with('SamityId',$SamityId)->with('data',$data);
     }
 
     public function postCreate()

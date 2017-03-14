@@ -1,25 +1,4 @@
 
-
-<div class="col-sm-7 form-group">
-    <div class="input-group">
-        {{--<input class="form-control" id="search1" value="{{ Session::get('saving1_search1') }}"--}}
-               {{--placeholder="Search..."--}}
-               {{--type="text">--}}
-        <div class="form-group required col-md-6" id="form-SamityId-error">
-            {!! Form::label("SamityId","সদস্য আইডি",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::select("SamityId",$SamityId,null,["class"=>"form-control SamityId required","id"=>"SamityId"]) !!}
-                <span id="SamityId-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="input-group-btn">
-            <button type="button" class="btn btn-default"
-                    onclick="ajaxLoad('{{url('saving1/_form1')}}?ok=1&search='+$('#SamityId').val())"><i
-                        class="glyphicon glyphicon-search"></i>
-            </button>
-        </div>
-    </div>
-</div>
 <div class="col-md-12">
     <div class="form-group required col-md-6" id="form-MemberId-error">
         {!! Form::label("MemberId","সদস্য আইডি",["class"=>"control-label col-md-12"]) !!}

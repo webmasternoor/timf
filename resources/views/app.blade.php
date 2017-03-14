@@ -12,7 +12,7 @@
         <meta name="description" content="jQuery Datatables API for Laravel 4 and Laravel 5">
     @endif
 
-    <title>টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</title>
+    <title>মাইক্রোফ(MiKroF)</title>
 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/datepicker3.css') }}" rel="stylesheet">
