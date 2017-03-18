@@ -4,7 +4,7 @@
     <h1 class="page-header">Step - 1:
         <div class="pull-right">
             <a href="javascript:ajaxLoad('loan/create')" class="btn btn-primary pull-right"><i
-                        class="glyphicon glyphicon-plus-sign"></i> নতুন</a>
+                        class="glyphicon glyphicon-plus-sign"></i>নতুন</a>
         </div>
     </h1>
     <div class="col-sm-7 form-group">
@@ -1452,7 +1452,6 @@
                                     <div class="col-md-12">
                                     <textarea name="CaseDescriptionOfFamilyMember" cols="50"
                                               rows="3">{{$loan->CaseDescriptionOfFamilyMember}}</textarea>
-
                                         <span id="CaseDescriptionOfFamilyMember-error" class="help-block"></span>
                                     </div>
                                 </div>

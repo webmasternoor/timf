@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-
+<input type="hidden" name="numrow" id="hidden">
 <table class="table table-bordered table-striped" id="dynatable">
     <thead>
     <tr>
@@ -52,6 +52,47 @@
 {!! Form::close() !!}
 
 <script>
+    $("#frm").submit(function (event) {
+        event.preventDefault();
+        $('.loading').show();
+        var form = $(this);
+        var data = new FormData($(this)[0]);
+        var url = form.attr("action");
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.fail) {
+                    $('#frm input.required, #frm textarea.required').each(function () {
+                        index = $(this).attr('name');
+                        if (index in data.errors) {
+                            $("#form-" + index + "-error").addClass("has-error");
+                            $("#" + index + "-error").html(data.errors[index]);
+                        }
+                        else {
+                            $("#form-" + index + "-error").removeClass("has-error");
+                            $("#" + index + "-error").empty();
+                        }
+                    });
+                    $('#focus').focus().select();
+                } else {
+                    $(".has-error").removeClass("has-error");
+                    $(".help-block").empty();
+                    $('.loading').hide();
+                    ajaxLoad(data.url, data.content);
+                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+        return false;
+    });
     $(document).ready(function () {
         $(document).on('change', '.SamityId', function () {
             var SamityId = $(this).val();
@@ -67,6 +108,7 @@
                         $('#p_scents').append('<tr><td style="text-align: center">'+i+'</td> <td><input type="text" name="MemberId'+i+'" id="'+subcatObj3p.MemberId+'" value="'+subcatObj3p.MemberId+'"/></td> <td><input type="text" name="AccountNo'+i+'" id="'+subcatObj3p.AccountNo+'" value="'+subcatObj3p.AccountNo+'"/></td> <td><input type="text" name="ProductId'+i+'" id="'+subcatObj3p.SavingType+'" value="'+subcatObj3p.SavingType+'"/></td> <td><input type="number" name="Amount'+i+'" id="Amount'+i+'" value=""/></td></tr>');
                         i++;
                     });
+                    document.getElementById('hidden').value=i-1;
                 },
                 error: function () {
 
