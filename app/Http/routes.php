@@ -94,6 +94,10 @@ Route::get('datainsert','SelectBoxController@datainsert');
 
 Route::get('getSchedule','SelectBoxController@getSchedule');
 
+Route::get('pdfTest','SelectBoxController@pdfTest');
+
+Route::get('pdfTest1','SelectBoxController@pdfTest1');
+
 Route::get('getList','UserstimfController@getList');
 
 //Route::get('autocomplete','SelectBoxController@autocomplete');

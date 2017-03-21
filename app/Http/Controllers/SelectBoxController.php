@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Age;
 use App\Count;
+use App\Product;
 use App\Saving1;
 use App\Savingtransactionsetup;
 use Illuminate\Http\Request;
@@ -253,6 +254,20 @@ class SelectBoxController extends Controller
     {
         //
     }
+    public function pdfTest()
+    {
+        return view('area.pdfTest');
+    }
+    public function pdfTest1(Request $request)
+    {
+        $data = Product::select('*')
+            ->where('id','=',1)
+            ->get();
+        var_dump($data);
+//        return Response::json($data);
+
+    }
+
 
     /**
      * Remove the specified resource from storage.

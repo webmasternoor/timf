@@ -28,7 +28,7 @@ class Saving1Controller extends Controller
             ->paginate(8);
 
         $saving1sInfo = Saving1::select('*')
-            ->join('members', 'saving1s.MemberId', '=', 'members.id')
+            ->join('members', 'saving1s.MemberId', '=', 'members.MemberId')
             ->join('products', 'saving1s.ProductId', '=', 'products.id')
 //            ->where('id', 'like', '%' . Session::get('saving1_search') . '%')
 //            ->orderBy(Session::get('saving1_field'), Session::get('saving1_sort'))

@@ -1,0 +1,58 @@
+<!doctype>
+<html>
+<head>
+    <title>jsPDF</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../css/smoothness/jquery-ui-1.8.17.custom.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="../../js/jspdf.debug.js"></script>
+    <script type="text/javascript" src="../../js/basic.js"></script>
+
+    <script>
+        $(function() {
+            $("#accordion-basic, #accordion-text, #accordion-graphic").accordion({
+                autoHeight: false,
+                navigation: true
+            });
+            $( "#tabs" ).tabs();
+            $(".button").button();
+        });
+    </script>
+</head>
+
+<body>
+
+<a href="https://github.com/MrRio/jsPDF">
+  <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+</a>
+
+<h1>jsPDF Demos</h1>
+
+<p>Examples for using jsPDF with Data URIs below. Go <a href="https://github.com/MrRio/jsPDF">back to project homepage</a>.</p>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-basic">Basic elements</a></li>
+        
+    </ul>
+
+    <div id="tabs-basic">
+<div id="accordion-basic">
+<h2><a href="#">Simple two-page text document</a></h2>
+<div><p><pre>var doc = new jsPDF();
+doc.text(20, 20, 'Hello world!');
+doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+doc.addPage();
+doc.text(20, 20, 'Do you like that?');
+
+doc.save('Test.pdf');</pre>
+<a href="javascript:demoTwoPageDocument()" class="button">Run Code</a></p></div>
+
+</div>
+
+</body>
+</html>
