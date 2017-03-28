@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Age;
 use App\Count;
+use App\Member;
 use App\Product;
 use App\Saving1;
 use App\Savingtransactionsetup;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use PDF;
 use App\District;
 
 class SelectBoxController extends Controller
@@ -258,13 +260,25 @@ class SelectBoxController extends Controller
     {
         return view('area.pdfTest');
     }
-    public function pdfTest1(Request $request)
+    public function pdfTest1()
     {
         $data = Product::select('*')
             ->where('id','=',1)
             ->get();
-        var_dump($data);
-//        return Response::json($data);
+        return response()->json($data);
+    }
+    public function pdfTest2()
+    {
+        $data = Member::all();
+       return view('area.pdfTest')->with('data',$data);
+    }
+    public function pdfTest3()
+    {
+        $data = Member::all();
+        view()->share('data',$data);
+        $pdf = PDF::loadView('area.pdfTest');
+        return $pdf->download('area.pdf');
+//        return view('area.pdfTest')->with('data',$data);
 
     }
 

@@ -97,6 +97,8 @@ Route::get('getSchedule','SelectBoxController@getSchedule');
 Route::get('pdfTest','SelectBoxController@pdfTest');
 
 Route::get('pdfTest1','SelectBoxController@pdfTest1');
+Route::get('pdfTest2','SelectBoxController@pdfTest2');
+Route::get('pdfTest3','SelectBoxController@pdfTest3');
 
 Route::get('getList','UserstimfController@getList');
 

@@ -14,7 +14,8 @@
 		"guzzlehttp/guzzle": "^5.2",
 		"roumen/sitemap": "2.5.3",
 		"barryvdh/laravel-snappy": "^0.3.0",
-		"yajra/laravel-disqus": "^0.1.2"
+		"yajra/laravel-disqus": "^0.1.2",
+		"barryvdh/laravel-dompdf": "^0.8.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

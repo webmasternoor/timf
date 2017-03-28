@@ -27,24 +27,24 @@
 <body>
 
 
-
-
 <h1 id="head1">hello</h1>
+<?php $i = 1;
+?>
+@foreach($data as $data1)
+    {{$i}} &nbsp;
+    {{$data1->FullNameEnglish}}
 
-                {{--<a href="javascript:demoTwoPageDocument()" class="button">Run Code</a>--}}
+    <br>
+@endforeach
+
 
 </body>
 </html>
-<script >
+<script>
     $(document).ready(function () {
         //this calculates values automatically
 //        demoTwoPageDocument();
         $("#head1").on("click", function () {
-            var op = " ";
-//            var UnionId = $(this).val();
-            //var div = $(this).parent();
-            //console.log(DivisionId);
-//            $('#PermanentWord').empty();
             var doc = new jsPDF();
             $.ajax({
                 type: 'get',
@@ -53,7 +53,7 @@
                 success: function (data) {
                     $.each(data, function (index, subcatObj3p) {
                         doc.text(20, 20, subcatObj3p.ProductName);
-                        doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+                        doc.text(20, 30, 'This is client-side Javascript, hi pumping out a PDF.');
                         doc.addPage();
                         doc.text(20, 20, 'Do you like that?');
 
@@ -73,7 +73,7 @@
     });
 
     function demoTwoPageDocument() {
-var name = 'rockey';
+        var name = 'rockey';
         var doc = new jsPDF();
         doc.text(20, 20, name);
         doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');

@@ -900,7 +900,7 @@ class MemberController extends Controller
         $member->Age = Input::get('Age');
         $member->DateofBirth = Input::get('Age1');
         $member->Education = Input::get('Education');
-        $member->PassingYear = Input::get('PassingYear');
+        // $member->PassingYear = Input::get('PassingYear');
 //        $member->SpouseProfession = Input::get('SpouseProfession');
 //        $member->SpouseOtherProfession = Input::get('SpouseOtherProfession');
         $member->SpouseMobileNo = Input::get('SpouseMobileNo');
