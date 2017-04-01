@@ -253,7 +253,7 @@ div.zoneareabran ul li span{
 div.waitingapproval .form-group input.form-control,
 div.waitingapproval .form-group select.form-control,
 div.waitingapproval .form-group textarea.form-control{
-    pointer-events: none;
+    /*pointer-events: none;*/
     background: #f2f2f2;
 }
 div.waitingapproval .form-group select.tt.form-control{

@@ -69,7 +69,7 @@ class ProductController extends Controller
 
     public function getCreate()
     {
-        $ProductInfo = Producttype::lists('ProducttypeyName', 'id');
+        $ProductInfo = ['' => '--select--'] + Producttype::lists('ProducttypeyName', 'id')->all();
         return view('product.create')->with('ProductInfo',$ProductInfo);
     }
 

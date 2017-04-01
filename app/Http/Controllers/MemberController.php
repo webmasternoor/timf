@@ -267,7 +267,7 @@ class MemberController extends Controller
             ->join('products', 'accountstables.productid', '=', 'products.id')
             ->where('memberid', '=', $id)
             ->get();
-        $product =['' => '--select--'] + Product::lists('ProductName', 'id')->where('id','!=',1)->all();
+        $product =['' => '--select--'] + Product::lists('ProductName', 'id')->all();
 
 //        $account_data = Accountstable::where('memberid','=',$id)->get();
 
@@ -285,7 +285,7 @@ class MemberController extends Controller
                 $memberaccount->accountsname = $accounttest;
                 $memberaccount->productid = Input::get('productname' . $i);
                 $memberaccount->save();
-                for ($j = 1; $j <= 6; $j++) {
+                for ($j = 1; $j <= 12; $j++) {
                     $SavingSetup = new Savingtransactionsetup();
                     $SavingSetup->MemberId = $id;
                     $SavingSetup->SavingType = Input::get('SavingTypes');
@@ -402,7 +402,7 @@ class MemberController extends Controller
         $memberapprove->MemberId = Input::get('MemberId');
         $memberapprove->save();
 
-        for ($i = 1; $i <= 6; $i++) {
+        for ($i = 1; $i <= 12; $i++) {
             $SavingSetup = new Savingtransactionsetup();
             $SavingSetup->MemberId = Input::get('MemberId');
             $SavingSetup->SavingType = Input::get('SavingTypes');
