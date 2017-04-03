@@ -22,15 +22,15 @@
                     <div class="form-group col-md-12" id="form-DivisionOfficeId-error">
                         <div class="">
                             <?php
-                            $accountsinf = DB::table('accountstables')->where('memberid',$memberid)->get();
+                            $accountsinf = DB::table('accountstables')->where('memberid', $memberid)->get();
                             foreach ($accountsinf as $acc)
                             {
-                                ?>
+                            ?>
                             <div class="form-group col-md-6" id="form-FullNameBangla-error">
                                 {!! Form::label("accountsname","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}
                                 <div class="col-md-12">
                                     <?php
-                                    $accinf = DB::table('products')->where('id',$acc->productid)->get();
+                                    $accinf = DB::table('products')->where('id', $acc->productid)->get();
                                     foreach ($accinf as $acca)
                                     {
                                     ?>
@@ -59,16 +59,15 @@
                         <div class="col-md-6">
                             <h4>Savings Schedule</h4>
                             <?php
-                            $accouz2 = DB::table('members')->where('id',$memberid)->get();
-                            foreach ($accouz2 as $accz2)
-                            {
+                            $accouz2 = DB::table('members')->where('id', $memberid)->get();
+                            foreach ($accouz2 as $accz2) {
                                 $accz2->MemberId;
                                 ?>
                             <?php
                             }
                             ?>
                             <?php
-                            $accouz = DB::table('savingtransactionsetups')->where('MemberId',$accz2->MemberId)->get();
+                            $accouz = DB::table('savingtransactionsetups')->where('MemberId', $accz2->MemberId)->get();
                             foreach ($accouz as $accz)
                             {
                             ?>
@@ -79,45 +78,41 @@
                         </div>
                         <h4>Member Details</h4>
                         <?php
-                        $accouzs = DB::table('savingtransactionsetups')->where('MemberId',$accz2->MemberId)->limit(1)->get();
+                        $accouzs = DB::table('savingtransactionsetups')->where('MemberId', $accz2->MemberId)->limit(1)->get();
                         foreach ($accouzs as $accsz)
                         {
                         ?>
                         <div class="col-md-6">
-                            <p class="savingsschedule"><?php echo "Member ID: ".$accsz->MemberId;?></p>
+                            <p class="savingsschedule"><?php echo "Member ID: " . $accsz->MemberId;?></p>
                             <p class="savingsschedule">
                                 <?php
-                                $aczs = DB::table('savingtypes')->where('id',$accsz->SavingType)->get();
-                                foreach ($aczs as $az)
-                                {
-                                    echo "Savings type: ".$az->name;
+                                $aczs = DB::table('savingtypes')->where('id', $accsz->SavingType)->get();
+                                foreach ($aczs as $az) {
+                                    echo "Savings type: " . $az->name;
                                 }
                                 ?>
                             </p>
                             <p class="savingsschedule">
                                 <?php
-                                $aczs1 = DB::table('membertypes')->where('id',$accsz->MemberType)->get();
-                                foreach ($aczs1 as $az1)
-                                {
-                                    echo "Member Type: ".$az1->name;
+                                $aczs1 = DB::table('membertypes')->where('id', $accsz->MemberType)->get();
+                                foreach ($aczs1 as $az1) {
+                                    echo "Member Type: " . $az1->name;
                                 }
                                 ?>
                             </p>
                             <p class="savingsschedule">
                                 <?php
-                                $aczs1 = DB::table('savingpolicies')->where('id',$accsz->SavingPolicy)->get();
-                                foreach ($aczs1 as $az2)
-                                {
-                                    echo "Saving Policy: ".$az2->name;
+                                $aczs1 = DB::table('savingpolicies')->where('id', $accsz->SavingPolicy)->get();
+                                foreach ($aczs1 as $az2) {
+                                    echo "Saving Policy: " . $az2->name;
                                 }
                                 ?>
                             </p>
                             <p class="savingsschedule">
                                 <?php
-                                $aczs5 = DB::table('zone1s')->where('id',$accsz->SamityName)->get();
-                                foreach ($aczs5 as $az5)
-                                {
-                                    echo "Samity Name: ".$az5->SomitiName;
+                                $aczs5 = DB::table('zone1s')->where('id', $accsz->SamityName)->get();
+                                foreach ($aczs5 as $az5) {
+                                    echo "Samity Name: " . $az5->SomitiName;
                                 }
                                 ?>
                             </p>
@@ -125,6 +120,31 @@
                         <?php
                         }
                         ?>
+                    </div>
+                </div>
+                <div class="borderportion">
+                    <div class="form-group col-md-12">
+                        <div class="col-md-6">
+                            <h4>Savings Statement</h4>
+                            @if(!empty($SavingsData))
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Date:</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach( $SavingsData as $SavingsData_info)
+                                        <tr>
+                                            <td>{{$SavingsData_info->EntryDate}}</td>
+                                            <td>{{$SavingsData_info->SavingAmount}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,16 +220,16 @@
                 <div class="borderportion">
                     <div class="form-group required col-md-4" id="form-photo-error">
                         <div class="form-group col-md-12" id="form-Nid-error">
-                        {!! Form::label("MemberImage","সদস্যের ছবি",["class"=>"control-label col-md-12"]) !!}
-                        <?php
-                        if(!empty($member->MemberImage))
-                        {
-                        ?>
+                            {!! Form::label("MemberImage","সদস্যের ছবি",["class"=>"control-label col-md-12"]) !!}
+                            <?php
+                            if(!empty($member->MemberImage))
+                            {
+                            ?>
 
-                        <img src="uploads/{{$member->MemberImage}}" width="60" height="60">
-                        <?php
-                        }
-                        ?>
+                            <img src="uploads/{{$member->MemberImage}}" width="60" height="60">
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-md-12" id="form-Nid-error">
                             {!! Form::label("Nid","জাতীয় পরিচয় পত্রের নং ",["class"=>"control-label col-md-12"]) !!}
@@ -228,16 +248,16 @@
                     </div>--}}
                     <div class="form-group required col-md-4" id="form-photo-error">
                         <div class="form-group col-md-12" id="form-FatherImage-error">
-                        {!! Form::label("FatherImage","পিতার ছবি",["class"=>"control-label col-md-12"]) !!}
-                        <?php
-                        if(!empty($member->FatherImage))
-                        {
-                        ?>
+                            {!! Form::label("FatherImage","পিতার ছবি",["class"=>"control-label col-md-12"]) !!}
+                            <?php
+                            if(!empty($member->FatherImage))
+                            {
+                            ?>
 
-                        <img src="uploads/{{$member->FatherImage}}" width="60" height="60">
-                        <?php
-                        }
-                        ?>
+                            <img src="uploads/{{$member->FatherImage}}" width="60" height="60">
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-md-12" id="form-FatherNid-error">
                             {!! Form::label("FatherNid","জাতীয় পরিচয় পত্র নং",["class"=>"control-label col-md-12"]) !!}
@@ -249,16 +269,16 @@
                     </div>
                     <div class="form-group required col-md-4" id="form-photo-error">
                         <div class="form-group col-md-12" id="form-MotherImage-error">
-                        {!! Form::label("MotherImage","মায়ের ছবি",["class"=>"control-label col-md-12"]) !!}
-                        <?php
-                        if(!empty($member->MotherImage))
-                        {
-                        ?>
+                            {!! Form::label("MotherImage","মায়ের ছবি",["class"=>"control-label col-md-12"]) !!}
+                            <?php
+                            if(!empty($member->MotherImage))
+                            {
+                            ?>
 
-                        <img src="uploads/{{$member->MotherImage}}" width="60" height="60">
-                        <?php
-                        }
-                        ?>
+                            <img src="uploads/{{$member->MotherImage}}" width="60" height="60">
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-md-12" id="form-MotherNid-error">
                             {!! Form::label("MotherNid","জাতীয় পরিচয় পত্র নং",["class"=>"control-label col-md-12"]) !!}

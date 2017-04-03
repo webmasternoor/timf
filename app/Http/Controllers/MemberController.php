@@ -26,6 +26,7 @@ use App\Politicalstatus;
 use App\Post;
 use App\Profession;
 use App\Repaymenttype;
+use App\Saving1;
 use App\Savingpolicy;
 use App\Savingtransactionsetup;
 use App\Savingtype;
@@ -243,7 +244,11 @@ class MemberController extends Controller
         $SavingTypes = ['' => '--select--'] + Savingtype::lists('name', 'id')->all();
         $SavingPolicy = ['' => '--select--'] + Savingpolicy::lists('name', 'id')->all();
         $SamityName = ['' => '--select--'] + Zone1::lists('SomitiName', 'id')->all();
-
+        $MemberData=Member::find($id);
+//        echo $MemberData->MemberId;
+//        die();
+        $memberdata1=$MemberData->MemberId;
+        $SavingsData=Saving1::where('MemberId','=',$memberdata1)->get();
         return view('member.view', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Accommodation', $Accommodation)
@@ -252,7 +257,7 @@ class MemberController extends Controller
             ->with('Weekend', $Weekend)->with('OrgPermanentEmployee', $OrgPermanentEmployee)->with('BusinessLeader', $BusinessLeader)
             ->with('ZoneInfo', $ZoneInfo)->with('AreaInfo', $AreaInfo)->with('BranchInfo', $BranchInfo)->with('Count_Data', $Count_Data)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
-            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('Status', $Status)
+            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('Status', $Status)->with('SavingsData',$SavingsData)
             ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
             ->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)->with('Familytypes', $Familytypes)
             ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)

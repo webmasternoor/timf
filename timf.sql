@@ -13,10 +13,12 @@
 
 
 -- Dumping database structure for timf
+DROP DATABASE IF EXISTS `timf`;
 CREATE DATABASE IF NOT EXISTS `timf` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `timf`;
 
 -- Dumping structure for table timf.accommodations
+DROP TABLE IF EXISTS `accommodations`;
 CREATE TABLE IF NOT EXISTS `accommodations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -36,6 +38,7 @@ INSERT INTO `accommodations` (`id`, `name`, `others`, `created_at`, `updated_at`
 /*!40000 ALTER TABLE `accommodations` ENABLE KEYS */;
 
 -- Dumping structure for table timf.accommodationses
+DROP TABLE IF EXISTS `accommodationses`;
 CREATE TABLE IF NOT EXISTS `accommodationses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -55,6 +58,7 @@ INSERT INTO `accommodationses` (`id`, `name`, `others`, `created_at`, `updated_a
 /*!40000 ALTER TABLE `accommodationses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.accountstables
+DROP TABLE IF EXISTS `accountstables`;
 CREATE TABLE IF NOT EXISTS `accountstables` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `memberid` varchar(500) DEFAULT NULL,
@@ -63,14 +67,17 @@ CREATE TABLE IF NOT EXISTS `accountstables` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.accountstables: ~0 rows (approximately)
 DELETE FROM `accountstables`;
 /*!40000 ALTER TABLE `accountstables` DISABLE KEYS */;
+INSERT INTO `accountstables` (`id`, `memberid`, `accountsname`, `productid`, `created_at`, `updated_at`) VALUES
+	(1, '1001', '57652', 1001, '2017-04-03 05:30:42', '2017-04-03 05:30:42');
 /*!40000 ALTER TABLE `accountstables` ENABLE KEYS */;
 
 -- Dumping structure for table timf.account_status
+DROP TABLE IF EXISTS `account_status`;
 CREATE TABLE IF NOT EXISTS `account_status` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `description` varchar(200) NOT NULL,
@@ -89,6 +96,7 @@ INSERT INTO `account_status` (`id`, `description`) VALUES
 /*!40000 ALTER TABLE `account_status` ENABLE KEYS */;
 
 -- Dumping structure for table timf.ages
+DROP TABLE IF EXISTS `ages`;
 CREATE TABLE IF NOT EXISTS `ages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `age` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -205,6 +213,7 @@ INSERT INTO `ages` (`id`, `age`, `others`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `ages` ENABLE KEYS */;
 
 -- Dumping structure for table timf.appformandpassbooks
+DROP TABLE IF EXISTS `appformandpassbooks`;
 CREATE TABLE IF NOT EXISTS `appformandpassbooks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `serial_no` int(11) DEFAULT NULL,
@@ -232,6 +241,7 @@ DELETE FROM `appformandpassbooks`;
 /*!40000 ALTER TABLE `appformandpassbooks` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas
+DROP TABLE IF EXISTS `areas`;
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -265,6 +275,7 @@ INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaM
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas_feb_1
+DROP TABLE IF EXISTS `areas_feb_1`;
 CREATE TABLE IF NOT EXISTS `areas_feb_1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -289,6 +300,7 @@ INSERT INTO `areas_feb_1` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, 
 /*!40000 ALTER TABLE `areas_feb_1` ENABLE KEYS */;
 
 -- Dumping structure for table timf.assets
+DROP TABLE IF EXISTS `assets`;
 CREATE TABLE IF NOT EXISTS `assets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -306,6 +318,7 @@ INSERT INTO `assets` (`id`, `name`, `AssetDescription`, `created_at`, `updated_a
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 
 -- Dumping structure for table timf.assets_debt_info
+DROP TABLE IF EXISTS `assets_debt_info`;
 CREATE TABLE IF NOT EXISTS `assets_debt_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) unsigned DEFAULT NULL,
@@ -322,6 +335,7 @@ DELETE FROM `assets_debt_info`;
 /*!40000 ALTER TABLE `assets_debt_info` ENABLE KEYS */;
 
 -- Dumping structure for table timf.blog_post
+DROP TABLE IF EXISTS `blog_post`;
 CREATE TABLE IF NOT EXISTS `blog_post` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -339,6 +353,7 @@ INSERT INTO `blog_post` (`id`, `title`, `description`, `created_at`, `updated_at
 /*!40000 ALTER TABLE `blog_post` ENABLE KEYS */;
 
 -- Dumping structure for table timf.brns
+DROP TABLE IF EXISTS `brns`;
 CREATE TABLE IF NOT EXISTS `brns` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -373,6 +388,7 @@ INSERT INTO `brns` (`id`, `name`, `ZoneId`, `DivisionOfficeId`, `AreaId`, `Branc
 /*!40000 ALTER TABLE `brns` ENABLE KEYS */;
 
 -- Dumping structure for table timf.brns_feb_1
+DROP TABLE IF EXISTS `brns_feb_1`;
 CREATE TABLE IF NOT EXISTS `brns_feb_1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -397,6 +413,7 @@ INSERT INTO `brns_feb_1` (`id`, `name`, `AreaId`, `BranchName`, `BranchCode`, `B
 /*!40000 ALTER TABLE `brns_feb_1` ENABLE KEYS */;
 
 -- Dumping structure for table timf.businessleaders
+DROP TABLE IF EXISTS `businessleaders`;
 CREATE TABLE IF NOT EXISTS `businessleaders` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -417,6 +434,7 @@ INSERT INTO `businessleaders` (`id`, `name`, `others`, `created_at`, `updated_at
 /*!40000 ALTER TABLE `businessleaders` ENABLE KEYS */;
 
 -- Dumping structure for table timf.businesstypes
+DROP TABLE IF EXISTS `businesstypes`;
 CREATE TABLE IF NOT EXISTS `businesstypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -440,6 +458,7 @@ INSERT INTO `businesstypes` (`id`, `name`, `others`, `created_at`, `updated_at`)
 /*!40000 ALTER TABLE `businesstypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.business_catagories
+DROP TABLE IF EXISTS `business_catagories`;
 CREATE TABLE IF NOT EXISTS `business_catagories` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -455,6 +474,7 @@ INSERT INTO `business_catagories` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `business_catagories` ENABLE KEYS */;
 
 -- Dumping structure for table timf.business_place_statuses
+DROP TABLE IF EXISTS `business_place_statuses`;
 CREATE TABLE IF NOT EXISTS `business_place_statuses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -475,6 +495,7 @@ INSERT INTO `business_place_statuses` (`id`, `name`, `others`, `created_at`, `up
 /*!40000 ALTER TABLE `business_place_statuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.bussinesscashinflows
+DROP TABLE IF EXISTS `bussinesscashinflows`;
 CREATE TABLE IF NOT EXISTS `bussinesscashinflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -490,6 +511,7 @@ DELETE FROM `bussinesscashinflows`;
 /*!40000 ALTER TABLE `bussinesscashinflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.bussinesscashoutflows
+DROP TABLE IF EXISTS `bussinesscashoutflows`;
 CREATE TABLE IF NOT EXISTS `bussinesscashoutflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -505,6 +527,7 @@ DELETE FROM `bussinesscashoutflows`;
 /*!40000 ALTER TABLE `bussinesscashoutflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cashinflows
+DROP TABLE IF EXISTS `cashinflows`;
 CREATE TABLE IF NOT EXISTS `cashinflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -522,6 +545,7 @@ INSERT INTO `cashinflows` (`id`, `name`, `TotalIncomeDescription`, `created_at`,
 /*!40000 ALTER TABLE `cashinflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cashoutflows
+DROP TABLE IF EXISTS `cashoutflows`;
 CREATE TABLE IF NOT EXISTS `cashoutflows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -537,6 +561,7 @@ DELETE FROM `cashoutflows`;
 /*!40000 ALTER TABLE `cashoutflows` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cash_inflow
+DROP TABLE IF EXISTS `cash_inflow`;
 CREATE TABLE IF NOT EXISTS `cash_inflow` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -550,6 +575,7 @@ DELETE FROM `cash_inflow`;
 /*!40000 ALTER TABLE `cash_inflow` ENABLE KEYS */;
 
 -- Dumping structure for table timf.cash_outflow
+DROP TABLE IF EXISTS `cash_outflow`;
 CREATE TABLE IF NOT EXISTS `cash_outflow` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -563,6 +589,7 @@ DELETE FROM `cash_outflow`;
 /*!40000 ALTER TABLE `cash_outflow` ENABLE KEYS */;
 
 -- Dumping structure for table timf.configurationsavs
+DROP TABLE IF EXISTS `configurationsavs`;
 CREATE TABLE IF NOT EXISTS `configurationsavs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -591,6 +618,7 @@ INSERT INTO `configurationsavs` (`id`, `name`, `ProductID`, `InterestPercentage`
 /*!40000 ALTER TABLE `configurationsavs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.countrs
+DROP TABLE IF EXISTS `countrs`;
 CREATE TABLE IF NOT EXISTS `countrs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -836,6 +864,7 @@ INSERT INTO `countrs` (`id`, `name`, `CountryName`, `CountryCode`, `created_at`,
 /*!40000 ALTER TABLE `countrs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.counts
+DROP TABLE IF EXISTS `counts`;
 CREATE TABLE IF NOT EXISTS `counts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` int(11) DEFAULT NULL,
@@ -953,6 +982,7 @@ INSERT INTO `counts` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `counts` ENABLE KEYS */;
 
 -- Dumping structure for table timf.departments
+DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -968,6 +998,7 @@ INSERT INTO `departments` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 
 -- Dumping structure for table timf.directions
+DROP TABLE IF EXISTS `directions`;
 CREATE TABLE IF NOT EXISTS `directions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -988,6 +1019,7 @@ INSERT INTO `directions` (`id`, `name`, `others`, `created_at`, `updated_at`) VA
 /*!40000 ALTER TABLE `directions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.districts
+DROP TABLE IF EXISTS `districts`;
 CREATE TABLE IF NOT EXISTS `districts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `DistrictName` varchar(500) DEFAULT NULL,
@@ -1073,6 +1105,7 @@ INSERT INTO `districts` (`id`, `DistrictName`, `DistrictNameBangla`, `DivisionId
 /*!40000 ALTER TABLE `districts` ENABLE KEYS */;
 
 -- Dumping structure for table timf.divisions
+DROP TABLE IF EXISTS `divisions`;
 CREATE TABLE IF NOT EXISTS `divisions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1098,6 +1131,7 @@ INSERT INTO `divisions` (`id`, `name`, `DivisionName`, `DivisionNameBangla`, `Te
 /*!40000 ALTER TABLE `divisions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.dpsapplications
+DROP TABLE IF EXISTS `dpsapplications`;
 CREATE TABLE IF NOT EXISTS `dpsapplications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1116,6 +1150,7 @@ DELETE FROM `dpsapplications`;
 /*!40000 ALTER TABLE `dpsapplications` ENABLE KEYS */;
 
 -- Dumping structure for table timf.education
+DROP TABLE IF EXISTS `education`;
 CREATE TABLE IF NOT EXISTS `education` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -1141,6 +1176,7 @@ INSERT INTO `education` (`id`, `name`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `education` ENABLE KEYS */;
 
 -- Dumping structure for table timf.familytypes
+DROP TABLE IF EXISTS `familytypes`;
 CREATE TABLE IF NOT EXISTS `familytypes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1158,7 +1194,27 @@ INSERT INTO `familytypes` (`id`, `name`, `others`, `created_at`, `updated_at`) V
 	(2, 'যৌথ', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `familytypes` ENABLE KEYS */;
 
+-- Dumping structure for table timf.frequencies
+DROP TABLE IF EXISTS `frequencies`;
+CREATE TABLE IF NOT EXISTS `frequencies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `frequency` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.frequencies: ~2 rows (approximately)
+DELETE FROM `frequencies`;
+/*!40000 ALTER TABLE `frequencies` DISABLE KEYS */;
+INSERT INTO `frequencies` (`id`, `frequency`, `created_at`, `updated_at`) VALUES
+	(1, 'Weekly', NULL, NULL),
+	(2, 'Monthly', NULL, NULL),
+	(3, 'Yearly', NULL, NULL);
+/*!40000 ALTER TABLE `frequencies` ENABLE KEYS */;
+
 -- Dumping structure for table timf.genders
+DROP TABLE IF EXISTS `genders`;
 CREATE TABLE IF NOT EXISTS `genders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1178,6 +1234,7 @@ INSERT INTO `genders` (`id`, `name`, `GenderName`, `created_at`, `updated_at`) V
 /*!40000 ALTER TABLE `genders` ENABLE KEYS */;
 
 -- Dumping structure for table timf.graces
+DROP TABLE IF EXISTS `graces`;
 CREATE TABLE IF NOT EXISTS `graces` (
   `id` int(11) NOT NULL,
   `GraceId` varchar(500) DEFAULT NULL,
@@ -1202,6 +1259,7 @@ INSERT INTO `graces` (`id`, `GraceId`, `name`, `SomitiName`, `MemberName`, `Grac
 /*!40000 ALTER TABLE `graces` ENABLE KEYS */;
 
 -- Dumping structure for table timf.grades
+DROP TABLE IF EXISTS `grades`;
 CREATE TABLE IF NOT EXISTS `grades` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1243,6 +1301,7 @@ INSERT INTO `grades` (`id`, `name`, `designation`, `created_at`, `updated_at`) V
 /*!40000 ALTER TABLE `grades` ENABLE KEYS */;
 
 -- Dumping structure for table timf.holidays
+DROP TABLE IF EXISTS `holidays`;
 CREATE TABLE IF NOT EXISTS `holidays` (
   `id` int(11) NOT NULL,
   `OfficeId` int(11) NOT NULL DEFAULT '0',
@@ -1268,6 +1327,7 @@ INSERT INTO `holidays` (`id`, `OfficeId`, `SamityID_CenterID`, `HolidayyName`, `
 /*!40000 ALTER TABLE `holidays` ENABLE KEYS */;
 
 -- Dumping structure for table timf.investments
+DROP TABLE IF EXISTS `investments`;
 CREATE TABLE IF NOT EXISTS `investments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1288,6 +1348,7 @@ DELETE FROM `investments`;
 /*!40000 ALTER TABLE `investments` ENABLE KEYS */;
 
 -- Dumping structure for table timf.investors
+DROP TABLE IF EXISTS `investors`;
 CREATE TABLE IF NOT EXISTS `investors` (
   `id` int(11) NOT NULL,
   `InvestorCode` varchar(500) DEFAULT NULL,
@@ -1304,6 +1365,7 @@ DELETE FROM `investors`;
 /*!40000 ALTER TABLE `investors` ENABLE KEYS */;
 
 -- Dumping structure for table timf.invsummary
+DROP TABLE IF EXISTS `invsummary`;
 CREATE TABLE IF NOT EXISTS `invsummary` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1322,6 +1384,7 @@ DELETE FROM `invsummary`;
 /*!40000 ALTER TABLE `invsummary` ENABLE KEYS */;
 
 -- Dumping structure for table timf.jamindars
+DROP TABLE IF EXISTS `jamindars`;
 CREATE TABLE IF NOT EXISTS `jamindars` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1378,6 +1441,7 @@ INSERT INTO `jamindars` (`id`, `name`, `Nid`, `JamindarNameTitle`, `JamindarFirs
 /*!40000 ALTER TABLE `jamindars` ENABLE KEYS */;
 
 -- Dumping structure for table timf.liabs
+DROP TABLE IF EXISTS `liabs`;
 CREATE TABLE IF NOT EXISTS `liabs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -1393,6 +1457,7 @@ DELETE FROM `liabs`;
 /*!40000 ALTER TABLE `liabs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.licenceauthorities
+DROP TABLE IF EXISTS `licenceauthorities`;
 CREATE TABLE IF NOT EXISTS `licenceauthorities` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1412,6 +1477,7 @@ INSERT INTO `licenceauthorities` (`id`, `name`, `others`, `created_at`, `updated
 /*!40000 ALTER TABLE `licenceauthorities` ENABLE KEYS */;
 
 -- Dumping structure for table timf.loans
+DROP TABLE IF EXISTS `loans`;
 CREATE TABLE IF NOT EXISTS `loans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -1518,6 +1584,7 @@ DELETE FROM `loans`;
 /*!40000 ALTER TABLE `loans` ENABLE KEYS */;
 
 -- Dumping structure for table timf.maritalstatuses
+DROP TABLE IF EXISTS `maritalstatuses`;
 CREATE TABLE IF NOT EXISTS `maritalstatuses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1539,6 +1606,7 @@ INSERT INTO `maritalstatuses` (`id`, `name`, `others`, `created_at`, `updated_at
 /*!40000 ALTER TABLE `maritalstatuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.members
+DROP TABLE IF EXISTS `members`;
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `grouppresident` int(11) DEFAULT '0',
@@ -1547,6 +1615,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `manager` int(11) DEFAULT '0',
   `finalapproved` int(11) DEFAULT '0',
   `remarks` varchar(50) DEFAULT NULL,
+  `DivisionOfficeId` int(11) DEFAULT NULL,
   `ZoneId` int(11) DEFAULT '0',
   `AreaId` int(11) DEFAULT '0',
   `BranchId` int(11) DEFAULT '0',
@@ -1701,16 +1770,17 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- Dumping data for table timf.members: ~6 rows (approximately)
 DELETE FROM `members`;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` (`id`, `grouppresident`, `fieldofficer`, `supervisor`, `manager`, `finalapproved`, `remarks`, `ZoneId`, `AreaId`, `BranchId`, `name`, `MemberImage`, `FatherImage`, `MotherImage`, `Nid`, `FullNameEnglish`, `FullNameBangla`, `Gender`, `Age`, `DateofBirth`, `Education`, `SpouseProfession`, `SpouseMobileNo`, `MaritalStatus`, `Mobile`, `Email`, `PoliticalStatus`, `Distance`, `WifeFullNameEnglish`, `WifeFullNameBangla`, `WifeAge`, `WifeMobileNo`, `NomineeImage`, `WifeProfession`, `WifeOtherProfession`, `FatherOrHasbandFullNameEnglish`, `FatherOrHasbandFullNameBangla`, `FatherOrHasbandAge`, `FatherProfession`, `FatherMobileNo`, `MotherFUllNameEnglish`, `MotherFUllNameBangla`, `MotherAge`, `MotherProfession`, `MotherMobileNo`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDivision`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType1`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `FamilyType`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `RepaymentType`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `LoanAccount`, `SavingAccount`, `MemberId`, `SavingPolicy`, `SavingTypes`, `MemberType`, `SamityName`, `created_at`, `updated_at`) VALUES
-	(1, 0, 0, 0, 0, 0, 'এই ব্যক্তিকে সদস্য করা জেতে পারে ', 1, 1, 1, NULL, '69c78a4ddf4d708ac0518cdbc192d094.jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '38B3rpeD.jpg', '123', '1', '4', '1', '1', NULL, '1', NULL, '5', '1', '', '7@gmail.com', '1', '1', '2', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '12', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52259', '123_58181', '', '', '', '', '', '2017-02-13 11:10:39', '2017-02-14 05:34:39'),
-	(2, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 2, NULL, 'images (3).jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '123', 'Rockey', 'রকি আহমেদ', '1', '25', NULL, '5', NULL, '01234567890', '1', '01738349723', 'rockeycse@gmail.com', '2', '1', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-03', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56598', '123_53686', '12333', '', '', '', '', '2017-02-14 05:07:58', '2017-04-01 07:03:26'),
-	(3, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল ', 4, 1, 2, NULL, 'images (9).jpg', 'images (4).jpg', 'images (12).jpg', '456', 'Noor', 'নুর - ই - আলম খান', '1', '40', NULL, '6', '1', '1234567895', '1', '0123456789', 'webmaster.noor@gmail.com', '2', '1', '', '', '1', '', 'images (10).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-23', '1', '1', '', '', '', '', '1263456', '786786', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '456_53179', '456_51128', '1003', '', '', '', '', '2017-02-14 09:52:30', '2017-04-01 07:01:11'),
-	(5, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 1, NULL, 'images (7).jpg', 'images (1).jpg', 'images (11).jpg', '789', 'Zeaur', 'জিয়াউর রহমান', '1', '26', NULL, '5', 'Agriculture', '21342145', '1', '1245678', 'zea@gmail.com', '2', '1', '1', '1', '1', '1234324', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', 'Agriculture', NULL, '1', '1', '14', 'Agriculture', '1112121', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '345', '345', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '789_52270', '789_52625', '1005', '', '', '', '', '2017-02-14 09:53:52', '2017-04-01 07:08:02'),
-	(6, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', 4, 1, 1, NULL, 'images.jpg', '3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', 'images (14).jpg', '5656', 'samsur', 'সামসুর রহমান', '1', '34', NULL, '1', 'Agriculture', '12324', '1', '1245678', 'zea@gmail.com', '2', '5', '', '', '1', '', 'iTJq5781.jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '1', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '5656_50597', '5656_54334', '500', '', '', '', '', '2017-02-14 09:56:19', '2017-04-01 06:16:58'),
-	(11, 1, 0, 0, 0, 0, 'everything is ok', 4, 1, 1, NULL, '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '69c78a4ddf4d708ac0518cdbc192d094.jpg', 'images (14).jpg', '987', 'Sotej', 'সতেজ চাকমা', '1', '1', NULL, '1', 'Agriculture', '1223456', '1', '123654', '', '1', '1', '', '', '1', '', 'download (1).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '213213', '123124', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '987_51346', '987_56154', '1002', '1', '1', '1', '1', '2017-02-15 10:18:31', '2017-03-13 04:53:55');
+INSERT INTO `members` (`id`, `grouppresident`, `fieldofficer`, `supervisor`, `manager`, `finalapproved`, `remarks`, `DivisionOfficeId`, `ZoneId`, `AreaId`, `BranchId`, `name`, `MemberImage`, `FatherImage`, `MotherImage`, `Nid`, `FullNameEnglish`, `FullNameBangla`, `Gender`, `Age`, `DateofBirth`, `Education`, `SpouseProfession`, `SpouseMobileNo`, `MaritalStatus`, `Mobile`, `Email`, `PoliticalStatus`, `Distance`, `WifeFullNameEnglish`, `WifeFullNameBangla`, `WifeAge`, `WifeMobileNo`, `NomineeImage`, `WifeProfession`, `WifeOtherProfession`, `FatherOrHasbandFullNameEnglish`, `FatherOrHasbandFullNameBangla`, `FatherOrHasbandAge`, `FatherProfession`, `FatherMobileNo`, `MotherFUllNameEnglish`, `MotherFUllNameBangla`, `MotherAge`, `MotherProfession`, `MotherMobileNo`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDivision`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType1`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `FamilyType`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `RepaymentType`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `LoanAccount`, `SavingAccount`, `MemberId`, `SavingPolicy`, `SavingTypes`, `MemberType`, `SamityName`, `created_at`, `updated_at`) VALUES
+	(1, 0, 0, 0, 0, 0, 'এই ব্যক্তিকে সদস্য করা জেতে পারে ', NULL, 1, 1, 1, NULL, '69c78a4ddf4d708ac0518cdbc192d094.jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '38B3rpeD.jpg', '123', '1', '4', '1', '1', NULL, '1', NULL, '5', '1', '', '7@gmail.com', '1', '1', '2', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '12', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52259', '123_58181', '', '', '', '', '', '2017-02-13 11:10:39', '2017-02-14 05:34:39'),
+	(2, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 2, NULL, 'images (3).jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '123', 'Rockey', 'রকি আহমেদ', '1', '25', NULL, '5', NULL, '01234567890', '1', '01738349723', 'rockeycse@gmail.com', '2', '1', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-03', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56598', '123_53686', '', '', '', '', '', '2017-02-14 05:07:58', '2017-04-01 07:03:26'),
+	(3, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল ', NULL, 4, 1, 2, NULL, 'images (9).jpg', 'images (4).jpg', 'images (12).jpg', '456', 'Noor', 'নুর - ই - আলম খান', '1', '40', NULL, '6', '1', '1234567895', '1', '0123456789', 'webmaster.noor@gmail.com', '2', '1', '', '', '1', '', 'images (10).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-23', '1', '1', '', '', '', '', '1263456', '786786', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '456_53179', '456_51128', '', '', '', '', '', '2017-02-14 09:52:30', '2017-04-01 07:01:11'),
+	(5, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 1, NULL, 'images (7).jpg', 'images (1).jpg', 'images (11).jpg', '789', 'Zeaur', 'জিয়াউর রহমান', '1', '26', NULL, '5', 'Agriculture', '21342145', '1', '1245678', 'zea@gmail.com', '2', '1', '1', '1', '1', '1234324', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', 'Agriculture', NULL, '1', '1', '14', 'Agriculture', '1112121', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '345', '345', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '789_52270', '789_52625', '', '', '', '', '', '2017-02-14 09:53:52', '2017-04-02 03:59:12'),
+	(6, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 1, NULL, 'images.jpg', '3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', 'images (14).jpg', '5656', 'samsur', 'সামসুর রহমান', '1', '34', NULL, '1', 'Agriculture', '12324', '1', '1245678', 'zea@gmail.com', '2', '5', '', '', '1', '', 'iTJq5781.jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '1', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '5656_50597', '5656_54334', '1001', '2', '1', '1', '2', '2017-02-14 09:56:19', '2017-04-03 05:30:41'),
+	(11, 0, 0, 0, 0, 0, 'everything is ok', NULL, 4, 1, 1, NULL, '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '69c78a4ddf4d708ac0518cdbc192d094.jpg', 'images (14).jpg', '987', 'Sotej', 'সতেজ চাকমা', '1', '1', NULL, '1', 'Agriculture', '1223456', '1', '123654', '', '1', '1', '', '', '1', '', 'download (1).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '213213', '123124', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '987_51346', '987_56154', '', '1', '1', '1', '1', '2017-02-15 10:18:31', '2017-03-13 04:53:55');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 
 -- Dumping structure for table timf.members_feb_12.1
+DROP TABLE IF EXISTS `members_feb_12.1`;
 CREATE TABLE IF NOT EXISTS `members_feb_12.1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `grouppresident` int(11) DEFAULT '0',
@@ -1865,6 +1935,7 @@ INSERT INTO `members_feb_12.1` (`id`, `grouppresident`, `fieldoffice`, `supervis
 /*!40000 ALTER TABLE `members_feb_12.1` ENABLE KEYS */;
 
 -- Dumping structure for table timf.members_latest
+DROP TABLE IF EXISTS `members_latest`;
 CREATE TABLE IF NOT EXISTS `members_latest` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -2029,6 +2100,7 @@ DELETE FROM `members_latest`;
 /*!40000 ALTER TABLE `members_latest` ENABLE KEYS */;
 
 -- Dumping structure for table timf.membertypes
+DROP TABLE IF EXISTS `membertypes`;
 CREATE TABLE IF NOT EXISTS `membertypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2047,6 +2119,7 @@ INSERT INTO `membertypes` (`id`, `name`, `others`, `created_at`, `updated_at`) V
 /*!40000 ALTER TABLE `membertypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.migrations
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
@@ -2065,6 +2138,7 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table timf.mikrofdivisions
+DROP TABLE IF EXISTS `mikrofdivisions`;
 CREATE TABLE IF NOT EXISTS `mikrofdivisions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `DivisionOfficeName` varchar(500) DEFAULT NULL,
@@ -2095,6 +2169,7 @@ INSERT INTO `mikrofdivisions` (`id`, `DivisionOfficeName`, `DivisionOfficeNameBa
 /*!40000 ALTER TABLE `mikrofdivisions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.nametitles
+DROP TABLE IF EXISTS `nametitles`;
 CREATE TABLE IF NOT EXISTS `nametitles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2114,6 +2189,7 @@ INSERT INTO `nametitles` (`id`, `name`, `others`, `created_at`, `updated_at`) VA
 /*!40000 ALTER TABLE `nametitles` ENABLE KEYS */;
 
 -- Dumping structure for table timf.organizations
+DROP TABLE IF EXISTS `organizations`;
 CREATE TABLE IF NOT EXISTS `organizations` (
   `id` int(11) NOT NULL,
   `OrganizationCode` varchar(500) DEFAULT NULL,
@@ -2143,6 +2219,7 @@ DELETE FROM `organizations`;
 /*!40000 ALTER TABLE `organizations` ENABLE KEYS */;
 
 -- Dumping structure for table timf.othersources
+DROP TABLE IF EXISTS `othersources`;
 CREATE TABLE IF NOT EXISTS `othersources` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2164,6 +2241,7 @@ INSERT INTO `othersources` (`id`, `name`, `others`, `created_at`, `updated_at`) 
 /*!40000 ALTER TABLE `othersources` ENABLE KEYS */;
 
 -- Dumping structure for table timf.ownershiptypes
+DROP TABLE IF EXISTS `ownershiptypes`;
 CREATE TABLE IF NOT EXISTS `ownershiptypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2182,6 +2260,7 @@ INSERT INTO `ownershiptypes` (`id`, `name`, `others`, `created_at`, `updated_at`
 /*!40000 ALTER TABLE `ownershiptypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.password_resets
+DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -2196,6 +2275,7 @@ DELETE FROM `password_resets`;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
 -- Dumping structure for table timf.permanentemployees
+DROP TABLE IF EXISTS `permanentemployees`;
 CREATE TABLE IF NOT EXISTS `permanentemployees` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2222,6 +2302,7 @@ INSERT INTO `permanentemployees` (`id`, `name`, `others`, `created_at`, `updated
 /*!40000 ALTER TABLE `permanentemployees` ENABLE KEYS */;
 
 -- Dumping structure for table timf.politicalstatuses
+DROP TABLE IF EXISTS `politicalstatuses`;
 CREATE TABLE IF NOT EXISTS `politicalstatuses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2240,6 +2321,7 @@ INSERT INTO `politicalstatuses` (`id`, `name`, `others`, `created_at`, `updated_
 /*!40000 ALTER TABLE `politicalstatuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.postoffices
+DROP TABLE IF EXISTS `postoffices`;
 CREATE TABLE IF NOT EXISTS `postoffices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `PostofficeName` varchar(500) DEFAULT NULL,
@@ -2263,6 +2345,7 @@ INSERT INTO `postoffices` (`id`, `PostofficeName`, `ThanaId`, `DivisionId`, `Dis
 /*!40000 ALTER TABLE `postoffices` ENABLE KEYS */;
 
 -- Dumping structure for table timf.posts
+DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -2780,6 +2863,7 @@ INSERT INTO `posts` (`id`, `user_id`, `title`, `created_at`, `updated_at`) VALUE
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
 -- Dumping structure for table timf.processtbl
+DROP TABLE IF EXISTS `processtbl`;
 CREATE TABLE IF NOT EXISTS `processtbl` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2798,6 +2882,7 @@ DELETE FROM `processtbl`;
 /*!40000 ALTER TABLE `processtbl` ENABLE KEYS */;
 
 -- Dumping structure for table timf.prodscheinvest
+DROP TABLE IF EXISTS `prodscheinvest`;
 CREATE TABLE IF NOT EXISTS `prodscheinvest` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2815,6 +2900,7 @@ DELETE FROM `prodscheinvest`;
 /*!40000 ALTER TABLE `prodscheinvest` ENABLE KEYS */;
 
 -- Dumping structure for table timf.prodschesav
+DROP TABLE IF EXISTS `prodschesav`;
 CREATE TABLE IF NOT EXISTS `prodschesav` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2831,8 +2917,9 @@ DELETE FROM `prodschesav`;
 /*!40000 ALTER TABLE `prodschesav` DISABLE KEYS */;
 /*!40000 ALTER TABLE `prodschesav` ENABLE KEYS */;
 
--- Dumping structure for table timf.products
-CREATE TABLE IF NOT EXISTS `products` (
+-- Dumping structure for table timf.product1s
+DROP TABLE IF EXISTS `product1s`;
+CREATE TABLE IF NOT EXISTS `product1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ProductCode` varchar(500) DEFAULT NULL,
   `ProductName` varchar(500) DEFAULT NULL,
@@ -2859,16 +2946,61 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.products: ~2 rows (approximately)
-DELETE FROM `products`;
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` (`id`, `ProductCode`, `ProductName`, `ProductNameEng`, `ProductNameBanglaShort`, `ProductNameBanglaFull`, `ProductType`, `ServiceChargeRate`, `Duration`, `MainProductName`, `MainItemName`, `LoanInstallation`, `InstallationServiceCharge`, `SavingInstallment`, `MinimumLimit`, `MaximumLimit`, `ServiceChargeCalculationMethod`, `PaymentFrequency`, `InsuranceItemCode`, `InsuranceItemRate`, `name`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table timf.product1s: ~2 rows (approximately)
+DELETE FROM `product1s`;
+/*!40000 ALTER TABLE `product1s` DISABLE KEYS */;
+INSERT INTO `product1s` (`id`, `ProductCode`, `ProductName`, `ProductNameEng`, `ProductNameBanglaShort`, `ProductNameBanglaFull`, `ProductType`, `ServiceChargeRate`, `Duration`, `MainProductName`, `MainItemName`, `LoanInstallation`, `InstallationServiceCharge`, `SavingInstallment`, `MinimumLimit`, `MaximumLimit`, `ServiceChargeCalculationMethod`, `PaymentFrequency`, `InsuranceItemCode`, `InsuranceItemRate`, `name`, `created_at`, `updated_at`) VALUES
 	(1, '1.0', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', '1', '15', '36', 'বাই মোয়াজ্জাল', 'বাই মোয়াজ্জাল', '12', '12', '12', '12', '21', '1', '2', '12', '12', NULL, '2017-02-11 08:10:04', '2017-02-11 08:10:04'),
 	(2, '2.0', 'সাধারণ সঞ্চয়', 'general savings', 'GS', 'সাধারণ সঞ্চয়', '4', '13', '24', 'সাধারণ সঞ্চয়', 'সাধারণ সঞ্চয়', '', '', '', '100', '5000', '1', '2', '', '', NULL, '2017-02-11 08:15:44', '2017-02-11 08:15:44'),
 	(3, 'GSMM', 'GSMM', 'GSMM', 'জিএস এমএম', 'মাসিক সাধারন সঞ্চয় এম ই', '4', '', '', 'মুদারাবা সাধারন সঞ্চয়', '', '', '', '', '50', '5000', '1', '2', '', '', NULL, '2017-04-01 04:39:03', '2017-04-01 04:39:03');
+/*!40000 ALTER TABLE `product1s` ENABLE KEYS */;
+
+-- Dumping structure for table timf.products
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ProductCode` varchar(50) DEFAULT NULL,
+  `ProductID` varchar(50) DEFAULT NULL,
+  `ProductName` varchar(500) DEFAULT NULL,
+  `ProductNameEng` varchar(500) DEFAULT NULL,
+  `ProductNameBanglaShort` varchar(500) DEFAULT NULL,
+  `ProductNameBanglaFull` varchar(500) DEFAULT NULL,
+  `InterestPercentage` varchar(50) DEFAULT NULL,
+  `Frequency` varchar(50) DEFAULT NULL,
+  `Duration` varchar(50) DEFAULT NULL,
+  `EffectiveFrom` varchar(50) DEFAULT NULL,
+  `EffectiveTo` varchar(50) DEFAULT NULL,
+  `IsActive` varchar(50) DEFAULT NULL,
+  `MultipleSavings` varchar(50) DEFAULT NULL,
+  `WithdrawlFacily` varchar(50) DEFAULT NULL,
+  `MinimumAmount` varchar(50) DEFAULT NULL,
+  `MaximumAmount` varchar(50) DEFAULT NULL,
+  `MinimumBalanceAmount` varchar(50) DEFAULT NULL,
+  `MinimumBalanceAmountPercentage` varchar(50) DEFAULT NULL,
+  `MaxDueCycle` varchar(50) DEFAULT NULL,
+  `PassBookAvailability` varchar(50) DEFAULT NULL,
+  `SpecialWithdrawFacility` varchar(50) DEFAULT NULL,
+  `InvestmentAgainstSavings` varchar(50) DEFAULT NULL,
+  `PercentageofInvestmentAgainstSavings` varchar(50) DEFAULT NULL,
+  `AutomaticSchemeRenewal` varchar(50) DEFAULT NULL,
+  `DividedbyValue` varchar(50) DEFAULT NULL,
+  `MaxWithdrawTimeforAvoidingPenaltyPerMonth` varchar(50) DEFAULT NULL,
+  `MaxWithdrawLimitPerMonth` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.products: ~0 rows (approximately)
+DELETE FROM `products`;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` (`id`, `ProductCode`, `ProductID`, `ProductName`, `ProductNameEng`, `ProductNameBanglaShort`, `ProductNameBanglaFull`, `InterestPercentage`, `Frequency`, `Duration`, `EffectiveFrom`, `EffectiveTo`, `IsActive`, `MultipleSavings`, `WithdrawlFacily`, `MinimumAmount`, `MaximumAmount`, `MinimumBalanceAmount`, `MinimumBalanceAmountPercentage`, `MaxDueCycle`, `PassBookAvailability`, `SpecialWithdrawFacility`, `InvestmentAgainstSavings`, `PercentageofInvestmentAgainstSavings`, `AutomaticSchemeRenewal`, `DividedbyValue`, `MaxWithdrawTimeforAvoidingPenaltyPerMonth`, `MaxWithdrawLimitPerMonth`, `name`, `created_at`, `updated_at`) VALUES
+	(1, '2.0', '2.0', 'MGSMM', 'Mudaraba Genaral Saving ME Monthly', 'এম জি এসএমএম', 'মুদারাবা মাসিক সাধারন সঞ্চয় ME', '7', '2', '7', '17.04.2017', '17.04.2018', '1', '1', '1', '500', '50000', '299', '500', '4', '1', '1', '90000', '90', '1', '1000', '1', '50000', NULL, '2017-04-02 07:16:33', '2017-04-02 07:16:33');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table timf.producttypes
+DROP TABLE IF EXISTS `producttypes`;
 CREATE TABLE IF NOT EXISTS `producttypes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -2892,6 +3024,7 @@ INSERT INTO `producttypes` (`id`, `name`, `ProducttypeyName`, `ProducttypeyCode`
 /*!40000 ALTER TABLE `producttypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.professions
+DROP TABLE IF EXISTS `professions`;
 CREATE TABLE IF NOT EXISTS `professions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2916,6 +3049,7 @@ INSERT INTO `professions` (`id`, `name`, `others`, `created_at`, `updated_at`) V
 /*!40000 ALTER TABLE `professions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.purposes
+DROP TABLE IF EXISTS `purposes`;
 CREATE TABLE IF NOT EXISTS `purposes` (
   `id` int(11) NOT NULL,
   `name` varchar(500) DEFAULT NULL,
@@ -2935,6 +3069,7 @@ INSERT INTO `purposes` (`id`, `name`, `PurposeCode`, `PurposeName`, `created_at`
 /*!40000 ALTER TABLE `purposes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.repaymenttypes
+DROP TABLE IF EXISTS `repaymenttypes`;
 CREATE TABLE IF NOT EXISTS `repaymenttypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2952,6 +3087,7 @@ INSERT INTO `repaymenttypes` (`id`, `name`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `repaymenttypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.rollcatagories
+DROP TABLE IF EXISTS `rollcatagories`;
 CREATE TABLE IF NOT EXISTS `rollcatagories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -2972,6 +3108,7 @@ INSERT INTO `rollcatagories` (`id`, `name`, `others`, `created_at`, `updated_at`
 /*!40000 ALTER TABLE `rollcatagories` ENABLE KEYS */;
 
 -- Dumping structure for table timf.saving1s
+DROP TABLE IF EXISTS `saving1s`;
 CREATE TABLE IF NOT EXISTS `saving1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `MemberId` varchar(500) DEFAULT NULL,
@@ -2987,31 +3124,18 @@ CREATE TABLE IF NOT EXISTS `saving1s` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.saving1s: ~15 rows (approximately)
+-- Dumping data for table timf.saving1s: ~0 rows (approximately)
 DELETE FROM `saving1s`;
 /*!40000 ALTER TABLE `saving1s` DISABLE KEYS */;
 INSERT INTO `saving1s` (`id`, `MemberId`, `ProductId`, `Remarks`, `AccountNo`, `Balance`, `Flag`, `SavingAmount`, `WithdrawAmount`, `TransactionDate`, `EntryDate`, `created_at`, `updated_at`) VALUES
-	(1, '1002', '1', NULL, 'null', 500, NULL, 50, NULL, NULL, NULL, '2017-03-18 07:17:37', '2017-03-18 07:17:37'),
-	(2, '11', '1', NULL, '23423534', 500, NULL, 50, NULL, NULL, NULL, '2017-03-18 07:17:37', '2017-03-18 07:17:37'),
-	(3, '11', '2', NULL, '234235435', 500, NULL, 50, NULL, NULL, NULL, '2017-03-18 07:17:37', '2017-03-18 07:17:37'),
-	(4, '11', '1', NULL, '23523', 500, NULL, 50, NULL, NULL, NULL, '2017-03-18 07:17:37', '2017-03-18 07:17:37'),
-	(5, '11', '2', NULL, '235325', 50, NULL, 50, NULL, NULL, NULL, '2017-03-18 07:17:37', '2017-03-18 07:17:37'),
-	(6, '11', '2', NULL, '235235', 10, NULL, 50, NULL, NULL, NULL, '2017-03-18 07:17:37', '2017-03-18 07:17:37'),
-	(7, '1001', '1', NULL, 'null', 50, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:02:30', '2017-03-18 10:02:30'),
-	(8, '1002', '1', NULL, 'null', 50, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:02:30', '2017-03-18 10:02:30'),
-	(9, '1001', '1', NULL, 'null', 100, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:06:16', '2017-03-18 10:06:16'),
-	(10, '1002', '1', NULL, 'null', 100, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:06:16', '2017-03-18 10:06:16'),
-	(11, '1001', '1', NULL, 'null', 150, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:06:21', '2017-03-18 10:06:21'),
-	(12, '1002', '1', NULL, 'null', 150, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:06:21', '2017-03-18 10:06:21'),
-	(13, '1001', '1', NULL, 'null', 160, NULL, 10, NULL, NULL, NULL, '2017-03-18 10:06:53', '2017-03-18 10:06:53'),
-	(14, '1002', '1', NULL, 'null', 200, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:06:53', '2017-03-18 10:06:53'),
-	(15, '1001', '1', NULL, 'null', 210, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:15:14', '2017-03-18 10:15:14'),
-	(16, '1002', '1', NULL, 'null', 250, NULL, 50, NULL, NULL, NULL, '2017-03-18 10:15:14', '2017-03-18 10:15:14');
+	(1, '1001', '1', NULL, '57652', NULL, NULL, 50, NULL, NULL, '2017-04-03 10:35:41', '2017-04-03 10:35:41', '2017-04-03 10:35:41'),
+	(2, '1001', '1', NULL, '57652', NULL, NULL, 50, NULL, NULL, '2017-05-03 00:00:00', '2017-04-03 10:53:04', '2017-04-03 10:53:04');
 /*!40000 ALTER TABLE `saving1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.saving1s_mar_2
+DROP TABLE IF EXISTS `saving1s_mar_2`;
 CREATE TABLE IF NOT EXISTS `saving1s_mar_2` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -3038,6 +3162,7 @@ INSERT INTO `saving1s_mar_2` (`id`, `name`, `Saving1yName`, `MemberId`, `Column 
 /*!40000 ALTER TABLE `saving1s_mar_2` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savingpolicies
+DROP TABLE IF EXISTS `savingpolicies`;
 CREATE TABLE IF NOT EXISTS `savingpolicies` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -3056,6 +3181,7 @@ INSERT INTO `savingpolicies` (`id`, `name`, `others`, `created_at`, `updated_at`
 /*!40000 ALTER TABLE `savingpolicies` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savings
+DROP TABLE IF EXISTS `savings`;
 CREATE TABLE IF NOT EXISTS `savings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `serial_no` int(11) DEFAULT NULL,
@@ -3078,6 +3204,7 @@ DELETE FROM `savings`;
 /*!40000 ALTER TABLE `savings` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savingsledger
+DROP TABLE IF EXISTS `savingsledger`;
 CREATE TABLE IF NOT EXISTS `savingsledger` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `MemberId` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -3098,7 +3225,49 @@ DELETE FROM `savingsledger`;
 /*!40000 ALTER TABLE `savingsledger` DISABLE KEYS */;
 /*!40000 ALTER TABLE `savingsledger` ENABLE KEYS */;
 
+-- Dumping structure for table timf.savingsprofitpenaltyrules
+DROP TABLE IF EXISTS `savingsprofitpenaltyrules`;
+CREATE TABLE IF NOT EXISTS `savingsprofitpenaltyrules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ProductID` varchar(50) DEFAULT NULL,
+  `ServiceChargeCalculationMethod` varchar(50) DEFAULT NULL,
+  `ServiceChargeCalculationDuration` varchar(50) DEFAULT NULL,
+  `LoanExpirayMemberEligibleforSavingsProfit` varchar(50) DEFAULT NULL,
+  `FiscalPeriodStartsMonth` varchar(50) DEFAULT NULL,
+  `FiscalPeriodEndsMonth` varchar(50) DEFAULT NULL,
+  `RulesEffectiveFrom` varchar(50) DEFAULT NULL,
+  `RulesEffectiveTo` varchar(50) DEFAULT NULL,
+  `EffectiveFormula` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.savingsprofitpenaltyrules: ~0 rows (approximately)
+DELETE FROM `savingsprofitpenaltyrules`;
+/*!40000 ALTER TABLE `savingsprofitpenaltyrules` DISABLE KEYS */;
+INSERT INTO `savingsprofitpenaltyrules` (`id`, `ProductID`, `ServiceChargeCalculationMethod`, `ServiceChargeCalculationDuration`, `LoanExpirayMemberEligibleforSavingsProfit`, `FiscalPeriodStartsMonth`, `FiscalPeriodEndsMonth`, `RulesEffectiveFrom`, `RulesEffectiveTo`, `EffectiveFormula`, `created_at`, `updated_at`) VALUES
+	(1, '1', '1', '12', '1', '2017-04-02', '2018-04-04', '123', '3121', '23', '2017-04-02 10:17:14', '2017-04-02 10:17:14');
+/*!40000 ALTER TABLE `savingsprofitpenaltyrules` ENABLE KEYS */;
+
+-- Dumping structure for table timf.savingswithdrawconfig
+DROP TABLE IF EXISTS `savingswithdrawconfig`;
+CREATE TABLE IF NOT EXISTS `savingswithdrawconfig` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ProductId` int(11) NOT NULL DEFAULT '0',
+  `MinAmount` int(11) NOT NULL DEFAULT '0',
+  `MaxAmount` int(11) NOT NULL DEFAULT '0',
+  `TransactionType` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.savingswithdrawconfig: ~0 rows (approximately)
+DELETE FROM `savingswithdrawconfig`;
+/*!40000 ALTER TABLE `savingswithdrawconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `savingswithdrawconfig` ENABLE KEYS */;
+
 -- Dumping structure for table timf.savingtransactionsetups
+DROP TABLE IF EXISTS `savingtransactionsetups`;
 CREATE TABLE IF NOT EXISTS `savingtransactionsetups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `MemberId` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -3119,21 +3288,22 @@ CREATE TABLE IF NOT EXISTS `savingtransactionsetups` (
 DELETE FROM `savingtransactionsetups`;
 /*!40000 ALTER TABLE `savingtransactionsetups` DISABLE KEYS */;
 INSERT INTO `savingtransactionsetups` (`id`, `MemberId`, `AccountNo`, `SavingType`, `MemberType`, `SavingPolicy`, `SamityName`, `Rate`, `Amount`, `Date`, `created_at`, `updated_at`) VALUES
-	(1, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-05-01', '2017-04-01 07:08:02', '2017-04-01 07:08:02'),
-	(2, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-06-01', '2017-04-01 07:08:02', '2017-04-01 07:08:02'),
-	(3, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-07-01', '2017-04-01 07:08:02', '2017-04-01 07:08:02'),
-	(4, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-08-01', '2017-04-01 07:08:02', '2017-04-01 07:08:02'),
-	(5, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-09-01', '2017-04-01 07:08:02', '2017-04-01 07:08:02'),
-	(6, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-10-01', '2017-04-01 07:08:03', '2017-04-01 07:08:03'),
-	(7, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-11-01', '2017-04-01 07:08:03', '2017-04-01 07:08:03'),
-	(8, '1005', NULL, '2', '2', '2', '2', 5, 100, '2017-12-01', '2017-04-01 07:08:03', '2017-04-01 07:08:03'),
-	(9, '1005', NULL, '2', '2', '2', '2', 5, 100, '2018-01-01', '2017-04-01 07:08:03', '2017-04-01 07:08:03'),
-	(10, '1005', NULL, '2', '2', '2', '2', 5, 100, '2018-02-01', '2017-04-01 07:08:03', '2017-04-01 07:08:03'),
-	(11, '1005', NULL, '2', '2', '2', '2', 5, 100, '2018-03-01', '2017-04-01 07:08:03', '2017-04-01 07:08:03'),
-	(12, '1005', NULL, '2', '2', '2', '2', 5, 100, '2018-04-01', '2017-04-01 07:08:03', '2017-04-01 07:08:03');
+	(1, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-05-03', '2017-04-03 05:30:41', '2017-04-03 05:30:41'),
+	(2, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-06-03', '2017-04-03 05:30:41', '2017-04-03 05:30:41'),
+	(3, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-07-03', '2017-04-03 05:30:41', '2017-04-03 05:30:41'),
+	(4, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-08-03', '2017-04-03 05:30:41', '2017-04-03 05:30:41'),
+	(5, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-09-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42'),
+	(6, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-10-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42'),
+	(7, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-11-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42'),
+	(8, '1001', '57652', '1', '1', '2', '2', 0, 50, '2017-12-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42'),
+	(9, '1001', '57652', '1', '1', '2', '2', 0, 50, '2018-01-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42'),
+	(10, '1001', '57652', '1', '1', '2', '2', 0, 50, '2018-02-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42'),
+	(11, '1001', '57652', '1', '1', '2', '2', 0, 50, '2018-03-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42'),
+	(12, '1001', '57652', '1', '1', '2', '2', 0, 50, '2018-04-03', '2017-04-03 05:30:42', '2017-04-03 05:30:42');
 /*!40000 ALTER TABLE `savingtransactionsetups` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savingtypes
+DROP TABLE IF EXISTS `savingtypes`;
 CREATE TABLE IF NOT EXISTS `savingtypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -3154,6 +3324,7 @@ INSERT INTO `savingtypes` (`id`, `name`, `others`, `created_at`, `updated_at`) V
 /*!40000 ALTER TABLE `savingtypes` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savsummary
+DROP TABLE IF EXISTS `savsummary`;
 CREATE TABLE IF NOT EXISTS `savsummary` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -3171,7 +3342,27 @@ DELETE FROM `savsummary`;
 /*!40000 ALTER TABLE `savsummary` DISABLE KEYS */;
 /*!40000 ALTER TABLE `savsummary` ENABLE KEYS */;
 
+-- Dumping structure for table timf.servicechargcalculationmethods
+DROP TABLE IF EXISTS `servicechargcalculationmethods`;
+CREATE TABLE IF NOT EXISTS `servicechargcalculationmethods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Methods` varchar(500) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.servicechargcalculationmethods: ~2 rows (approximately)
+DELETE FROM `servicechargcalculationmethods`;
+/*!40000 ALTER TABLE `servicechargcalculationmethods` DISABLE KEYS */;
+INSERT INTO `servicechargcalculationmethods` (`id`, `Methods`, `created_at`, `updated_at`) VALUES
+	(1, 'Flat', NULL, NULL),
+	(2, 'Declined', NULL, NULL),
+	(3, 'Compound', NULL, NULL);
+/*!40000 ALTER TABLE `servicechargcalculationmethods` ENABLE KEYS */;
+
 -- Dumping structure for table timf.shares
+DROP TABLE IF EXISTS `shares`;
 CREATE TABLE IF NOT EXISTS `shares` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -3194,6 +3385,7 @@ DELETE FROM `shares`;
 /*!40000 ALTER TABLE `shares` ENABLE KEYS */;
 
 -- Dumping structure for table timf.statuses
+DROP TABLE IF EXISTS `statuses`;
 CREATE TABLE IF NOT EXISTS `statuses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -3212,6 +3404,7 @@ INSERT INTO `statuses` (`id`, `name`, `Status`, `created_at`, `updated_at`) VALU
 /*!40000 ALTER TABLE `statuses` ENABLE KEYS */;
 
 -- Dumping structure for table timf.statusesers
+DROP TABLE IF EXISTS `statusesers`;
 CREATE TABLE IF NOT EXISTS `statusesers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -3229,6 +3422,7 @@ INSERT INTO `statusesers` (`id`, `name`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `statusesers` ENABLE KEYS */;
 
 -- Dumping structure for table timf.surveys
+DROP TABLE IF EXISTS `surveys`;
 CREATE TABLE IF NOT EXISTS `surveys` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -3351,6 +3545,7 @@ INSERT INTO `surveys` (`id`, `name`, `SurveyCode`, `ZoneId`, `DivisionOfficeId`,
 /*!40000 ALTER TABLE `surveys` ENABLE KEYS */;
 
 -- Dumping structure for table timf.taggables
+DROP TABLE IF EXISTS `taggables`;
 CREATE TABLE IF NOT EXISTS `taggables` (
   `tag_id` int(10) unsigned NOT NULL,
   `taggable_id` int(10) unsigned NOT NULL,
@@ -5837,6 +6032,7 @@ INSERT INTO `taggables` (`tag_id`, `taggable_id`, `taggable_type`) VALUES
 /*!40000 ALTER TABLE `taggables` ENABLE KEYS */;
 
 -- Dumping structure for table timf.tags
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -5854,6 +6050,7 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 
 -- Dumping structure for table timf.test1s
+DROP TABLE IF EXISTS `test1s`;
 CREATE TABLE IF NOT EXISTS `test1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -5877,6 +6074,7 @@ INSERT INTO `test1s` (`id`, `name`, `Test1Code`, `name23`, `email23`, `unitprice
 /*!40000 ALTER TABLE `test1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.tests
+DROP TABLE IF EXISTS `tests`;
 CREATE TABLE IF NOT EXISTS `tests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -5899,6 +6097,7 @@ INSERT INTO `tests` (`id`, `name`, `TestCode`, `unitprice`, `created_at`, `updat
 /*!40000 ALTER TABLE `tests` ENABLE KEYS */;
 
 -- Dumping structure for table timf.thanas
+DROP TABLE IF EXISTS `thanas`;
 CREATE TABLE IF NOT EXISTS `thanas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ThanaNameBangla` varchar(500) DEFAULT NULL,
@@ -6410,6 +6609,7 @@ INSERT INTO `thanas` (`id`, `ThanaNameBangla`, `ThanaName`, `DistrictId`, `name`
 /*!40000 ALTER TABLE `thanas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.unions
+DROP TABLE IF EXISTS `unions`;
 CREATE TABLE IF NOT EXISTS `unions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `UnionName` varchar(500) NOT NULL,
@@ -6433,6 +6633,7 @@ INSERT INTO `unions` (`id`, `UnionName`, `name`, `ThanaId`, `DivisionId`, `Distr
 /*!40000 ALTER TABLE `unions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -6954,6 +7155,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs
+DROP TABLE IF EXISTS `userstimfs`;
 CREATE TABLE IF NOT EXISTS `userstimfs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -6999,6 +7201,7 @@ INSERT INTO `userstimfs` (`id`, `name`, `RollType`, `UserstimfyName`, `Userstimf
 /*!40000 ALTER TABLE `userstimfs` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_2
+DROP TABLE IF EXISTS `userstimfs_feb_2`;
 CREATE TABLE IF NOT EXISTS `userstimfs_feb_2` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -7041,6 +7244,7 @@ INSERT INTO `userstimfs_feb_2` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`
 /*!40000 ALTER TABLE `userstimfs_feb_2` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs_feb_3
+DROP TABLE IF EXISTS `userstimfs_feb_3`;
 CREATE TABLE IF NOT EXISTS `userstimfs_feb_3` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -7085,6 +7289,7 @@ INSERT INTO `userstimfs_feb_3` (`id`, `name`, `UserstimfyName`, `UserstimfyCode`
 /*!40000 ALTER TABLE `userstimfs_feb_3` ENABLE KEYS */;
 
 -- Dumping structure for table timf.user_post
+DROP TABLE IF EXISTS `user_post`;
 CREATE TABLE IF NOT EXISTS `user_post` (
   `user_id` int(10) unsigned NOT NULL,
   `post_id` int(10) unsigned NOT NULL,
@@ -7100,6 +7305,7 @@ DELETE FROM `user_post`;
 /*!40000 ALTER TABLE `user_post` ENABLE KEYS */;
 
 -- Dumping structure for table timf.wards
+DROP TABLE IF EXISTS `wards`;
 CREATE TABLE IF NOT EXISTS `wards` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `WardName` varchar(500) DEFAULT NULL,
@@ -7125,6 +7331,7 @@ INSERT INTO `wards` (`id`, `WardName`, `UnionId`, `DivisionId`, `DistrictId`, `T
 /*!40000 ALTER TABLE `wards` ENABLE KEYS */;
 
 -- Dumping structure for table timf.weekends
+DROP TABLE IF EXISTS `weekends`;
 CREATE TABLE IF NOT EXISTS `weekends` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -7148,6 +7355,7 @@ INSERT INTO `weekends` (`id`, `name`, `others`, `created_at`, `updated_at`) VALU
 /*!40000 ALTER TABLE `weekends` ENABLE KEYS */;
 
 -- Dumping structure for table timf.yearcalendars
+DROP TABLE IF EXISTS `yearcalendars`;
 CREATE TABLE IF NOT EXISTS `yearcalendars` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(20) NOT NULL,
@@ -7204,6 +7412,7 @@ INSERT INTO `yearcalendars` (`id`, `Name`, `Note`, `CreatedAt`, `UpdatedAt`) VAL
 /*!40000 ALTER TABLE `yearcalendars` ENABLE KEYS */;
 
 -- Dumping structure for table timf.year_calendars
+DROP TABLE IF EXISTS `year_calendars`;
 CREATE TABLE IF NOT EXISTS `year_calendars` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(20) NOT NULL,
@@ -7260,6 +7469,7 @@ INSERT INTO `year_calendars` (`id`, `Name`, `Note`, `CreatedAt`, `UpdatedAt`) VA
 /*!40000 ALTER TABLE `year_calendars` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zone1s
+DROP TABLE IF EXISTS `zone1s`;
 CREATE TABLE IF NOT EXISTS `zone1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -7290,6 +7500,7 @@ INSERT INTO `zone1s` (`id`, `name`, `Zone1Name`, `SomitiName`, `SomitiAddress`, 
 /*!40000 ALTER TABLE `zone1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones
+DROP TABLE IF EXISTS `zones`;
 CREATE TABLE IF NOT EXISTS `zones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) DEFAULT NULL,
@@ -7323,6 +7534,7 @@ INSERT INTO `zones` (`id`, `name`, `ZoneDivisionOfficeId`, `ZoneName`, `ZoneEmai
 /*!40000 ALTER TABLE `zones` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones_feb_1
+DROP TABLE IF EXISTS `zones_feb_1`;
 CREATE TABLE IF NOT EXISTS `zones_feb_1` (
   `id` int(11) NOT NULL,
   `name` varchar(500) DEFAULT NULL,
