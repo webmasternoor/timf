@@ -278,23 +278,26 @@ class MemberController extends Controller
     {
         for ($i = 1; $i <= 5; $i++) {
             $memberaccount = new Accountstable();
-
             $accounttest = Input::get('accountnumber' . $i);
             if (!empty($accounttest)) {
-                $memberaccount->memberid = $id;
+                $valsa = Member::where('id', $id)->get();
+                foreach($valsa as $key):
+                    $memberaccount->memberid = $key->MemberId;
+                endforeach;
                 $memberaccount->accountsname = $accounttest;
                 $memberaccount->productid = Input::get('productname' . $i);
                 $memberaccount->save();
                 for ($j = 1; $j <= 12; $j++) {
                     $SavingSetup = new Savingtransactionsetup();
                     $SavingSetup->MemberId = $id;
-                    $SavingSetup->SavingType = Input::get('SavingTypes');
+                    $SavingSetup->AccountNo = $accounttest;
+                    $SavingSetup->SavingType = Input::get('productname' . $i);
 
-                    $valsa = Member::where('id', $id)->get();
-                    foreach($valsa as $key):
-                        echo $SavingSetup->MemberType = $key->MemberType;
-                        echo $SavingSetup->SavingPolicy = $key->SavingPolicy;
-                        echo $SavingSetup->SamityName = $key->SamityName;
+                    foreach($valsa as $key1):
+                        $SavingSetup->MemberId = $key1->MemberId;
+                        echo $SavingSetup->MemberType = $key1->MemberType;
+                        echo $SavingSetup->SavingPolicy = $key1->SavingPolicy;
+                        echo $SavingSetup->SamityName = $key1->SamityName;
                     endforeach;
 
 
@@ -400,7 +403,13 @@ class MemberController extends Controller
         $memberapprove->grouppresident = '1';
         $memberapprove->remarks = Input::get('remarks');
         $memberapprove->MemberId = Input::get('MemberId');
+        $memberapprove->SamityName = Input::get('SamityName');
+        $memberapprove->MemberType = Input::get('MemberType');
+        $memberapprove->SavingTypes = Input::get('SavingTypes');
+        $memberapprove->SavingPolicy = Input::get('SavingPolicy');
         $memberapprove->save();
+
+        $savingAccountNo = rand(50000, 60000);
 
         for ($i = 1; $i <= 12; $i++) {
             $SavingSetup = new Savingtransactionsetup();
@@ -409,6 +418,7 @@ class MemberController extends Controller
             $SavingSetup->MemberType = Input::get('MemberType');
             $SavingSetup->SavingPolicy = Input::get('SavingPolicy');
             $SavingSetup->SamityName = Input::get('SamityName');
+            $SavingSetup->AccountNo = $savingAccountNo;
             $membertypes = Input::get('MemberType');
 //        $Savingtypes = Input::get('SavingTypes');
             $SavingPolicy = Input::get('SavingPolicy');
@@ -429,6 +439,13 @@ class MemberController extends Controller
             }
             $SavingSetup->Date = $NewDate;
             $SavingSetup->save();
+        }
+        if (isset($savingAccountNo)){
+            $tbl_account = new Accountstable();
+            $tbl_account->memberid = Input::get('MemberId');
+            $tbl_account->accountsname = $savingAccountNo;
+            $tbl_account->productid = Input::get('MemberId');
+            $tbl_account->save();
         }
         return ['url' => 'member/list'];
     }
@@ -893,6 +910,7 @@ class MemberController extends Controller
         $member->ZoneId = Input::get('ZoneId');
         $member->AreaId = Input::get('AreaId');
         $member->BranchId = Input::get('BranchId');
+        $member->DivisionOfficeId = Input::get('DivisionOfficeId');
 
         $member->FullNameEnglish = Input::get('FullNameEnglish');
         $member->FullNameBangla = Input::get('FullNameBangla');
@@ -1050,5 +1068,4 @@ class MemberController extends Controller
         Member::destroy($id);
         return Redirect('member/list');
     }
-
 }

@@ -1,5 +1,5 @@
 <div class="col-md-12 organizationpanel">
-    <div class="col-md-12">
+    <div class="col-md-12 form-group">
         <div class="form-group required col-md-12" id="form-ProductCode-error">
             {!! Form::label("ProductCode","প্রোডাক্ট কোডঃ",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
@@ -7,8 +7,15 @@
                 <span id="ProductCode-error" class="help-block"></span>
             </div>
         </div>
+        <div class="form-group required col-md-12" id="form-ProductID-error">
+            {!! Form::label("ProductID","প্রোডাক্ট আইডি",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::text("ProductID",null,["class"=>"form-control required","id"=>"focus"]) !!}
+                <span id="ProductID-error" class="help-block"></span>
+            </div>
+        </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 form-group">
         <div class="form-group required col-md-6" id="form-ProductName-error">
             {!! Form::label("ProductName","প্রোডাক্টের নামঃ",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
@@ -30,7 +37,6 @@
                 <span id="ProductNameBanglaShort-error" class="help-block"></span>
             </div>
         </div>
-
         <div class="form-group required col-md-6" id="form-ProductNameBanglaFull-error">
             {!! Form::label("ProductNameBanglaFull","প্রোডাক্টের বাংলা নাম(পূর্ণ)",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
@@ -40,22 +46,29 @@
         </div>
     </div>
     <div class="col-md-12 form-group">
-        <div class="form-group required col-md-4" id="form-ProductType-error">
-            {!! Form::label("ProductType"," প্রোডাক্টের ধরণ",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12">
-                {!! Form::select("ProductType",$ProductInfo,null,["class"=>"form-control ProductType required","id"=>"ProductType"]) !!}
-                <span id="ProductType-error" class="help-block"></span>
+        {{--<div class="form-group required col-md-4" id="form-ProductType-error">--}}
+        {{--{!! Form::label("ProductType"," প্রোডাক্টের ধরণ",["class"=>"control-label col-md-12"]) !!}--}}
+        {{--<div class="col-md-12">--}}
+        {{--{!! Form::select("ProductType",$ProductInfo,null,["class"=>"form-control ProductType required","id"=>"ProductType"]) !!}--}}
+        {{--<span id="ProductType-error" class="help-block"></span>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        <div class="form-group required col-md-4" id="form-InterestPercentage-error">
+            {!! Form::label("InterestPercentage","শতকরা মুনাফার হার",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12" id="InterestPercentage">
+                {!! Form::number("InterestPercentage",null,["class"=>"form-control InterestPercentage required","id"=>"InterestPercentage1"]) !!}
+                <span id="InterestPercentage-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-ServiceChargeRate-error">
-            {!! Form::label("ServiceChargeRate","সার্ভিস চার্জ রেট",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12" id="ServiceChargeRate">
-                {!! Form::number("ServiceChargeRate",null,["class"=>"form-control ServiceChargeRate required","id"=>"ServiceChargeRate1"]) !!}
-                <span id="ServiceChargeRate-error" class="help-block"></span>
+        <div class="form-group required col-md-4" id="form-Frequency-error">
+            {!! Form::label("Frequency","পেমেন্ট ফ্রিকুয়েন্সি",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("Frequency",$frequency,null,["class"=>"form-control Frequency required","id"=>"Frequency"]) !!}
+                <span id="Frequency-error" class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-4" id="form-Duration-error">
-            {!! Form::label("Duration","মেয়াদ(মাস)",["class"=>"control-label  col-md-12"]) !!}
+            {!! Form::label("Duration","মেয়াদ(বছর)",["class"=>"control-label  col-md-12"]) !!}
             <div class="col-md-12" id="Duration">
                 {!! Form::number("Duration",null,["class"=>"form-control Duration required" ,"id"=>"Duration"]) !!}
                 <span id="Duration-error" class="help-block"></span>
@@ -63,83 +76,142 @@
         </div>
     </div>
     <div class="col-md-12 form-group">
-        <div class="form-group required col-md-6" id="form-MainProductName-error">
-            {!! Form::label("MainProductName","মেইন প্রোডাক্টের নাম",["class"=>"control-label col-md-12"]) !!}
-            <div class="col-md-12" >
-                {!! Form::text("MainProductName",null,["class"=>"form-control required"]) !!}
-                <span id="MainProductName-error" class="help-block"></span>
+        <div class="form-group required col-md-6" id="form-EffectiveFrom-error">
+            {!! Form::label("EffectiveFrom","ইফেক্টিভ ফ্রোম",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::date("EffectiveFrom",null,["class"=>"form-control required"]) !!}
+                <span id="EffectiveFrom-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-6" id="form-MainItemName-error">
-            {!! Form::label("MainItemName","মেইন আইটেম নাম",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-6" id="form-EffectiveTo-error">
+            {!! Form::label("EffectiveTo","ইফেক্টিভ টু",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::text("MainItemName",null,["class"=>"form-control required"]) !!}
-                <span id="MainItemName-error" class="help-block"></span>
+                {!! Form::date("EffectiveTo",null,["class"=>"form-control required"]) !!}
+                <span id="EffectiveTo-error" class="help-block"></span>
             </div>
         </div>
     </div>
     <div class="col-md-12 form-group">
-        <div class="form-group required col-md-4" id="form-LoanInstallation-error">
-            {!! Form::label("LoanInstallation","ঋণ কিস্তি",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-IsActive-error">
+            {!! Form::label("IsActive","সক্রিয় কি না?",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::number("LoanInstallation",null,["class"=>"form-control required"]) !!}
-                <span id="LoanInstallation-error" class="help-block"></span>
+                {!! Form::select("IsActive",$status,null,["class"=>"form-control IsActive required","id"=>"IsActive"]) !!}
+                <span id="IsActive-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-InstallationServiceCharge-error">
-            {!! Form::label("InstallationServiceCharge","কিস্তির সার্ভিস চার্জ",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-MultipleSavings-error">
+            {!! Form::label("MultipleSavings","একের অধিক সঞ্চয়",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::number("InstallationServiceCharge",null,["class"=>"form-control required"]) !!}
-                <span id="InstallationServiceCharge-error" class="help-block"></span>
+                {!! Form::select("MultipleSavings",$status,null,["class"=>"form-control MultipleSavings required","id"=>"MultipleSavings"]) !!}
+                <span id="MultipleSavings-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-SavingInstallment-error">
-            {!! Form::label("SavingInstallment","সঞ্চয় কিস্তি",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-WithdrawlFacily-error">
+            {!! Form::label("WithdrawlFacily","টাকা উত্তোলন সুবিধা",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::number("SavingInstallment",null,["class"=>"form-control required"]) !!}
-                <span id="SavingInstallment-error" class="help-block"></span>
+                {!! Form::select("WithdrawlFacily",$status,null,["class"=>"form-control WithdrawlFacily required","id"=>"WithdrawlFacily"]) !!}
+                <span id="WithdrawlFacily-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-MinimumLimit-error">
-            {!! Form::label("MinimumLimit","সর্বনিম্ন সীমা",["class"=>"control-label col-md-12"]) !!}
+    </div>
+    <div class="col-md-12 form-group">
+        <div class="form-group required col-md-4" id="form-MinimumAmount-error">
+            {!! Form::label("MinimumAmount","সর্বনিম্ন টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::number("MinimumLimit",null,["class"=>"form-control required"]) !!}
-                <span id="MinimumLimit-error" class="help-block"></span>
+                {!! Form::number("MinimumAmount",null,["class"=>"form-control required"]) !!}
+                <span id="MinimumAmount-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-MaximumLimit-error">
-            {!! Form::label("MaximumLimit","সর্বোচ্চ সীমা",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-MaximumAmount-error">
+            {!! Form::label("MaximumAmount","সর্বোচ্চ টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::number("MaximumLimit",null,["class"=>"form-control required"]) !!}
-                <span id="MaximumLimit-error" class="help-block"></span>
+                {!! Form::number("MaximumAmount",null,["class"=>"form-control required"]) !!}
+                <span id="MaximumAmount-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-ServiceChargeCalculationMethod-error">
-            {!! Form::label("ServiceChargeCalculationMethod","সার্ভিস চার্জ হিসাবের পদ্ধতি",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-MinimumBalanceAmount-error">
+            {!! Form::label("MinimumBalanceAmount","সর্বোনিম্ন ব্যালেন্সের পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("ServiceChargeCalculationMethod",['1' => 'Flate', '2' => 'Diclined'])!!}
-                <span id="ServiceChargeCalculationMethod-error" class="help-block"></span>
+                {!! Form::number("MinimumBalanceAmount",null,["class"=>"form-control required"]) !!}
+                <span id="MinimumBalanceAmount-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-PaymentFrequency-error">
-            {!! Form::label("PaymentFrequency","পেমেন্ট ফ্রিকুয়েন্সি",["class"=>"control-label col-md-12"]) !!}
+    </div>
+    <div class="col-md-12 form-group">
+        <div class="form-group required col-md-4" id="form-MinimumBalanceAmountPercentage-error">
+            {!! Form::label("MinimumBalanceAmountPercentage","শতকরা সর্বোনিম্ন ব্যালেন্সের পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("PaymentFrequency",['1' => 'Weekly', '2' => 'Monthly', '3' => 'Monthly'])!!}
-                <span id="PaymentFrequency-error" class="help-block"></span>
+                {!! Form::number("MinimumBalanceAmountPercentage",null,["class"=>"form-control required"]) !!}
+                <span id="MinimumBalanceAmountPercentage-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-InsuranceItemCode-error">
-            {!! Form::label("InsuranceItemCode","ইন্সুরেন্স আইটেম কোড",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-MaxDueCycle-error">
+            {!! Form::label("MaxDueCycle","সর্বোচ্চ বাকীর সাইকেল",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::text("InsuranceItemCode",null,["class"=>"form-control required"]) !!}
-                <span id="InsuranceItemCode-error" class="help-block"></span>
+                {!! Form::number("MaxDueCycle",null,["class"=>"form-control required"]) !!}
+                <span id="MaxDueCycle-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-4" id="form-InsuranceItemRate-error">
-            {!! Form::label("InsuranceItemRate","ইন্সুরেন্স আইটেম রেট",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group required col-md-4" id="form-PassBookAvailability-error">
+            {!! Form::label("PassBookAvailability","পাশ বই প্রাপ্যতা",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::number("InsuranceItemRate",null,["class"=>"form-control required"]) !!}
-                <span id="InsuranceItemRate-error" class="help-block"></span>
+                {!! Form::select("PassBookAvailability",$status,null,["class"=>"form-control PassBookAvailability required","id"=>"PassBookAvailability"]) !!}
+                <span id="PassBookAvailability-error" class="help-block"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 form-group">
+        <div class="form-group required col-md-4" id="form-SpecialWithdrawFacility-error">
+            {!! Form::label("SpecialWithdrawFacility","বিশেষ উত্তোলন সুবিধা",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("SpecialWithdrawFacility",$status,null,["class"=>"form-control SpecialWithdrawFacility required","id"=>"SpecialWithdrawFacility"]) !!}
+                <span id="SpecialWithdrawFacility-error" class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group required col-md-4" id="form-InvestmentAgainstSavings-error">
+            {!! Form::label("InvestmentAgainstSavings","সঞ্চয়ের বিপরীতে বিনিয়োগের পরিমান",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::number("InvestmentAgainstSavings",null,["class"=>"form-control required"]) !!}
+                <span id="InvestmentAgainstSavings-error" class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group required col-md-4" id="form-PercentageofInvestmentAgainstSavings-error">
+            {!! Form::label("PercentageofInvestmentAgainstSavings","সঞ্চয়ের বিপরীতে বিনিয়োগের হার(শতকরা)",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::number("PercentageofInvestmentAgainstSavings",null,["class"=>"form-control required"]) !!}
+                <span id="PercentageofInvestmentAgainstSavings-error" class="help-block"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 form-group">
+        <div class="form-group required col-md-4" id="form-AutomaticSchemeRenewal-error">
+            {!! Form::label("AutomaticSchemeRenewal","স্বয়ংক্রিয় স্কিম নবায়ন",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("AutomaticSchemeRenewal",$status,null,["class"=>"form-control AutomaticSchemeRenewal required","id"=>"AutomaticSchemeRenewal"]) !!}
+                <span id="AutomaticSchemeRenewal-error" class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group required col-md-4" id="form-DividedbyValue-error">
+            {!! Form::label("DividedbyValue","ভাজোক টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::number("DividedbyValue",null,["class"=>"form-control required"]) !!}
+                <span id="DividedbyValue-error" class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group required col-md-4" id="form-MaxWithdrawLimitPerMonth-error">
+            {!! Form::label("MaxWithdrawLimitPerMonth","প্রতিমাসে টাকা উত্তোলনের সর্বোচ্চ সীমা",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::number("MaxWithdrawLimitPerMonth",null,["class"=>"form-control required"]) !!}
+                <span id="MaxWithdrawLimitPerMonth-error" class="help-block"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 form-group">
+        <div class="form-group required col-md-4" id="form-MaxWithdrawTimeforAvoidingPenaltyPerMonth-error">
+            {!! Form::label("MaxWithdrawTimeforAvoidingPenaltyPerMonth","প্রতিমাসে জরিমানা ব্যাতিত টাকা উত্তোলনের সর্বোচ্চ সীমা",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::number("MaxWithdrawTimeforAvoidingPenaltyPerMonth",null,["class"=>"form-control required"]) !!}
+                <span id="MaxWithdrawTimeforAvoidingPenaltyPerMonth-error" class="help-block"></span>
             </div>
         </div>
     </div>
@@ -196,29 +268,29 @@
         return false;
     });
 
-//    $(document).ready(function () {
-//        $(document).on('change', '.ProductType', function () {
-//            //console.log("yes it is change");
-//
-//            var ProductType = $(this).val();
-//            var div = $(this).parent();
-//            //console.log(DivisionId);
-//            $('#ServiceChargeRate').empty();
-//            $('#Duration').empty();
-//            $.ajax({
-//                type: 'get',
-//                url: 'getProductInfo',
-//                data: {'id': ProductType},
-//                success: function (data) {
-//                    $.each(data, function (index, subcatObj) {
-//                        $('#ServiceChargeRate').append('<input type="text" class="form-control" readonly name="ServiceChargeRate" value="'+subcatObj.ProductRate+'">');
-//                        $('#Duration').append('<input type="text" class="form-control" readonly name="Duration" value="'+subcatObj.ProductInstallments+'">')
-//                    });
-//                },
-//                error: function () {
-//
-//                }
-//            });
-//        });
-//    });
+    //    $(document).ready(function () {
+    //        $(document).on('change', '.ProductType', function () {
+    //            //console.log("yes it is change");
+    //
+    //            var ProductType = $(this).val();
+    //            var div = $(this).parent();
+    //            //console.log(DivisionId);
+    //            $('#ServiceChargeRate').empty();
+    //            $('#Duration').empty();
+    //            $.ajax({
+    //                type: 'get',
+    //                url: 'getProductInfo',
+    //                data: {'id': ProductType},
+    //                success: function (data) {
+    //                    $.each(data, function (index, subcatObj) {
+    //                        $('#ServiceChargeRate').append('<input type="text" class="form-control" readonly name="ServiceChargeRate" value="'+subcatObj.ProductRate+'">');
+    //                        $('#Duration').append('<input type="text" class="form-control" readonly name="Duration" value="'+subcatObj.ProductInstallments+'">')
+    //                    });
+    //                },
+    //                error: function () {
+    //
+    //                }
+    //            });
+    //        });
+    //    });
 </script>

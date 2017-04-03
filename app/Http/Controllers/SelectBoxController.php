@@ -272,6 +272,7 @@ class SelectBoxController extends Controller
         $data = Member::all();
        return view('area.pdfTest')->with('data',$data);
     }
+    
     public function pdfTest3()
     {
         $data = Member::all();

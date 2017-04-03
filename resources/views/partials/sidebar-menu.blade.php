@@ -66,6 +66,7 @@
             <li><a tabindex="-1" href="{{ url('/ward') }}">ওয়ার্ড</a></li>
             <li><a tabindex="-1" href="{{ url('/organization') }}">প্রতিষ্ঠান</a></li>
             <li><a tabindex="-1" href="{{ url('/product') }}">প্রোডাক্ট</a></li>
+            <li><a tabindex="-1" href="{{ url('/profitpenalty') }}">মুনাফা এবং জরিমানার নিয়ম</a></li>
             <li><a tabindex="-1" href="{{ url('/purpose') }}">উদ্দেশ্য</a></li>
             <li><a tabindex="-1" href="{{ url('/investor') }}">বিনিয়োগকারী</a></li>
             <li><a tabindex="-1" href="{{ url('/grace') }}">গ্রেছ</a></li>

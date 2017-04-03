@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Frequency;
 use App\Product;
 use App\Producttype;
+use App\Status;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -45,24 +47,32 @@ class ProductController extends Controller
             );
         }
         $product->ProductCode = Input::get('ProductCode');
+        $product->ProductID = Input::get('ProductID');
         $product->ProductName = Input::get('ProductName');
         $product->ProductNameEng = Input::get('ProductNameEng');
         $product->ProductNameBanglaShort = Input::get('ProductNameBanglaShort');
         $product->ProductNameBanglaFull = Input::get('ProductNameBanglaFull');
-        $product->ProductType = Input::get('ProductType');
-        $product->ServiceChargeRate = Input::get('ServiceChargeRate');
+        $product->InterestPercentage = Input::get('InterestPercentage');
+        $product->Frequency = Input::get('Frequency');
         $product->Duration = Input::get('Duration');
-        $product->MainProductName = Input::get('MainProductName');
-        $product->MainItemName = Input::get('MainItemName');
-        $product->LoanInstallation = Input::get('LoanInstallation');
-        $product->InstallationServiceCharge = Input::get('InstallationServiceCharge');
-        $product->SavingInstallment = Input::get('SavingInstallment');
-        $product->MinimumLimit = Input::get('MinimumLimit');
-        $product->MaximumLimit = Input::get('MaximumLimit');
-        $product->ServiceChargeCalculationMethod = Input::get('ServiceChargeCalculationMethod');
-        $product->PaymentFrequency = Input::get('PaymentFrequency');
-        $product->InsuranceItemCode = Input::get('InsuranceItemCode');
-        $product->InsuranceItemRate = Input::get('InsuranceItemRate');
+        $product->EffectiveFrom = Input::get('EffectiveFrom');
+        $product->EffectiveTo = Input::get('EffectiveTo');
+        $product->IsActive = Input::get('IsActive');
+        $product->MultipleSavings = Input::get('MultipleSavings');
+        $product->WithdrawlFacily = Input::get('WithdrawlFacily');
+        $product->MinimumAmount = Input::get('MinimumAmount');
+        $product->MaximumAmount = Input::get('MaximumAmount');
+        $product->MinimumBalanceAmount = Input::get('MinimumBalanceAmount');
+        $product->MinimumBalanceAmountPercentage = Input::get('MinimumBalanceAmountPercentage');
+        $product->MaxDueCycle = Input::get('MaxDueCycle');
+        $product->PassBookAvailability = Input::get('PassBookAvailability');
+        $product->SpecialWithdrawFacility = Input::get('SpecialWithdrawFacility');
+        $product->InvestmentAgainstSavings = Input::get('InvestmentAgainstSavings');
+        $product->PercentageofInvestmentAgainstSavings = Input::get('PercentageofInvestmentAgainstSavings');
+        $product->AutomaticSchemeRenewal = Input::get('AutomaticSchemeRenewal');
+        $product->DividedbyValue = Input::get('DividedbyValue');
+        $product->MaxWithdrawTimeforAvoidingPenaltyPerMonth = Input::get('MaxWithdrawTimeforAvoidingPenaltyPerMonth');
+        $product->MaxWithdrawLimitPerMonth = Input::get('MaxWithdrawLimitPerMonth');
         $product->save();
         return ['url' => 'product/list'];
     }
@@ -70,7 +80,9 @@ class ProductController extends Controller
     public function getCreate()
     {
         $ProductInfo = ['' => '--select--'] + Producttype::lists('ProducttypeyName', 'id')->all();
-        return view('product.create')->with('ProductInfo',$ProductInfo);
+        $status = ['' => '--select--'] + Status::lists('Status', 'id')->all();
+        $frequency = ['' => '--select--'] + Frequency::lists('frequency', 'id')->all();
+        return view('product.create')->with('ProductInfo',$ProductInfo)->with('status',$status)->with('frequency',$frequency);
     }
 
     public function postCreate()
@@ -87,24 +99,32 @@ class ProductController extends Controller
         }
         $product = new Product();
         $product->ProductCode = Input::get('ProductCode');
+        $product->ProductID = Input::get('ProductID');
         $product->ProductName = Input::get('ProductName');
         $product->ProductNameEng = Input::get('ProductNameEng');
         $product->ProductNameBanglaShort = Input::get('ProductNameBanglaShort');
         $product->ProductNameBanglaFull = Input::get('ProductNameBanglaFull');
-        $product->ProductType = Input::get('ProductType');
-        $product->ServiceChargeRate = Input::get('ServiceChargeRate');
+        $product->InterestPercentage = Input::get('InterestPercentage');
+        $product->Frequency = Input::get('Frequency');
         $product->Duration = Input::get('Duration');
-        $product->MainProductName = Input::get('MainProductName');
-        $product->MainItemName = Input::get('MainItemName');
-        $product->LoanInstallation = Input::get('LoanInstallation');
-        $product->InstallationServiceCharge = Input::get('InstallationServiceCharge');
-        $product->SavingInstallment = Input::get('SavingInstallment');
-        $product->MinimumLimit = Input::get('MinimumLimit');
-        $product->MaximumLimit = Input::get('MaximumLimit');
-        $product->ServiceChargeCalculationMethod = Input::get('ServiceChargeCalculationMethod');
-        $product->PaymentFrequency = Input::get('PaymentFrequency');
-        $product->InsuranceItemCode = Input::get('InsuranceItemCode');
-        $product->InsuranceItemRate = Input::get('InsuranceItemRate');
+        $product->EffectiveFrom = Input::get('EffectiveFrom');
+        $product->EffectiveTo = Input::get('EffectiveTo');
+        $product->IsActive = Input::get('IsActive');
+        $product->MultipleSavings = Input::get('MultipleSavings');
+        $product->WithdrawlFacily = Input::get('WithdrawlFacily');
+        $product->MinimumAmount = Input::get('MinimumAmount');
+        $product->MaximumAmount = Input::get('MaximumAmount');
+        $product->MinimumBalanceAmount = Input::get('MinimumBalanceAmount');
+        $product->MinimumBalanceAmountPercentage = Input::get('MinimumBalanceAmountPercentage');
+        $product->MaxDueCycle = Input::get('MaxDueCycle');
+        $product->PassBookAvailability = Input::get('PassBookAvailability');
+        $product->SpecialWithdrawFacility = Input::get('SpecialWithdrawFacility');
+        $product->InvestmentAgainstSavings = Input::get('InvestmentAgainstSavings');
+        $product->PercentageofInvestmentAgainstSavings = Input::get('PercentageofInvestmentAgainstSavings');
+        $product->AutomaticSchemeRenewal = Input::get('AutomaticSchemeRenewal');
+        $product->DividedbyValue = Input::get('DividedbyValue');
+        $product->MaxWithdrawTimeforAvoidingPenaltyPerMonth = Input::get('MaxWithdrawTimeforAvoidingPenaltyPerMonth');
+        $product->MaxWithdrawLimitPerMonth = Input::get('MaxWithdrawLimitPerMonth');
         $product->save();
         return ['url' => 'product/list'];
     }

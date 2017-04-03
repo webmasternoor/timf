@@ -31,6 +31,7 @@ Route::controllers([
     'services' => 'ServiceController',
     'relation' => 'RelationController',
     'product' => 'ProductController',
+    'product1' => 'Product1Controller',
     'organization' => 'OrganizationController',
     'grace' => 'GraceController',
     'survey' => 'SurveyController',
@@ -64,6 +65,7 @@ Route::controllers([
     'dpsapplication' => 'DpsapplicationController',
     'mikrofdivision'   => 'MikrofdivisionController',
     'configurationsav'   => 'ConfigurationsavController',
+    'profitpenalty'   => 'ProfitPenaltyRulesController',
 ]);
 
 Route::resource('users', 'UsersController');
