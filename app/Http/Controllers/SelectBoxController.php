@@ -131,7 +131,7 @@ class SelectBoxController extends Controller
 
     public function getSchedule(Request $request)
     {
-        $datetest = '2017-06-15';
+        $datetest = '2017-05-03';
         $data = DB::table('savingtransactionsetups')
             ->select('*')
             ->where('SamityName', $request->id)

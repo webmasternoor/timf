@@ -145,13 +145,20 @@ class Saving1Controller extends Controller
                     ->orderBy('id', 'desc')
                     ->limit(1)
                     ->get();
+                $current_balance=$data[0]->Balance;
+                $countdata = $data->count();
+                if($countdata==0)
+                {
+                    $current_balance=0;
+                }
+
                 $saving1 = new Saving1();
                 $saving1->ProductId = Input::get('ProductId' . $i);
                 $saving1->MemberId = Input::get('MemberId' . $i);
                 $saving1->AccountNo = Input::get('AccountNo' . $i);
 //                $saving1->WithdrawAmount = Input::get('WithdrawAmount');
                 $saving1->SavingAmount = Input::get('Amount' . $i);
-                $saving1->Balance = $data[0]->Balance + Input::get('Amount' . $i);
+                $saving1->Balance = $current_balance + Input::get('Amount' . $i);
 //                $saving1->TransactionDate = Input::get('TransactionDate');
 //                $saving1->EntryDate = Input::get('EntryDate');
 //                $saving1->Remarks = Input::get('Remarks');
