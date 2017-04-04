@@ -249,6 +249,7 @@ class MemberController extends Controller
 //        die();
         $memberdata1=$MemberData->MemberId;
         $SavingsData=Saving1::where('MemberId','=',$memberdata1)->get();
+
         return view('member.view', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
             ->with('Union', $Union)->with('Word', $Word)->with('Accommodation', $Accommodation)
@@ -381,7 +382,7 @@ class MemberController extends Controller
         $Word = ['' => '--select--'] + Ward::lists('WardName', 'id')->all();
         $Count_Data = ['' => '--select--'] + Count::lists('name', 'id')->all();
         $MemberType = ['' => '--select--'] + Membertype::lists('name', 'id')->all();
-        $SavingTypes = ['' => '--select--'] + Savingtype::lists('name', 'id')->all();
+        $SavingTypes = ['' => '--select--'] + Product::lists('ProductNameBanglaFull', 'id')->all();
         $SavingPolicy = ['' => '--select--'] + Savingpolicy::lists('name', 'id')->all();
         $SamityName = ['' => '--select--'] + Zone1::lists('SomitiName', 'id')->all();
 
@@ -449,7 +450,7 @@ class MemberController extends Controller
             $tbl_account = new Accountstable();
             $tbl_account->memberid = Input::get('MemberId');
             $tbl_account->accountsname = $savingAccountNo;
-            $tbl_account->productid = Input::get('MemberId');
+            $tbl_account->productid = Input::get('SavingTypes');
             $tbl_account->save();
         }
         return ['url' => 'member/list'];

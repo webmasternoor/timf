@@ -58,7 +58,18 @@
                             <span id="BranchId-error" class="help-block"></span>
                         </div>
                     </div>
-
+                    <div class="form-group col-md-12" id="form-BranchId-error">
+                        {!! Form::label("BranchId","শাখা অফিস",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                        <!-- {{--<select name="BranchId">--}}
+                        {{--@foreach($branch as $branch_data )--}}
+                        {{--<option value="{{$branch_data->id}}">{{$branch_data->BranchName}}</option>--}}
+                        {{--@endforeach--}}
+                        {{--</select>--}} -->
+                            {!! Form::select("BranchId",$BranchInfo,null,["class"=>"form-control BranchId required","id"=>"BranchId"]) !!}
+                            <span id="BranchId-error" class="help-block"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
 

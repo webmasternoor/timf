@@ -3111,12 +3111,12 @@ INSERT INTO `rollcatagories` (`id`, `name`, `others`, `created_at`, `updated_at`
 DROP TABLE IF EXISTS `saving1s`;
 CREATE TABLE IF NOT EXISTS `saving1s` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `MemberId` varchar(500) DEFAULT NULL,
-  `ProductId` varchar(500) DEFAULT NULL,
+  `MemberId` varchar(50) DEFAULT NULL,
+  `ProductId` varchar(50) DEFAULT NULL,
   `Remarks` varchar(500) DEFAULT NULL,
-  `AccountNo` varchar(500) DEFAULT NULL,
+  `AccountNo` varchar(50) DEFAULT NULL,
   `Balance` float DEFAULT NULL,
-  `Flag` varchar(50) DEFAULT NULL,
+  `Flag` varchar(20) DEFAULT NULL,
   `SavingAmount` float DEFAULT NULL,
   `WithdrawAmount` float DEFAULT NULL,
   `TransactionDate` datetime DEFAULT NULL,
@@ -3124,14 +3124,13 @@ CREATE TABLE IF NOT EXISTS `saving1s` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.saving1s: ~0 rows (approximately)
 DELETE FROM `saving1s`;
 /*!40000 ALTER TABLE `saving1s` DISABLE KEYS */;
 INSERT INTO `saving1s` (`id`, `MemberId`, `ProductId`, `Remarks`, `AccountNo`, `Balance`, `Flag`, `SavingAmount`, `WithdrawAmount`, `TransactionDate`, `EntryDate`, `created_at`, `updated_at`) VALUES
-	(1, '1001', '1', NULL, '57652', NULL, NULL, 50, NULL, NULL, '2017-04-03 10:35:41', '2017-04-03 10:35:41', '2017-04-03 10:35:41'),
-	(2, '1001', '1', NULL, '57652', NULL, NULL, 50, NULL, NULL, '2017-05-03 00:00:00', '2017-04-03 10:53:04', '2017-04-03 10:53:04');
+	(1, '1001', '1', NULL, '57652', 50, NULL, 50, NULL, NULL, '2017-05-04 00:00:00', '2017-04-04 05:07:04', '2017-04-04 05:07:04');
 /*!40000 ALTER TABLE `saving1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.saving1s_mar_2

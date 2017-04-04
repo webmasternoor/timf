@@ -111,7 +111,6 @@
                     document.getElementById('hidden').value=i-1;
                 },
                 error: function () {
-
                 }
             });
             $.ajax(clear);
