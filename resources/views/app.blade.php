@@ -117,10 +117,10 @@
             </ul> -->
             <div class="zoneareabran">
                 <ul class="nav navbar-nav navbar-custom">
-                    <li><span>Division: </span>Division Name</li>
-                    <li><span>Zone: </span>Bogra</li>
-                    <li><span>Area: </span>Central</li>
-                    <li><span>Branch: </span>Central</li>
+                    <li><span>Division: </span>&nbsp;Division Name </li>
+                    <li><span>Zone: </span>&nbsp;Bogra &nbsp;</li>
+                    <li><span>Area: </span> &nbsp;Central </li>
+                    <li><span>Branch: </span> &nbsp;Central </li>
                 </ul>
             </div>
 

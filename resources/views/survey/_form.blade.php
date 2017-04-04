@@ -3,9 +3,9 @@
         <ul class="nav nav-tabs">
             <li class="active"><a href="#1" data-toggle="tab">শাখার তথ্য</a></li>
             <li><a href="#2" data-toggle="tab">ব্যক্তিগত তথ্য</a></li>
-            <li><a href="#5" data-toggle="tab">পেশা সংক্রান্ত</a></li>
             <li><a href="#3" data-toggle="tab">পারিবারিক তথ্য</a></li>
-            <li><a href="#4" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>
+            <li><a href="#4" data-toggle="tab">পেশা সংক্রান্ত</a></li>
+            <li><a href="#5" data-toggle="tab">বিনিয়োগ সংক্রান্ত</a></li>
         </ul>
         <div class="tab-content ">
             <div class="tab-pane active" id="1">
@@ -71,8 +71,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-push-4">
+                        <a href="#2" data-toggle="tab" class="btn btn-success"><i
+                                    class="glyphicon glyphicon-forward"></i>
+                            Next</a>
+                    </div>
+                </div>
             </div>
-
             <div class="tab-pane" id="2">
                 <div class="borderportion">
                     <div class="box-header col-md-11">
@@ -220,7 +226,6 @@
                     </div>
 
                 </div>
-
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>স্ত্রীর নাম</u></h5>
@@ -271,7 +276,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>পিতা/ স্বামীর নাম</u></h5>
@@ -314,7 +318,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>মায়ের নাম</u></h5>
@@ -356,7 +359,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>বর্তমান ঠিকানা</u></h5>
@@ -423,7 +425,6 @@
                             <span id="PresentUnion-error" class="help-block"></span>
                         </div>
                     </div>
-
                     <div class="form-group col-md-4" id="form-PresentPostOffice-error">
                         {!! Form::label("PresentPostOffice","পোষ্ট অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
@@ -431,7 +432,6 @@
                             <span id="PresentPostOffice-error" class="help-block"></span>
                         </div>
                     </div>
-
                     <div class="form-group col-md-4" id="form-PresentWord-error">
                         {!! Form::label("PresentWord","ওয়ার্ড",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
@@ -456,7 +456,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>স্থায়ী ঠিকানা</u></h5>
@@ -564,69 +563,17 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-
-            <div class="tab-pane" id="5">
-                <div class="borderportion">
-                    <div class="box-header col-md-11">
-                        <h5 class="text-aqua"><u>পেশা সংক্রান্ত</u></h5>
-                    </div>
-                    <div class="form-group col-md-6" id="form-CurrentProfession-error">
-                        {!! Form::label("CurrentProfession","বর্তমান পেশা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12 CurrentProfession1" id="CurrentProfession1">
-                            {!! Form::select("CurrentProfession",$Profession,null,["class"=>"form-control CurrentProfession required","id"=>"CurrentProfession"]) !!}
-                            <span id="CurrentProfession-error" class="help-block"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-6" id="form-PreviousProfession-error">
-                        {!! Form::label("PreviousProfession","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12 PreviousProfession1" id="PreviousProfession1">
-                            {!! Form::select("PreviousProfession",$Profession,null,["class"=>"form-control PreviousProfession required","id"=>"PreviousProfession"]) !!}
-                            <span id="PreviousProfession-error" class="help-block"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-6" id="form-DurationOfPreviousProfession-error">
-                        {!! Form::label("DurationOfPreviousProfession","চাকুরি/ব্যবসা কতদিন ধরে করছেন তার বিবরণ(বছর)",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::number("DurationOfPreviousProfession",null,["class"=>"form-control required"]) !!}
-                            <span id="DurationOfPreviousProfession-error" class="help-block"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-6" id="form-EarningAssetsByBusinessOrJob-error">
-                        {!! Form::label("EarningAssetsByBusinessOrJob","চাকুরি/ব্যবসা করে অর্জিত সম্পদের বিবরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::textarea("EarningAssetsByBusinessOrJob",null,["class"=>"form-control required"]) !!}
-                            <span id="EarningAssetsByBusinessOrJob-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-6" id="form-EarningSourceWithoutBusiness-error">
-                        {!! Form::label("EarningSourceWithoutBusiness","ব্যবসা ছাড়া আয়ের উৎস থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::textarea("EarningSourceWithoutBusiness",null,["class"=>"form-control required"]) !!}
-                            <span id="EarningSourceWithoutBusiness-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-6" id="form-BusinessType-error">
-                        {!! Form::label("BusinessType","ব্যবসার ধরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("BusinessType",['' => '--select--','1' => 'Single', '2' => 'Partnership'])!!}
-                            <span id="BusinessType-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-6" id="form-BusinessFuturePlan-error">
-                        {!! Form::label("BusinessFuturePlan","ব্যবসার ভবিষ্যৎ পরিকল্পনা",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::textarea("BusinessFuturePlan",null,["class"=>"form-control required"]) !!}
-                            <span id="BusinessFuturePlan-error" class="help-block"></span>
-                        </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-push-4">
+                        <a href="#1" data-toggle="tab" class="btn btn-success"><i
+                                    class="glyphicon glyphicon-backward"></i>
+                            Back</a>
+                        <a href="#3" data-toggle="tab" class="btn btn-success"><i
+                                    class="glyphicon glyphicon-forward"></i>
+                            Next</a>
                     </div>
                 </div>
             </div>
-
             <div class="tab-pane" id="3">
                 <div class="borderportion">
                     <div class="box-header col-md-11">
@@ -705,7 +652,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua">জমি ও ঘরবাড়ি সংক্রান্ত</h5>
@@ -767,7 +713,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua">বাৎসরিক মোট আয় ও ব্যয়</h5>
@@ -808,9 +753,88 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-push-4">
+                        <a href="#2" data-toggle="tab" class="btn btn-success"><i
+                                    class="glyphicon glyphicon-backward"></i>
+                            Back</a>
+                        <a href="#4" data-toggle="tab" class="btn btn-success"><i
+                                    class="glyphicon glyphicon-forward"></i>
+                            Next</a>
+                    </div>
+                </div>
             </div>
-
             <div class="tab-pane" id="4">
+                <div class="borderportion">
+                    <div class="box-header col-md-11">
+                        <h5 class="text-aqua"><u>পেশা সংক্রান্ত</u></h5>
+                    </div>
+                    <div class="form-group col-md-6" id="form-CurrentProfession-error">
+                        {!! Form::label("CurrentProfession","বর্তমান পেশা",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12 CurrentProfession1" id="CurrentProfession1">
+                            {!! Form::select("CurrentProfession",$Profession,null,["class"=>"form-control CurrentProfession required","id"=>"CurrentProfession"]) !!}
+                            <span id="CurrentProfession-error" class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="form-PreviousProfession-error">
+                        {!! Form::label("PreviousProfession","বর্তমান পেশার পূর্বে তিনি কি করতেন",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12 PreviousProfession1" id="PreviousProfession1">
+                            {!! Form::select("PreviousProfession",$Profession,null,["class"=>"form-control PreviousProfession required","id"=>"PreviousProfession"]) !!}
+                            <span id="PreviousProfession-error" class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="form-DurationOfPreviousProfession-error">
+                        {!! Form::label("DurationOfPreviousProfession","চাকুরি/ব্যবসা কতদিন ধরে করছেন তার বিবরণ(বছর)",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::number("DurationOfPreviousProfession",null,["class"=>"form-control required"]) !!}
+                            <span id="DurationOfPreviousProfession-error" class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="form-EarningAssetsByBusinessOrJob-error">
+                        {!! Form::label("EarningAssetsByBusinessOrJob","চাকুরি/ব্যবসা করে অর্জিত সম্পদের বিবরণ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::textarea("EarningAssetsByBusinessOrJob",null,["class"=>"form-control required"]) !!}
+                            <span id="EarningAssetsByBusinessOrJob-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" id="form-EarningSourceWithoutBusiness-error">
+                        {!! Form::label("EarningSourceWithoutBusiness","ব্যবসা ছাড়া আয়ের উৎস থাকলে তার বিবরণ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::textarea("EarningSourceWithoutBusiness",null,["class"=>"form-control required"]) !!}
+                            <span id="EarningSourceWithoutBusiness-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" id="form-BusinessType-error">
+                        {!! Form::label("BusinessType","ব্যবসার ধরণ",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::select("BusinessType",['' => '--select--','1' => 'Single', '2' => 'Partnership'])!!}
+                            <span id="BusinessType-error" class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" id="form-BusinessFuturePlan-error">
+                        {!! Form::label("BusinessFuturePlan","ব্যবসার ভবিষ্যৎ পরিকল্পনা",["class"=>"control-label col-md-12"]) !!}
+                        <div class="col-md-12">
+                            {!! Form::textarea("BusinessFuturePlan",null,["class"=>"form-control required"]) !!}
+                            <span id="BusinessFuturePlan-error" class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-push-4">
+                        <a href="#3" data-toggle="tab" class="btn btn-success"><i
+                                    class="glyphicon glyphicon-backward"></i>
+                            Back</a>
+                        <a href="#5" data-toggle="tab" class="btn btn-success"><i
+                                    class="glyphicon glyphicon-forward"></i>
+                            Next</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="5">
                 <div class="borderportion">
                     <div class="box-header col-md-11">
                         <h5 class="text-aqua"><u>বিনিয়োগ সংক্রান্ত</u></h5>
@@ -917,7 +941,7 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-push-4">
-                        <a href="javascript:ajaxLoad('survey/list')" class="btn btn-danger"><i
+                        <a href="#4" class="btn btn-danger"><i
                                     class="glyphicon glyphicon-backward"></i>
                             Back</a>
                         {!! Form::button("<i class='glyphicon glyphicon-floppy-disk'></i> Save",["type" => "submit","class"=>"btn
