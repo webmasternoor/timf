@@ -59,7 +59,7 @@
                         <div class="col-md-6">
                             <h4>Savings Schedule</h4>
                             <?php
-                            $accouz2 = DB::table('members')->where('id', $memberid)->get();
+                            $accouz2 = \App\Member::where('id', $memberid)->get();
                             foreach ($accouz2 as $accz2) {
                                 $accz2->MemberId;
                                 ?>

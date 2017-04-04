@@ -126,7 +126,7 @@ class SelectBoxController extends Controller
             ->orderBy('id', 'desc')
             ->limit(1)
             ->get();
-
+        $datanum = $data->count();
         echo $datanum;
         die();
         return response()->json($data);
@@ -299,6 +299,5 @@ class SelectBoxController extends Controller
     public function destroy($id)
     {
         //
-        return 0;
     }
 }

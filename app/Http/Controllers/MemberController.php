@@ -261,7 +261,7 @@ class MemberController extends Controller
             ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('Status', $Status)->with('SavingsData',$SavingsData)
             ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
             ->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)->with('Familytypes', $Familytypes)
-            ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)
+            ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)->with('MemberData',$MemberData)
             ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('DivisionOfficeInfo', $DivisionOfficeInfo)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('memberid', $memberid);
 
         //return view('member.update', ['member' => Member::find($id)]);

@@ -102,6 +102,7 @@ Route::get('pdfTest1','SelectBoxController@pdfTest1');
 Route::get('pdfTest2','SelectBoxController@pdfTest2');
 Route::get('pdfTest3','SelectBoxController@pdfTest3');
 Route::get('show','SelectBoxController@show');
+Route::get('functiontesting','SelectBoxController@functiontesting');
 
 Route::get('getList','UserstimfController@getList');
 
