@@ -192,6 +192,13 @@ class MemberController extends Controller
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
+
+    public function getView1212($id)
+    {
+        echo "here";
+        exit();
+    }
+
     public function getView($id)
     {
         $memberid = $id;

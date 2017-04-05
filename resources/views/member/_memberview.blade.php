@@ -122,6 +122,10 @@
                         ?>
                     </div>
                     <a class="btn btn-primary btn-xs" title="View Details"
+                           href="javascript:ajaxLoad('member/view1212/{{$member->id}}')">View</a>
+
+
+                    <a class="btn btn-primary btn-xs" title="View Details"
                        href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>
                 </div>
                 <div class="borderportion">
