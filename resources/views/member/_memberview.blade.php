@@ -121,6 +121,8 @@
                         }
                         ?>
                     </div>
+                    <a class="btn btn-primary btn-xs" title="View Details"
+                       href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>
                 </div>
                 <div class="borderportion">
                     <div class="form-group col-md-12">

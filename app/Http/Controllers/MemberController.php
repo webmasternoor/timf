@@ -47,6 +47,7 @@ use App\Area;
 use App\Brn;
 use App\Member;
 use App\Zone1;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -191,7 +192,6 @@ class MemberController extends Controller
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
-
     public function getView($id)
     {
         $memberid = $id;
@@ -266,7 +266,6 @@ class MemberController extends Controller
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
-
     public function getAccount($id)
     {
         $account_data = Accountstable::select('accountstables.memberid', 'accountstables.productid', 'accountstables.accountsname', 'products.ProductName')
@@ -279,7 +278,22 @@ class MemberController extends Controller
 
         return view('member.account', ['member' => Member::find($id)])->with('product', $product)->with('account_data', $account_data);
     }
-
+    public function getSavingSchedulePdf($id){
+        $data = Savingtransactionsetup::select('*')
+        ->where('MemberId','=',$id)
+        ->get();
+        view()->share('data',$data);
+        $pdf = PDF::loadView('member.savingschedulePdf');
+        return $pdf->download('savingschedulePdf.pdf');
+    }
+    public function getSavingSchedulePdf1($id){
+        $data = Savingtransactionsetup::select('*')
+            ->where('MemberId','=',$id)
+            ->get();
+        view()->share('data',$data);
+        $pdf = PDF::loadView('savingschedulePdf');
+        return view('savingschedulePdf')->with('data',$pdf);
+    }
     public function postAccount($id)
     {
         for ($i = 1; $i <= 5; $i++) {
@@ -333,7 +347,6 @@ class MemberController extends Controller
         }
         return ['url' => 'member/list'];
     }
-
     public function getApprove($id)
     {
         //$zone = Zone::all();
@@ -402,7 +415,6 @@ class MemberController extends Controller
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
-
     public function postApprove($id)
     {
         $memberapprove = Member::find($id);
@@ -455,7 +467,6 @@ class MemberController extends Controller
         }
         return ['url' => 'member/list'];
     }
-
     public function postUpdate($id)
     {
         $member = Member::find($id);
@@ -658,7 +669,6 @@ class MemberController extends Controller
         $member->save();
         return ['url' => 'member/list'];
     }
-
     public function getCreate()
     {
 
@@ -746,7 +756,6 @@ class MemberController extends Controller
             ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('DivisionOfficeInfo', $DivisionOfficeInfo);
         //return view('member.create')->with;
     }
-
     public function postCreate()
     {
         /*$validator = Validator::make(Input::all(), [
@@ -1068,7 +1077,6 @@ class MemberController extends Controller
         $member->save();
         return ['url' => 'member/list'];
     }
-
     public function getDelete($id)
     {
         Member::destroy($id);
