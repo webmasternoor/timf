@@ -105,7 +105,7 @@
                 success: function (data) {
 //                    console.log(data);
                     $.each(data, function (index, subcatObj3p) {
-                        $('#p_scents').append('<tr><td style="text-align: center">'+i+'</td> <td><input type="text" name="MemberId'+i+'" id="'+subcatObj3p.MemberId+'" value="'+subcatObj3p.MemberId+'"/></td> <td><input type="text" name="AccountNo'+i+'" id="'+subcatObj3p.AccountNo+'" value="'+subcatObj3p.AccountNo+'"/></td> <td><input type="text" name="ProductId'+i+'" id="'+subcatObj3p.SavingType+'" value="'+subcatObj3p.SavingType+'"/></td> <td><input type="number" name="Amount'+i+'" id="Amount'+i+'" value=""/></td></tr>');
+                        $('#p_scents').append('<tr><td style="text-align: center">'+i+'</td> <td><input type="text" name="MemberId'+i+'" id="'+subcatObj3p.MemberId+'" value="'+subcatObj3p.MemberId+'"/></td> <td><input type="text" name="AccountNo'+i+'" id="'+subcatObj3p.AccountNo+'" value="'+subcatObj3p.AccountNo+'"/></td> <td><input type="text" name="ProductId'+i+'" id="'+subcatObj3p.SavingType+'" value="'+subcatObj3p.SavingType+'"/></td> <td><input type="number" name="Amount'+i+'" id="Amount'+i+'" value="'+subcatObj3p.Amount+'"/></td></tr>');
                         i++;
                     });
                     document.getElementById('hidden').value=i-1;
