@@ -291,3 +291,9 @@ p.savingsschedule{
 div.memberdetails h4{
     text-align: center;
 }
+div.borderportion.savreport h3{
+  text-align: center;
+}
+div.borderportion.savreport div{
+  border: 1px solid #f2f2f2;
+}

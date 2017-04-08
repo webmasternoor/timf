@@ -128,6 +128,24 @@
                     {{--<a class="btn btn-primary btn-xs" title="View Details"--}}
                        {{--href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>--}}
                 </div>
+                <div class="borderportion savreport">
+                    <h3>Mudaraba Savings Collection Description</h3>
+                    <div class="col-md-12">
+                        <div class="col-md-2">Date</div>
+                        <div class="col-md-5">
+                            <div class="col-md-12">Mudaraba General Savings</div>
+                            <div class="col-md-3">Aday</div>
+                            <div class="col-md-3">Withdraw</div>
+                            <div class="col-md-3">Balance</div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="col-md-12">Mudaraba Special Savings</div>
+                            <div class="col-md-3">Aday</div>
+                            <div class="col-md-3">Withdraw</div>
+                            <div class="col-md-3">Balance</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="borderportion">
                     <div class="form-group col-md-12">
                         <div class="col-md-6">
