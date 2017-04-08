@@ -90,6 +90,13 @@
                 <span id="WorkType-error" class="help-block"></span>
             </div>
         </div>
+        <div class="form-group required col-md-4" id="form-ScheduleOnHoliday-error">
+            {!! Form::label("ScheduleOnHoliday","সিডিউল তারিখ বন্ধ হলে",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::select("ScheduleOnHoliday",['1' => 'After', '2' => 'Before'])!!}
+                <span id="ScheduleOnHoliday-error" class="help-block"></span>
+            </div>
+        </div>
         <div class="form-group required col-md-4" id="form-LicenceNo-error">
             {!! Form::label("LicenceNo","লাইসেন্স নংঃ",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">

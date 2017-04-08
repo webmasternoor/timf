@@ -6,7 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.17.custom.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
     <script type="text/javascript" src="js/jspdf.debug.js"></script>
@@ -26,18 +27,31 @@
 
 <body>
 
-
-<h1 id="head1">hello</h1>
 <?php $i = 1;
 ?>
-@foreach($data as $data1)
-    {{$i}} &nbsp;
-    {{$data1->Date}}
-
-    <br>
-@endforeach
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Sl</th>
+                    <th>Date</th>
+                    <th>Balance</th>
+                </tr>
+                </thead>
+                @foreach($data as $data1)
+                    <tr>
+                        <td>{{$i}}</td>
+                        <td>{{$data1->Date}}</td>
+                        <td>{{$data1->Amount}}</td>
+                    </tr>
+                    <?php $i++; ?>
+                @endforeach
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 <script>

@@ -122,11 +122,11 @@
                         ?>
                     </div>
                     <a class="btn btn-primary btn-xs" title="View Details"
-                           href="javascript:ajaxLoad('member/view1212/{{$member->id}}')">View</a>
+                           href="javascript:ajaxLoad('member/view1212/{{$MemberData->MemberId}}')">Click ear To get Saving Schedule</a>
 
 
-                    <a class="btn btn-primary btn-xs" title="View Details"
-                       href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>
+                    {{--<a class="btn btn-primary btn-xs" title="View Details"--}}
+                       {{--href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>--}}
                 </div>
                 <div class="borderportion">
                     <div class="form-group col-md-12">

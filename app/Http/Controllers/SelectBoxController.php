@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Age;
 use App\Count;
+use App\Holiday;
 use App\Member;
 use App\Product;
 use App\Saving1;
@@ -130,6 +131,24 @@ class SelectBoxController extends Controller
         echo $datanum;
         die();
         return response()->json($data);
+    }
+
+    public function dateinsert()
+    {
+
+        for ($i = 1; $i <= 12; $i++) {
+            $NewDate = Date('Y-m-d', strtotime('+' . 0 . ' months'));
+//            $NewDate=Date('Y:m:d');
+            $date_collection = Holiday::all();
+            foreach ($date_collection as $date) {
+                if ($NewDate == $date->Holiday_Date) {
+                    echo "Hi";
+//                    $NewDate = Date('y:m:d', strtotime('+' . 1 . ' Days'));
+//                    echo $NewDate."</br>";
+                }
+            }
+        }
+
     }
 
     public function getSchedule(Request $request)
@@ -262,27 +281,30 @@ class SelectBoxController extends Controller
     {
         //
     }
+
     public function pdfTest()
     {
         return view('area.pdfTest');
     }
+
     public function pdfTest1()
     {
         $data = Product::select('*')
-            ->where('id','=',1)
+            ->where('id', '=', 1)
             ->get();
         return response()->json($data);
     }
+
     public function pdfTest2()
     {
         $data = Member::all();
-       return view('area.pdfTest')->with('data',$data);
+        return view('area.pdfTest')->with('data', $data);
     }
-    
+
     public function pdfTest3()
     {
         $data = Member::all();
-        view()->share('data',$data);
+        view()->share('data', $data);
         $pdf = PDF::loadView('area.pdfTest');
         return $pdf->download('area.pdf');
 //        return view('area.pdfTest')->with('data',$data);

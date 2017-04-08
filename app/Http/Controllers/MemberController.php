@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Accommodation;
+use App\Holiday;
 use App\Product;
 use App\Accountstable;
 use App\Age;
@@ -195,8 +196,13 @@ class MemberController extends Controller
 
     public function getView1212($id)
     {
-        echo "here";
-        exit();
+        $data = Savingtransactionsetup::select('*')
+            ->where('MemberId','=',$id)
+            ->get();
+
+        view()->share('data',$data);
+        $pdf = PDF::loadView('savingschedulePdf');
+        return $pdf->download('savingschedulePdf.pdf');
     }
 
     public function getView($id)
@@ -273,6 +279,7 @@ class MemberController extends Controller
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
+
     public function getAccount($id)
     {
         $account_data = Accountstable::select('accountstables.memberid', 'accountstables.productid', 'accountstables.accountsname', 'products.ProductName')
@@ -285,14 +292,17 @@ class MemberController extends Controller
 
         return view('member.account', ['member' => Member::find($id)])->with('product', $product)->with('account_data', $account_data);
     }
+
     public function getSavingSchedulePdf($id){
         $data = Savingtransactionsetup::select('*')
         ->where('MemberId','=',$id)
         ->get();
+
         view()->share('data',$data);
         $pdf = PDF::loadView('member.savingschedulePdf');
         return $pdf->download('savingschedulePdf.pdf');
     }
+
     public function getSavingSchedulePdf1($id){
         $data = Savingtransactionsetup::select('*')
             ->where('MemberId','=',$id)
@@ -301,6 +311,7 @@ class MemberController extends Controller
         $pdf = PDF::loadView('savingschedulePdf');
         return view('savingschedulePdf')->with('data',$pdf);
     }
+
     public function postAccount($id)
     {
         for ($i = 1; $i <= 5; $i++) {
@@ -436,7 +447,7 @@ class MemberController extends Controller
 
         $savingAccountNo = rand(50000, 60000);
 
-        for ($i = 1; $i <= 12; $i++) {
+        for ($i = 0; $i <= 12; $i++) {
             $SavingSetup = new Savingtransactionsetup();
             $SavingSetup->MemberId = Input::get('MemberId');
             $SavingSetup->SavingType = Input::get('SavingTypes');
@@ -449,7 +460,15 @@ class MemberController extends Controller
             $SavingPolicy = Input::get('SavingPolicy');
 
 
-            $NewDate = Date('y:m:d', strtotime('+' . $i . ' months'));
+            $NewDate = Date('Y-m-d', strtotime('+' . $i . ' months'));
+            $date_collection = Holiday::all();
+            foreach ($date_collection as $date)
+            {
+                if ($NewDate==$date->Holiday_Date)
+                {
+                    $NewDate=Date('Y-m-d', strtotime('+' . 1 . ' Days'));
+                }
+            }
             if ($membertypes == '1') {
                 if ($SavingPolicy == '1') {
                     $SavingSetup->Amount = 10;

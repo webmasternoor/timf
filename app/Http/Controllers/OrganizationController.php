@@ -54,6 +54,8 @@ class OrganizationController extends Controller
         $organization->EmailId = Input::get('EmailId');
         $organization->StartWorkingDay = Input::get('StartWorkingDay');
         $organization->WorkType = Input::get('WorkType');
+        $organization->ScheduleOnHoliday = Input::get('ScheduleOnHoliday');
+        $organization->ScheduleOnHoliday = Input::get('ScheduleOnHoliday');
         $organization->LicenceNo = Input::get('LicenceNo');
         $organization->LicenceStartDate = Input::get('LicenceStartDate');
         $organization->LicenceValidityEndingDate = Input::get('LicenceValidityEndingDate');
