@@ -35,14 +35,22 @@
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Sl</th>
-                    <th>Date</th>
-                    <th>Balance</th>
+                    <th rowspan="2">Date</th>
+                    <th colspan="3">Mudaraba General Saving</th>
+                    <th colspan="3">Mudaraba Special Saving</th>
+                </tr>
+                <tr>
+                    <td>Collection</td>
+                    <td>Withdraw</td>
+                    <td>Balance</td>
+                    <td>Collection</td>
+                    <td>Withdraw</td>
+                    <td>Balance</td>
                 </tr>
                 </thead>
                 @foreach($data as $data1)
                     <tr>
-                        <td>{{$i}}</td>
+                        {{--<td>{{$i}}</td>--}}
                         <td>{{$data1->Date}}</td>
                         <td>{{$data1->Amount}}</td>
                     </tr>

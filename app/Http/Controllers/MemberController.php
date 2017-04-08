@@ -299,8 +299,8 @@ class MemberController extends Controller
         ->get();
 
         view()->share('data',$data);
-        $pdf = PDF::loadView('member.savingschedulePdf');
-        return $pdf->download('savingschedulePdf.pdf');
+        $pdf = PDF::loadView('member.savingschedulePdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('savingschedulePdf.pdf');
     }
 
     public function getSavingSchedulePdf1($id){
