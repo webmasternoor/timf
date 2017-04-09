@@ -201,7 +201,8 @@ class MemberController extends Controller
             ->get();
 
         view()->share('data',$data);
-        $pdf = PDF::loadView('savingschedulePdf');
+        $pdf = PDF::loadView('savingschedulePdf')->setPaper('a4', 'landscape');
+
         return $pdf->download('savingschedulePdf.pdf');
     }
 

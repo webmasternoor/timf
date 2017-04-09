@@ -2994,13 +2994,18 @@ CREATE TABLE IF NOT EXISTS `products` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.products: ~0 rows (approximately)
+-- Dumping data for table timf.products: ~5 rows (approximately)
 DELETE FROM `products`;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`id`, `ProductCode`, `ProductID`, `ProductName`, `ProductNameEng`, `ProductNameBanglaShort`, `ProductNameBanglaFull`, `InterestPercentage`, `Frequency`, `Duration`, `EffectiveFrom`, `EffectiveTo`, `IsActive`, `MultipleSavings`, `WithdrawlFacily`, `MinimumAmount`, `MaximumAmount`, `MinimumBalanceAmount`, `MinimumBalanceAmountPercentage`, `MaxDueCycle`, `PassBookAvailability`, `SpecialWithdrawFacility`, `InvestmentAgainstSavings`, `PercentageofInvestmentAgainstSavings`, `AutomaticSchemeRenewal`, `DividedbyValue`, `MaxWithdrawTimeforAvoidingPenaltyPerMonth`, `MaxWithdrawLimitPerMonth`, `name`, `created_at`, `updated_at`) VALUES
-	(1, '2.0', '2.0', 'MGSMM', 'Mudaraba Genaral Saving ME Monthly', 'এম জি এসএমএম', 'মুদারাবা মাসিক সাধারন সঞ্চয় ME', '7', '2', '7', '17.04.2017', '17.04.2018', '1', '1', '1', '500', '50000', '299', '500', '4', '1', '1', '90000', '90', '1', '1000', '1', '50000', NULL, '2017-04-02 07:16:33', '2017-04-02 07:16:33');
+	(1, '2.0', '2.0', 'MGSMM', 'Mudaraba Genaral Saving ME Monthly', 'এম জি এসএমএম', 'মুদারাবা মাসিক সাধারন সঞ্চয় ME', '7', '2', '7', '17.04.2017', '17.04.2018', '1', '1', '1', '500', '50000', '299', '500', '4', '1', '1', '90000', '90', '1', '1000', '1', '50000', NULL, '2017-04-02 07:16:33', '2017-04-02 07:16:33'),
+	(2, '3.0', 'MGSMW', 'MGSMW', 'MGSMW', 'এম জি এসএমডব্লিউ', 'মুদারাবা সাপ্তাহিক সাধারন সঞ্চয়', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:26:14', '2017-04-08 09:26:14'),
+	(3, '4.0', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:32:09', '2017-04-08 09:32:09'),
+	(4, '5.0', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', '-4', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:33:10', '2017-04-08 09:33:10'),
+	(5, '6.0', 'Mudaraba Special Saving Genaral Member Weekly', 'Mudaraba Special Saving Genaral Member Weekly', 'Mudaraba Special Saving Genaral Member Weekly', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:34:21', '2017-04-08 09:34:21'),
+	(6, '7.0', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:35:18', '2017-04-08 09:35:18');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table timf.producttypes
@@ -3285,7 +3290,7 @@ CREATE TABLE IF NOT EXISTS `savingtransactionsetups` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.savingtransactionsetups: ~0 rows (approximately)
+-- Dumping data for table timf.savingtransactionsetups: ~13 rows (approximately)
 DELETE FROM `savingtransactionsetups`;
 /*!40000 ALTER TABLE `savingtransactionsetups` DISABLE KEYS */;
 INSERT INTO `savingtransactionsetups` (`id`, `MemberId`, `AccountNo`, `SavingType`, `MemberType`, `SavingPolicy`, `SamityName`, `Rate`, `Amount`, `Date`, `created_at`, `updated_at`) VALUES
