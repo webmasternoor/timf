@@ -309,8 +309,16 @@ class SelectBoxController extends Controller
 
     public function pdfTest2()
     {
-        $data = Member::all();
-        return view('area.pdfTest')->with('data', $data);
+        $data = Savingtransactionsetup::select('*')
+            ->where('MemberId','=',1006)
+            ->get();
+
+        view()->share('data',$data);
+        $pdf = PDF::loadView('savingschedule')->setPaper('a4', 'landscape');
+
+        return $pdf->download('savingschedule.pdf');
+//        $data = Member::all();
+//        return view('area.pdfTest')->with('data', $data);
     }
 
     public function pdfTest3()

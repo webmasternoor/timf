@@ -3,15 +3,15 @@
 <head>
     <title>Schedule PDF</title>
 
-    {{--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.17.custom.css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="css/main.css">--}}
-    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"--}}
-          {{--integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">--}}
-    {{--<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>--}}
-    {{--<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>--}}
-    {{--<script type="text/javascript" src="js/jspdf.debug.js"></script>--}}
-    {{--<script type="text/javascript" src="js/basic.js"></script>--}}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.17.custom.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jspdf.debug.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
 
     {{--<script>--}}
         {{--$(function () {--}}
