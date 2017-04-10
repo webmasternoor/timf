@@ -1,7 +1,21 @@
 <div class="col-md-12">
     <div class="form-group borderportion">
         <div class="col-md-12">
-            <h4>সাধারণ ছুটি</h4>
+            <h4></h4>
+        </div>
+        <div class="form-group required col-md-6" id="form-holidaytypes-error">
+            {!! Form::label("holidaytypes","ছুটির ধরন",["class"=>"control-label col-md-3"]) !!}
+            <div class="col-md-6">
+                {!! Form::select("holidaytypes",$Holidaytype,null,["class"=>"form-control required","id"=>"holidaytypes"]) !!}
+                <span id="holidaytypes-error" class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group required col-md-6" id="form-Description-error">
+            {!! Form::label("Description","বর্ননা",["class"=>"control-label col-md-3"]) !!}
+            <div class="col-md-6">
+                {!! Form::textarea("Description",null,["class"=>"form-control required","id"=>"focus"]) !!}
+                <span id="Description-error" class="help-block"></span>
+            </div>
         </div>
         <div class="form-group required col-md-6" id="form-OfficeId-error">
             {!! Form::label("OfficeId","শাখা",["class"=>"control-label col-md-3"]) !!}
@@ -10,11 +24,37 @@
                 <span id="OfficeId-error" class="help-block"></span>
             </div>
         </div>
+        <div class="form-group required col-md-6" id="form-HolidayyName-error">
+            {!! Form::label("HolidayyName","ছুটির নাম",["class"=>"control-label col-md-3"]) !!}
+            <div class="col-md-6">
+                {!! Form::text("HolidayyName",null,["class"=>"form-control required","id"=>"focus"]) !!}
+                <span id="HolidayyName-error" class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group required col-md-6" id="form-SamityID_CenterID-error">
+            {!! Form::label("SamityID_CenterID","সমিতি আইডি",["class"=>"control-label col-md-3"]) !!}
+            <div class="col-md-6">
+                {!! Form::number("SamityID_CenterID",null,["class"=>"form-control required","id"=>"focus"]) !!}
+                <span id="SamityID_CenterID-error" class="help-block"></span>
+            </div>
+        </div>
+        {{--<div class="form-group required col-md-6" id="form-IsActive-error">--}}
+            {{--{!! Form::label("IsActive","ছুটির সক্রিয়তা",["class"=>"control-label col-md-3"]) !!}--}}
+            {{--<div class="col-md-6">--}}
+                {{--{!! Form::number("IsActive",null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
+                {{--<span id="IsActive-error" class="help-block"></span>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    </div>
 
+    <div class="form-group borderportion" id="generalHoliday">
+        <div class="col-md-12">
+            <h4>সাধারণ ছুটি</h4>
+        </div>
         <div class="form-group required col-md-6" id="form-Holiday-error">
             {!! Form::label("Holiday","দিনের নাম",["class"=>"control-label col-md-3"]) !!}
             <div class="col-md-6">
-                {!! Form::select("Holiday",['1' => 'শনিবার', '2' => 'রবিবার','3'=>'সোমবার','4'=>'মঙ্গলবার','5'=>'বুধবার','6'=>'বৃহস্পতিবার','7'=>'শুক্রবার'])!!}
+                {!! Form::select("Holiday",$Days,null,["class"=>"form-control required","id"=>"Holiday"]) !!}
                 <span id="Holiday-error" class="help-block"></span>
             </div>
         </div>
@@ -29,11 +69,12 @@
             {!! Form::label("HolidayEndDate","ছুটি শেষ হওয়ার তারিখ",["class"=>"control-label col-md-3"]) !!}
             <div class="col-md-6">
                 {!! Form::date("HolidayEndDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="HolidayEndDate-error" class="help-block"></span><span id="Holiday-error" class="help-block"></span>
+                <span id="HolidayEndDate-error" class="help-block"></span><span id="Holiday-error"
+                                                                                class="help-block"></span>
             </div>
         </div>
     </div>
-    <div class="form-group borderportion">
+    <div class="form-group borderportion" id="specialHoliday">
         <div class="col-md-12">
             <h4>বিশেষ ছুটি</h4>
         </div>
@@ -41,71 +82,28 @@
             {!! Form::label("SpecialHolidayStartDate","তারিখ",["class"=>"control-label col-md-3"]) !!}
             <div class="col-md-6">
                 {!! Form::date("SpecialHolidayStartDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="SpecialHolidayStartDate-error" class="help-block"></span><span id="Holiday-error" class="help-block"></span>
+                <span id="SpecialHolidayStartDate-error" class="help-block"></span><span id="Holiday-error"
+                                                                                         class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-6" id="form-SpecialHolidayEndDate-error">
             {!! Form::label("SpecialHolidayEndDate","তারিখ",["class"=>"control-label col-md-3"]) !!}
             <div class="col-md-6">
                 {!! Form::date("SpecialHolidayEndDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="SpecialHolidayEndDate-error" class="help-block"></span><span id="Holiday-error" class="help-block"></span>
+                <span id="SpecialHolidayEndDate-error" class="help-block"></span><span id="Holiday-error"
+                                                                                       class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-6" id="form-HolidayDescription-error">
             {!! Form::label("HolidayDescription","বর্ননা",["class"=>"control-label col-md-3"]) !!}
             <div class="col-md-6">
                 {!! Form::textarea("HolidayDescription",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="HolidayDescription-error" class="help-block"></span><span id="Holiday-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="form-group required col-md-6" id="form-SamityID_CenterID-error">
-            {!! Form::label("SamityID_CenterID","সমিতি আইডি",["class"=>"control-label col-md-3"]) !!}
-            <div class="col-md-6">
-                {!! Form::number("SamityID_CenterID",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="SamityID_CenterID-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="form-group required col-md-6" id="form-HolidayyName-error">
-            {!! Form::label("HolidayyName","ছুটির নাম",["class"=>"control-label col-md-3"]) !!}
-            <div class="col-md-6">
-                {!! Form::text("HolidayyName",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="HolidayyName-error" class="help-block"></span>
+                <span id="HolidayDescription-error" class="help-block"></span><span id="Holiday-error"
+                                                                                    class="help-block"></span>
             </div>
         </div>
     </div>
-    <div class="form-group borderportion">
-        <div class="col-md-12">
-            {{--<h4>উদ্যোক্তার সম্পদ ও দেনার বিবরণীঃ</h4>--}}
-        </div>
-        <div class="form-group required col-md-6" id="form-HolidayType-error">
-            {!! Form::label("HolidayType","ছুটির ধরণ",["class"=>"control-label col-md-3"]) !!}
-            <div class="col-md-6">
-                {!! Form::text("HolidayType",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="HolidayType-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="form-group required col-md-6" id="form-Description-error">
-            {!! Form::label("Description","বর্ননা",["class"=>"control-label col-md-3"]) !!}
-            <div class="col-md-6">
-                {!! Form::text("Description",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="Description-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="form-group required col-md-6" id="form-OrgID-error">
-            {!! Form::label("OrgID","প্রতিষ্ঠানের আইডি",["class"=>"control-label col-md-3"]) !!}
-            <div class="col-md-6">
-                {!! Form::number("OrgID",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="OrgID-error" class="help-block"></span>
-            </div>
-        </div>
-        <div class="form-group required col-md-6" id="form-IsActive-error">
-            {!! Form::label("IsActive","ছুটির সক্রিয়তা",["class"=>"control-label col-md-3"]) !!}
-            <div class="col-md-6">
-                {!! Form::number("IsActive",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="IsActive-error" class="help-block"></span>
-            </div>
-        </div>
-    </div>
+
 </div>
 <div class="form-group">
     <div class="col-md-6 col-md-push-3">
@@ -157,5 +155,21 @@
             }
         });
         return false;
+    });
+    $(document).ready(function () {
+        //this calculates values automatically
+        $("#holidaytypes").on("change", function () {
+            var holidaytypes = document.getElementById('holidaytypes').value;
+            if(holidaytypes==1)
+            {
+                $('#specialHoliday').hide();
+                $('#generalHoliday').show();
+            }
+            else
+            {
+                $('#specialHoliday').show();
+                $('#generalHoliday').hide();
+            }
+        });
     });
 </script>

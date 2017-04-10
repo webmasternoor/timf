@@ -201,9 +201,9 @@ class MemberController extends Controller
             ->get();
 
         view()->share('data',$data);
-        $pdf = PDF::loadView('savingschedulePdf')->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('savingschedule')->setPaper('a4', 'landscape');
 
-        return $pdf->stream('savingschedulePdf.pdf');
+        return $pdf->download('savingschedule.pdf');
     }
 
     public function getView($id)
@@ -366,6 +366,7 @@ class MemberController extends Controller
         }
         return ['url' => 'member/list'];
     }
+
     public function getApprove($id)
     {
         //$zone = Zone::all();
@@ -434,6 +435,7 @@ class MemberController extends Controller
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
+
     public function postApprove($id)
     {
         $memberapprove = Member::find($id);
@@ -466,7 +468,7 @@ class MemberController extends Controller
             foreach ($date_collection as $date)
             {
                 if ($NewDate==$date->Holiday_Date)
-                {
+                { for ($j=1;$NewDate!=$date->Holiday_Date;$j++)
                     $NewDate=Date('Y-m-d', strtotime('+' . 1 . ' Days'));
                 }
             }
@@ -494,6 +496,7 @@ class MemberController extends Controller
         }
         return ['url' => 'member/list'];
     }
+
     public function postUpdate($id)
     {
         $member = Member::find($id);
@@ -696,9 +699,9 @@ class MemberController extends Controller
         $member->save();
         return ['url' => 'member/list'];
     }
+
     public function getCreate()
     {
-
         Session::put('loan_search1', Input::has('ok') ? Input::get('search1') : (Session::has('loan_search1') ? Session::get('loan_search1') : ''));
         Session::put('loan_field', Input::has('field') ? Input::get('field') : (Session::has('loan_field') ? Session::get('loan_field') : 'Nid'));
         Session::put('loan_sort', Input::has('sort') ? Input::get('sort') : (Session::has('loan_sort') ? Session::get('loan_sort') : 'asc'));
@@ -783,6 +786,7 @@ class MemberController extends Controller
             ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('DivisionOfficeInfo', $DivisionOfficeInfo);
         //return view('member.create')->with;
     }
+
     public function postCreate()
     {
         /*$validator = Validator::make(Input::all(), [
@@ -1104,6 +1108,7 @@ class MemberController extends Controller
         $member->save();
         return ['url' => 'member/list'];
     }
+
     public function getDelete($id)
     {
         Member::destroy($id);

@@ -1056,7 +1056,7 @@
 ////            }
 //        });
         $(document).on('change', '.IsHeTakeLoan', function () {
-            //console.log("yes it is change");
+//            console.log("yes it is change");
 
             var IsHeTakeLoan = $(this).val();
             if (IsHeTakeLoan == '2') {
@@ -1099,6 +1099,7 @@
             }
 
         });
+
         $(document).on('change', '.ZoneId', function () {
             //console.log("yes it is change");
 

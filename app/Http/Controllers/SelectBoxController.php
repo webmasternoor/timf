@@ -9,6 +9,7 @@ use App\Member;
 use App\Product;
 use App\Saving1;
 use App\Savingtransactionsetup;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -135,19 +136,30 @@ class SelectBoxController extends Controller
 
     public function dateinsert()
     {
-
-        for ($i = 1; $i <= 12; $i++) {
-            $NewDate = Date('Y-m-d', strtotime('+' . 0 . ' months'));
-//            $NewDate=Date('Y:m:d');
-            $date_collection = Holiday::all();
-            foreach ($date_collection as $date) {
-                if ($NewDate == $date->Holiday_Date) {
-                    echo "Hi";
-//                    $NewDate = Date('y:m:d', strtotime('+' . 1 . ' Days'));
-//                    echo $NewDate."</br>";
-                }
-            }
+        $date2 = new Carbon('fridays of 2017');
+        $date23 = Carbon::create(2023, 1, 31);
+        $date21 = Carbon::create(2017, 1, 6);
+        echo $date21;
+        for ($i=0;$date21<$date23;$i=+7)
+        {
+            $day1 = $date21->addDays($i);
+            echo '<br>'.$day1;
         }
+
+        $day1 = $date21->addDays(7);
+
+//        for ($i = 1; $i <= 12; $i++) {
+//            $NewDate = Date('Y-m-d', strtotime('+' . 0 . ' months'));
+////            $NewDate=Date('Y:m:d');
+//            $date_collection = Holiday::all();
+//            foreach ($date_collection as $date) {
+//                if ($NewDate == $date->Holiday_Date) {
+//                    echo "Hi";
+////                    $NewDate = Date('y:m:d', strtotime('+' . 1 . ' Days'));
+////                    echo $NewDate."</br>";
+//                }
+//            }
+//        }
 
     }
 
@@ -305,8 +317,8 @@ class SelectBoxController extends Controller
     {
         $data = Member::all();
         view()->share('data', $data);
-        $pdf = PDF::loadView('area.pdfTest');
-        return $pdf->download('area.pdf');
+        $pdf = PDF::loadView('area.pdfTest')->setPaper('a4', 'landscape');
+        return $pdf->download('pdfTest.pdf');
 //        return view('area.pdfTest')->with('data',$data);
 
     }
