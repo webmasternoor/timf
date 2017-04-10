@@ -203,7 +203,7 @@ class MemberController extends Controller
         view()->share('data',$data);
         $pdf = PDF::loadView('savingschedulePdf')->setPaper('a4', 'landscape');
 
-        return $pdf->download('savingschedulePdf.pdf');
+        return $pdf->stream('savingschedulePdf.pdf');
     }
 
     public function getView($id)
