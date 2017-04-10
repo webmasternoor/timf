@@ -14,14 +14,14 @@
     <script type="text/javascript" src="js/basic.js"></script>
 
     {{--<script>--}}
-        {{--$(function () {--}}
-            {{--$("#accordion-basic").accordion({--}}
-                {{--autoHeight: false,--}}
-                {{--navigation: true--}}
-            {{--});--}}
-            {{--$("#tabs").tabs();--}}
-            {{--$(".button").button();--}}
-        {{--});--}}
+    {{--$(function () {--}}
+    {{--$("#accordion-basic").accordion({--}}
+    {{--autoHeight: false,--}}
+    {{--navigation: true--}}
+    {{--});--}}
+    {{--$("#tabs").tabs();--}}
+    {{--$(".button").button();--}}
+    {{--});--}}
     {{--</script>--}}
 </head>
 
@@ -58,46 +58,46 @@
 </body>
 </html>
 {{--<script>--}}
-    {{--$(document).ready(function () {--}}
-        {{--//this calculates values automatically--}}
+{{--$(document).ready(function () {--}}
+{{--//this calculates values automatically--}}
 {{--//        demoTwoPageDocument();--}}
-        {{--$("#head1").on("click", function () {--}}
-            {{--var doc = new jsPDF();--}}
-            {{--$.ajax({--}}
-                {{--type: 'get',--}}
-                {{--url: 'pdfTest1',--}}
-                {{--data: {'id': 1},--}}
-                {{--success: function (data) {--}}
-                    {{--$.each(data, function (index, subcatObj3p) {--}}
-                        {{--doc.text(20, 20, subcatObj3p.ProductName);--}}
-                        {{--doc.text(20, 30, 'This is client-side Javascript, hi pumping out a PDF.');--}}
-                        {{--doc.addPage();--}}
-                        {{--doc.text(20, 20, 'Do you like that?');--}}
+{{--$("#head1").on("click", function () {--}}
+{{--var doc = new jsPDF();--}}
+{{--$.ajax({--}}
+{{--type: 'get',--}}
+{{--url: 'pdfTest1',--}}
+{{--data: {'id': 1},--}}
+{{--success: function (data) {--}}
+{{--$.each(data, function (index, subcatObj3p) {--}}
+{{--doc.text(20, 20, subcatObj3p.ProductName);--}}
+{{--doc.text(20, 30, 'This is client-side Javascript, hi pumping out a PDF.');--}}
+{{--doc.addPage();--}}
+{{--doc.text(20, 20, 'Do you like that?');--}}
 
-                        {{--// Save the PDF--}}
+{{--// Save the PDF--}}
 {{--//                        doc.save('Test.pdf');--}}
 {{--//                        $('#PermanentWord').append('<option value="' + subcatObj3p.id + '">' + subcatObj3p.WardName + '</option>')--}}
-                    {{--});--}}
-                    {{--doc.save('Test.pdf');--}}
-                {{--},--}}
-                {{--error: function () {--}}
+{{--});--}}
+{{--doc.save('Test.pdf');--}}
+{{--},--}}
+{{--error: function () {--}}
 
-                {{--}--}}
-            {{--});--}}
-            {{--$.ajax(clear);--}}
+{{--}--}}
+{{--});--}}
+{{--$.ajax(clear);--}}
 {{--//            demoTwoPageDocument();--}}
-        {{--});--}}
-    {{--});--}}
+{{--});--}}
+{{--});--}}
 
-    {{--function demoTwoPageDocument() {--}}
-        {{--var name = 'rockey';--}}
-        {{--var doc = new jsPDF();--}}
-        {{--doc.text(20, 20, name);--}}
-        {{--doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');--}}
-        {{--doc.addPage();--}}
-        {{--doc.text(20, 20, 'Do you like that?');--}}
+{{--function demoTwoPageDocument() {--}}
+{{--var name = 'rockey';--}}
+{{--var doc = new jsPDF();--}}
+{{--doc.text(20, 20, name);--}}
+{{--doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');--}}
+{{--doc.addPage();--}}
+{{--doc.text(20, 20, 'Do you like that?');--}}
 
-        {{--// Save the PDF--}}
-        {{--doc.save('Test.pdf');--}}
-    {{--}--}}
+{{--// Save the PDF--}}
+{{--doc.save('Test.pdf');--}}
+{{--}--}}
 {{--</script>--}}
