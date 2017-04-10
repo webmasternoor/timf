@@ -262,6 +262,7 @@ class MemberController extends Controller
 //        echo $MemberData->MemberId;
 //        die();
         $memberdata1=$MemberData->MemberId;
+        $savingSchedule_data = Savingtransactionsetup::where('MemberId','=',$memberdata1)->get();
         $SavingsData=Saving1::where('MemberId','=',$memberdata1)->get();
 
         return view('member.view', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
@@ -276,7 +277,8 @@ class MemberController extends Controller
             ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
             ->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)->with('Familytypes', $Familytypes)
             ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)->with('MemberData',$MemberData)
-            ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('DivisionOfficeInfo', $DivisionOfficeInfo)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('memberid', $memberid);
+            ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('DivisionOfficeInfo', $DivisionOfficeInfo)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('memberid', $memberid)
+            ->with('savingSchedule_data',$savingSchedule_data);
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
