@@ -29,8 +29,10 @@ class ProductController extends Controller
 
     public function getUpdate($id)
     {
-        $ProductInfo = Producttype::lists('ProducttypeyName', 'id');
-        return view('product.update', ['product' => Product::find($id)])->with('ProductInfo',$ProductInfo);
+        $ProductInfo = ['' => '--select--'] + Producttype::lists('ProducttypeyName', 'id')->all();
+        $status = ['' => '--select--'] + Status::lists('Status', 'id')->all();
+        $frequency = ['' => '--select--'] + Frequency::lists('frequency', 'id')->all();
+        return view('product.update', ['product' => Product::find($id)])->with('ProductInfo',$ProductInfo)->with('status',$status)->with('frequency',$frequency);
     }
 
     public function postUpdate($id)
@@ -46,7 +48,7 @@ class ProductController extends Controller
                 'errors' => $validator->getMessageBag()->toArray()
             );
         }
-        $product->ProductCode = Input::get('ProductCode');
+         $product->ProductCode = Input::get('ProductCode');
         $product->ProductID = Input::get('ProductID');
         $product->ProductName = Input::get('ProductName');
         $product->ProductNameEng = Input::get('ProductNameEng');
