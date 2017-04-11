@@ -10,7 +10,7 @@
         <div class="tab-content ">
             <div class="tab-pane active" id="1">
                 <div class="borderportion">
-                    <div class="form-group col-md-4" id="form-DivisionOfficeId-error">
+                    <div class="form-group col-md-6" id="form-DivisionOfficeId-error">
                         {!! Form::label("DivisionOfficeId","বিভাগ অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                         <!-- {{--<select name="ZoneId">--}}
@@ -22,7 +22,7 @@
                             <span id="DivisionOfficeId-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4" id="form-ZoneId-error">
+                    <div class="form-group col-md-6" id="form-ZoneId-error">
                         {!! Form::label("ZoneId","জোন অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                         <!-- {{--<select name="ZoneId">--}}
@@ -34,7 +34,7 @@
                             <span id="ZoneId-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4" id="form-AreaId-error">
+                    <div class="form-group col-md-6" id="form-AreaId-error">
                         {!! Form::label("AreaId","এরিয়া অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {{--<select name="AreaId">--}}
@@ -46,7 +46,7 @@
                             <span id="AreaId-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4" id="form-BranchId-error">
+                    <div class="form-group col-md-6" id="form-BranchId-error">
                         {!! Form::label("BranchId","শাখা অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                         <!-- {{--<select name="BranchId">--}}
@@ -58,18 +58,18 @@
                             <span id="BranchId-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-12" id="form-BranchId-error">
-                        {!! Form::label("BranchId","শাখা অফিস",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                        <!-- {{--<select name="BranchId">--}}
+                    {{--<div class="form-group col-md-12" id="form-BranchId-error">--}}
+                        {{--{!! Form::label("BranchId","শাখা অফিস",["class"=>"control-label col-md-12"]) !!}--}}
+                        {{--<div class="col-md-12">--}}
+                        {{--<!-- --}}{{--<select name="BranchId">--}}
                         {{--@foreach($branch as $branch_data )--}}
                         {{--<option value="{{$branch_data->id}}">{{$branch_data->BranchName}}</option>--}}
                         {{--@endforeach--}}
-                        {{--</select>--}} -->
-                            {!! Form::select("BranchId",$BranchInfo,null,["class"=>"form-control BranchId required","id"=>"BranchId"]) !!}
-                            <span id="BranchId-error" class="help-block"></span>
-                        </div>
-                    </div>
+                        {{--</select>--}}{{-- -->--}}
+                            {{--{!! Form::select("BranchId",$BranchInfo,null,["class"=>"form-control BranchId required","id"=>"BranchId"]) !!}--}}
+                            {{--<span id="BranchId-error" class="help-block"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
                 <div class="form-group">
                     <div class="col-md-6 col-md-push-4">

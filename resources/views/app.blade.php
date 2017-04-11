@@ -32,11 +32,13 @@
     <!-- <link rel="stylesheet" href="//resources/demos/style.css"> -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <script
+            src="{{ asset('js/jquery1.12.1-ui.js') }}"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
 <!-- <link href="{{ asset('bootstrap-3.3.6/css/bootstrap.min.css') }}" rel="stylesheet"> -->
     <script src="{{ asset('highlight/highlight.pack.js')  }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>--}}
     <script>hljs.initHighlightingOnLoad();</script>
     <style type="text/css">
         .dropdown-menu {
@@ -83,13 +85,14 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-    <script src="//code.jqyery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-u.js"></script>
+    <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
+    <script src="{{ asset('js/jquery3.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery1.10.2.min.js') }}"></script>
+    <script
+            src="{{ asset('js/jquery-u.js') }}"
+            integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI="
+            crossorigin="anonymous"></script>
     <![endif]-->
 </head>
 <body>

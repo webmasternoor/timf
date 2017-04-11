@@ -140,7 +140,7 @@
                     {{--<a class="btn btn-primary btn-xs" title="View Details"--}}
                     {{--href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>--}}
                 </div>
-                <div class="container">
+
                     <div class="modal fade" id="myModal" role="dialog">
                         <div class="modal-dialog">
 
@@ -204,6 +204,31 @@
                                     <p>মুদারাবা বিশেষ সঞ্চয়.</p>
                                     <p>{{$MemberData->MemberId}}</p>
                                 </div>
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th rowspan="2">Date</th>
+                                        <th colspan="3">Mudaraba General Saving</th>
+                                        <th colspan="3">Mudaraba Special Saving</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Collection</td>
+                                        <td>Withdraw</td>
+                                        <td>Balance</td>
+                                        <td>Collection</td>
+                                        <td>Withdraw</td>
+                                        <td>Balance</td>
+                                    </tr>
+                                    </thead>
+                                    @foreach($savingSchedule_data as $data1)
+                                    <tr>
+                                        {{--<td>{{$i}}</td>--}}
+                                        <td>{{$data1->Date}}</td>
+                                        <td>{{$data1->Amount}}</td>
+                                    </tr>
+                                    <!--                                            --><?php //$i++; ?>
+                                    @endforeach
+                                </table>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                     </button>
@@ -222,6 +247,31 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">মুদারাবা স্থায়ী আমানত</h4>
                                 </div>
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th rowspan="2">Date</th>
+                                        <th colspan="3">Mudaraba General Saving</th>
+                                        <th colspan="3">Mudaraba Special Saving</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Collection</td>
+                                        <td>Withdraw</td>
+                                        <td>Balance</td>
+                                        <td>Collection</td>
+                                        <td>Withdraw</td>
+                                        <td>Balance</td>
+                                    </tr>
+                                    </thead>
+                                    @foreach($savingSchedule_data as $data1)
+                                    <tr>
+                                        {{--<td>{{$i}}</td>--}}
+                                        <td>{{$data1->Date}}</td>
+                                        <td>{{$data1->Amount}}</td>
+                                    </tr>
+                                    <!--                                            --><?php //$i++; ?>
+                                    @endforeach
+                                </table>
                                 <div class="modal-body">
                                     <p>Some text in the modal.</p>
                                     <p>মুদারাবা স্থায়ী আমানত.</p>
@@ -235,7 +285,7 @@
 
                         </div>
                     </div>
-                </div>
+
                 <div class="borderportion savreport">
                     <h3>Mudaraba Savings Collection Description</h3>
                     <div class="col-md-12">

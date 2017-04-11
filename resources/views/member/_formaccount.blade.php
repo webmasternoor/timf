@@ -30,11 +30,11 @@
                 <span id="productname1-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group col-md-6" id="form-accountnumber1-error">
-            {!! Form::label("accountnumber1","হিসাব নং",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group col-md-6" id="form-savingAmount1-error">
+            {!! Form::label("savingAmount1","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::text("accountnumber1",null,["class"=>"form-control required"]) !!}
-                <span id="accountnumber1-error" class="help-block"></span>
+                {!! Form::text("savingAmount1",null,["class"=>"form-control required"]) !!}
+                <span id="savingAmount1-error" class="help-block"></span>
             </div>
         </div>
     </div>
@@ -46,11 +46,11 @@
                 <span id="productname2-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group col-md-6" id="form-accountnumber2-error">
-            {!! Form::label("accountnumber2","হিসাব নং",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group col-md-6" id="form-savingAmount2-error">
+            {!! Form::label("savingAmount2","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::text("accountnumber2",null,["class"=>"form-control required"]) !!}
-                <span id="accountnumber2-error" class="help-block"></span>
+                {!! Form::text("savingAmount2",null,["class"=>"form-control required"]) !!}
+                <span id="savingAmount2-error" class="help-block"></span>
             </div>
         </div>
     </div>
@@ -62,11 +62,11 @@
                 <span id="productname3-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group col-md-6" id="form-accountnumber3-error">
-            {!! Form::label("accountnumber3","হিসাব নং",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group col-md-6" id="form-savingAmount3-error">
+            {!! Form::label("savingAmount3","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::text("accountnumber3",null,["class"=>"form-control required"]) !!}
-                <span id="accountnumber3-error" class="help-block"></span>
+                {!! Form::text("savingAmount3",null,["class"=>"form-control required"]) !!}
+                <span id="savingAmount3-error" class="help-block"></span>
             </div>
         </div>
     </div>
@@ -78,11 +78,11 @@
                 <span id="productname4-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group col-md-6" id="form-accountnumber4-error">
-            {!! Form::label("accountnumber4","হিসাব নং",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group col-md-6" id="form-savingAmount4-error">
+            {!! Form::label("savingAmount4","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::text("accountnumber4",null,["class"=>"form-control required"]) !!}
-                <span id="accountnumber4-error" class="help-block"></span>
+                {!! Form::text("savingAmount4",null,["class"=>"form-control required"]) !!}
+                <span id="savingAmount4-error" class="help-block"></span>
             </div>
         </div>
     </div>
@@ -95,11 +95,11 @@
                 <span id="productname5-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group col-md-6" id="form-accountnumber5-error">
-            {!! Form::label("accountnumber5","হিসাব নং",["class"=>"control-label col-md-12"]) !!}
+        <div class="form-group col-md-6" id="form-savingAmount5-error">
+            {!! Form::label("savingAmount5","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::text("accountnumber5",null,["class"=>"form-control required"]) !!}
-                <span id="accountnumber5-error" class="help-block"></span>
+                {!! Form::text("savingAmount5",null,["class"=>"form-control required"]) !!}
+                <span id="savingAmount5-error" class="help-block"></span>
             </div>
         </div>
     </div>

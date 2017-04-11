@@ -298,8 +298,8 @@ class MemberController extends Controller
 
     public function getSavingSchedulePdf($id){
         $data = Savingtransactionsetup::select('*')
-        ->where('MemberId','=',$id)
-        ->get();
+            ->where('MemberId','=',$id)
+            ->get();
 
         view()->share('data',$data);
         $pdf = PDF::loadView('member.savingschedulePdf')->setPaper('a4', 'landscape');
@@ -319,52 +319,100 @@ class MemberController extends Controller
     {
         for ($i = 1; $i <= 5; $i++) {
             $memberaccount = new Accountstable();
-            $accounttest = Input::get('accountnumber' . $i);
-            if (!empty($accounttest)) {
-                $valsa = Member::where('id', $id)->get();
+            $producttype = Input::get('productname' . $i);
+            if (!empty($producttype)) {
+                $valsa = Product::where('id', $producttype)->get();
                 foreach($valsa as $key):
+                    if($key->Frequency==2)
+                        for ($j = 1; $j <= 12; $j++) {
+                            $SavingSetup = new Savingtransactionsetup();
+                            $SavingSetup->MemberId = $id;
+                            $SavingSetup->AccountNo = $amounttest;
+                            $SavingSetup->SavingType = Input::get('productname' . $i);
+
+                            foreach($valsa as $key1):
+                                $SavingSetup->MemberId = $key1->MemberId;
+                                echo $SavingSetup->MemberType = $key1->MemberType;
+                                echo $SavingSetup->SavingPolicy = $key1->SavingPolicy;
+                                echo $SavingSetup->SamityName = $key1->SamityName;
+                            endforeach;
+
+
+                            $membertypes = Input::get('productname' . $i);
+//        $Savingtypes = Input::get('SavingTypes');
+                            $SavingPolicy = Input::get('productname' . $i);
+
+
+                            $NewDate = Date('y:m:d', strtotime('+' . $j . ' months'));
+                            if ($membertypes == '1') {
+                                if ($SavingPolicy != '1') {
+                                    $SavingSetup->Amount = 10;
+                                    $SavingSetup->Rate = 0;
+                                } else {
+                                    $SavingSetup->Amount = 50;
+                                    $SavingSetup->Rate = 0;
+                                }
+                            } else {
+                                $SavingSetup->Amount = 100;
+                                $SavingSetup->Rate = 5;
+                            }
+                            $SavingSetup->Date = $NewDate;
+                            $SavingSetup->save();
+                        }
                     $memberaccount->memberid = $key->MemberId;
                 endforeach;
-                $memberaccount->accountsname = $accounttest;
+                $memberaccount->accountsname = $amounttest;
                 $memberaccount->productid = Input::get('productname' . $i);
                 $memberaccount->save();
-                for ($j = 1; $j <= 12; $j++) {
-                    $SavingSetup = new Savingtransactionsetup();
-                    $SavingSetup->MemberId = $id;
-                    $SavingSetup->AccountNo = $accounttest;
-                    $SavingSetup->SavingType = Input::get('productname' . $i);
 
-                    foreach($valsa as $key1):
-                        $SavingSetup->MemberId = $key1->MemberId;
-                        echo $SavingSetup->MemberType = $key1->MemberType;
-                        echo $SavingSetup->SavingPolicy = $key1->SavingPolicy;
-                        echo $SavingSetup->SamityName = $key1->SamityName;
-                    endforeach;
-
-
-                    $membertypes = Input::get('productname' . $i);
-//        $Savingtypes = Input::get('SavingTypes');
-                    $SavingPolicy = Input::get('productname' . $i);
-
-
-                    $NewDate = Date('y:m:d', strtotime('+' . $j . ' months'));
-                    if ($membertypes == '1') {
-                        if ($SavingPolicy != '1') {
-                            $SavingSetup->Amount = 10;
-                            $SavingSetup->Rate = 0;
-                        } else {
-                            $SavingSetup->Amount = 50;
-                            $SavingSetup->Rate = 0;
-                        }
-                    } else {
-                        $SavingSetup->Amount = 100;
-                        $SavingSetup->Rate = 5;
-                    }
-                    $SavingSetup->Date = $NewDate;
-                    $SavingSetup->save();
-                }
 
             }
+//            $amounttest = Input::get('savingAmount' . $i);
+//            if (!empty($amounttest)) {
+//                $valsa = Member::where('id', $id)->get();
+//                foreach($valsa as $key):
+//                    $memberaccount->memberid = $key->MemberId;
+//                endforeach;
+//                $memberaccount->accountsname = $amounttest;
+//                $memberaccount->productid = Input::get('productname' . $i);
+//                $memberaccount->save();
+//                for ($j = 1; $j <= 12; $j++) {
+//                    $SavingSetup = new Savingtransactionsetup();
+//                    $SavingSetup->MemberId = $id;
+//                    $SavingSetup->AccountNo = $amounttest;
+//                    $SavingSetup->SavingType = Input::get('productname' . $i);
+//
+//                    foreach($valsa as $key1):
+//                        $SavingSetup->MemberId = $key1->MemberId;
+//                        echo $SavingSetup->MemberType = $key1->MemberType;
+//                        echo $SavingSetup->SavingPolicy = $key1->SavingPolicy;
+//                        echo $SavingSetup->SamityName = $key1->SamityName;
+//                    endforeach;
+//
+//
+//                    $membertypes = Input::get('productname' . $i);
+////        $Savingtypes = Input::get('SavingTypes');
+//                    $SavingPolicy = Input::get('productname' . $i);
+//
+//
+//                    $NewDate = Date('y:m:d', strtotime('+' . $j . ' months'));
+//                    if ($membertypes == '1') {
+//                        if ($SavingPolicy != '1') {
+//                            $SavingSetup->Amount = 10;
+//                            $SavingSetup->Rate = 0;
+//                        } else {
+//                            $SavingSetup->Amount = 50;
+//                            $SavingSetup->Rate = 0;
+//                        }
+//                    } else {
+//                        $SavingSetup->Amount = 100;
+//                        $SavingSetup->Rate = 5;
+//                    }
+//                    $SavingSetup->Date = $NewDate;
+//                    $SavingSetup->save();
+//                }
+//
+//            }
         }
         return ['url' => 'member/list'];
     }
@@ -446,56 +494,56 @@ class MemberController extends Controller
         $memberapprove->MemberId = Input::get('MemberId');
         $memberapprove->SamityName = Input::get('SamityName');
         $memberapprove->MemberType = Input::get('MemberType');
-        $memberapprove->SavingTypes = Input::get('SavingTypes');
-        $memberapprove->SavingPolicy = Input::get('SavingPolicy');
+//        $memberapprove->SavingTypes = Input::get('SavingTypes');
+//        $memberapprove->SavingPolicy = Input::get('SavingPolicy');
         $memberapprove->save();
 
-        $savingAccountNo = rand(50000, 60000);
+//        $savingAccountNo = rand(50000, 60000);
 
-        for ($i = 0; $i <= 12; $i++) {
-            $SavingSetup = new Savingtransactionsetup();
-            $SavingSetup->MemberId = Input::get('MemberId');
-            $SavingSetup->SavingType = Input::get('SavingTypes');
-            $SavingSetup->MemberType = Input::get('MemberType');
-            $SavingSetup->SavingPolicy = Input::get('SavingPolicy');
-            $SavingSetup->SamityName = Input::get('SamityName');
-            $SavingSetup->AccountNo = $savingAccountNo;
-            $membertypes = Input::get('MemberType');
-//        $Savingtypes = Input::get('SavingTypes');
-            $SavingPolicy = Input::get('SavingPolicy');
-
-
-            $NewDate = Date('Y-m-d', strtotime('+' . $i . ' months'));
-            $date_collection = Holiday::all();
-            foreach ($date_collection as $date)
-            {
-                if ($NewDate==$date->Holiday_Date)
-                { for ($j=1;$NewDate!=$date->Holiday_Date;$j++)
-                    $NewDate=Date('Y-m-d', strtotime('+' . 1 . ' Days'));
-                }
-            }
-            if ($membertypes == '1') {
-                if ($SavingPolicy == '1') {
-                    $SavingSetup->Amount = 10;
-                    $SavingSetup->Rate = 0;
-                } else {
-                    $SavingSetup->Amount = 50;
-                    $SavingSetup->Rate = 0;
-                }
-            } else {
-                $SavingSetup->Amount = 100;
-                $SavingSetup->Rate = 5;
-            }
-            $SavingSetup->Date = $NewDate;
-            $SavingSetup->save();
-        }
-        if (isset($savingAccountNo)){
-            $tbl_account = new Accountstable();
-            $tbl_account->memberid = Input::get('MemberId');
-            $tbl_account->accountsname = $savingAccountNo;
-            $tbl_account->productid = Input::get('SavingTypes');
-            $tbl_account->save();
-        }
+//        for ($i = 0; $i <= 12; $i++) {
+//            $SavingSetup = new Savingtransactionsetup();
+//            $SavingSetup->MemberId = Input::get('MemberId');
+//            $SavingSetup->SavingType = Input::get('SavingTypes');
+//            $SavingSetup->MemberType = Input::get('MemberType');
+//            $SavingSetup->SavingPolicy = Input::get('SavingPolicy');
+//            $SavingSetup->SamityName = Input::get('SamityName');
+//            $SavingSetup->AccountNo = $savingAccountNo;
+//            $membertypes = Input::get('MemberType');
+////        $Savingtypes = Input::get('SavingTypes');
+//            $SavingPolicy = Input::get('SavingPolicy');
+//
+//
+//            $NewDate = Date('Y-m-d', strtotime('+' . $i . ' months'));
+//            $date_collection = Holiday::all();
+//            foreach ($date_collection as $date)
+//            {
+//                if ($NewDate==$date->Holiday_Date)
+//                { for ($j=1;$NewDate!=$date->Holiday_Date;$j++)
+//                    $NewDate=Date('Y-m-d', strtotime('+' . 1 . ' Days'));
+//                }
+//            }
+//            if ($membertypes == '1') {
+//                if ($SavingPolicy == '1') {
+//                    $SavingSetup->Amount = 10;
+//                    $SavingSetup->Rate = 0;
+//                } else {
+//                    $SavingSetup->Amount = 50;
+//                    $SavingSetup->Rate = 0;
+//                }
+//            } else {
+//                $SavingSetup->Amount = 100;
+//                $SavingSetup->Rate = 5;
+//            }
+//            $SavingSetup->Date = $NewDate;
+//            $SavingSetup->save();
+//        }
+//        if (isset($savingAccountNo)){
+//            $tbl_account = new Accountstable();
+//            $tbl_account->memberid = Input::get('MemberId');
+//            $tbl_account->accountsname = $savingAccountNo;
+//            $tbl_account->productid = Input::get('SavingTypes');
+//            $tbl_account->save();
+//        }
         return ['url' => 'member/list'];
     }
 
