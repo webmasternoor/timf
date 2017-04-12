@@ -25,6 +25,7 @@ use App\Ownershiptype;
 use App\Permanentemployee;
 use App\Politicalstatus;
 use App\Post;
+use App\Productprivilege;
 use App\Profession;
 use App\Repaymenttype;
 use App\Saving1;
@@ -289,30 +290,16 @@ class MemberController extends Controller
             ->join('products', 'accountstables.productid', '=', 'products.id')
             ->where('memberid', '=', $id)
             ->get();
-        $product =['' => '--select--'] + Product::lists('ProductName', 'id')->all();
+        $membertypeid=Member::find($id);
+        $product =Product::select('products.id','products.ProductName','productprivileges.ProductID','productprivileges.membertype')
+                ->join('productprivileges', 'products.id', '=', 'productprivileges.ProductID')
+                ->where('productprivileges.membertype','=',$membertypeid->MemberType)
+                ->get();
 
 //        $account_data = Accountstable::where('memberid','=',$id)->get();
-
+//var_dump($product);
+//die();
         return view('member.account', ['member' => Member::find($id)])->with('product', $product)->with('account_data', $account_data);
-    }
-
-    public function getSavingSchedulePdf($id){
-        $data = Savingtransactionsetup::select('*')
-            ->where('MemberId','=',$id)
-            ->get();
-
-        view()->share('data',$data);
-        $pdf = PDF::loadView('member.savingschedulePdf')->setPaper('a4', 'landscape');
-        return $pdf->stream('savingschedulePdf.pdf');
-    }
-
-    public function getSavingSchedulePdf1($id){
-        $data = Savingtransactionsetup::select('*')
-            ->where('MemberId','=',$id)
-            ->get();
-        view()->share('data',$data);
-        $pdf = PDF::loadView('savingschedulePdf');
-        return view('savingschedulePdf')->with('data',$pdf);
     }
 
     public function postAccount($id)
@@ -417,6 +404,25 @@ class MemberController extends Controller
         return ['url' => 'member/list'];
     }
 
+    public function getSavingSchedulePdf($id){
+        $data = Savingtransactionsetup::select('*')
+            ->where('MemberId','=',$id)
+            ->get();
+
+        view()->share('data',$data);
+        $pdf = PDF::loadView('member.savingschedulePdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('savingschedulePdf.pdf');
+    }
+
+    public function getSavingSchedulePdf1($id){
+        $data = Savingtransactionsetup::select('*')
+            ->where('MemberId','=',$id)
+            ->get();
+        view()->share('data',$data);
+        $pdf = PDF::loadView('savingschedulePdf');
+        return view('savingschedulePdf')->with('data',$pdf);
+    }
+
     public function getApprove($id)
     {
         //$zone = Zone::all();
@@ -464,7 +470,7 @@ class MemberController extends Controller
         $Union = ['' => '--select--'] + Union::lists('UnionName', 'id')->all();
         $Word = ['' => '--select--'] + Ward::lists('WardName', 'id')->all();
         $Count_Data = ['' => '--select--'] + Count::lists('name', 'id')->all();
-        $MemberType = ['' => '--select--'] + Membertype::lists('name', 'id')->all();
+        $MemberType = ['' => '--select--'] + Membertype::lists('Membertype', 'id')->all();
         $SavingTypes = ['' => '--select--'] + Product::lists('ProductNameBanglaFull', 'id')->all();
         $SavingPolicy = ['' => '--select--'] + Savingpolicy::lists('name', 'id')->all();
         $SamityName = ['' => '--select--'] + Zone1::lists('SomitiName', 'id')->all();

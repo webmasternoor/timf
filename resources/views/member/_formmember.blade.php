@@ -57,7 +57,7 @@
                     <div class="form-group col-md-4" id="form-MemberType-error">
                         {!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}
+                            {{--{!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
                             {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control tt MemberType required","id"=>"MemberType"]) !!}
                             <span id="MemberType-error" class="help-block"></span>
                         </div>

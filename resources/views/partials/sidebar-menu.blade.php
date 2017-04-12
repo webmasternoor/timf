@@ -77,6 +77,7 @@
             <li><a tabindex="-1" href="{{ url('/holiday') }}">ছুটির দিনপঞ্জিকা</a></li>
             <li><a tabindex="-1" href="{{ url('/userstimf') }}">ব্যবহারকারীগণ</a></li>
             <li><a tabindex="-1" href="{{ url('/configurationsav') }}">সঞ্চয় কনফিগারেশন</a></li>
+            <li><a tabindex="-1" href="{{ url('/membertype') }}">সদস্যের ধরন</a></li>
             <li><a tabindex="-1" href="{{ url('/users') }}">Super Admin</a></li>
         </ul>
     </li>

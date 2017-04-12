@@ -26,7 +26,13 @@
         <div class="form-group col-md-6" id="form-productname1-error">
             {!! Form::label("productname1","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("productname1",$product,["class"=>"form-control required"]) !!}
+                {{--{!! Form::select("productname1",$product,["class"=>"form-control required"]) !!}--}}
+                <select name="productname1">
+                    <option value="" selected>--select--</option>
+                    @foreach($product as $productData)
+                        <option value="{{$productData->id}}">{{$productData->ProductName}}</option>
+                    @endforeach
+                </select>
                 <span id="productname1-error" class="help-block"></span>
             </div>
         </div>
@@ -42,7 +48,13 @@
         <div class="form-group col-md-6" id="form-productname2-error">
             {!! Form::label("productname2","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("productname2",$product,["class"=>"form-control required"]) !!}
+                {{--{!! Form::select("productname2",$product,["class"=>"form-control required"]) !!}--}}
+                <select name="productname2">
+                    <option value="" selected>--select--</option>
+                    @foreach($product as $productData)
+                        <option value="{{$productData->id}}">{{$productData->ProductName}}</option>
+                    @endforeach
+                </select>
                 <span id="productname2-error" class="help-block"></span>
             </div>
         </div>
@@ -58,7 +70,13 @@
         <div class="form-group col-md-6" id="form-productname3-error">
             {!! Form::label("productname3","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("productname3",$product,["class"=>"form-control required"]) !!}
+                <select name="productname3">
+                    <option value="" selected>--select--</option>
+                    @foreach($product as $productData)
+                        <option value="{{$productData->id}}">{{$productData->ProductName}}</option>
+                    @endforeach
+                </select>
+                {{--{!! Form::select("productname3",$product,["class"=>"form-control required"]) !!}--}}
                 <span id="productname3-error" class="help-block"></span>
             </div>
         </div>
@@ -74,7 +92,13 @@
         <div class="form-group col-md-6" id="form-productname4-error">
             {!! Form::label("productname4","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("productname4",$product,["class"=>"form-control required"]) !!}
+                <select name="productname4">
+                    <option value="" selected>--select--</option>
+                    @foreach($product as $productData)
+                        <option value="{{$productData->id}}">{{$productData->ProductName}}</option>
+                    @endforeach
+                </select>
+                {{--{!! Form::select("productname4",$product,["class"=>"form-control required"]) !!}--}}
                 <span id="productname4-error" class="help-block"></span>
             </div>
         </div>
@@ -91,7 +115,13 @@
         <div class="form-group col-md-6" id="form-productname5-error">
             {!! Form::label("productname5","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("productname5",$product,["class"=>"form-control required"]) !!}
+                <select name="productname5">
+                    <option value="" selected>--select--</option>
+                    @foreach($product as $productData)
+                        <option value="{{$productData->id}}">{{$productData->ProductName}}</option>
+                    @endforeach
+                </select>
+                {{--{!! Form::select("productname5",$product,["class"=>"form-control required"]) !!}--}}
                 <span id="productname5-error" class="help-block"></span>
             </div>
         </div>

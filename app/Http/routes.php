@@ -66,6 +66,7 @@ Route::controllers([
     'mikrofdivision'   => 'MikrofdivisionController',
     'configurationsav'   => 'ConfigurationsavController',
     'profitpenalty'   => 'ProfitPenaltyRulesController',
+    'membertype'   => 'MemberTypeController',
 ]);
 
 Route::resource('users', 'UsersController');
