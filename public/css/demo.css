@@ -297,3 +297,35 @@ div.borderportion.savreport h3{
 div.borderportion.savreport div{
   border: 1px solid #f2f2f2;
 }
+.modalclass div#myModal {
+    width: 84%;
+    float: left;
+    left: 28%;
+}
+
+.modalclass div#myModal .modal-content {
+    width: 1099px;
+    left: -42%;
+    float: left;
+}
+
+.modal-backdrop{
+    background-color: transparent !important;
+}
+
+div.memberdetails h4 {
+    text-align: center;
+    background: #01a7d7;
+    padding: 1%;
+    color: #ffffff;
+}
+
+.modal-header .close{
+    margin-top: 2px;
+    opacity: 1;
+    border: 1px solid #f2f2f2;
+    background: red;
+    width: 30px;
+    margin-right: 3px;
+    margin-top: 10px;
+}

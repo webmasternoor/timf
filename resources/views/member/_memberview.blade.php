@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="177">
+            <div class="tab-pane modalclass" id="177">
                 <div class="borderportion">
                     <div class="form-group col-md-12" id="form-DivisionOfficeId-error">
                         <div class="col-md-6">
