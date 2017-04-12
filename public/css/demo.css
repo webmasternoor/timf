@@ -309,18 +309,18 @@ div.borderportion.savreport div{
     float: left;
 }
 
-.modal-backdrop{
+.modalclass .modal-backdrop{
     background-color: transparent !important;
 }
 
-div.memberdetails h4 {
+.modalclass div#myModal .modal-content h4 {
     text-align: center;
     background: #01a7d7;
     padding: 1%;
     color: #ffffff;
 }
 
-.modal-header .close{
+.modalclass .modal-header .close{
     margin-top: 2px;
     opacity: 1;
     border: 1px solid #f2f2f2;
