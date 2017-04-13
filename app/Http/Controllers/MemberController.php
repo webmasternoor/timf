@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Accommodation;
@@ -49,6 +50,7 @@ use App\Area;
 use App\Brn;
 use App\Member;
 use App\Zone1;
+use Carbon\Carbon;
 use PDF;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -198,10 +200,10 @@ class MemberController extends Controller
     public function getView1212($id)
     {
         $data = Savingtransactionsetup::select('*')
-            ->where('MemberId','=',$id)
+            ->where('MemberId', '=', $id)
             ->get();
 
-        view()->share('data',$data);
+        view()->share('data', $data);
         $pdf = PDF::loadView('savingschedule')->setPaper('a4', 'landscape');
 
         return $pdf->download('savingschedule.pdf');
@@ -255,16 +257,16 @@ class MemberController extends Controller
         $Union = ['' => '--select--'] + Union::lists('UnionName', 'id')->all();
         $Word = ['' => '--select--'] + Ward::lists('WardName', 'id')->all();
         $Count_Data = ['' => '--select--'] + Count::lists('name', 'id')->all();
-        $MemberType = ['' => '--select--'] + Membertype::lists('name', 'id')->all();
+        $MemberType = ['' => '--select--'] + Membertype::lists('Membertype', 'id')->all();
         $SavingTypes = ['' => '--select--'] + Savingtype::lists('name', 'id')->all();
         $SavingPolicy = ['' => '--select--'] + Savingpolicy::lists('name', 'id')->all();
         $SamityName = ['' => '--select--'] + Zone1::lists('SomitiName', 'id')->all();
-        $MemberData=Member::find($id);
+        $MemberData = Member::find($id);
 //        echo $MemberData->MemberId;
 //        die();
-        $memberdata1=$MemberData->MemberId;
-        $savingSchedule_data = Savingtransactionsetup::where('MemberId','=',$memberdata1)->get();
-        $SavingsData=Saving1::where('MemberId','=',$memberdata1)->get();
+        $memberdata1 = $MemberData->MemberId;
+        $savingSchedule_data = Savingtransactionsetup::where('MemberId', '=', $memberdata1)->get();
+        $SavingsData = Saving1::where('MemberId', '=', $memberdata1)->get();
 
         return view('member.view', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
@@ -274,12 +276,12 @@ class MemberController extends Controller
             ->with('Weekend', $Weekend)->with('OrgPermanentEmployee', $OrgPermanentEmployee)->with('BusinessLeader', $BusinessLeader)
             ->with('ZoneInfo', $ZoneInfo)->with('AreaInfo', $AreaInfo)->with('BranchInfo', $BranchInfo)->with('Count_Data', $Count_Data)
             ->with('Country', $Country)->with('District', $District)->with('Thana', $Thana)->with('PostOffice', $PostOffice)
-            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('Status', $Status)->with('SavingsData',$SavingsData)
+            ->with('Union', $Union)->with('Word', $Word)->with('Education', $Education)->with('Status', $Status)->with('SavingsData', $SavingsData)
             ->with('Age', $Age)->with('Profession', $Profession)->with('Gender', $Gender)->with('Division', $Division)
             ->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)->with('Familytypes', $Familytypes)
-            ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)->with('MemberData',$MemberData)
+            ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)->with('MemberData', $MemberData)
             ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('DivisionOfficeInfo', $DivisionOfficeInfo)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('memberid', $memberid)
-            ->with('savingSchedule_data',$savingSchedule_data);
+            ->with('savingSchedule_data', $savingSchedule_data);
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
@@ -290,11 +292,11 @@ class MemberController extends Controller
             ->join('products', 'accountstables.productid', '=', 'products.id')
             ->where('memberid', '=', $id)
             ->get();
-        $membertypeid=Member::find($id);
-        $product =Product::select('products.id','products.ProductName','productprivileges.ProductID','productprivileges.membertype')
-                ->join('productprivileges', 'products.id', '=', 'productprivileges.ProductID')
-                ->where('productprivileges.membertype','=',$membertypeid->MemberType)
-                ->get();
+        $membertypeid = Member::find($id);
+        $product = Product::select('products.id', 'products.ProductName', 'productprivileges.ProductID', 'productprivileges.membertype')
+            ->join('productprivileges', 'products.id', '=', 'productprivileges.ProductID')
+            ->where('productprivileges.membertype', '=', $membertypeid->MemberType)
+            ->get();
 
 //        $account_data = Accountstable::where('memberid','=',$id)->get();
 //var_dump($product);
@@ -305,122 +307,93 @@ class MemberController extends Controller
     public function postAccount($id)
     {
         for ($i = 1; $i <= 5; $i++) {
-            $memberaccount = new Accountstable();
             $producttype = Input::get('productname' . $i);
+            $memberdata = Member::find($id);
             if (!empty($producttype)) {
-                $valsa = Product::where('id', $producttype)->get();
-                foreach($valsa as $key):
-                    if($key->Frequency==2)
-                        for ($j = 1; $j <= 12; $j++) {
-                            $SavingSetup = new Savingtransactionsetup();
-                            $SavingSetup->MemberId = $id;
-                            $SavingSetup->AccountNo = $amounttest;
-                            $SavingSetup->SavingType = Input::get('productname' . $i);
-
-                            foreach($valsa as $key1):
-                                $SavingSetup->MemberId = $key1->MemberId;
-                                echo $SavingSetup->MemberType = $key1->MemberType;
-                                echo $SavingSetup->SavingPolicy = $key1->SavingPolicy;
-                                echo $SavingSetup->SamityName = $key1->SamityName;
-                            endforeach;
-
-
-                            $membertypes = Input::get('productname' . $i);
-//        $Savingtypes = Input::get('SavingTypes');
-                            $SavingPolicy = Input::get('productname' . $i);
-
-
-                            $NewDate = Date('y:m:d', strtotime('+' . $j . ' months'));
-                            if ($membertypes == '1') {
-                                if ($SavingPolicy != '1') {
-                                    $SavingSetup->Amount = 10;
-                                    $SavingSetup->Rate = 0;
-                                } else {
-                                    $SavingSetup->Amount = 50;
-                                    $SavingSetup->Rate = 0;
-                                }
-                            } else {
-                                $SavingSetup->Amount = 100;
-                                $SavingSetup->Rate = 5;
+                $AccNameSub = '';
+                $memberaccount = new Accountstable();
+                $valsa = Product::find($producttype);
+                $AccNameSub = $valsa->ProductID;
+                $accnumber = $AccNameSub . '.' . rand(10000000, 50000000);
+                $memberaccount->accountsname = $accnumber;
+                if ($valsa->Frequency == 1) {
+                    $days = new Carbon('today');
+                    for ($j = 7; $j <= 365; $j =$j +7) {
+                        $SavingSetup = new Savingtransactionsetup();
+                        $SavingSetup->SavingType = Input::get('productname' . $i);
+                        $SavingSetup->MemberId = $memberdata->MemberId;
+                        $SavingSetup->MemberType = $memberdata->MemberType;
+                        $SavingSetup->SamityName = $memberdata->SamityName;
+                        $SavingSetup->AccountNo = $accnumber;
+                        $SavingSetup->Amount = Input::get('savingAmount' . $i);
+                        $NewDate = $days->addWeeks(1);
+                        $date_collection = Holiday::all();
+                        foreach ($date_collection as $date)
+                        {
+                            if ($NewDate==$date->Holiday_Date)
+                            {
+                                $NewDate=$days->addDays(1);
                             }
-                            $SavingSetup->Date = $NewDate;
-                            $SavingSetup->save();
                         }
-                    $memberaccount->memberid = $key->MemberId;
-                endforeach;
-                $memberaccount->accountsname = $amounttest;
+//                        $NewDate = Date('y:m:d', strtotime('+' . $j . 'Days'));
+                        $SavingSetup->Date = $NewDate;
+                        $SavingSetup->save();
+                    }
+//                    $memberaccount->memberid = $key->MemberId;
+                } else if ($valsa->Frequency == 2) {
+                    $days = new Carbon('today');
+                    for ($k = 1; $k <= 12; $k++) {
+                        $SavingSetup = new Savingtransactionsetup();
+                        $SavingSetup->SavingType = Input::get('productname' . $i);
+                        $SavingSetup->MemberId = $memberdata->MemberId;
+                        $SavingSetup->MemberType = $memberdata->MemberType;
+                        $SavingSetup->SamityName = $memberdata->SamityName;
+                        $SavingSetup->AccountNo = $accnumber;
+                        $SavingSetup->Amount = Input::get('savingAmount' . $i);
+                        $NewDate = $days->addMonth(1);
+                        $date_collection = Holiday::all();
+                        foreach ($date_collection as $date)
+                        {
+                            if ($NewDate==$date->Holiday_Date)
+                            {
+                                $NewDate=$days->addDays(1);
+                            }
+                        }
+                        $SavingSetup->Date = $NewDate;
+                        $SavingSetup->save();
+                    }
+//                    $memberaccount->memberid = $key->MemberId;
+                }
+
+
+                $memberaccount->memberid = $memberdata->MemberId;
                 $memberaccount->productid = Input::get('productname' . $i);
                 $memberaccount->save();
-
-
             }
-//            $amounttest = Input::get('savingAmount' . $i);
-//            if (!empty($amounttest)) {
-//                $valsa = Member::where('id', $id)->get();
-//                foreach($valsa as $key):
-//                    $memberaccount->memberid = $key->MemberId;
-//                endforeach;
-//                $memberaccount->accountsname = $amounttest;
-//                $memberaccount->productid = Input::get('productname' . $i);
-//                $memberaccount->save();
-//                for ($j = 1; $j <= 12; $j++) {
-//                    $SavingSetup = new Savingtransactionsetup();
-//                    $SavingSetup->MemberId = $id;
-//                    $SavingSetup->AccountNo = $amounttest;
-//                    $SavingSetup->SavingType = Input::get('productname' . $i);
-//
-//                    foreach($valsa as $key1):
-//                        $SavingSetup->MemberId = $key1->MemberId;
-//                        echo $SavingSetup->MemberType = $key1->MemberType;
-//                        echo $SavingSetup->SavingPolicy = $key1->SavingPolicy;
-//                        echo $SavingSetup->SamityName = $key1->SamityName;
-//                    endforeach;
-//
-//
-//                    $membertypes = Input::get('productname' . $i);
-////        $Savingtypes = Input::get('SavingTypes');
-//                    $SavingPolicy = Input::get('productname' . $i);
-//
-//
-//                    $NewDate = Date('y:m:d', strtotime('+' . $j . ' months'));
-//                    if ($membertypes == '1') {
-//                        if ($SavingPolicy != '1') {
-//                            $SavingSetup->Amount = 10;
-//                            $SavingSetup->Rate = 0;
-//                        } else {
-//                            $SavingSetup->Amount = 50;
-//                            $SavingSetup->Rate = 0;
-//                        }
-//                    } else {
-//                        $SavingSetup->Amount = 100;
-//                        $SavingSetup->Rate = 5;
-//                    }
-//                    $SavingSetup->Date = $NewDate;
-//                    $SavingSetup->save();
-//                }
-//
-//            }
         }
+
         return ['url' => 'member/list'];
     }
 
-    public function getSavingSchedulePdf($id){
+    public function getSavingSchedulePdf($id)
+    {
         $data = Savingtransactionsetup::select('*')
-            ->where('MemberId','=',$id)
+            ->where('MemberId', '=', $id)
             ->get();
 
-        view()->share('data',$data);
+        view()->share('data', $data);
         $pdf = PDF::loadView('member.savingschedulePdf')->setPaper('a4', 'landscape');
         return $pdf->stream('savingschedulePdf.pdf');
     }
 
-    public function getSavingSchedulePdf1($id){
+    public function getSavingSchedulePdf1($id)
+    {
         $data = Savingtransactionsetup::select('*')
-            ->where('MemberId','=',$id)
+            ->where('MemberId', '=', $id)
             ->get();
-        view()->share('data',$data);
+        view()->share('data', $data);
         $pdf = PDF::loadView('savingschedulePdf');
-        return view('savingschedulePdf')->with('data',$pdf);
+        return view('savingschedulePdf')->with('data', $pdf);
     }
 
     public function getApprove($id)
@@ -843,7 +816,8 @@ class MemberController extends Controller
         //return view('member.create')->with;
     }
 
-    public function postCreate()
+    public
+    function postCreate()
     {
         /*$validator = Validator::make(Input::all(), [
             "name" => "required|unique:members",

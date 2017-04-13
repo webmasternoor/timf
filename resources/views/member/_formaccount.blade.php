@@ -134,6 +134,29 @@
         </div>
     </div>
 
+    <div class="borderportion">
+        <div class="form-group col-md-6" id="form-productname6-error">
+            {!! Form::label("productname6","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                <select name="productname6">
+                    <option value="" selected>--select--</option>
+                    @foreach($product as $productData)
+                        <option value="{{$productData->id}}">{{$productData->ProductName}}</option>
+                    @endforeach
+                </select>
+                {{--{!! Form::select("productname6",$product,["class"=>"form-control required"]) !!}--}}
+                <span id="productname6-error" class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-6" id="form-savingAmount6-error">
+            {!! Form::label("savingAmount6","টাকার পরিমান",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::text("savingAmount6",null,["class"=>"form-control required"]) !!}
+                <span id="savingAmount6-error" class="help-block"></span>
+            </div>
+        </div>
+    </div>
+
     <div class="col-md-6 col-md-push-4">
         <a href="javascript:ajaxLoad('member/list')" class="btn btn-danger"><i
                     class="glyphicon glyphicon-backward"></i>

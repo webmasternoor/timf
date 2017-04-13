@@ -47,21 +47,7 @@
                             <span id="BranchId-error" class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4" id="form-SamityName-error">
-                        {!! Form::label("SamityName","সমিতির নাম",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {!! Form::select("SamityName",$SamityName,null,["class"=>"form-control tt SamityName required","id"=>"SamityName"]) !!}
-                            <span id="SamityName-error" class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4" id="form-MemberType-error">
-                        {!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}
-                        <div class="col-md-12">
-                            {{--{!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control tt MemberType required","id"=>"MemberType"]) !!}
-                            <span id="MemberType-error" class="help-block"></span>
-                        </div>
-                    </div>
+
                     {{--<div class="form-group col-md-4" id="form-SavingTypes-error">--}}
                         {{--{!! Form::label("SavingTypes","সঞ্চয়ের ধরণ",["class"=>"control-label col-md-12"]) !!}--}}
                         {{--<div class="col-md-12">--}}
@@ -1530,6 +1516,21 @@
             </div>
 
             <div class="tab-pane" id="131">
+                <div class="form-group col-md-4" id="form-SamityName-error">
+                    {!! Form::label("SamityName","সমিতির নাম",["class"=>"control-label col-md-12"]) !!}
+                    <div class="col-md-12">
+                        {!! Form::select("SamityName",$SamityName,null,["class"=>"form-control tt SamityName required","id"=>"SamityName"]) !!}
+                        <span id="SamityName-error" class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-4" id="form-MemberType-error">
+                    {!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}
+                    <div class="col-md-12">
+                        {{--{!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
+                        {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control tt MemberType required","id"=>"MemberType"]) !!}
+                        <span id="MemberType-error" class="help-block"></span>
+                    </div>
+                </div>
                 <div class="form-group col-md-4" id="form-MemberId-error">
                     {!! Form::label("MemberId","সদস্য আইডি",["class"=>"control-label col-md-12"]) !!}
                     <div class="col-md-12">

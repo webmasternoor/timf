@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Age;
 use App\Count;
+use App\Day;
 use App\Holiday;
 use App\Member;
 use App\Product;
@@ -136,18 +137,32 @@ class SelectBoxController extends Controller
 
     public function dateinsert()
     {
-        $date2 = new Carbon('fridays of 2017');
+        $date2 = new Carbon('first friday of july 2016');
+//        echo $date2;
         $date23 = Carbon::create(2023, 1, 31);
         $date21 = Carbon::create(2017, 1, 6);
-        echo $date21;
-        for ($i=0;$date21<$date23;$i=+7)
-        {
-            $day1 = $date21->addDays($i);
-            echo '<br>'.$day1;
-        }
-
-        $day1 = $date21->addDays(7);
-
+        $day233 = new Carbon('today');
+        echo $day233;
+//        echo $date2->addWeeks(1);
+//        for ($i=0;$i<52;$i++)
+//        {
+////            $day1 = $date21->addDays($i);
+//            $holiday = new Holiday();
+//            $holiday->OfficeId = 1;
+//            $holiday->SamityID_CenterID = 1;
+//            $holiday->HolidayyName = 'F';
+//            $holiday->HolidayType = 'W';
+//            $holiday->Holiday_Date = $date2->addWeeks(1);
+//            $holiday->OrgID = 1;
+//            $holiday->IsActive = 1;
+//            $holiday->save();
+//        }
+//
+//        $day1 = $date21->addMonth(7);
+// $day233 = new Carbon();
+// $rr = Date();
+// echo $rr;
+//     echo   $day1 = $day233->addDays(7);
 //        for ($i = 1; $i <= 12; $i++) {
 //            $NewDate = Date('Y-m-d', strtotime('+' . 0 . ' months'));
 ////            $NewDate=Date('Y:m:d');

@@ -67,13 +67,14 @@ CREATE TABLE IF NOT EXISTS `accountstables` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table timf.accountstables: ~0 rows (approximately)
 DELETE FROM `accountstables`;
 /*!40000 ALTER TABLE `accountstables` DISABLE KEYS */;
 INSERT INTO `accountstables` (`id`, `memberid`, `accountsname`, `productid`, `created_at`, `updated_at`) VALUES
-	(1, '1006', '59728', 1, '2017-04-08 06:35:19', '2017-04-08 06:35:19');
+	(1, '1009', 'MGSW.45355225', 2, '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(2, '1009', 'MGSM.11914062', 3, '2017-04-13 08:41:29', '2017-04-13 08:41:29');
 /*!40000 ALTER TABLE `accountstables` ENABLE KEYS */;
 
 -- Dumping structure for table timf.account_status
@@ -992,7 +993,7 @@ CREATE TABLE IF NOT EXISTS `days` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.days: ~7 rows (approximately)
+-- Dumping data for table timf.days: ~6 rows (approximately)
 DELETE FROM `days`;
 /*!40000 ALTER TABLE `days` DISABLE KEYS */;
 INSERT INTO `days` (`id`, `Day_Name`, `Day_Name_English`, `created_at`, `updated_at`) VALUES
@@ -1228,13 +1229,12 @@ CREATE TABLE IF NOT EXISTS `frequencies` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.frequencies: ~3 rows (approximately)
+-- Dumping data for table timf.frequencies: ~2 rows (approximately)
 DELETE FROM `frequencies`;
 /*!40000 ALTER TABLE `frequencies` DISABLE KEYS */;
 INSERT INTO `frequencies` (`id`, `frequency`, `created_at`, `updated_at`) VALUES
 	(1, 'Weekly', NULL, NULL),
-	(2, 'Monthly', NULL, NULL),
-	(3, 'Yearly', NULL, NULL);
+	(2, 'Monthly', NULL, NULL);
 /*!40000 ALTER TABLE `frequencies` ENABLE KEYS */;
 
 -- Dumping structure for table timf.genders
@@ -1332,7 +1332,7 @@ CREATE TABLE IF NOT EXISTS `holidays` (
   `SamityID_CenterID` int(11) NOT NULL DEFAULT '0',
   `HolidayyName` varchar(500) DEFAULT NULL,
   `HolidayType` varchar(500) DEFAULT NULL,
-  `Holiday_Date` date DEFAULT NULL,
+  `Holiday_Date` datetime DEFAULT NULL,
   `Description` varchar(500) DEFAULT NULL,
   `OrgID` int(11) DEFAULT NULL,
   `IsActive` int(5) DEFAULT NULL,
@@ -1340,20 +1340,64 @@ CREATE TABLE IF NOT EXISTS `holidays` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.holidays: ~7 rows (approximately)
+-- Dumping data for table timf.holidays: ~52 rows (approximately)
 DELETE FROM `holidays`;
 /*!40000 ALTER TABLE `holidays` DISABLE KEYS */;
 INSERT INTO `holidays` (`id`, `OfficeId`, `SamityID_CenterID`, `HolidayyName`, `HolidayType`, `Holiday_Date`, `Description`, `OrgID`, `IsActive`, `name`, `created_at`, `updated_at`) VALUES
-	(1, 1, 1, 'f', 'W', '2017-04-08', NULL, NULL, NULL, NULL, NULL, NULL),
-	(2, 1, 1, 'f', 'W', '2017-04-14', NULL, NULL, NULL, NULL, NULL, NULL),
-	(3, 1, 1, 'f', 'W', '2017-04-21', NULL, NULL, NULL, NULL, NULL, NULL),
-	(4, 1, 1, 'f', 'W', '2017-04-28', NULL, NULL, NULL, NULL, NULL, NULL),
-	(5, 1, 1, 'm', 'S', '2017-05-01', NULL, NULL, NULL, NULL, NULL, NULL),
-	(6, 1, 24, '21', '124', NULL, '142', 41, 124, NULL, '2017-04-10 04:05:22', '2017-04-10 04:05:22'),
-	(7, 1, 12, '12', '21', NULL, '12', 12, 12, NULL, '2017-04-10 04:06:09', '2017-04-10 04:06:09'),
-	(8, 1, 0, 'awdsef', NULL, NULL, 'jsdfbdg', NULL, NULL, NULL, '2017-04-10 06:44:47', '2017-04-10 06:44:47');
+	(1, 1, 1, 'F', 'W', '2016-07-08 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(2, 1, 1, 'F', 'W', '2016-07-15 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(3, 1, 1, 'F', 'W', '2016-07-22 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(4, 1, 1, 'F', 'W', '2016-07-29 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(5, 1, 1, 'F', 'W', '2016-08-05 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(6, 1, 1, 'F', 'W', '2016-08-12 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(7, 1, 1, 'F', 'W', '2016-08-19 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(8, 1, 1, 'F', 'W', '2016-08-26 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(9, 1, 1, 'F', 'W', '2016-09-02 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(10, 1, 1, 'F', 'W', '2016-09-09 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(11, 1, 1, 'F', 'W', '2016-09-16 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(12, 1, 1, 'F', 'W', '2016-09-23 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(13, 1, 1, 'F', 'W', '2016-09-30 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(14, 1, 1, 'F', 'W', '2016-10-07 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(15, 1, 1, 'F', 'W', '2016-10-14 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(16, 1, 1, 'F', 'W', '2016-10-21 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(17, 1, 1, 'F', 'W', '2016-10-28 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(18, 1, 1, 'F', 'W', '2016-11-04 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(19, 1, 1, 'F', 'W', '2016-11-11 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(20, 1, 1, 'F', 'W', '2016-11-18 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(21, 1, 1, 'F', 'W', '2016-11-25 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(22, 1, 1, 'F', 'W', '2016-12-02 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(23, 1, 1, 'F', 'W', '2016-12-09 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(24, 1, 1, 'F', 'W', '2016-12-16 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(25, 1, 1, 'F', 'W', '2016-12-23 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(26, 1, 1, 'F', 'W', '2016-12-30 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(27, 1, 1, 'F', 'W', '2017-01-06 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(28, 1, 1, 'F', 'W', '2017-01-13 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(29, 1, 1, 'F', 'W', '2017-01-20 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(30, 1, 1, 'F', 'W', '2017-01-27 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(31, 1, 1, 'F', 'W', '2017-02-03 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(32, 1, 1, 'F', 'W', '2017-02-10 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:02', '2017-04-13 08:32:02'),
+	(33, 1, 1, 'F', 'W', '2017-02-17 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(34, 1, 1, 'F', 'W', '2017-02-24 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(35, 1, 1, 'F', 'W', '2017-03-03 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(36, 1, 1, 'F', 'W', '2017-03-10 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(37, 1, 1, 'F', 'W', '2017-03-17 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(38, 1, 1, 'F', 'W', '2017-03-24 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(39, 1, 1, 'F', 'W', '2017-03-31 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(40, 1, 1, 'F', 'W', '2017-04-07 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(41, 1, 1, 'F', 'W', '2017-04-14 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(42, 1, 1, 'F', 'W', '2017-04-21 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(43, 1, 1, 'F', 'W', '2017-04-28 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(44, 1, 1, 'F', 'W', '2017-05-05 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(45, 1, 1, 'F', 'W', '2017-05-12 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(46, 1, 1, 'F', 'W', '2017-05-19 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(47, 1, 1, 'F', 'W', '2017-05-26 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(48, 1, 1, 'F', 'W', '2017-06-02 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(49, 1, 1, 'F', 'W', '2017-06-09 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(50, 1, 1, 'F', 'W', '2017-06-16 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(51, 1, 1, 'F', 'W', '2017-06-23 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03'),
+	(52, 1, 1, 'F', 'W', '2017-06-30 00:00:00', NULL, 1, 1, NULL, '2017-04-13 08:32:03', '2017-04-13 08:32:03');
 /*!40000 ALTER TABLE `holidays` ENABLE KEYS */;
 
 -- Dumping structure for table timf.holidaytypes
@@ -1366,7 +1410,7 @@ CREATE TABLE IF NOT EXISTS `holidaytypes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.holidaytypes: ~0 rows (approximately)
+-- Dumping data for table timf.holidaytypes: ~2 rows (approximately)
 DELETE FROM `holidaytypes`;
 /*!40000 ALTER TABLE `holidaytypes` DISABLE KEYS */;
 INSERT INTO `holidaytypes` (`id`, `holidaytypes`, `created_at`, `updated_at`) VALUES
@@ -1808,7 +1852,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `MemberId` varchar(100) DEFAULT NULL,
   `SavingPolicy` varchar(50) DEFAULT NULL,
   `SavingTypes` varchar(100) DEFAULT NULL,
-  `MemberType` varchar(100) DEFAULT NULL,
+  `MemberType` int(11) DEFAULT NULL,
   `SamityName` varchar(100) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -1819,12 +1863,12 @@ CREATE TABLE IF NOT EXISTS `members` (
 DELETE FROM `members`;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
 INSERT INTO `members` (`id`, `grouppresident`, `fieldofficer`, `supervisor`, `manager`, `finalapproved`, `remarks`, `DivisionOfficeId`, `ZoneId`, `AreaId`, `BranchId`, `name`, `MemberImage`, `FatherImage`, `MotherImage`, `Nid`, `FullNameEnglish`, `FullNameBangla`, `Gender`, `Age`, `DateofBirth`, `Education`, `SpouseProfession`, `SpouseMobileNo`, `MaritalStatus`, `Mobile`, `Email`, `PoliticalStatus`, `Distance`, `WifeFullNameEnglish`, `WifeFullNameBangla`, `WifeAge`, `WifeMobileNo`, `NomineeImage`, `WifeProfession`, `WifeOtherProfession`, `FatherOrHasbandFullNameEnglish`, `FatherOrHasbandFullNameBangla`, `FatherOrHasbandAge`, `FatherProfession`, `FatherMobileNo`, `MotherFUllNameEnglish`, `MotherFUllNameBangla`, `MotherAge`, `MotherProfession`, `MotherMobileNo`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDivision`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType1`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `FamilyType`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `RepaymentType`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `LoanAccount`, `SavingAccount`, `MemberId`, `SavingPolicy`, `SavingTypes`, `MemberType`, `SamityName`, `created_at`, `updated_at`) VALUES
-	(1, 0, 0, 0, 0, 0, 'এই ব্যক্তিকে সদস্য করা জেতে পারে ', NULL, 1, 1, 1, NULL, '69c78a4ddf4d708ac0518cdbc192d094.jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '38B3rpeD.jpg', '123', '1', '4', '1', '1', NULL, '1', NULL, '5', '1', '', '7@gmail.com', '1', '1', '2', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '12', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52259', '123_58181', '', '', '', '', '', '2017-02-13 11:10:39', '2017-02-14 05:34:39'),
-	(2, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 2, NULL, 'images (3).jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '123', 'Rockey', 'রকি আহমেদ', '1', '25', NULL, '5', NULL, '01234567890', '1', '01738349723', 'rockeycse@gmail.com', '2', '1', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-03', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56598', '123_53686', '1012', '1', '1', '1', '1', '2017-02-14 05:07:58', '2017-04-05 07:10:28'),
-	(3, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল ', NULL, 4, 1, 2, NULL, 'images (9).jpg', 'images (4).jpg', 'images (12).jpg', '456', 'Noor', 'নুর - ই - আলম খান', '1', '40', NULL, '6', '1', '1234567895', '1', '0123456789', 'webmaster.noor@gmail.com', '2', '1', '', '', '1', '', 'images (10).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-23', '1', '1', '', '', '', '', '1263456', '786786', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '456_53179', '456_51128', '', '', '', '', '', '2017-02-14 09:52:30', '2017-04-01 07:01:11'),
-	(5, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 1, NULL, 'images (7).jpg', 'images (1).jpg', 'images (11).jpg', '789', 'Zeaur', 'জিয়াউর রহমান', '1', '26', NULL, '5', 'Agriculture', '21342145', '1', '1245678', 'zea@gmail.com', '2', '1', '1', '1', '1', '1234324', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', 'Agriculture', NULL, '1', '1', '14', 'Agriculture', '1112121', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '345', '345', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '789_52270', '789_52625', '1006', '2', '1', '1', '1', '2017-02-14 09:53:52', '2017-04-08 06:35:18'),
-	(6, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 1, NULL, 'images.jpg', '3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', 'images (14).jpg', '5656', 'samsur', 'সামসুর রহমান', '1', '34', NULL, '1', 'Agriculture', '12324', '1', '1245678', 'zea@gmail.com', '2', '5', '', '', '1', '', 'iTJq5781.jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '1', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '5656_50597', '5656_54334', '1005', '2', '1', '1', '1', '2017-02-14 09:56:19', '2017-03-07 06:04:38'),
-	(11, 0, 0, 0, 0, 0, 'everything is ok', NULL, 4, 1, 1, NULL, '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '69c78a4ddf4d708ac0518cdbc192d094.jpg', 'images (14).jpg', '987', 'Sotej', 'সতেজ চাকমা', '1', '1', NULL, '1', 'Agriculture', '1223456', '1', '123654', '', '1', '1', '', '', '1', '', 'download (1).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '213213', '123124', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '987_51346', '987_56154', '', '1', '1', '1', '1', '2017-02-15 10:18:31', '2017-03-13 04:53:55');
+	(1, 0, 0, 0, 0, 0, 'এই ব্যক্তিকে সদস্য করা জেতে পারে ', NULL, 1, 1, 1, NULL, '69c78a4ddf4d708ac0518cdbc192d094.jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '38B3rpeD.jpg', '123', '1', '4', '1', '1', NULL, '1', NULL, '5', '1', '', '7@gmail.com', '1', '1', '2', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '12', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_52259', '123_58181', '', '', '', 0, '', '2017-02-13 11:10:39', '2017-02-14 05:34:39'),
+	(2, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 2, NULL, 'images (3).jpg', '741ab2449529b2ebbff7c6ffba7a2541.jpg', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '1234', 'Rockey', 'রকি আহমেদ', '1', '25', NULL, '5', NULL, '01234567890', '1', '01738349723', 'rockeycse@gmail.com', '2', '1', '', '', '1', '', 'being-a-gentlemen-with-girls-the-definitive-way-to-express-yourself-and-treat-your-princess-7-638.jpg', NULL, NULL, '', '', '1', NULL, '', '', '', '1', NULL, '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', NULL, NULL, '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-03', '1', '1', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '123_56598', '123_53686', '', '1', '1', 1, '1', '2017-02-14 05:07:58', '2017-04-05 07:10:28'),
+	(3, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল ', NULL, 4, 1, 2, NULL, 'images (9).jpg', 'images (4).jpg', 'images (12).jpg', '456', 'Noor', 'নুর - ই - আলম খান', '1', '40', NULL, '6', '1', '1234567895', '1', '0123456789', 'webmaster.noor@gmail.com', '2', '1', '', '', '1', '', 'images (10).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '2017-02-23', '1', '1', '', '', '', '', '1263456', '786786', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '456_53179', '456_51128', '', '', '', 0, '', '2017-02-14 09:52:30', '2017-04-01 07:01:11'),
+	(5, 1, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 1, NULL, 'images (7).jpg', 'images (1).jpg', 'images (11).jpg', '789', 'Zeaur', 'জিয়াউর রহমান', '1', '26', NULL, '5', 'Agriculture', '21342145', '1', '1245678', 'zea@gmail.com', '2', '1', '1', '1', '1', '1234324', '269720_10150309847685490_598625489_9777702_4286784_n.jpg', 'Agriculture', NULL, '1', '1', '14', 'Agriculture', '1112121', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '345', '345', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '789_52270', '789_52625', '1009', '2', '1', 1, '1', '2017-02-14 09:53:52', '2017-04-12 10:08:20'),
+	(6, 0, 0, 0, 0, 0, 'অনুমোদন দেওয়া হল', NULL, 4, 1, 1, NULL, 'images.jpg', '3de0b15b1bf2ca58d3bcf5d299d1ed25.jpg', 'images (14).jpg', '5656', 'samsur', 'সামসুর রহমান', '1', '34', NULL, '1', 'Agriculture', '12324', '1', '1245678', 'zea@gmail.com', '2', '5', '', '', '1', '', 'iTJq5781.jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '12', '1', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '5656_50597', '5656_54334', '', '2', '1', 1, '1', '2017-02-14 09:56:19', '2017-03-07 06:04:38'),
+	(11, 0, 0, 0, 0, 0, 'everything is ok', NULL, 4, 1, 1, NULL, '269720_10150309847685490_598625489_9777702_4286784_n.jpg', '69c78a4ddf4d708ac0518cdbc192d094.jpg', 'images (14).jpg', '987', 'Sotej', 'সতেজ চাকমা', '1', '1', NULL, '1', 'Agriculture', '1223456', '1', '123654', '', '1', '1', '', '', '1', '', 'download (1).jpg', 'Agriculture', NULL, '', '', '1', 'Agriculture', '', '', '', '1', 'Agriculture', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', '1', '1', '1', '1', '1', '1', '', '', '1', 'Agriculture', '', '', '', NULL, '', '1', '1', '1', '1', '1', '1', '', '', '', '1', 0, 0, 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '1', '1', '', '', '', '', '213213', '123124', '', '', '', '', '', '', '1', '', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '1', '1', '', '', '', '', '', '', '', '', '', '1', '1', '987_51346', '987_56154', '', '1', '1', 1, '1', '2017-02-15 10:18:31', '2017-03-13 04:53:55');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 
 -- Dumping structure for table timf.members_feb_12.1
@@ -2151,7 +2195,7 @@ DELETE FROM `members_latest`;
 DROP TABLE IF EXISTS `membertypes`;
 CREATE TABLE IF NOT EXISTS `membertypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Membertype` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `others` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -2161,7 +2205,7 @@ CREATE TABLE IF NOT EXISTS `membertypes` (
 -- Dumping data for table timf.membertypes: ~2 rows (approximately)
 DELETE FROM `membertypes`;
 /*!40000 ALTER TABLE `membertypes` DISABLE KEYS */;
-INSERT INTO `membertypes` (`id`, `name`, `others`, `created_at`, `updated_at`) VALUES
+INSERT INTO `membertypes` (`id`, `Membertype`, `others`, `created_at`, `updated_at`) VALUES
 	(1, 'সাধারণ সদস্য', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(2, 'ME সদস্য', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `membertypes` ENABLE KEYS */;
@@ -3004,6 +3048,49 @@ INSERT INTO `product1s` (`id`, `ProductCode`, `ProductName`, `ProductNameEng`, `
 	(3, 'GSMM', 'GSMM', 'GSMM', 'জিএস এমএম', 'মাসিক সাধারন সঞ্চয় এম ই', '4', '', '', 'মুদারাবা সাধারন সঞ্চয়', '', '', '', '', '50', '5000', '1', '2', '', '', NULL, '2017-04-01 04:39:03', '2017-04-01 04:39:03');
 /*!40000 ALTER TABLE `product1s` ENABLE KEYS */;
 
+-- Dumping structure for table timf.productpreviledge
+DROP TABLE IF EXISTS `productpreviledge`;
+CREATE TABLE IF NOT EXISTS `productpreviledge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `membertype` varchar(50) DEFAULT NULL,
+  `ProductID` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.productpreviledge: ~0 rows (approximately)
+DELETE FROM `productpreviledge`;
+/*!40000 ALTER TABLE `productpreviledge` DISABLE KEYS */;
+/*!40000 ALTER TABLE `productpreviledge` ENABLE KEYS */;
+
+-- Dumping structure for table timf.productprivileges
+DROP TABLE IF EXISTS `productprivileges`;
+CREATE TABLE IF NOT EXISTS `productprivileges` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `membertype` int(11) DEFAULT NULL,
+  `ProductID` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table timf.productprivileges: ~10 rows (approximately)
+DELETE FROM `productprivileges`;
+/*!40000 ALTER TABLE `productprivileges` DISABLE KEYS */;
+INSERT INTO `productprivileges` (`id`, `membertype`, `ProductID`, `created_at`, `updated_at`) VALUES
+	(1, 1, '2', '2017-04-12 10:53:47', '2017-04-12 10:53:47'),
+	(2, 1, '3', '2017-04-12 10:53:47', '2017-04-12 10:53:47'),
+	(3, 1, '5', '2017-04-12 10:53:48', '2017-04-12 10:53:48'),
+	(4, 1, '6', '2017-04-12 10:53:48', '2017-04-12 10:53:48'),
+	(5, 1, '7', '2017-04-12 10:53:48', '2017-04-12 10:53:48'),
+	(6, 1, '8', '2017-04-12 10:53:48', '2017-04-12 10:53:48'),
+	(7, 2, '1', '2017-04-12 10:54:03', '2017-04-12 10:54:03'),
+	(8, 2, '4', '2017-04-12 10:54:03', '2017-04-12 10:54:03'),
+	(9, 2, '7', '2017-04-12 10:54:03', '2017-04-12 10:54:03'),
+	(10, 2, '8', '2017-04-12 10:54:03', '2017-04-12 10:54:03');
+/*!40000 ALTER TABLE `productprivileges` ENABLE KEYS */;
+
 -- Dumping structure for table timf.products
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
@@ -3039,18 +3126,20 @@ CREATE TABLE IF NOT EXISTS `products` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.products: ~6 rows (approximately)
+-- Dumping data for table timf.products: ~8 rows (approximately)
 DELETE FROM `products`;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`id`, `ProductCode`, `ProductID`, `ProductName`, `ProductNameEng`, `ProductNameBanglaShort`, `ProductNameBanglaFull`, `InterestPercentage`, `Frequency`, `Duration`, `EffectiveFrom`, `EffectiveTo`, `IsActive`, `MultipleSavings`, `WithdrawlFacily`, `MinimumAmount`, `MaximumAmount`, `MinimumBalanceAmount`, `MinimumBalanceAmountPercentage`, `MaxDueCycle`, `PassBookAvailability`, `SpecialWithdrawFacility`, `InvestmentAgainstSavings`, `PercentageofInvestmentAgainstSavings`, `AutomaticSchemeRenewal`, `DividedbyValue`, `MaxWithdrawTimeforAvoidingPenaltyPerMonth`, `MaxWithdrawLimitPerMonth`, `name`, `created_at`, `updated_at`) VALUES
-	(1, '2.0', '2.0', 'MGSMM', 'Mudaraba Genaral Saving ME Monthly', 'এম জি এসএমএম', 'মুদারাবা মাসিক সাধারন সঞ্চয় ME', '7', '2', '7', '17.04.2017', '17.04.2018', '1', '1', '1', '500', '50000', '299', '500', '4', '1', '1', '90000', '90', '1', '1000', '1', '50000', NULL, '2017-04-02 07:16:33', '2017-04-02 07:16:33'),
-	(2, '3.0', 'MGSMW', 'MGSMW', 'MGSMW', 'এম জি এসএমডব্লিউ', 'মুদারাবা সাপ্তাহিক সাধারন সঞ্চয়', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:26:14', '2017-04-08 09:26:14'),
-	(3, '4.0', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:32:09', '2017-04-08 09:32:09'),
-	(4, '5.0', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', '-4', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:33:10', '2017-04-08 09:33:10'),
-	(5, '6.0', 'Mudaraba Special Saving Genaral Member Weekly', 'Mudaraba Special Saving Genaral Member Weekly', 'Mudaraba Special Saving Genaral Member Weekly', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:34:21', '2017-04-08 09:34:21'),
-	(6, '7.0', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:35:18', '2017-04-08 09:35:18');
+	(1, '001', 'MGSMM', 'Mudaraba Genaral Saving ME Monthly', 'Mudaraba Genaral Saving ME Monthly', 'এম জি এসএমএম', 'মুদারাবা সাধারন সঞ্চয় ME মাসিক', '7', '2', '7', '', '', '1', '1', '1', '500', '50000', '299', '500', '4', '1', '1', '90000', '90', '1', '1000', '1', '50000', NULL, '2017-04-02 07:16:33', '2017-04-11 05:30:05'),
+	(2, '002', 'MGSW', 'Mudaraba Genaral Saving Weekly', 'Mudaraba Genaral Saving Weekly', 'এম জি এসডব্লিউ', 'মুদারাবা সাপ্তাহিক সাধারন সঞ্চয়', '', '1', '', '', '', '1', '1', '2', '', '', '', '', '', '1', '', '', '', '', '', '', '', NULL, '2017-04-08 09:26:14', '2017-04-11 05:31:13'),
+	(3, '003', 'MGSM', 'Mudaraba Genaral Saving Monthly', 'Mudaraba Genaral Saving Monthly', 'এমজিএসএম', 'Mudaraba Genaral Saving Monthly', '', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:32:09', '2017-04-11 05:34:13'),
+	(4, '004', 'MSSMM', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', 'Mudaraba Special Saving ME Monthly', '-4', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:33:10', '2017-04-13 07:49:27'),
+	(5, '005', 'MSSW', 'Mudaraba Special Saving Weekly', 'Mudaraba Special Saving Weekly', 'Mudaraba Special Saving Weekly', 'Mudaraba Special Saving Weekly', '', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:34:21', '2017-04-13 07:49:39'),
+	(6, '006', 'MSSM', 'Mudaraba Special Saving Monthly', 'Mudaraba Special Saving Monthly', 'Mudaraba Special Saving Genaral Member Monthly', 'Mudaraba Special Saving Genaral Member Monthly', '', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-08 09:35:18', '2017-04-13 07:49:47'),
+	(7, '007', 'MTSS', 'Mudaraba TSS', 'Mudaraba TSS', 'Mudaraba TSS', 'Mudaraba TSS', '', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-10 10:02:11', '2017-04-13 07:49:57'),
+	(8, '008', 'MFD', 'Mudaraba Fixed Deposit', 'Mudaraba Fixed Deposit', 'Mudaraba Fixed Deposit', 'Mudaraba Fixed Deposit', '', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '2017-04-10 10:02:42', '2017-04-13 07:50:06');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table timf.producttypes
@@ -3333,25 +3422,76 @@ CREATE TABLE IF NOT EXISTS `savingtransactionsetups` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.savingtransactionsetups: ~13 rows (approximately)
+-- Dumping data for table timf.savingtransactionsetups: ~0 rows (approximately)
 DELETE FROM `savingtransactionsetups`;
 /*!40000 ALTER TABLE `savingtransactionsetups` DISABLE KEYS */;
 INSERT INTO `savingtransactionsetups` (`id`, `MemberId`, `AccountNo`, `SavingType`, `MemberType`, `SavingPolicy`, `SamityName`, `Rate`, `Amount`, `Date`, `created_at`, `updated_at`) VALUES
-	(1, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-04-09', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(2, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-05-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(3, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-06-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(4, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-07-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(5, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-08-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(6, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-09-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(7, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-10-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(8, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-11-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(9, '1006', '59728', '1', '1', '2', '1', 0, 50, '2017-12-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(10, '1006', '59728', '1', '1', '2', '1', 0, 50, '2018-01-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(11, '1006', '59728', '1', '1', '2', '1', 0, 50, '2018-02-08', '2017-04-08 06:35:18', '2017-04-08 06:35:18'),
-	(12, '1006', '59728', '1', '1', '2', '1', 0, 50, '2018-03-08', '2017-04-08 06:35:19', '2017-04-08 06:35:19'),
-	(13, '1006', '59728', '1', '1', '2', '1', 0, 50, '2018-04-08', '2017-04-08 06:35:19', '2017-04-08 06:35:19');
+	(1, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-04-20', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(2, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-04-27', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(3, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-05-04', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(4, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-05-11', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(5, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-05-18', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(6, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-05-25', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(7, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-06-01', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(8, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-06-08', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(9, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-06-15', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(10, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-06-22', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(11, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-06-29', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(12, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-07-06', '2017-04-13 08:41:27', '2017-04-13 08:41:27'),
+	(13, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-07-13', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(14, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-07-20', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(15, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-07-27', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(16, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-08-03', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(17, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-08-10', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(18, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-08-17', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(19, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-08-24', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(20, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-08-31', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(21, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-09-07', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(22, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-09-14', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(23, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-09-21', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(24, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-09-28', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(25, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-10-05', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(26, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-10-12', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(27, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-10-19', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(28, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-10-26', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(29, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-11-02', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(30, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-11-09', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(31, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-11-16', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(32, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-11-23', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(33, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-11-30', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(34, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-12-07', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(35, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-12-14', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(36, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-12-21', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(37, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2017-12-28', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(38, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-01-04', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(39, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-01-11', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(40, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-01-18', '2017-04-13 08:41:28', '2017-04-13 08:41:28'),
+	(41, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-01-25', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(42, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-02-01', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(43, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-02-08', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(44, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-02-15', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(45, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-02-22', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(46, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-03-01', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(47, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-03-08', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(48, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-03-15', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(49, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-03-22', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(50, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-03-29', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(51, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-04-05', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(52, '1009', 'MGSW.45355225', '2', '1', NULL, '1', NULL, 50, '2018-04-12', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(53, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-05-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(54, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-06-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(55, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-07-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(56, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-08-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(57, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-09-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(58, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-10-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(59, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-11-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(60, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2017-12-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(61, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2018-01-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(62, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2018-02-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(63, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2018-03-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29'),
+	(64, '1009', 'MGSM.11914062', '3', '1', NULL, '1', NULL, 100, '2018-04-13', '2017-04-13 08:41:29', '2017-04-13 08:41:29');
 /*!40000 ALTER TABLE `savingtransactionsetups` ENABLE KEYS */;
 
 -- Dumping structure for table timf.savingtypes
@@ -7231,7 +7371,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 	(3005, 'Miss Dominique Reynolds Jr.', 'darren.ohara@jerde.net', '$2y$10$mhZWP4f/B37QxApAtkXH/.tuJ3KlpJqhmbSYGlM25J4uVPBP6/5AC', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
 	(3006, 'Eden Runte', 'jaron.homenick@corkery.com', '$2y$10$O7FIiMjtbxvvG7ttDvfPIeSyd0ZnQY0KLKAhbOW5mz3XH5CLEZp2q', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
 	(3007, 'Katrine Schuppe', 'cgerlach@yahoo.com', '$2y$10$4t5uygG7VlwLaVFcU1T/bOdqyOdTfHge.M2flQzMiDWVH.ONZG7aS', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
-	(3008, 'Rockey Ahmed', 'rockeycse@gmail.com', '$2y$10$khJvxcWtzTbEA7f/e232dOAGFmuG3JEQASpZfiLDCKj6fY4pN/O/.', NULL, '2017-04-09 11:52:37', '2017-04-09 11:52:37', NULL);
+	(3008, 'Rockey Ahmed', 'rockeycse@gmail.com', '$2y$10$khJvxcWtzTbEA7f/e232dOAGFmuG3JEQASpZfiLDCKj6fY4pN/O/.', '07A8UZ1AqhYl0jzJztkFKDPKkV3go1P9tRolNCAxV9tnUwEBBeUS5ep5ILay', '2017-04-09 11:52:37', '2017-04-12 05:50:49', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs
