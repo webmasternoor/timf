@@ -265,7 +265,15 @@ class MemberController extends Controller
 //        echo $MemberData->MemberId;
 //        die();
         $memberdata1 = $MemberData->MemberId;
-        $savingSchedule_data = Savingtransactionsetup::where('MemberId', '=', $memberdata1)->get();
+        $savingSchedule_data = Savingtransactionsetup::where('MemberId', '=', $memberdata1)
+            ->where('SavingType', '=', '2')
+            ->get();
+        $savingSchedule_data = Saving1::where('MemberId', '=', $memberdata1)
+            ->where('SavingType', '=', '2')
+            ->get();
+        $savingSchedule_data1 = Savingtransactionsetup::where('MemberId', '=', $memberdata1)
+            ->where('SavingType', '=', '3')
+            ->get();
         $SavingsData = Saving1::where('MemberId', '=', $memberdata1)->get();
 
         return view('member.view', ['member' => Member::find($id)])->with('zone', $zone)->with('branch', $branch)->with('area', $area)
@@ -281,7 +289,7 @@ class MemberController extends Controller
             ->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)->with('Familytypes', $Familytypes)
             ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)->with('MemberData', $MemberData)
             ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('DivisionOfficeInfo', $DivisionOfficeInfo)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('memberid', $memberid)
-            ->with('savingSchedule_data', $savingSchedule_data);
+            ->with('savingSchedule_data', $savingSchedule_data)->with('savingSchedule_data1', $savingSchedule_data1);
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
@@ -318,7 +326,7 @@ class MemberController extends Controller
                 $memberaccount->accountsname = $accnumber;
                 if ($valsa->Frequency == 1) {
                     $days = new Carbon('today');
-                    for ($j = 7; $j <= 365; $j =$j +7) {
+                    for ($j = 7; $j <= 365; $j = $j + 7) {
                         $SavingSetup = new Savingtransactionsetup();
                         $SavingSetup->SavingType = Input::get('productname' . $i);
                         $SavingSetup->MemberId = $memberdata->MemberId;
@@ -328,11 +336,9 @@ class MemberController extends Controller
                         $SavingSetup->Amount = Input::get('savingAmount' . $i);
                         $NewDate = $days->addWeeks(1);
                         $date_collection = Holiday::all();
-                        foreach ($date_collection as $date)
-                        {
-                            if ($NewDate==$date->Holiday_Date)
-                            {
-                                $NewDate=$days->addDays(1);
+                        foreach ($date_collection as $date) {
+                            if ($NewDate == $date->Holiday_Date) {
+                                $NewDate = $days->addDays(1);
                             }
                         }
 //                        $NewDate = Date('y:m:d', strtotime('+' . $j . 'Days'));
@@ -352,11 +358,9 @@ class MemberController extends Controller
                         $SavingSetup->Amount = Input::get('savingAmount' . $i);
                         $NewDate = $days->addMonth(1);
                         $date_collection = Holiday::all();
-                        foreach ($date_collection as $date)
-                        {
-                            if ($NewDate==$date->Holiday_Date)
-                            {
-                                $NewDate=$days->addDays(1);
+                        foreach ($date_collection as $date) {
+                            if ($NewDate == $date->Holiday_Date) {
+                                $NewDate = $days->addDays(1);
                             }
                         }
                         $SavingSetup->Date = $NewDate;

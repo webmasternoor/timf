@@ -55,85 +55,56 @@
             </div>
             <div class="tab-pane modalclass" id="177">
                 <div class="borderportion">
-                    <div class="form-group col-md-12" id="form-DivisionOfficeId-error">
-                        <div class="col-md-6">
-                            <h4>Savings Schedule</h4>
-                            <?php
-                            $accouz2 = \App\Member::where('id', $memberid)->get();
-                            foreach ($accouz2 as $accz2) {
-                                $accz2->MemberId;
-                                ?>
-                            <?php
-                            }
-                            ?>
-                            <?php
-                            $accouz = DB::table('savingtransactionsetups')->where('MemberId', $accz2->MemberId)->get();
-                            foreach ($accouz as $accz)
-                            {
-                            ?>
-                            <p class="savingsschedule"><?php echo $accz->Date;?></p>
-                            <?php
-                            }
-                            ?>
-                        </div>
-                        <h4>Member Details</h4>
-                        <?php
-                        $accouzs = DB::table('savingtransactionsetups')->where('MemberId', $accz2->MemberId)->limit(1)->get();
-                        foreach ($accouzs as $accsz)
-                        {
-                        ?>
-                        <div class="col-md-6">
-                            <p class="savingsschedule"><?php echo "Member ID: " . $accsz->MemberId;?></p>
-                            <p class="savingsschedule">
-                                <?php
-                                $aczs = DB::table('savingtypes')->where('id', $accsz->SavingType)->get();
-                                foreach ($aczs as $az) {
-                                    echo "Savings type: " . $az->name;
-                                }
-                                ?>
-                            </p>
-                            <p class="savingsschedule">
-                                <?php
-                                $aczs1 = DB::table('membertypes')->where('id', $accsz->MemberType)->get();
-                                foreach ($aczs1 as $az1) {
-                                    echo "Member Type: " . $az1->name;
-                                }
-                                ?>
-                            </p>
-                            <p class="savingsschedule">
-                                <?php
-                                $aczs1 = DB::table('savingpolicies')->where('id', $accsz->SavingPolicy)->get();
-                                foreach ($aczs1 as $az2) {
-                                    echo "Saving Policy: " . $az2->name;
-                                }
-                                ?>
-                            </p>
-                            <p class="savingsschedule">
-                                <?php
-                                $aczs5 = DB::table('zone1s')->where('id', $accsz->SamityName)->get();
-                                foreach ($aczs5 as $az5) {
-                                    echo "Samity Name: " . $az5->SomitiName;
-                                }
-                                ?>
-                            </p>
-                        </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                    <a class="btn btn-primary btn-xs" title="View Details"
-                       href="javascript:ajaxLoad('member/view1212/{{$MemberData->MemberId}}')">Click ear To get Saving
-                        Schedule</a>
+                    {{--<a class="btn btn-primary btn-xs" title="View Details"--}}
+                       {{--href="javascript:ajaxLoad('member/view1212/{{$MemberData->MemberId}}')">Click Hear To get Saving--}}
+                        {{--Schedule</a>--}}
                     <!-- Trigger the modal with a button -->
-                    <button type="button"  class="btn btn-info btn-lg" data-toggle="modal"
-                            data-target="#myModal">মুদারাবা সাধারন সঞ্চয়
-                    </button>
-                    <button type="button"  class="btn btn-info btn-lg" data-toggle="modal"
-                            data-target="#myModal1">মুদারাবা বিশেষ সঞ্চয়
-                    </button>
-                    <button type="button"  class="btn btn-info btn-lg" data-toggle="modal"
-                            data-target="#myModal2">মুদারাবা স্থায়ী আমানত
-                    </button>
+                    <div class="col-md-4">
+                        <h5>মুদারাবা সাধারন সঞ্চয়</h5>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModal">Savings
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModalCollection">Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>মুদারাবা সাধারন সঞ্চয়</h5>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModal1">Savings
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModal1Collection">Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>মুদারাবা সাধারন সঞ্চয়</h5>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModal2">Schedule
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModal2Collection">Collection
+                            </button>
+                        </div>
+                    </div>
+
+                    {{--<button type="button" class="btn btn-info btn-lg" data-toggle="modal"--}}
+                            {{--data-target="#myModal1">মুদারাবা বিশেষ সঞ্চয়--}}
+                    {{--</button>--}}
+                    {{--<button type="button" class="btn btn-info btn-lg" data-toggle="modal"--}}
+                            {{--data-target="#myModal2">মুদারাবা স্থায়ী আমানত--}}
+                    {{--</button>--}}
 
                     <!-- Modal -->
 
@@ -141,69 +112,20 @@
                     {{--href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>--}}
                 </div>
 
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
 
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">মুদারাবা সাধারন সঞ্চয়</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Some text in the modal.</p>
-                                    <h1>মুদারাবা সাধারন সঞ্চয়</h1>
-                                    <p>{{$MemberData->MemberId}}</p>
-
-                                    <table class="table table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th rowspan="2">Date</th>
-                                            <th colspan="3">Mudaraba General Saving</th>
-                                            <th colspan="3">Mudaraba Special Saving</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Collection</td>
-                                            <td>Withdraw</td>
-                                            <td>Balance</td>
-                                            <td>Collection</td>
-                                            <td>Withdraw</td>
-                                            <td>Balance</td>
-                                        </tr>
-                                        </thead>
-                                        @foreach($savingSchedule_data as $data1)
-                                            <tr>
-                                                {{--<td>{{$i}}</td>--}}
-                                                <td>{{$data1->Date}}</td>
-                                                <td>{{$data1->Amount}}</td>
-                                            </tr>
-                                            <!--                                            --><?php //$i++; ?>
-                                            @endforeach
-                                    </table>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                    </button>
-                                </div>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">মুদারাবা সাধারন সঞ্চয়</h4>
                             </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                                <h1>মুদারাবা সাধারন সঞ্চয়</h1>
+                                <p>{{$MemberData->MemberId}}</p>
 
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="myModal1" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">মুদারাবা বিশেষ সঞ্চয়</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Some text in the modal.</p>
-                                    <p>মুদারাবা বিশেষ সঞ্চয়.</p>
-                                    <p>{{$MemberData->MemberId}}</p>
-                                </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -221,32 +143,37 @@
                                     </tr>
                                     </thead>
                                     @foreach($savingSchedule_data as $data1)
-                                    <tr>
-                                        {{--<td>{{$i}}</td>--}}
-                                        <td>{{$data1->Date}}</td>
-                                        <td>{{$data1->Amount}}</td>
-                                    </tr>
-                                    <!--                                            --><?php //$i++; ?>
+                                        <tr>
+                                            {{--<td>{{$i}}</td>--}}
+                                            <td>{{$data1->Date}}</td>
+                                            <td>{{$data1->Amount}}</td>
+                                        </tr>
                                     @endforeach
                                 </table>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                    </button>
-                                </div>
                             </div>
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                </button>
+                            </div>
                         </div>
+
                     </div>
+                </div>
 
-                    <div class="modal fade" id="myModal2" role="dialog">
-                        <div class="modal-dialog">
+                <div class="modal fade" id="myModalCollection" role="dialog">
+                    <div class="modal-dialog">
 
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">মুদারাবা স্থায়ী আমানত</h4>
-                                </div>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">মুদারাবা সাধারন সঞ্চয়</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                                <h1>মুদারাবা সাধারন সঞ্চয়</h1>
+                                <p>{{$MemberData->MemberId}}</p>
+
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -264,27 +191,210 @@
                                     </tr>
                                     </thead>
                                     @foreach($savingSchedule_data as $data1)
+                                        <tr>
+                                            {{--<td>{{$i}}</td>--}}
+                                            <td>{{$data1->Date}}</td>
+                                            <td>{{$data1->Amount}}</td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModal1" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">মুদারাবা বিশেষ সঞ্চয়</h4>
+                            </div>
+
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2">Date</th>
+                                    <th colspan="3">Mudaraba General Saving</th>
+                                    <th colspan="3">Mudaraba Special Saving</th>
+                                </tr>
+                                <tr>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($savingSchedule_data1 as $data1)
                                     <tr>
-                                        {{--<td>{{$i}}</td>--}}
+                                        <td>{{$data1->Date}}</td>
+                                        <td>{{$data1->Amount}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModal1Collection" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">মুদারাবা বিশেষ সঞ্চয়</h4>
+                            </div>
+
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2">Date</th>
+                                    <th colspan="3">Mudaraba General Saving</th>
+                                    <th colspan="3">Mudaraba Special Saving</th>
+                                </tr>
+                                <tr>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($savingSchedule_data1 as $data1)
+                                    <tr>
+                                        <td>{{$data1->Date}}</td>
+                                        <td>{{$data1->Amount}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">মুদারাবা স্থায়ী আমানত</h4>
+                            </div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2">Date</th>
+                                    <th colspan="3">Mudaraba General Saving</th>
+                                    <th colspan="3">Mudaraba Special Saving</th>
+                                </tr>
+                                <tr>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                </tr>
+                                </thead>
+                                @foreach($savingSchedule_data as $data1)
+                                    <tr>
+                                        {{--
+                                        <td>{{$i}}</td>
+                                        --}}
                                         <td>{{$data1->Date}}</td>
                                         <td>{{$data1->Amount}}</td>
                                     </tr>
                                     <!--                                            --><?php //$i++; ?>
                                     @endforeach
-                                </table>
-                                <div class="modal-body">
-                                    <p>Some text in the modal.</p>
-                                    <p>মুদারাবা স্থায়ী আমানত.</p>
-                                    <p>{{$MemberData->MemberId}}</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                    </button>
-                                </div>
+                            </table>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                                <p>মুদারাবা স্থায়ী আমানত.</p>
+                                <p>{{$MemberData->MemberId}}</p>
                             </div>
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                </button>
+                            </div>
                         </div>
+
                     </div>
+                </div>
+
+                <div class="modal fade" id="myModal2Collection" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">মুদারাবা স্থায়ী আমানত</h4>
+                            </div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2">Date</th>
+                                    <th colspan="3">Mudaraba General Saving</th>
+                                    <th colspan="3">Mudaraba Special Saving</th>
+                                </tr>
+                                <tr>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                    <td>Collection</td>
+                                    <td>Withdraw</td>
+                                    <td>Balance</td>
+                                </tr>
+                                </thead>
+                                @foreach($savingSchedule_data as $data1)
+                                    <tr>
+                                        {{--
+                                        <td>{{$i}}</td>
+                                        --}}
+                                        <td>{{$data1->Date}}</td>
+                                        <td>{{$data1->Amount}}</td>
+                                    </tr>
+                                    <!--                                            --><?php //$i++; ?>
+                                    @endforeach
+                            </table>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                                <p>মুদারাবা স্থায়ী আমানত.</p>
+                                <p>{{$MemberData->MemberId}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
                 <div class="borderportion savreport">
                     <h3>Mudaraba Savings Collection Description</h3>
@@ -336,28 +446,32 @@
                     <div class="form-group col-md-4" id="form-DivisionOfficeId-error">
                         {!! Form::label("DivisionOfficeId","বিভাগীয় অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("DivisionOfficeId",$DivisionOfficeInfo,null,["class"=>"form-control DivisionOfficeId required","id"=>"DivisionOfficeId"]) !!}
+                            {!! Form::select("DivisionOfficeId",$DivisionOfficeInfo,null,["class"=>"form-control
+                            DivisionOfficeId required","id"=>"DivisionOfficeId"]) !!}
                             <span id="DivisionOfficeId-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-4" id="form-ZoneId-error">
                         {!! Form::label("ZoneId","জোনাল অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("ZoneId",$ZoneInfo,null,["class"=>"form-control ZoneId required","id"=>"ZoneId"]) !!}
+                            {!! Form::select("ZoneId",$ZoneInfo,null,["class"=>"form-control ZoneId
+                            required","id"=>"ZoneId"]) !!}
                             <span id="ZoneId-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-4" id="form-AreaId-error">
                         {!! Form::label("AreaId","এরিয়া অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId required","id"=>"AreaId"]) !!}
+                            {!! Form::select("AreaId",$AreaInfo,null,["class"=>"form-control AreaId
+                            required","id"=>"AreaId"]) !!}
                             <span id="AreaId-error" class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-4" id="form-BranchId-error">
                         {!! Form::label("BranchId","শাখা অফিস",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("BranchId",$BranchInfo,null,["class"=>"form-control BranchId required","id"=>"BranchId"]) !!}
+                            {!! Form::select("BranchId",$BranchInfo,null,["class"=>"form-control BranchId
+                            required","id"=>"BranchId"]) !!}
                             <span id="BranchId-error" class="help-block"></span>
                         </div>
                     </div>
@@ -366,7 +480,8 @@
                     <div class="form-group col-md-4" id="form-SamityName-error">
                         {!! Form::label("SamityName","সমিতির নাম",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
-                            {!! Form::select("SamityName",$SamityName,null,["class"=>"form-control SamityName required","id"=>"SamityName"]) !!}
+                            {!! Form::select("SamityName",$SamityName,null,["class"=>"form-control SamityName
+                            required","id"=>"SamityName"]) !!}
                             <span id="SamityName-error" class="help-block"></span>
                         </div>
                     </div>
@@ -374,7 +489,8 @@
                         {!! Form::label("MemberType","সদস্যের ধরণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {{--{!! Form::select("MemberType",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control MemberType required","id"=>"MemberType"]) !!}
+                            {!! Form::select("MemberType",$MemberType,null,["class"=>"form-control MemberType
+                            required","id"=>"MemberType"]) !!}
                             <span id="MemberType-error" class="help-block"></span>
                         </div>
                     </div>
@@ -382,7 +498,8 @@
                         {!! Form::label("SavingTypes","সঞ্চয়ের ধরণ",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {{--{!! Form::select("SavingTypes",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("SavingTypes",$SavingTypes,null,["class"=>"form-control SavingTypes required","id"=>"SavingTypes"]) !!}
+                            {!! Form::select("SavingTypes",$SavingTypes,null,["class"=>"form-control SavingTypes
+                            required","id"=>"SavingTypes"]) !!}
                             <span id="SavingTypes-error" class="help-block"></span>
                         </div>
                     </div>
@@ -390,7 +507,8 @@
                         {!! Form::label("SavingPolicy","সঞ্চয় Policy",["class"=>"control-label col-md-12"]) !!}
                         <div class="col-md-12">
                             {{--{!! Form::select("SavingPolicy",['1' => 'পাকা', '2' => 'সেমি পাকা'])!!}--}}
-                            {!! Form::select("SavingPolicy",$SavingPolicy,null,["class"=>"form-control SavingPolicy required","id"=>"SavingPolicy"]) !!}
+                            {!! Form::select("SavingPolicy",$SavingPolicy,null,["class"=>"form-control SavingPolicy
+                            required","id"=>"SavingPolicy"]) !!}
                             <span id="SavingPolicy-error" class="help-block"></span>
                         </div>
                     </div>
