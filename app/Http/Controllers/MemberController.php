@@ -268,8 +268,8 @@ class MemberController extends Controller
         $savingSchedule_data = Savingtransactionsetup::where('MemberId', '=', $memberdata1)
             ->where('SavingType', '=', '2')
             ->get();
-        $savingSchedule_data = Saving1::where('MemberId', '=', $memberdata1)
-            ->where('SavingType', '=', '2')
+        $savingdata = Saving1::where('MemberId', '=', $memberdata1)
+            ->where('ProductId', '=', '2')
             ->get();
         $savingSchedule_data1 = Savingtransactionsetup::where('MemberId', '=', $memberdata1)
             ->where('SavingType', '=', '3')

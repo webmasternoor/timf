@@ -15,6 +15,21 @@
             <span id="SamityId-error" class="help-block"></span>
         </div>
     </div>
+
+    <div class="form-group required col-md-6" id="form-ProductId-error">
+        {!! Form::label("ProductId","প্রোডাক্ট আইডি",["class"=>"control-label col-md-12"]) !!}
+        <div class="col-md-12">
+            {!! Form::select("ProductId",$Product_info,null,["class"=>"form-control ProductId required","id"=>"ProductId"]) !!}
+            {{--<select name="ProductId" id="ProductId">--}}
+            {{--<option value="" selected>--select--</option>--}}
+            {{--@foreach($ProductId as $zone_data )--}}
+            {{--<option value="{{$zone_data->id}}"--}}
+            {{-->{{$zone_data->SomitiName}}</option>--}}
+            {{--@endforeach--}}
+            {{--</select>--}}
+            <span id="ProductId-error" class="help-block"></span>
+        </div>
+    </div>
 </div>
 <input type="hidden" name="numrow" id="hidden">
 <table class="table table-bordered table-striped" id="dynatable">
@@ -96,12 +111,13 @@
     $(document).ready(function () {
         $(document).on('change', '.SamityId', function () {
             var SamityId = $(this).val();
+            var ProductId = document.getElementsByClassName('ProductId').value;
             var i=1;
             $('#p_scents').empty();
             $.ajax({
                 type: 'get',
                 url: 'getSchedule',
-                data: {'id': SamityId},
+                data: {'id': SamityId,'id1':ProductId},
                 success: function (data) {
 //                    console.log(data);
                     $.each(data, function (index, subcatObj3p) {
