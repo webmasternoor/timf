@@ -48,7 +48,8 @@ class HolidayController extends Controller
             );
         }
         $holiday->HolidayyName = Input::get('HolidayyName');
-        $holiday->OfficeId = Input::get('OfficeId');
+        $holiday->OfficeId = '';
+//        $holiday->OfficeId = Input::get('OfficeId');
         $holiday->SamityID_CenterID = Input::get('SamityID_CenterID');
         $holiday->HolidayType = Input::get('HolidayType');
         $holiday->Description = Input::get('Description');
@@ -80,7 +81,8 @@ class HolidayController extends Controller
         }
         $holiday = new Holiday();
         $holiday->HolidayyName = Input::get('HolidayyName');
-        $holiday->OfficeId = Input::get('OfficeId');
+        $holiday->OfficeId = '';
+//        $holiday->OfficeId = Input::get('OfficeId');
         $holiday->SamityID_CenterID = Input::get('SamityID_CenterID');
         $holiday->HolidayType = Input::get('HolidayType');
         $holiday->Description = Input::get('Description');
