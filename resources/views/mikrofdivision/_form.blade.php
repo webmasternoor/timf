@@ -84,11 +84,10 @@
                 <span id="DivisionOfficeUnionId-error" class="help-block"></span>
             </div>
         </div>
-
         <div class="form-group required col-md-6" id="form-DivisionOfficeWardId-error">
             {!! Form::label("DivisionOfficeWardId","ওয়ার্ড",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">
-                {!! Form::select("DivisionOfficeWardId",$WardInfo,null,["class"=>"form-control DivisionOfficeWardId required","id"=>"DivisionOfficeWardId"]) !!}
+                {!! Form::text("DivisionOfficeWardId",null,["class"=>"form-control DivisionOfficeWardId required","id"=>"DivisionOfficeWardId"]) !!}
                 <span id="DivisionOfficeWardId-error" class="help-block"></span>
             </div>
         </div>

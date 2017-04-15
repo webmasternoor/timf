@@ -86,6 +86,15 @@ class SelectBoxController extends Controller
         return response()->json($data);
     }
 
+    public function getZone(Request $request)
+    {
+        $data = DB::table('zones')
+            ->select('*')
+            ->where('ZoneDivisionOfficeId', $request->id)
+            ->get();
+        return response()->json($data);
+    }
+
     public function getArea(Request $request)
     {
         $data = DB::table('areas')
@@ -180,14 +189,14 @@ class SelectBoxController extends Controller
 
     public function getSchedule(Request $request)
     {
-        echo $request->SamityId;
-        echo "<br>";
-        echo $request->ProductId;
-        $datetest = '2017-05-13';
+//        echo $request->SamityId;
+//        echo "<br>";
+//        echo $request->ProductId;
+        $datetest = '2017-04-20';
         $data = DB::table('savingtransactionsetups')
             ->select('*')
             ->where('SamityName', $request->SamityId)
-            ->where('SavingType', $request->ProductId)
+//            ->where('SavingType', $request->ProductId)
             ->where('Date', $datetest)
             ->get();
 //        foreach ($data as $data1):

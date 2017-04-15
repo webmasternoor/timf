@@ -33,13 +33,13 @@ class Zone1Controller extends Controller
 
     public function getUpdate($id)
     {
-        $ThanaInfo = Thana::lists('ThanaName', 'id');
-        $DivisionInfo = Division::lists('DivisionName', 'id');
-        $UnionInfo = Union::lists('UnionName', 'id');
-        $WardInfo = Ward::lists('WardName', 'id');
-        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
-        $DistrictInfo = District::lists('DistrictName', 'id');
-        $BranchInfo=Brn::lists('BranchName','id');
+        $ThanaInfo = [''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $DivisionInfo = [''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $UnionInfo = [''=>'--select--'] + Union::lists('UnionName', 'id')->all();
+        $WardInfo = [''=>'--select--'] + Ward::lists('WardName', 'id')->all();
+        $PostOfficeInfo = [''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+        $DistrictInfo = [''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+        $BranchInfo= [''=>'--select--'] + Brn::lists('BranchName','id')->all();
         return view('zone1.update', ['zone1' => Zone1::find($id)])->with('DivisionInfo',$DivisionInfo)->with('DistrictInfo',$DistrictInfo)
             ->with('ThanaInfo',$ThanaInfo)->with('UnionInfo',$UnionInfo)->with('WardInfo',$WardInfo)
             ->with('PostOfficeInfo',$PostOfficeInfo)->with('BranchInfo',$BranchInfo);
@@ -76,13 +76,13 @@ class Zone1Controller extends Controller
 
     public function getCreate()
     {
-        $ThanaInfo = Thana::lists('ThanaName', 'id');
-        $DivisionInfo = Division::lists('DivisionName', 'id');
-        $UnionInfo = Union::lists('UnionName', 'id');
-        $WardInfo = Ward::lists('WardName', 'id');
-        $PostOfficeInfo = Postoffice::lists('PostofficeName', 'id');
-        $DistrictInfo = District::lists('DistrictName', 'id');
-        $BranchInfo=Brn::lists('BranchName','id');
+        $ThanaInfo = [''=>'--select--'] + Thana::lists('ThanaName', 'id')->all();
+        $DivisionInfo = [''=>'--select--'] + Division::lists('DivisionName', 'id')->all();
+        $UnionInfo = [''=>'--select--'] + Union::lists('UnionName', 'id')->all();
+        $WardInfo = [''=>'--select--'] + Ward::lists('WardName', 'id')->all();
+        $PostOfficeInfo = [''=>'--select--'] + Postoffice::lists('PostofficeName', 'id')->all();
+        $DistrictInfo = [''=>'--select--'] + District::lists('DistrictName', 'id')->all();
+        $BranchInfo= [''=>'--select--'] + Brn::lists('BranchName','id')->all();
         return view('zone1.create')->with('DivisionInfo',$DivisionInfo)->with('DistrictInfo',$DistrictInfo)
             ->with('ThanaInfo',$ThanaInfo)->with('UnionInfo',$UnionInfo)->with('WardInfo',$WardInfo)
             ->with('PostOfficeInfo',$PostOfficeInfo)->with('BranchInfo',$BranchInfo);

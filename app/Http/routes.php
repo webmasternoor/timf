@@ -81,6 +81,8 @@ Route::get('getWord','SelectBoxController@getWord');
 
 Route::get('getPostOffice','SelectBoxController@getPostOffice');
 
+Route::get('getZone','SelectBoxController@getZone');
+
 Route::get('getArea','SelectBoxController@getArea');
 
 Route::get('getBranch','SelectBoxController@getBranch');

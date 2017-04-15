@@ -82,7 +82,13 @@
                 <span id="ZoneWardId-error" class="help-block"></span>
             </div>
         </div>
-
+        <div class="form-group required col-md-6" id="form-ZoneRoadNo-error">
+            {!! Form::label("ZoneRoadNo","রাস্তা নং",["class"=>"control-label test col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::text("ZoneRoadNo",null,["class"=>"form-control required","id"=>"focus"]) !!}
+                <span id="ZoneRoadNo-error" class="help-block"></span>
+            </div>
+        </div>
         <div class="form-group required col-md-6" id="form-ZonePostOfficeId-error">
             {!! Form::label("ZonePostOfficeId","পোষ্ট অফিস",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">

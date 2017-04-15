@@ -69,6 +69,7 @@ class ZoneController extends Controller
         $zone->ZoneUnionId = Input::get('ZoneUnionId');
         $zone->ZoneWardId = Input::get('ZoneWardId');
         $zone->ZonePostOfficeId = Input::get('ZonePostOfficeId');
+        $zone->ZoneRoadNo = Input::get('ZoneRoadNo');
         $zone->ZoneEmail = Input::get('ZoneEmail');
         $zone->save();
         return ['url' => 'zone/list'];
@@ -110,6 +111,7 @@ class ZoneController extends Controller
         $zone->ZoneUnionId = Input::get('ZoneUnionId');
         $zone->ZoneWardId = Input::get('ZoneWardId');
         $zone->ZonePostOfficeId = Input::get('ZonePostOfficeId');
+        $zone->ZoneRoadNo = Input::get('ZoneRoadNo');
         $zone->ZoneEmail = Input::get('ZoneEmail');
         $zone->save();
         return ['url' => 'zone/list'];

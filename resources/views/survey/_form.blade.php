@@ -996,6 +996,7 @@
         });
         return false;
     });
+
     $(document).ready(function () {
         //this calculates values automatically
         RemainingAmountToPay();
@@ -1016,6 +1017,7 @@
             document.getElementById('RemainingAmountToPay1').value = RemainingAmountToPay;
         }
     }
+
     $(document).ready(function () {
         //this calculates values automatically
 
@@ -1079,6 +1081,7 @@
             }
 
         });
+
         $(document).on('change', '.IsHeSheWillingToTakeLoan', function () {
             //console.log("yes it is change");
 
@@ -1098,6 +1101,31 @@
                 $('#Comment2').show();
             }
 
+        });
+
+        $(document).on('change', '.DivisionOfficeId', function () {
+            //console.log("yes it is change");
+
+            var op = " ";
+            var ZoneId = $(this).val();
+            //var div = $(this).parent();
+            //console.log(DivisionId);
+            $('#ZoneId').empty();
+            $('#ZoneId1').empty();
+            $.ajax({
+                type: 'get',
+                url: 'getZone',
+                data: {'id': ZoneId},
+                success: function (data) {
+                    $.each(data, function (index, subcatObjZone) {
+                        $('#ZoneId').append('<option value="' + subcatObjZone.id + '" >' + subcatObjZone.ZoneName + '</option>')
+                    });
+                },
+                error: function () {
+
+                }
+            });
+            $.ajax(clear);
         });
 
         $(document).on('change', '.ZoneId', function () {
@@ -1124,6 +1152,7 @@
             });
             $.ajax(clear);
         });
+
         $(document).on('change', '.AreaId', function () {
             //console.log("yes it is change");
 
@@ -1172,6 +1201,7 @@
             });
             $.ajax(clear);
         });
+
         $(document).on('change', '.PresentDistrict', function () {
             //console.log("yes it is change");
 
@@ -1290,6 +1320,7 @@
             });
             $.ajax(clear);
         });
+
         $(document).on('change', '.PermanentDistrict', function () {
             //console.log("yes it is change");
 
@@ -1399,6 +1430,7 @@
                 $('#SpouseProfession').append('<input type="text" class="form-control"  name="SpouseOtherProfession" value="">')
             }
         });
+
         $(document).on('change', '.WifeProfession', function () {
             //console.log("yes it is change");
 
@@ -1411,6 +1443,7 @@
                 $('#WifeProfession1').append('<input type="text" class="form-control"  name="WifeOtherProfession" value="">')
             }
         });
+
         $(document).on('change', '.FatherProfession', function () {
             //console.log("yes it is change");
 
@@ -1423,6 +1456,7 @@
                 $('#FatherProfession1').append('<input type="text" class="form-control"  name="FatherOtherProfession" value="">')
             }
         });
+
         $(document).on('change', '.MotherProfession', function () {
             //console.log("yes it is change");
 
@@ -1435,6 +1469,7 @@
                 $('#MotherProfession1').append('<input type="text" class="form-control"  name="MotherOtherProfession" value="">')
             }
         });
+
         $(document).on('change', '.CurrentProfession', function () {
             //console.log("yes it is change");
 
@@ -1460,6 +1495,7 @@
                 $('#PreviousProfession1').append('<input type="text" class="form-control"  name="PreviousOtherProfession" value="">')
             }
         });
+
         $(document).on('change', '.Education', function () {
             //console.log("yes it is change");
 
@@ -1494,6 +1530,7 @@
             document.getElementById('TotalLand').value = TotalLand;
         }
     }
+
     $(document).ready(function () {
         //this calculates values automatically
         TotalIncome();
