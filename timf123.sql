@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `accountstables` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.accountstables: ~0 rows (approximately)
+-- Dumping data for table timf.accountstables: ~2 rows (approximately)
 DELETE FROM `accountstables`;
 /*!40000 ALTER TABLE `accountstables` DISABLE KEYS */;
 INSERT INTO `accountstables` (`id`, `memberid`, `accountsname`, `productid`, `created_at`, `updated_at`) VALUES
@@ -1227,9 +1227,9 @@ CREATE TABLE IF NOT EXISTS `frequencies` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.frequencies: ~2 rows (approximately)
+-- Dumping data for table timf.frequencies: ~3 rows (approximately)
 DELETE FROM `frequencies`;
 /*!40000 ALTER TABLE `frequencies` DISABLE KEYS */;
 INSERT INTO `frequencies` (`id`, `frequency`, `created_at`, `updated_at`) VALUES
@@ -3262,16 +3262,19 @@ CREATE TABLE IF NOT EXISTS `saving1s` (
   `Flag` varchar(20) DEFAULT NULL,
   `SavingAmount` float DEFAULT NULL,
   `WithdrawAmount` float DEFAULT NULL,
-  `TransactionDate` datetime DEFAULT NULL,
-  `EntryDate` datetime DEFAULT NULL,
+  `TransactionDate` date DEFAULT NULL,
+  `EntryDate` date DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.saving1s: ~0 rows (approximately)
+-- Dumping data for table timf.saving1s: ~2 rows (approximately)
 DELETE FROM `saving1s`;
 /*!40000 ALTER TABLE `saving1s` DISABLE KEYS */;
+INSERT INTO `saving1s` (`id`, `MemberId`, `ProductId`, `Remarks`, `AccountNo`, `Balance`, `Flag`, `SavingAmount`, `WithdrawAmount`, `TransactionDate`, `EntryDate`, `created_at`, `updated_at`) VALUES
+	(1, '1009', '3', NULL, 'MGSM.11914062', 100, NULL, 100, NULL, NULL, '2017-05-13', '2017-04-13 12:12:30', '2017-04-13 12:12:30'),
+	(2, '1009', '3', NULL, 'MGSM.11914062', 200, NULL, 100, NULL, NULL, '2017-05-13', '2017-04-13 12:12:51', '2017-04-13 12:12:51');
 /*!40000 ALTER TABLE `saving1s` ENABLE KEYS */;
 
 -- Dumping structure for table timf.saving1s_mar_2
@@ -3424,7 +3427,7 @@ CREATE TABLE IF NOT EXISTS `savingtransactionsetups` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.savingtransactionsetups: ~0 rows (approximately)
+-- Dumping data for table timf.savingtransactionsetups: ~64 rows (approximately)
 DELETE FROM `savingtransactionsetups`;
 /*!40000 ALTER TABLE `savingtransactionsetups` DISABLE KEYS */;
 INSERT INTO `savingtransactionsetups` (`id`, `MemberId`, `AccountNo`, `SavingType`, `MemberType`, `SavingPolicy`, `SamityName`, `Rate`, `Amount`, `Date`, `created_at`, `updated_at`) VALUES
@@ -7371,7 +7374,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 	(3005, 'Miss Dominique Reynolds Jr.', 'darren.ohara@jerde.net', '$2y$10$mhZWP4f/B37QxApAtkXH/.tuJ3KlpJqhmbSYGlM25J4uVPBP6/5AC', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
 	(3006, 'Eden Runte', 'jaron.homenick@corkery.com', '$2y$10$O7FIiMjtbxvvG7ttDvfPIeSyd0ZnQY0KLKAhbOW5mz3XH5CLEZp2q', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
 	(3007, 'Katrine Schuppe', 'cgerlach@yahoo.com', '$2y$10$4t5uygG7VlwLaVFcU1T/bOdqyOdTfHge.M2flQzMiDWVH.ONZG7aS', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
-	(3008, 'Rockey Ahmed', 'rockeycse@gmail.com', '$2y$10$khJvxcWtzTbEA7f/e232dOAGFmuG3JEQASpZfiLDCKj6fY4pN/O/.', '07A8UZ1AqhYl0jzJztkFKDPKkV3go1P9tRolNCAxV9tnUwEBBeUS5ep5ILay', '2017-04-09 11:52:37', '2017-04-12 05:50:49', NULL);
+	(3008, 'Rockey Ahmed', 'rockeycse@gmail.com', '$2y$10$khJvxcWtzTbEA7f/e232dOAGFmuG3JEQASpZfiLDCKj6fY4pN/O/.', 'NHT4yOaYHSBkhf5xXLq327dh0NexeVh8cXih43TSTlZy29jKLEvV0OrJhFIq', '2017-04-09 11:52:37', '2017-04-13 09:49:51', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs
