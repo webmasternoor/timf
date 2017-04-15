@@ -110,14 +110,14 @@
     });
     $(document).ready(function () {
         $(document).on('change', '.SamityId', function () {
-            var SamityId = $(this).val();
-            var ProductId = document.getElementsByClassName('ProductId').value;
+            var SamityId = document.getElementById('SamityId').value;
+            var ProductId = document.getElementById('ProductId').value;
             var i=1;
             $('#p_scents').empty();
             $.ajax({
                 type: 'get',
                 url: 'getSchedule',
-                data: {'id': SamityId,'id1':ProductId},
+                data: {'SamityId': SamityId,'ProductId':ProductId},
                 success: function (data) {
 //                    console.log(data);
                     $.each(data, function (index, subcatObj3p) {

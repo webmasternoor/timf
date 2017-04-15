@@ -180,18 +180,20 @@ class SelectBoxController extends Controller
 
     public function getSchedule(Request $request)
     {
-        echo $request->id1;
-//        $datetest = '2017-05-13';
-//        $data = DB::table('savingtransactionsetups')
-//            ->select('*')
-//            ->where('SamityName', $request->id)
-//            ->where('SavingType', $request->id1)
-//            ->where('Date', $datetest)
-//            ->get();
-////        foreach ($data as $data1):
-////            echo $data1->MemberId."</br>";
-////        endforeach;
-//        return response()->json($data);
+        echo $request->SamityId;
+        echo "<br>";
+        echo $request->ProductId;
+        $datetest = '2017-05-13';
+        $data = DB::table('savingtransactionsetups')
+            ->select('*')
+            ->where('SamityName', $request->SamityId)
+            ->where('SavingType', $request->ProductId)
+            ->where('Date', $datetest)
+            ->get();
+//        foreach ($data as $data1):
+//            echo $data1->MemberId."</br>";
+//        endforeach;
+        return response()->json($data);
     }
 
     /**
