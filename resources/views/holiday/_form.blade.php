@@ -17,11 +17,11 @@
                 <span id="Description-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-6" id="form-OfficeId-error">
-            {!! Form::label("OfficeId","শাখা",["class"=>"control-label col-md-3"]) !!}
+        <div class="form-group required col-md-6" id="form-SamityID_CenterID-error">
+            {!! Form::label("SamityID_CenterID","সমিতি আইডি",["class"=>"control-label col-md-3"]) !!}
             <div class="col-md-6">
-                {!! Form::select("OfficeId",$branch,null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="OfficeId-error" class="help-block"></span>
+                {!! Form::select("SamityID_CenterID",$Samity,null,["class"=>"form-control required","id"=>"SamityID_CenterID"]) !!}
+                <span id="SamityID_CenterID-error" class="help-block"></span>
             </div>
         </div>
         <div class="form-group required col-md-6" id="form-HolidayyName-error">
@@ -31,13 +31,13 @@
                 <span id="HolidayyName-error" class="help-block"></span>
             </div>
         </div>
-        <div class="form-group required col-md-6" id="form-SamityID_CenterID-error">
-            {!! Form::label("SamityID_CenterID","সমিতি আইডি",["class"=>"control-label col-md-3"]) !!}
-            <div class="col-md-6">
-                {!! Form::number("SamityID_CenterID",null,["class"=>"form-control required","id"=>"focus"]) !!}
-                <span id="SamityID_CenterID-error" class="help-block"></span>
-            </div>
-        </div>
+        {{--<div class="form-group required col-md-6" id="form-SamityID_CenterID-error">--}}
+            {{--{!! Form::label("SamityID_CenterID","সমিতি আইডি",["class"=>"control-label col-md-3"]) !!}--}}
+            {{--<div class="col-md-6">--}}
+                {{--{!! Form::number("SamityID_CenterID",null,["class"=>"form-control required","id"=>"focus"]) !!}--}}
+                {{--<span id="SamityID_CenterID-error" class="help-block"></span>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         {{--<div class="form-group required col-md-6" id="form-IsActive-error">--}}
             {{--{!! Form::label("IsActive","ছুটির সক্রিয়তা",["class"=>"control-label col-md-3"]) !!}--}}
             {{--<div class="col-md-6">--}}

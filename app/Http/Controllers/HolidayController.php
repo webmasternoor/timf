@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Brn;
 use App\Day;
 use App\Holidaytype;
+use App\Zone1;
 use DB;
 use App\Holiday;
 use Illuminate\Support\Facades\Auth;
@@ -59,10 +60,10 @@ class HolidayController extends Controller
 
     public function getCreate()
     {
-        $branch = [''=>'--select--'] + Brn::lists('BranchName', 'id')->all();
+        $Samity = [''=>'--select--'] + Zone1::lists('SomitiName', 'id')->all();
         $Days = [''=>'--select--'] + Day::lists('Day_Name', 'id')->all();
         $Holidaytype = [''=>'--select--'] + Holidaytype::lists('holidaytypes', 'id')->all();
-        return view('holiday.create',compact('branch'))->with('Days',$Days)->with('Holidaytype',$Holidaytype);
+        return view('holiday.create',compact('Samity'))->with('Days',$Days)->with('Holidaytype',$Holidaytype);
     }
 
     public function postCreate()
