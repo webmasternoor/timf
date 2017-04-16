@@ -797,7 +797,7 @@ class MemberController extends Controller
         $ZoneInfo = ['' => '--select--'] + Zone::lists('ZoneName', 'id')->all();
         $AreaInfo = ['' => '--select--'] + Area::lists('AreaName', 'id')->all();
         $BranchInfo = ['' => '--select--'] + Brn::lists('BranchName', 'id')->all();
-        $MemberType = ['' => '--select--'] + Membertype::lists('name', 'id')->all();
+        $MemberType = ['' => '--select--'] + Membertype::lists('Membertype', 'id')->all();
         $SavingTypes = ['' => '--select--'] + Savingtype::lists('name', 'id')->all();
         $SavingPolicy = ['' => '--select--'] + Savingpolicy::lists('name', 'id')->all();
         $SamityName = ['' => '--select--'] + Zone1::lists('SomitiName', 'id')->all();
