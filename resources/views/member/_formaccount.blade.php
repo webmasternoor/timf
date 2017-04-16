@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <h3>বর্তমান হিসাব সমূহ</h3>
+
 
     <div class="borderportion">
         <table class="table table-bordered table-striped">
@@ -7,21 +7,23 @@
             <tr>
                 <th>প্রোডাক্ট</th>
                 <th>হিসাব নং</th>
+                <th>টাকা</th>
             </tr>
             </thead>
-            @if(!empty($account_data))
+            {{--@if(!empty($account_data))--}}
                 @foreach($account_data as $account_info)
                     <tr>
                         <td align="center">{{$account_info->ProductName}}</td>
-                        <td align="center">{{$account_info->accountsname}}</td>
+                        <td align="center">{{$account_info->AccountNo}}</td>
+                        <td align="center">{{$account_info->Amount}}</td>
                     </tr>
                 @endforeach
-            @endif
+            {{--@endif--}}
         </table>
     </div>
 </div>
 <div class="col-md-12">
-
+<h4 class="text-center">নতুন হিসাব তৈরি করুন</h4>
     <div class="borderportion">
         <div class="form-group col-md-6" id="form-productname1-error">
             {!! Form::label("productname1","প্রোডাক্ট",["class"=>"control-label col-md-12"]) !!}

@@ -265,6 +265,10 @@ class MemberController extends Controller
 //        echo $MemberData->MemberId;
 //        die();
         $memberdata1 = $MemberData->MemberId;
+        $AccountInfo = Accountstable::Select('*')
+            ->join('products','accountstables.productid','=','products.id')
+            ->where('memberid','=',$MemberData->MemberId)
+            ->get();
         $savingSchedule_data = Savingtransactionsetup::where('MemberId', '=', $memberdata1)
             ->where('SavingType', '=', '2')
             ->get();
@@ -289,23 +293,24 @@ class MemberController extends Controller
             ->with('MaritalStatus', $MaritalStatus)->with('PoliticalStatus', $PoliticalStatus)->with('Familytypes', $Familytypes)
             ->with('profession', $profession)->with('MemberType', $MemberType)->with('SavingTypes', $SavingTypes)->with('MemberData', $MemberData)
             ->with('SavingPolicy', $SavingPolicy)->with('SamityName', $SamityName)->with('DivisionOfficeInfo', $DivisionOfficeInfo)->with('divisionOfficeInfo', $divisionOfficeInfo)->with('memberid', $memberid)
-            ->with('savingSchedule_data', $savingSchedule_data)->with('savingSchedule_data1', $savingSchedule_data1);
+            ->with('savingSchedule_data', $savingSchedule_data)->with('savingSchedule_data1', $savingSchedule_data1)->with('AccountInfo',$AccountInfo);
 
         //return view('member.update', ['member' => Member::find($id)]);
     }
 
     public function getAccount($id)
     {
-        $account_data = Accountstable::select('accountstables.memberid', 'accountstables.productid', 'accountstables.accountsname', 'products.ProductName')
-            ->join('products', 'accountstables.productid', '=', 'products.id')
-            ->where('memberid', '=', $id)
-            ->get();
+
         $membertypeid = Member::find($id);
         $product = Product::select('products.id', 'products.ProductName', 'productprivileges.ProductID', 'productprivileges.membertype')
             ->join('productprivileges', 'products.id', '=', 'productprivileges.ProductID')
             ->where('productprivileges.membertype', '=', $membertypeid->MemberType)
             ->get();
-
+        $account_data = Savingtransactionsetup::select('*')
+            ->join('products', 'savingtransactionsetups.SavingType', '=', 'products.id')
+            ->where('MemberId', '=', $membertypeid->MemberId)
+            ->groupBy('SavingType')
+            ->get();
 //        $account_data = Accountstable::where('memberid','=',$id)->get();
 //var_dump($product);
 //die();
@@ -314,10 +319,12 @@ class MemberController extends Controller
 
     public function postAccount($id)
     {
+        $memberdata = Member::find($id);
         for ($i = 1; $i <= 5; $i++) {
             $producttype = Input::get('productname' . $i);
-            $memberdata = Member::find($id);
+
             if (!empty($producttype)) {
+                $memberdata = Member::find($id);
                 $AccNameSub = '';
                 $memberaccount = new Accountstable();
                 $valsa = Product::find($producttype);
@@ -358,12 +365,22 @@ class MemberController extends Controller
                         $SavingSetup->Amount = Input::get('savingAmount' . $i);
                         $NewDate = $days->addMonth(1);
                         $date_collection = Holiday::all();
+                        $k=0;
                         foreach ($date_collection as $date) {
                             if ($NewDate == $date->Holiday_Date) {
                                 $NewDate = $days->addDays(1);
+                                $k = $k+1;
                             }
                         }
-                        $SavingSetup->Date = $NewDate;
+                        if ($k>0)
+                        {
+                            $SavingSetup->Date = $NewDate;
+                            $NewDate = $days->subDay($k);
+                        }
+                        else
+                        {
+                            $SavingSetup->Date = $NewDate;
+                        }
                         $SavingSetup->save();
                     }
 //                    $memberaccount->memberid = $key->MemberId;
@@ -820,8 +837,7 @@ class MemberController extends Controller
         //return view('member.create')->with;
     }
 
-    public
-    function postCreate()
+    public function postCreate()
     {
         /*$validator = Validator::make(Input::all(), [
             "name" => "required|unique:members",

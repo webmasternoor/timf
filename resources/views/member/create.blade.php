@@ -157,7 +157,7 @@
                                     {!! Form::label("FirstName","পূর্ণ নাম(ইংরেজি)",["class"=>"control-label col-md-12"]) !!}
                                     <div class="col-md-12">
                                         <input class="form-control" type="text" name="FirstName"
-                                               value="{{$loan->FirstName}}">
+                                               value="{{$loan->FullNameEnglish}}">
                                         {{--{!! Form::text("FirstName",null,["class"=>"form-control"]) !!}--}}
                                         <span id="FirstName-error" class="help-block"></span>
                                     </div>

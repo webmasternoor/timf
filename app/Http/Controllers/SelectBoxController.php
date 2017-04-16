@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Accountstable;
 use App\Age;
 use App\Count;
 use App\Day;
@@ -192,7 +193,8 @@ class SelectBoxController extends Controller
 //        echo $request->SamityId;
 //        echo "<br>";
 //        echo $request->ProductId;
-        $datetest = '2017-12-15';
+        $datetest = new Carbon('today');
+        $datetest = $datetest->addMonths(1);
         $data = DB::table('savingtransactionsetups')
             ->select('*')
             ->where('SamityName', $request->SamityId)
@@ -202,6 +204,16 @@ class SelectBoxController extends Controller
 //        foreach ($data as $data1):
 //            echo $data1->MemberId."</br>";
 //        endforeach;
+        return response()->json($data);
+    }
+
+    public function getPassbook(Request $request)
+    {
+
+        $data = Savingtransactionsetup:: select('*')
+            ->where('AccountNo', $request->id)
+            ->get();
+
         return response()->json($data);
     }
 
@@ -267,9 +279,13 @@ class SelectBoxController extends Controller
      */
     public function show()
     {
-        $date = Date('d:m:Y');
-        echo $date;
-        die();
+        $AccountInfo = Accountstable::Select('*')
+            ->join('products','accountstables.productid','=','product.id')
+            ->where('memberid','=','1009')
+            ->get();
+//        $date = Date('d:m:Y');
+//        echo $date;
+//        die();
 //        return $date;
     }
 

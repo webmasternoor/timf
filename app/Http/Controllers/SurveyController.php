@@ -459,8 +459,8 @@ class SurveyController extends Controller
             "Gender" => "required",
             "Age" => "required",
             "Nid" => "required|unique:surveys",
-            "PresentDistrict" => "required",
-            "Email" => "required",
+//            "PresentDistrict" => "required",
+//            "Email" => "required",
         ]);
         if ($validator->fails()) {
             return array(
