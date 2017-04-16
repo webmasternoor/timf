@@ -192,7 +192,7 @@ class SelectBoxController extends Controller
 //        echo $request->SamityId;
 //        echo "<br>";
 //        echo $request->ProductId;
-        $datetest = '2017-04-20';
+        $datetest = '2017-12-15';
         $data = DB::table('savingtransactionsetups')
             ->select('*')
             ->where('SamityName', $request->SamityId)
