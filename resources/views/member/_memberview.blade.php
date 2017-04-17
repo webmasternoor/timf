@@ -1565,7 +1565,7 @@
                             <th>আদায়</th>
                         </tr>
                         </thead>
-<?php $i=1; ?>
+                        <?php $i=1; ?>
                         @if(!empty($AccountInfo))
                             @foreach($AccountInfo as $AccountInfo_data)
                                 <tr>
@@ -1578,17 +1578,16 @@
                                         {{$AccountInfo_data->accountsname}}
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-lg" id="pashbook{{$i}}" data-toggle="modal"
+                                        <button type="button" class="btn btn-info btn-lg" onclick="getSchedule('{{$AccountInfo_data->accountsname}}')" data-toggle="modal"
                                                 data-target="#myModal">পাশ বই
                                         </button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-                                                data-target="#myModalCollection">আদায়
+                                        <button type="button" class="btn btn-info btn-lg" onclick="getSaving('{{$AccountInfo_data->accountsname}}')" data-toggle="modal" data-target="#myModalCollection">আদায়
                                         </button>
                                     </td>
                                 </tr>
-                            <input type="hidden" id="passbookdata{{$i}}" value="{{$AccountInfo_data->accountsname}}">
+                                {{--<input type="hidden" id="passbookdata{{$i}}" value="{{$AccountInfo_data->accountsname}}">--}}
                                 {{--<div class="col-md-4">--}}
                                 {{--<h5>মুদারাবা মাসিক সাধারন সঞ্চয়</h5>--}}
                                 {{--<div class="col-md-6">--}}
@@ -1618,7 +1617,6 @@
                                 <?php $i++; ?>
                             @endforeach
                         @endif
-
                     </table>
                 {{--<button type="button" class="btn btn-info btn-lg" data-toggle="modal"--}}
                 {{--data-target="#myModal1">মুদারাবা বিশেষ সঞ্চয়--}}
@@ -1647,29 +1645,26 @@
                                     <thead>
                                     <tr>
                                         <th rowspan="2">Date</th>
-                                        <th colspan="3">Mudaraba General Saving</th>
-                                        <th colspan="3">Mudaraba Special Saving</th>
+                                        <th colspan="4" style="text-align: center"><h5>Mudaraba General Saving</h5></th>
                                     </tr>
                                     <tr>
-                                        <td>Schedule</td>
-                                        <td>Withdraw</td>
-                                        <td>Balance</td>
-                                        <td>Collection</td>
-                                        <td>Withdraw</td>
-                                        <td>Balance</td>
+                                        <th>Amount</th>
+                                        <th>Collection</th>
+                                        <th>Withdraw</th>
+                                        <th>Balance</th>
                                     </tr>
                                     </thead>
                                     {{--@foreach($savingSchedule_data as $data1)--}}
-                                        {{--<tr>--}}
-                                            {{--<td>{{$i}}</td>--}}
-                                            {{--<td>{{$data1->Date}}</td>--}}
-                                            {{--<td>{{$data1->Amount}}</td>--}}
-                                            {{--<td></td>--}}
-                                            {{--<td></td>--}}
-                                            {{--<td></td>--}}
-                                            {{--<td></td>--}}
-                                            {{--<td></td>--}}
-                                        {{--</tr>--}}
+                                    {{--<tr>--}}
+                                    {{--<td>{{$i}}</td>--}}
+                                    {{--<td>{{$data1->Date}}</td>--}}
+                                    {{--<td>{{$data1->Amount}}</td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--</tr>--}}
                                     {{--@endforeach--}}
                                     <tbody id="p_scents" class="p_scents">
 
@@ -1695,114 +1690,36 @@
                                 <h4 class="modal-title">মুদারাবা সাধারন সঞ্চয়</h4>
                             </div>
                             <div class="modal-body">
-                                <h1>মুদারাবা সাধারন সঞ্চয়</h1>
-                                <h4>Savings Statement</h4>
-                                @if(!empty($SavingsData))
-                                    <table class="table table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>Date:</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach( $SavingsData as $SavingsData_info)
-                                            <tr>
-                                                <td>{{$SavingsData_info->EntryDate}}</td>
-                                                <td>{{$SavingsData_info->SavingAmount}}</td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                @endif                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="modal fade" id="myModal1" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">মুদারাবা বিশেষ সঞ্চয়</h4>
-                            </div>
-
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th rowspan="2">Date</th>
-                                    <th colspan="3">Mudaraba General Saving</th>
-                                    <th colspan="3">Mudaraba Special Saving</th>
-                                </tr>
-                                <tr>
-                                    <td>Collection</td>
-                                    <td>Withdraw</td>
-                                    <td>Balance</td>
-                                    <td>Collection</td>
-                                    <td>Withdraw</td>
-                                    <td>Balance</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($savingSchedule_data1 as $data1)
+                                <table class="table table-bordered table-striped">
+                                    <thead>
                                     <tr>
-                                        <td>{{$data1->Date}}</td>
-                                        <td>{{$data1->Amount}}</td>
+                                        <th rowspan="2">Date</th>
+                                        <th colspan="4" style="text-align: center"><h5>Mudaraba General Saving</h5></th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="modal fade" id="myModal1Collection" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">মুদারাবা বিশেষ সঞ্চয়</h4>
-                            </div>
-
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th rowspan="2">Date</th>
-                                    <th colspan="3">Mudaraba General Saving</th>
-                                    <th colspan="3">Mudaraba Special Saving</th>
-                                </tr>
-                                <tr>
-                                    <td>Collection</td>
-                                    <td>Withdraw</td>
-                                    <td>Balance</td>
-                                    <td>Collection</td>
-                                    <td>Withdraw</td>
-                                    <td>Balance</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($savingSchedule_data1 as $data1)
                                     <tr>
-                                        <td>{{$data1->Date}}</td>
-                                        <td>{{$data1->Amount}}</td>
+                                        <th>Amount</th>
+                                        <th>Collection</th>
+                                        <th>Withdraw</th>
+                                        <th>Balance</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    {{--@foreach($savingSchedule_data as $data1)--}}
+                                    {{--<tr>--}}
+                                    {{--<td>{{$i}}</td>--}}
+                                    {{--<td>{{$data1->Date}}</td>--}}
+                                    {{--<td>{{$data1->Amount}}</td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--<td></td>--}}
+                                    {{--</tr>--}}
+                                    {{--@endforeach--}}
+                                    <tbody id="p_scents1" class="p_scents1">
+
+                                    </tbody>
+                                </table>
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close
                                 </button>
@@ -1842,6 +1759,41 @@
     </div>
 </div>
 <script>
+    function getSchedule(account) {
+        $('#p_scents').empty();
+        $.ajax({
+            type: 'get',
+            url: 'getPassbook',
+            data: {'id': account},
+            success: function (data) {
+//                    console.log(data);
+                $.each(data, function (index, subcatObj3p) {
+                    $('#p_scents').append('<tr><td>'+subcatObj3p.Date+'</td> <td>'+subcatObj3p.Amount+' </td> <td></td> <td></td> <td></td></tr>');
+                });
+            },
+            error: function () {
+            }
+        });
+        $.ajax(clear);
+    }
+
+    function getSaving(account) {
+        $('#p_scents1').empty();
+        $.ajax({
+            type: 'get',
+            url: 'getSaving',
+            data: {'id': account},
+            success: function (data) {
+//                    console.log(data);
+                $.each(data, function (index, subcatObj3p) {
+                    $('#p_scents1').append('<tr><td>'+subcatObj3p.EntryDate+'</td> <td>'+subcatObj3p.SavingAmount+' </td> <td>'+subcatObj3p.Balance+'</td> <td></td> <td></td></tr>');
+                });
+            },
+            error: function () {
+            }
+        });
+        $.ajax(clear);
+    }
     $("#frm").submit(function (event) {
         event.preventDefault();
         $('.loading').show();

@@ -193,8 +193,9 @@ class SelectBoxController extends Controller
 //        echo $request->SamityId;
 //        echo "<br>";
 //        echo $request->ProductId;
-        $datetest = new Carbon('today');
-        $datetest = $datetest->addMonths(1);
+//        $datetest = new Carbon('today');
+//        $datetest = $datetest->addMonths(1);
+        $datetest = '2017-05-16';
         $data = DB::table('savingtransactionsetups')
             ->select('*')
             ->where('SamityName', $request->SamityId)
@@ -213,7 +214,15 @@ class SelectBoxController extends Controller
         $data = Savingtransactionsetup:: select('*')
             ->where('AccountNo', $request->id)
             ->get();
+        return response()->json($data);
+    }
 
+    public function getSaving(Request $request)
+    {
+
+        $data = Saving1:: select('*')
+            ->where('AccountNo', $request->id)
+            ->get();
         return response()->json($data);
     }
 

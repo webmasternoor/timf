@@ -101,6 +101,8 @@ Route::get('getSchedule','SelectBoxController@getSchedule');
 
 Route::get('getPassbook','SelectBoxController@getPassbook');
 
+Route::get('getSaving','SelectBoxController@getSaving');
+
 Route::get('pdfTest','SelectBoxController@pdfTest');
 
 Route::get('pdfTest1','SelectBoxController@pdfTest1');
