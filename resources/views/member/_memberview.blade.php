@@ -1631,7 +1631,7 @@
                     {{--href="javascript:ajaxLoad('member/SavingSchedulePdf1/{{$MemberData->MemberId}}')">View</a>--}}
                 </div>
 
-                <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade modalclass" id="myModal" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
@@ -1680,7 +1680,7 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="myModalCollection" role="dialog">
+                <div class="modal fade modalclass" id="myModalCollection" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
