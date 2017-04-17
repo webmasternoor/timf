@@ -24,7 +24,7 @@ class UnionController extends Controller
         Session::put('union_field', Input::has('field') ? Input::get('field') : (Session::has('union_field') ? Session::get('union_field') : 'UnionName'));
         Session::put('union_sort', Input::has('sort') ? Input::get('sort') : (Session::has('union_sort') ? Session::get('union_sort') : 'asc'));
         $unions = Union::where('UnionName', 'like', '%' . Session::get('union_search') . '%')
-            ->orderBy(Session::get('union_field'), Session::get('union_sort'))->paginate(100);
+            ->orderBy(Session::get('union_field'), Session::get('union_sort'))->paginate(10);
 //        $thana_data=DB::table('unions')
 //            ->join('thanas', 'unions.ThanaId', '=', 'thanas.id')
 //            ->select('*')
@@ -35,7 +35,7 @@ class UnionController extends Controller
             ->join('thanas', 'unions.ThanaId', '=', 'thanas.id')
             ->join('divisions', 'unions.DivisionId', '=', 'divisions.id')
             ->where('UnionName', 'like', '%' . Session::get('union_search') . '%')
-            ->orderBy(Session::get('union_field'), Session::get('union_sort'))->paginate(100);
+            ->orderBy(Session::get('union_field'), Session::get('union_sort'))->paginate(10);
         return view('union.list', ['unions' => $unions], ['UnionInfo' => $UnionInfo]);
     }
 
@@ -79,7 +79,7 @@ class UnionController extends Controller
     public function postCreate()
     {
         $validator = Validator::make(Input::all(), [
-            "UnionName" => "required|unique:unions",
+
             "ThanaId" => "required"
         ]);
         if ($validator->fails()) {

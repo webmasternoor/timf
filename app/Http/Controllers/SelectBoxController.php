@@ -11,6 +11,7 @@ use App\Member;
 use App\Product;
 use App\Saving1;
 use App\Savingtransactionsetup;
+use App\Thana;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -53,8 +54,7 @@ class SelectBoxController extends Controller
 
     public function getThana(Request $request)
     {
-        $data = DB::table('thanas')
-            ->select('*')
+        $data = Thana::select('*')
             ->where('DistrictId', $request->id)
             ->get();
         return response()->json($data);
