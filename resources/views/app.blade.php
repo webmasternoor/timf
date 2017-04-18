@@ -20,18 +20,26 @@
     <link href="{{ asset('/jqueryui/jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/jqueryui/jquery-ui.theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/datatables.bootstrap.css') }}" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,800' rel='stylesheet'
+    <link href="{{ asset('/css/css1.css') }}" rel='stylesheet'
           type='text/css'>
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'
+    <link href=href="{{ asset('/css/font-awesome.min.css') }}" rel='stylesheet'
           type='text/css'>
     <link rel="stylesheet" href="{{ asset('highlight/styles/zenburn.css') }}">
     <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"> -->
     <link href="{{ asset('/css/bootstrap-combined.min.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{{ asset('/css/1.12.1.jquery-ui.css') }}">
     <!-- <link rel="stylesheet" href="//resources/demos/style.css"> -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="{{ asset('/css/jquery-ui.css') }}">
+
+    <script src="{{ asset('js/amcharts.js') }}"></script>
+    <script src="{{ asset('js/pie.js') }}"></script>
+    <script src="{{ asset('js/export.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('/css/export.css') }}" type="text/css" media="all" />
+    <script src="{{ asset('js/light.js') }}"></script>
+
+
+    <script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
     <script
             src="{{ asset('js/jquery1.12.1-ui.js') }}"
             integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
@@ -198,7 +206,7 @@
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/datatables.bootstrap.js') }}"></script>
 <script src="{{ asset('js/handlebars.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.0.0/jquery.mark.min.js"></script>
+<script src="{{ asset('js/jquery.mark.min.js') }}"></script>
 <script>
     $(function () {
         var $input = $("input[name='keyword']"), $context = $(".keyword");

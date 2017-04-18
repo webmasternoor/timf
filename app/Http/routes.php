@@ -113,6 +113,8 @@ Route::get('functiontesting','SelectBoxController@functiontesting');
 
 Route::get('dateinsert','SelectBoxController@dateinsert');
 
+Route::get('getPie_Chart_Data','SelectBoxController@getPie_Chart_Data');
+
 Route::get('getList','UserstimfController@getList');
 
 //Route::get('autocomplete','SelectBoxController@autocomplete');

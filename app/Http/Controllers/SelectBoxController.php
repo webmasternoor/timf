@@ -145,6 +145,16 @@ class SelectBoxController extends Controller
         return response()->json($data);
     }
 
+    public function getPie_Chart_Data()
+    {
+        $datanum = Member::select('*')
+            ->where('grouppresident', 1)
+            ->get();
+//        $data  = $datanum->count();
+        $data  =200;
+        return response()->json($data);
+    }
+
     public function dateinsert()
     {
         $date2 = new Carbon('first friday of july 2016');

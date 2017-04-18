@@ -1029,9 +1029,7 @@
                 url: 'DateCalculate',
                 data: {'id': age},
                 success: function (data) {
-
                         document.getElementById('Age1').value = data;
-
                 },
                 error: function () {
 
