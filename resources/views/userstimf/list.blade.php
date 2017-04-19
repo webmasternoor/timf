@@ -99,7 +99,7 @@
                 </i>
             </th>
 
-            {{--<th width="140px">অ্যাকশন সমূহ</th>--}}
+            <th width="140px">অ্যাকশন সমূহ</th>
         </tr>
         </thead>
         <tbody>
@@ -121,15 +121,15 @@
                 <td>{{$userstimf->phone1}}</td>
                 <td>{{$userstimf->email}}</td>
 
-                {{--<td style="text-align: center">--}}
-                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
-                {{--href="javascript:ajaxLoad('userstimf/update/{{$userstimf->id}}')">--}}
-                {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                <td style="text-align: center">
+                <a class="btn btn-primary btn-xs" title="Edit"
+                href="javascript:ajaxLoad('userstimf/update/{{$userstimf->id}}')">
+                <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
                 {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
                 {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('userstimf/delete/{{$userstimf->id}}')">--}}
                 {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-                {{--</td>--}}
+                </td>
             </tr>
         @endforeach
         </tbody>
