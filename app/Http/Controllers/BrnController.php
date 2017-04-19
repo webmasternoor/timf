@@ -27,9 +27,11 @@ class BrnController extends Controller
     public function getList()
     {
         Session::put('brn_search', Input::has('ok') ? Input::get('search') : (Session::has('brn_search') ? Session::get('brn_search') : ''));
-        Session::put('brn_field', Input::has('field') ? Input::get('field') : (Session::has('brn_field') ? Session::get('brn_field') : 'BranchName'));
+        Session::put('brn_field', Input::has('field') ? Input::get('field') : (Session::has('brn_field') ? Session::get('brn_field') : 'id'));
         Session::put('brn_sort', Input::has('sort') ? Input::get('sort') : (Session::has('brn_sort') ? Session::get('brn_sort') : 'asc'));
-        $brns = Brn::where('BranchName', 'like', '%' . Session::get('brn_search') . '%')
+        $brns = Brn::select('*')
+            ->join('areas','brns.AreaId', '=', 'areas.id')
+        ->where('BranchName', 'like', '%' . Session::get('brn_search') . '%')
             ->orderBy(Session::get('brn_field'), Session::get('brn_sort'))->paginate(8);
 //        $result = User
 //            ::join('contacts', 'users.id', '=', 'contacts.user_id')

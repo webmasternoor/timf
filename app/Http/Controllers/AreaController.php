@@ -27,23 +27,11 @@ class AreaController extends Controller
         Session::put('area_search', Input::has('ok') ? Input::get('search') : (Session::has('area_search') ? Session::get('area_search') : ''));
         Session::put('area_field', Input::has('field') ? Input::get('field') : (Session::has('area_field') ? Session::get('area_field') : 'AreaName'));
         Session::put('area_sort', Input::has('sort') ? Input::get('sort') : (Session::has('area_sort') ? Session::get('area_sort') : 'asc'));
-        $areas = Area::where('AreaName', 'like', '%' . Session::get('area_search') . '%')
-            ->orderBy(Session::get('area_field'), Session::get('area_sort'))->paginate(8);
-        $DistrictInfo = Area::select('*')
+        $areas = Area::select('*')
             -> join('zones', 'areas.ZoneId', '=','zones.id')
             ->where('AreaName', 'like', '%' . Session::get('area_search') . '%')
-            ->orderBy(Session::get('area_field'), Session::get('area_sort'))
-//            ->select('*')
-            ->paginate(8);
-//        $users = User::select('users.id ','users.name ','angular_models.id  as angular_id','angular_models.email')
-//            ->join('angular_models','users.id ', '=', 'angular_models.user_id')
-//            ->get();
-//        $zone_data=DB::table('areas')
-//            ->join('zones', 'areas.ZoneId', '=', 'zones.id')
-////            ->select('*')
-//            ->paginate(8);
-//return $DistrictInfo;
-        return view('area.list', ['areas' => $areas],['DistrictInfo' => $DistrictInfo]);
+            ->orderBy(Session::get('area_field'), Session::get('area_sort'))->paginate(8);
+        return view('area.list', ['areas' => $areas]);
         //return view('area.list')->with('areas', $areas)->with('zone_data',$zone_data);
     }
 
@@ -123,7 +111,7 @@ class AreaController extends Controller
 //            ->select('*')
 //            ->get();
         //print_r($areas1);
-       //
+        //
         //var_dump($areas1);
         $DivisionOfficeInfo = [''=>'--select--'] + Mikrofdivision::lists('DivisionOfficeName', 'id')->all();
         $Zone_info = [''=>'--select--'] + Zone::lists('ZoneName', 'id')->all();
@@ -146,12 +134,12 @@ class AreaController extends Controller
 //            ->get();
 //        $Zone_info = DB::table('zones');
         //$Zone_info = Zone::all(['id', 'ZoneName']);
-       // $Zone_info = Zone::lists('ZoneName', 'id');
+        // $Zone_info = Zone::lists('ZoneName', 'id');
         //$data = Zone::all();
 //        var_dump($data);
 //        die();
         //$Zone_info = ['Dhaka','Rajshahi','Bogra'];
-       // return view('area.create',compact('Zone_info',$Zone_info));
+        // return view('area.create',compact('Zone_info',$Zone_info));
     }
     public function postCreate()
     {
@@ -185,13 +173,13 @@ class AreaController extends Controller
 
     public function getData(Request $request)
     {
-              $input = $request->all();
-var_dump($input);
-              return $input;
+        $input = $request->all();
+        var_dump($input);
+        return $input;
 //        $area= Input::get('search1');
 //     echo $area;
-       // echo $id;
-     //die();
+        // echo $id;
+        //die();
 
         //return ['url' => 'area/list'];
     }

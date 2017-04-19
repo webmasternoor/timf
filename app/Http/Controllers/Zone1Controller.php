@@ -26,7 +26,7 @@ class Zone1Controller extends Controller
         Session::put('zone1_search', Input::has('ok') ? Input::get('search') : (Session::has('zone1_search') ? Session::get('zone1_search') : ''));
         Session::put('zone1_field', Input::has('field') ? Input::get('field') : (Session::has('zone1_field') ? Session::get('zone1_field') : 'id'));
         Session::put('zone1_sort', Input::has('sort') ? Input::get('sort') : (Session::has('zone1_sort') ? Session::get('zone1_sort') : 'asc'));
-        $zone1s = Zone1::where('id', 'like', '%' . Session::get('zone1_search') . '%')
+        $zone1s = Zone1::where('SomitiName', 'like', '%' . Session::get('zone1_search') . '%')
             ->orderBy(Session::get('zone1_field'), Session::get('zone1_sort'))->paginate(8);
         return view('zone1.list', ['zone1s' => $zone1s]);
     }

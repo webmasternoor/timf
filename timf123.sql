@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `accountstables` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.accountstables: ~8 rows (approximately)
+-- Dumping data for table timf.accountstables: ~9 rows (approximately)
 DELETE FROM `accountstables`;
 /*!40000 ALTER TABLE `accountstables` DISABLE KEYS */;
 INSERT INTO `accountstables` (`id`, `memberid`, `accountsname`, `productid`, `created_at`, `updated_at`) VALUES
@@ -269,13 +269,19 @@ CREATE TABLE IF NOT EXISTS `areas` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.areas: ~0 rows (approximately)
+-- Dumping data for table timf.areas: ~7 rows (approximately)
 DELETE FROM `areas`;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
 INSERT INTO `areas` (`id`, `name`, `AreaName`, `AreaCode`, `AreaAddress`, `AreaMobileNo`, `AreaEmail`, `ZoneId`, `AreaDistrictId`, `AreaDivisionOfficeId`, `AreaUnionId`, `AreaDivisionId`, `AreaWardId`, `AreaPostOfficeId`, `AreaThanaId`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 'Bogra', '3001', 'Bogra', '01738349723', 'rockeycse@gmail.com', 1, 18, 1, NULL, 5, 1, 1, 330, '2017-04-15 06:06:24', '2017-04-15 06:06:24');
+	(1, NULL, 'কেন্দ্রীয় অঞ্চল', '3001', 'TIMF, টিসিবি-১, ৩য় তলা,টিএমএসএস ফাউন্ডেশন অফিস, ঠেঙ্গামারা, বগুড়া। ', '', '', 1, 18, 1, 0, 5, 1, 1, 330, '2017-04-15 06:06:24', '2017-04-19 04:34:28'),
+	(2, NULL, 'ফুলতলা অঞ্চল', '3002', '', '', '', 1, 18, 1, 0, 5, 0, 0, 0, '2017-04-19 04:36:20', '2017-04-19 04:36:20'),
+	(3, NULL, 'শাজাহানপুর অঞ্চল', '3003', '', '', '', 1, 0, 1, 0, 0, 0, 0, 0, '2017-04-19 04:37:20', '2017-04-19 04:37:20'),
+	(4, NULL, 'জয়পুরহাট অঞ্চল', '3004', '', '', '', 2, 0, 1, 0, 0, 0, 0, 0, '2017-04-19 04:38:39', '2017-04-19 04:38:39'),
+	(5, NULL, 'বদলগাছি অঞ্চল', '3005', '', '', '', 2, 0, 1, 0, 0, 0, 0, 0, '2017-04-19 04:39:38', '2017-04-19 04:39:38'),
+	(6, NULL, 'দিনাজপুর অঞ্চল', '3006', '', '', '', 2, 0, 1, 0, 0, 0, 0, 0, '2017-04-19 04:40:32', '2017-04-19 04:40:32'),
+	(7, NULL, 'বেড়া অঞ্চল', '3007', '', '', '', 2, 0, 1, 0, 0, 0, 0, 0, '2017-04-19 04:41:24', '2017-04-19 04:41:24');
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 
 -- Dumping structure for table timf.areas_feb_1
@@ -366,6 +372,7 @@ CREATE TABLE IF NOT EXISTS `brns` (
   `AreaId` int(11) DEFAULT NULL,
   `BranchName` varchar(500) DEFAULT NULL,
   `BranchCode` varchar(500) DEFAULT NULL,
+  `OpeningDate` date DEFAULT NULL,
   `BranchAddress` varchar(500) DEFAULT NULL,
   `BranchMobileNo` varchar(500) DEFAULT NULL,
   `BranchEmail` varchar(500) DEFAULT NULL,
@@ -378,15 +385,44 @@ CREATE TABLE IF NOT EXISTS `brns` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.brns: ~2 rows (approximately)
+-- Dumping data for table timf.brns: ~32 rows (approximately)
 DELETE FROM `brns`;
 /*!40000 ALTER TABLE `brns` DISABLE KEYS */;
-INSERT INTO `brns` (`id`, `name`, `ZoneId`, `DivisionOfficeId`, `AreaId`, `BranchName`, `BranchCode`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `BranchDivisionId`, `BranchUnionId`, `BranchWardId`, `BranchPostOfficeId`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 1, 1, 1, 'Central', '4001', 'Bogra,FO', '01738349723', 'rockeycse@gmail.com', 330, 18, 5, NULL, 1, 0, '2017-04-15 06:08:00', '2017-04-15 06:08:00'),
-	(2, NULL, 1, 1, 1, 'Gokul', '4002', 'Gokul, Bogra', '01738349723', 'rockeycse@gmail.com', 330, 18, 5, NULL, 2, 0, '2017-04-15 06:09:12', '2017-04-15 06:09:12'),
-	(3, NULL, 1, 1, 1, 'Thengamara', '4003', 'Thengamara', '01738349723', 'rockeycse@gmail.com', 330, 18, 5, NULL, 1, 0, '2017-04-15 06:10:04', '2017-04-15 06:10:04');
+INSERT INTO `brns` (`id`, `name`, `ZoneId`, `DivisionOfficeId`, `AreaId`, `BranchName`, `BranchCode`, `OpeningDate`, `BranchAddress`, `BranchMobileNo`, `BranchEmail`, `BranchThanaId`, `BranchDistrictId`, `BranchDivisionId`, `BranchUnionId`, `BranchWardId`, `BranchPostOfficeId`, `created_at`, `updated_at`) VALUES
+	(1, NULL, 1, 1, 1, 'কেন্দ্রীয় শাখা', '4001', '2006-01-01', 'টিসিবি-১, ৫ম তলা, টিএমএসএস ফাউন্ডেশন অফিস, ঠেঙ্গামারা, বগুড়া', '', '', 330, 18, 5, 0, 1, 0, '2017-04-15 06:08:00', '2017-04-19 04:58:56'),
+	(2, NULL, 1, 1, 1, 'পিরব', '4002', '2009-07-01', 'পিরব বাজার, শিবগঞ্জ, বগুড়া', '', '', 330, 18, 5, 0, 2, 0, '2017-04-15 06:09:12', '2017-04-19 05:20:54'),
+	(3, NULL, 1, 1, 1, 'মোকামতলা', '4003', '2013-07-02', 'মোকামতলা, সোনাতলা রোড,  শিবগঞ্জ, বগুড়া', '', '', 330, 18, 5, 0, 1, 0, '2017-04-15 06:10:04', '2017-04-19 04:51:10'),
+	(4, NULL, 1, 1, 1, 'বগুড়া শহর', '4004', '2013-08-07', 'টিএমএসএস ভবন, বাদুরতলা, বগুড়া', '', '', 0, 0, 0, 0, 0, 0, NULL, '2017-04-19 05:10:00'),
+	(5, NULL, 1, 1, 2, 'হাটফুলবাডী', '4005', '2008-01-07', 'হাটফুলবাডী, সারিয়াকান্দি রোড, সারিয়াকান্দি, বগুড়া', '', '', 0, 0, 0, 0, 0, 0, NULL, '2017-04-19 05:12:35'),
+	(6, NULL, 1, 1, 2, 'ফুলতলা', '4006', '2010-01-10', 'ফুলতলা, শান্তিনগর, শাজাহানপুর, বগুড়া', '', '', 0, 0, 0, 0, 0, 0, NULL, '2017-04-19 05:12:09'),
+	(7, NULL, 1, 1, 2, 'নারুলী', '4007', '2012-01-08', 'সাবগ্রাম, বগুড়া সদর, বগুড়া', '', '', 0, 0, 0, 0, 0, 0, NULL, '2017-04-19 05:13:17'),
+	(8, NULL, 1, 1, 2, 'দুপচাচিয়া', '4008', '2012-01-10', 'দুপচাচিয়া, কলেজ রোড, দুপচাচিয়া, বগুড়া', '', '', 0, 0, 0, 0, 0, 0, NULL, '2017-04-19 05:14:18'),
+	(9, NULL, 1, 1, 2, 'সান্তাহার', '4009', '2014-09-08', 'শান্তাহার, আদমদিঘি, বগুড়া', '', '', 0, 0, 0, 0, 0, 0, NULL, '2017-04-19 05:14:47'),
+	(10, NULL, 1, 1, 3, 'শাজাহানপুর শাখা', '4010', '2011-07-26', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 05:16:50', '2017-04-19 06:28:10'),
+	(11, NULL, 1, 1, 3, 'কাহালু', '4011', '2012-05-08', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 05:22:19', '2017-04-19 05:28:31'),
+	(12, NULL, 1, 1, 3, 'শেরপুর শাখা', '4012', '2014-09-08', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 05:51:18', '2017-04-19 05:51:18'),
+	(13, NULL, 1, 1, 3, 'নন্দীগ্রাম শাখা', '4013', '2015-12-08', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 05:52:49', '2017-04-19 05:52:49'),
+	(14, NULL, 2, 1, 4, 'জয়পুরহাট শাখা', '4014', '2013-06-07', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 05:54:46', '2017-04-19 05:54:46'),
+	(15, NULL, 2, 1, 4, 'কালাই শাখা', '4015', '2014-12-03', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:17:23', '2017-04-19 06:17:23'),
+	(16, NULL, 2, 1, 4, 'পাঁচবিবি শাখা', '4016', '2014-12-03', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:18:40', '2017-04-19 06:18:40'),
+	(17, NULL, 2, 1, 4, 'হাকিমপুর শাখা', '4017', '2014-09-08', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:20:09', '2017-04-19 06:20:09'),
+	(18, NULL, 2, 1, 4, 'রানীগঞ্জ শাখা', '4018', '2016-03-23', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:22:16', '2017-04-19 06:22:16'),
+	(19, NULL, 2, 1, 5, 'ধামইরহাট শাখা', '4019', '2015-01-15', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:30:37', '2017-04-19 06:30:37'),
+	(20, NULL, 2, 1, 5, 'আক্কেল্পুর শাখা', '4020', '2015-08-13', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:31:57', '2017-04-19 06:31:57'),
+	(21, NULL, 2, 1, 5, 'বদলগাছি', '2021', '2016-03-23', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:33:18', '2017-04-19 06:33:18'),
+	(22, NULL, 2, 1, 5, 'নজিরপুর শাখা', '4022', '2016-06-01', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:34:36', '2017-04-19 06:34:36'),
+	(23, NULL, 2, 1, 5, 'মহাদেবপুর শাখা', '4023', '2016-12-08', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:35:49', '2017-04-19 06:35:49'),
+	(24, NULL, 2, 1, 6, 'বিরামপুর শাখা', '4024', '2015-08-11', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:37:24', '2017-04-19 06:37:24'),
+	(25, NULL, 2, 1, 6, 'দিনাজপুর শাখা', '4025', '2016-06-01', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:38:24', '2017-04-19 06:38:24'),
+	(26, NULL, 2, 1, 6, 'চিরিরবন্দর শাখা', '4026', '2016-12-04', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:40:58', '2017-04-19 06:40:58'),
+	(27, NULL, 2, 1, 6, 'রানীরবন্দর শাখা', '4027', '2016-12-08', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:42:07', '2017-04-19 06:42:07'),
+	(28, NULL, 2, 1, 6, 'বাঁশেরহাট শাখা', '4028', '2016-12-04', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:43:59', '2017-04-19 06:43:59'),
+	(29, NULL, 2, 1, 7, 'উল্লাপাড়া শাখা', '4029', '2016-09-18', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:45:14', '2017-04-19 06:45:40'),
+	(30, NULL, 2, 1, 7, 'শাহজাদপুর শাখা', '4030', '2017-09-18', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:49:26', '2017-04-19 06:49:26'),
+	(31, NULL, 2, 1, 7, 'বেড়া শাখা', '2031', '2018-09-18', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:51:24', '2017-04-19 06:51:24'),
+	(32, NULL, 2, 1, 7, 'কাশিনাথপুর শাখা', '4032', '2019-09-18', '', '', '', 0, 0, 0, 0, 0, 0, '2017-04-19 06:53:41', '2017-04-19 06:53:41');
 /*!40000 ALTER TABLE `brns` ENABLE KEYS */;
 
 -- Dumping structure for table timf.brns_feb_1
@@ -994,7 +1030,7 @@ CREATE TABLE IF NOT EXISTS `days` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.days: ~6 rows (approximately)
+-- Dumping data for table timf.days: ~7 rows (approximately)
 DELETE FROM `days`;
 /*!40000 ALTER TABLE `days` DISABLE KEYS */;
 INSERT INTO `days` (`id`, `Day_Name`, `Day_Name_English`, `created_at`, `updated_at`) VALUES
@@ -1230,7 +1266,7 @@ CREATE TABLE IF NOT EXISTS `frequencies` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.frequencies: ~3 rows (approximately)
+-- Dumping data for table timf.frequencies: ~2 rows (approximately)
 DELETE FROM `frequencies`;
 /*!40000 ALTER TABLE `frequencies` DISABLE KEYS */;
 INSERT INTO `frequencies` (`id`, `frequency`, `created_at`, `updated_at`) VALUES
@@ -1860,7 +1896,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.members: ~2 rows (approximately)
+-- Dumping data for table timf.members: ~3 rows (approximately)
 DELETE FROM `members`;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
 INSERT INTO `members` (`id`, `grouppresident`, `fieldofficer`, `supervisor`, `manager`, `finalapproved`, `remarks`, `DivisionOfficeId`, `ZoneId`, `AreaId`, `BranchId`, `name`, `MemberImage`, `FatherImage`, `MotherImage`, `Nid`, `FullNameEnglish`, `FullNameBangla`, `Gender`, `Age`, `DateofBirth`, `Education`, `SpouseProfession`, `SpouseMobileNo`, `MaritalStatus`, `Mobile`, `Email`, `PoliticalStatus`, `Distance`, `WifeFullNameEnglish`, `WifeFullNameBangla`, `WifeAge`, `WifeMobileNo`, `NomineeImage`, `WifeProfession`, `WifeOtherProfession`, `FatherOrHasbandFullNameEnglish`, `FatherOrHasbandFullNameBangla`, `FatherOrHasbandAge`, `FatherProfession`, `FatherMobileNo`, `MotherFUllNameEnglish`, `MotherFUllNameBangla`, `MotherAge`, `MotherProfession`, `MotherMobileNo`, `PresentCountry`, `PresentDivision`, `PresentDistrict`, `PresentThana`, `PresentUnion`, `PresentPostOffice`, `PresentWord`, `PresentVillage`, `PresentRoadNo`, `PermanentCountry`, `PermanentDivision`, `PermanentDistrict`, `PermanentThana`, `PermanentUnion`, `PermanentPostOffice`, `PermanentWord`, `PermanentVillage`, `PermanentRoadNo`, `CurrentProfession`, `PreviousProfession`, `DurationOfPreviousProfession`, `EarningAssetsByBusinessOrJob`, `EarningSourceWithoutBusiness`, `BusinessType1`, `BusinessFuturePlan`, `FamilyMember`, `EarningMale`, `EarningFemale`, `EarningPerson`, `MaleMember`, `FemaleMember`, `SickDescriptionOfFamilyMember`, `CaseDescriptionOfFamilyMember`, `IfAnyMemberInAbroad`, `FamilyType`, `CultiviableLand`, `NonCultivableLand`, `Pond`, `House`, `TotalLand`, `TinMadeHouse`, `StrawMadeHouse`, `BrickMadeHouse`, `AgriculturalEarning`, `NonAgriculturalEarning`, `TotalEarning`, `TotalExpenditure`, `NetBalance`, `ReceivedAmount`, `PaidAmount`, `RemainingAmountToPay`, `FinancierCompany`, `LoaningYear`, `LastReceivedDate`, `RepaymentType`, `IsHeSheWillingToTakeLoan`, `InvestmentSector`, `Amount`, `Comment1`, `Comment2`, `FatherNid`, `MotherNid`, `AccommodationLength`, `BusinessName`, `BusinessNature`, `BusinessExperience`, `BusinessCenterAddress`, `BusinessStartDate`, `Accommodation`, `AccommodationWidth`, `BusinessPlaceStatus`, `Direction`, `TradeLicenceNo`, `LicenceIssuingAuthority`, `InvestedCapital`, `MonthlyAvarageSale`, `BankContribution`, `NgoContribution`, `SelfContribution`, `BorrowMoney`, `MonthlyEarningFromBusiness`, `MonthlyExpenditureFromBusiness`, `SurplusMoney`, `IncomeFromOthersSources`, `OtherSources`, `MonthlyExpenditureFromOtherSources`, `MonthlySurplus`, `MonthlyTotalSurplus`, `BusinessType`, `OwnershipType`, `FirstHalfStart`, `FirstHalfEnd`, `SecondHalfStart`, `SecondHalfEnd`, `TotalTime`, `OrgOPeningTime`, `OrgClosingTime`, `ClosingIntervalStart`, `ClosingIntervalClose`, `WeekEnd`, `OrgPermanentEmployee`, `LoanAccount`, `SavingAccount`, `MemberId`, `SavingPolicy`, `SavingTypes`, `MemberType`, `SamityName`, `created_at`, `updated_at`) VALUES
@@ -2253,7 +2289,7 @@ CREATE TABLE IF NOT EXISTS `mikrofdivisions` (
 DELETE FROM `mikrofdivisions`;
 /*!40000 ALTER TABLE `mikrofdivisions` DISABLE KEYS */;
 INSERT INTO `mikrofdivisions` (`id`, `DivisionOfficeName`, `DivisionOfficeNameBangla`, `DivisionOfficeCode`, `DivisionOfficeAddress`, `DivisionOfficeMobileNo`, `DivisionOfficeEmail`, `DivisionOfficeDivisionId`, `DivisionOfficeDistrictId`, `DivisionOfficeThanaId`, `DivisionOfficeUnionId`, `DivisionOfficeWardId`, `DivisionOfficeRoadNo`, `DivisionOfficePostOfficeId`, `created_at`, `updated_at`) VALUES
-	(1, 'Bogra', 'বগুড়া', '1001', 'Bogra', '০১১৪২২৪২২৪', 'rockeycse@gmail.com', '5', '18', '330', NULL, '1', '2', 'Bogra', '2017-04-15 06:02:27', '2017-04-15 06:02:27');
+	(1, 'Bogra Division', 'বগুড়া বিভাীয় অফিস', '1001', 'TIMF, টিসিবি-১, ৩য় তলা,টিএমএসএস ফাউন্ডেশন অফিস, ঠেঙ্গামারা, বগুড়া। ', '', '', '5', '18', '330', '1', '1', '2', 'Bogra', '2017-04-15 06:02:27', '2017-04-19 04:29:00');
 /*!40000 ALTER TABLE `mikrofdivisions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.nametitles
@@ -3266,7 +3302,7 @@ CREATE TABLE IF NOT EXISTS `saving1s` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.saving1s: ~0 rows (approximately)
+-- Dumping data for table timf.saving1s: ~6 rows (approximately)
 DELETE FROM `saving1s`;
 /*!40000 ALTER TABLE `saving1s` DISABLE KEYS */;
 INSERT INTO `saving1s` (`id`, `MemberId`, `ProductId`, `Remarks`, `AccountNo`, `Balance`, `Flag`, `SavingAmount`, `WithdrawAmount`, `TransactionDate`, `EntryDate`, `created_at`, `updated_at`) VALUES
@@ -6965,16 +7001,120 @@ CREATE TABLE IF NOT EXISTS `unions` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.unions: ~4 rows (approximately)
+-- Dumping data for table timf.unions: ~97 rows (approximately)
 DELETE FROM `unions`;
 /*!40000 ALTER TABLE `unions` DISABLE KEYS */;
 INSERT INTO `unions` (`id`, `UnionName`, `name`, `ThanaId`, `DivisionId`, `DistrictId`, `created_at`, `updated_at`) VALUES
-	(1, 'Varara', NULL, 374, 5, 23, '2017-02-09 10:11:10', '2017-02-09 10:11:10'),
-	(2, 'Chortarapur', NULL, 374, 5, 23, '2017-02-09 10:11:59', '2017-02-09 10:12:41'),
-	(3, 'Dogachi', NULL, 374, 5, 23, '2017-02-09 10:13:12', '2017-02-09 10:13:12'),
-	(4, 'Ataikula', NULL, 374, 5, 23, '2017-02-09 10:13:51', '2017-02-09 10:13:51');
+	(1, 'Erulia', NULL, 330, 5, 18, '2017-04-17 09:38:50', '2017-04-17 09:38:50'),
+	(2, 'Fanpore', NULL, 330, 5, 18, '2017-04-17 09:39:47', '2017-04-17 09:39:47'),
+	(3, 'Gokul', NULL, 330, 5, 18, '2017-04-17 10:28:40', '2017-04-17 10:28:40'),
+	(4, 'Lahiripara ', NULL, 330, 5, 18, '2017-04-17 10:29:08', '2017-04-17 10:29:08'),
+	(5, 'Namuja ', NULL, 330, 5, 18, '2017-04-17 10:29:29', '2017-04-17 10:29:29'),
+	(6, 'Nishindara ', NULL, 330, 5, 18, '2017-04-17 10:29:57', '2017-04-17 10:29:57'),
+	(7, 'Noongola', NULL, 330, 5, 18, '2017-04-17 10:30:23', '2017-04-17 10:30:23'),
+	(8, 'Rajapur', NULL, 330, 5, 18, '2017-04-17 10:30:48', '2017-04-17 10:30:48'),
+	(9, 'Shabgram', NULL, 330, 5, 18, '2017-04-17 10:31:12', '2017-04-17 10:31:12'),
+	(10, 'Shakharia', NULL, 330, 5, 18, '2017-04-17 10:31:39', '2017-04-17 10:31:39'),
+	(11, 'Sekherkola', NULL, 330, 5, 18, '2017-04-17 10:32:12', '2017-04-17 10:32:12'),
+	(12, 'Adamdighi', NULL, 329, 5, 18, '2017-04-17 10:33:19', '2017-04-17 10:33:19'),
+	(13, 'Chanpapur', NULL, 329, 5, 18, '2017-04-17 10:33:49', '2017-04-17 10:33:49'),
+	(14, 'Chhatiangram', NULL, 329, 5, 18, '2017-04-17 10:34:28', '2017-04-17 10:34:28'),
+	(15, 'Kundugram', NULL, 329, 5, 18, '2017-04-17 10:35:47', '2017-04-17 10:35:47'),
+	(16, 'Nasratpur', NULL, 329, 5, 18, '2017-04-17 10:36:09', '2017-04-17 10:36:09'),
+	(17, 'Shantahar', NULL, 329, 5, 18, '2017-04-17 10:36:28', '2017-04-17 10:36:28'),
+	(18, 'Bhandarbari', NULL, 332, 5, 18, '2017-04-17 10:37:41', '2017-04-17 10:37:41'),
+	(19, 'Chowkibari', NULL, 332, 5, 18, '2017-04-17 10:38:15', '2017-04-17 10:38:15'),
+	(20, 'Chikashi ', NULL, 332, 5, 18, '2017-04-17 10:38:35', '2017-04-17 10:38:35'),
+	(21, 'Dhunat', NULL, 332, 5, 18, '2017-04-17 10:39:01', '2017-04-17 10:39:01'),
+	(22, 'Elangi', NULL, 332, 5, 18, '2017-04-17 10:39:24', '2017-04-17 10:39:24'),
+	(23, 'Gopalnagar', NULL, 332, 5, 18, '2017-04-17 10:39:49', '2017-04-17 10:39:49'),
+	(24, 'Goshaibari', NULL, 332, 5, 18, '2017-04-17 10:40:09', '2017-04-17 10:40:09'),
+	(25, 'Kalerpara', NULL, 332, 5, 18, '2017-04-17 10:40:29', '2017-04-17 10:40:29'),
+	(26, 'Mathurapur', NULL, 332, 5, 18, '2017-04-17 10:40:52', '2017-04-17 10:40:52'),
+	(27, 'Nimgachhi', NULL, 332, 5, 18, '2017-04-17 10:41:15', '2017-04-17 10:41:15'),
+	(28, 'Chamrul', NULL, 333, 5, 18, '2017-04-17 10:41:54', '2017-04-17 10:41:54'),
+	(29, 'Dhupchanchia', NULL, 333, 5, 18, '2017-04-17 10:42:26', '2017-04-17 10:42:26'),
+	(30, 'Gobindapur', NULL, 333, 5, 18, '2017-04-17 10:42:45', '2017-04-17 10:42:45'),
+	(31, 'Gunahar', NULL, 333, 5, 18, '2017-04-17 10:43:18', '2017-04-17 10:43:18'),
+	(32, 'Talora', NULL, 333, 5, 18, '2017-04-17 10:43:41', '2017-04-17 10:43:41'),
+	(33, 'Zianagar', NULL, 333, 5, 18, '2017-04-17 10:44:02', '2017-04-17 10:44:02'),
+	(34, 'Baliadighi', NULL, 334, 5, 18, '2017-04-17 10:44:33', '2017-04-17 10:44:33'),
+	(35, 'Dakshinpara', NULL, 334, 5, 18, '2017-04-17 10:44:55', '2017-04-17 10:44:55'),
+	(36, 'Durgahata', NULL, 334, 5, 18, '2017-04-17 10:45:17', '2017-04-17 10:45:17'),
+	(37, 'Gabtali', NULL, 334, 5, 18, '2017-04-17 10:45:39', '2017-04-17 10:45:39'),
+	(38, 'Kagoil', NULL, 334, 5, 18, '2017-04-17 10:46:03', '2017-04-17 10:46:03'),
+	(39, 'Mahishaban', NULL, 334, 5, 18, '2017-04-17 10:46:23', '2017-04-17 10:46:23'),
+	(40, 'Naruwala', NULL, 334, 5, 18, '2017-04-17 10:46:42', '2017-04-17 10:46:42'),
+	(41, 'Nasipur', NULL, 334, 5, 18, '2017-04-17 10:47:03', '2017-04-17 10:47:03'),
+	(42, 'Nepaltali', NULL, 334, 5, 18, '2017-04-17 10:47:22', '2017-04-17 10:47:22'),
+	(43, 'Rameshwarpur', NULL, 334, 5, 18, '2017-04-17 10:47:55', '2017-04-17 10:47:55'),
+	(44, 'Sonaroy', NULL, 334, 5, 18, '2017-04-17 10:48:29', '2017-04-17 10:48:29'),
+	(45, 'Birkedar', NULL, 335, 5, 18, '2017-04-17 10:48:58', '2017-04-17 10:48:58'),
+	(46, 'Durgapur', NULL, 335, 5, 18, '2017-04-17 10:49:22', '2017-04-17 10:49:22'),
+	(47, 'Jamgram', NULL, 335, 5, 18, '2017-04-17 10:49:45', '2017-04-17 10:49:45'),
+	(48, 'Kahaloo', NULL, 335, 5, 18, '2017-04-17 10:50:07', '2017-04-17 10:50:07'),
+	(49, 'Kalai', NULL, 335, 5, 18, '2017-04-17 10:50:33', '2017-04-17 10:50:33'),
+	(50, 'Malancho', NULL, 335, 5, 18, '2017-04-17 10:50:53', '2017-04-17 10:50:53'),
+	(51, 'Maruil', NULL, 335, 5, 18, '2017-04-17 10:51:12', '2017-04-17 10:51:12'),
+	(52, 'Narahotta', NULL, 335, 5, 18, '2017-04-17 10:51:33', '2017-04-17 10:51:33'),
+	(53, 'Paikar', NULL, 335, 5, 18, '2017-04-17 10:52:02', '2017-04-17 10:52:02'),
+	(54, 'Bhatgram', NULL, 336, 5, 18, '2017-04-17 10:52:28', '2017-04-17 10:52:28'),
+	(55, 'Bhatora', NULL, 336, 5, 18, '2017-04-17 10:52:50', '2017-04-17 10:52:50'),
+	(56, 'Burail', NULL, 336, 5, 18, '2017-04-17 10:54:02', '2017-04-17 10:54:02'),
+	(57, 'Nandigram', NULL, 336, 5, 18, '2017-04-17 10:54:23', '2017-04-17 10:54:23'),
+	(58, 'Thaltamajhgram', NULL, 336, 5, 18, '2017-04-17 10:54:45', '2017-04-17 10:54:45'),
+	(59, 'Bhelabari', NULL, 338, 5, 18, '2017-04-17 10:55:49', '2017-04-17 10:55:49'),
+	(60, 'Bohail', NULL, 338, 5, 18, '2017-04-17 10:56:21', '2017-04-17 10:56:21'),
+	(61, 'Chaluabari', NULL, 338, 5, 18, '2017-04-17 10:56:45', '2017-04-17 10:56:45'),
+	(62, 'Chandanbaisha', NULL, 338, 5, 18, '2017-04-17 10:57:35', '2017-04-17 10:57:35'),
+	(63, 'Fulbari', NULL, 338, 5, 18, '2017-04-17 10:58:28', '2017-04-17 10:58:28'),
+	(64, 'Hatsherpur', NULL, 338, 5, 18, '2017-04-17 10:58:50', '2017-04-17 10:58:50'),
+	(65, 'Kamalpur', NULL, 338, 5, 18, '2017-04-17 10:59:14', '2017-04-17 10:59:14'),
+	(66, 'Kazla', NULL, 338, 5, 18, '2017-04-17 10:59:55', '2017-04-17 10:59:55'),
+	(67, 'Karnibari', NULL, 338, 5, 18, '2017-04-17 11:00:39', '2017-04-17 11:00:39'),
+	(68, 'Kutubpur', NULL, 338, 5, 18, '2017-04-17 11:00:57', '2017-04-17 11:00:57'),
+	(69, 'Narchi', NULL, 338, 5, 18, '2017-04-17 11:01:18', '2017-04-17 11:01:18'),
+	(70, 'Sariakandi', NULL, 338, 5, 18, '2017-04-17 11:01:39', '2017-04-17 11:01:39'),
+	(71, 'Bhabanipur', NULL, 331, 5, 18, '2017-04-17 11:02:24', '2017-04-17 11:02:24'),
+	(72, 'Bishalpur', NULL, 331, 5, 18, '2017-04-17 11:02:42', '2017-04-17 11:02:42'),
+	(73, 'Garidaha', NULL, 331, 5, 18, '2017-04-17 11:03:00', '2017-04-17 11:03:00'),
+	(74, 'Khamarkandi', NULL, 331, 5, 18, '2017-04-17 11:03:18', '2017-04-17 11:03:18'),
+	(75, 'Khanpur', NULL, 331, 5, 18, '2017-04-17 11:03:46', '2017-04-17 11:03:46'),
+	(76, 'Kusumbi', NULL, 331, 5, 18, '2017-04-17 11:04:04', '2017-04-17 11:04:04'),
+	(77, 'Mirzapur', NULL, 331, 5, 18, '2017-04-17 11:04:21', '2017-04-17 11:04:21'),
+	(78, 'Shimabari', NULL, 331, 5, 18, '2017-04-17 11:05:02', '2017-04-17 11:05:02'),
+	(79, 'Sughat', NULL, 331, 5, 18, '2017-04-17 11:05:17', '2017-04-17 11:05:17'),
+	(80, 'Atmul', NULL, 339, 5, 18, '2017-04-17 11:06:04', '2017-04-17 11:06:04'),
+	(81, 'Bihar', NULL, 339, 5, 18, '2017-04-17 11:06:27', '2017-04-17 11:06:27'),
+	(82, 'Buriganj', NULL, 339, 5, 18, '2017-04-17 11:06:49', '2017-04-17 11:06:49'),
+	(83, 'Dewli', NULL, 339, 5, 18, '2017-04-17 11:07:09', '2017-04-17 11:07:09'),
+	(84, 'Kichak', NULL, 339, 5, 18, '2017-04-17 11:07:28', '2017-04-17 11:07:28'),
+	(85, 'Maidanhata', NULL, 339, 5, 18, '2017-04-17 11:07:43', '2017-04-17 11:07:43'),
+	(86, 'Majhihatta', NULL, 339, 5, 18, '2017-04-17 11:08:02', '2017-04-17 11:08:02'),
+	(87, 'Mokamtala', NULL, 339, 5, 18, '2017-04-17 11:08:18', '2017-04-17 11:08:18'),
+	(88, 'Pirab', NULL, 339, 5, 18, '2017-04-17 11:08:49', '2017-04-17 11:08:49'),
+	(89, 'Roynagar', NULL, 339, 5, 18, '2017-04-17 11:09:22', '2017-04-17 11:09:22'),
+	(90, 'Sayedpur', NULL, 1, 1, 1, '2017-04-17 11:09:41', '2017-04-17 11:09:41'),
+	(91, 'Shibganj', NULL, 339, 5, 18, '2017-04-17 11:10:05', '2017-04-17 11:10:05'),
+	(92, 'Balua', NULL, 340, 5, 18, '2017-04-17 11:10:29', '2017-04-17 11:10:29'),
+	(93, 'Digdair', NULL, 340, 5, 18, '2017-04-17 11:10:52', '2017-04-17 11:10:52'),
+	(94, 'Jorgachha', NULL, 340, 5, 18, '2017-04-17 11:11:09', '2017-04-17 11:11:09'),
+	(95, 'Madhupur', NULL, 340, 5, 18, '2017-04-17 11:11:27', '2017-04-17 11:11:27'),
+	(96, 'Pakulla', NULL, 340, 5, 18, '2017-04-17 11:11:47', '2017-04-17 11:11:47'),
+	(97, 'Sonatala', NULL, 340, 5, 18, '2017-04-17 11:12:07', '2017-04-17 11:12:07'),
+	(98, 'Tekanichukainagar', NULL, 340, 5, 18, '2017-04-17 11:12:23', '2017-04-17 11:12:23'),
+	(99, 'Amrul', NULL, 337, 5, 18, '2017-04-17 11:12:45', '2017-04-17 11:12:45'),
+	(100, 'Aria', NULL, 337, 5, 18, '2017-04-17 11:13:04', '2017-04-17 11:13:04'),
+	(101, 'Asekpur', NULL, 337, 5, 18, '2017-04-17 11:13:25', '2017-04-17 11:13:25'),
+	(102, 'Chupinagar', NULL, 337, 5, 18, '2017-04-17 11:13:44', '2017-04-17 11:13:44'),
+	(103, 'Gohail', NULL, 337, 5, 18, '2017-04-17 11:14:03', '2017-04-17 11:14:03'),
+	(104, 'Kharna', NULL, 337, 5, 18, '2017-04-17 11:14:21', '2017-04-17 11:14:21'),
+	(105, 'Khottapara', NULL, 337, 5, 18, '2017-04-17 11:14:45', '2017-04-17 11:14:45'),
+	(106, 'Madla', NULL, 337, 5, 18, '2017-04-17 11:15:23', '2017-04-17 11:15:23'),
+	(107, 'Majhira', NULL, 337, 5, 18, '2017-04-17 11:15:44', '2017-04-17 11:15:44'),
+	(108, 'Sultanganj', NULL, 337, 5, 18, '2017-04-17 11:16:06', '2017-04-17 11:16:06');
 /*!40000 ALTER TABLE `unions` ENABLE KEYS */;
 
 -- Dumping structure for table timf.users
@@ -7496,7 +7636,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 	(3005, 'Miss Dominique Reynolds Jr.', 'darren.ohara@jerde.net', '$2y$10$mhZWP4f/B37QxApAtkXH/.tuJ3KlpJqhmbSYGlM25J4uVPBP6/5AC', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
 	(3006, 'Eden Runte', 'jaron.homenick@corkery.com', '$2y$10$O7FIiMjtbxvvG7ttDvfPIeSyd0ZnQY0KLKAhbOW5mz3XH5CLEZp2q', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
 	(3007, 'Katrine Schuppe', 'cgerlach@yahoo.com', '$2y$10$4t5uygG7VlwLaVFcU1T/bOdqyOdTfHge.M2flQzMiDWVH.ONZG7aS', NULL, '2017-04-09 11:49:35', '2017-04-09 11:49:35', NULL),
-	(3008, 'Rockey Ahmed', 'rockeycse@gmail.com', '$2y$10$khJvxcWtzTbEA7f/e232dOAGFmuG3JEQASpZfiLDCKj6fY4pN/O/.', 'NHT4yOaYHSBkhf5xXLq327dh0NexeVh8cXih43TSTlZy29jKLEvV0OrJhFIq', '2017-04-09 11:52:37', '2017-04-13 09:49:51', NULL);
+	(3008, 'Rockey Ahmed', 'rockeycse@gmail.com', '$2y$10$khJvxcWtzTbEA7f/e232dOAGFmuG3JEQASpZfiLDCKj6fY4pN/O/.', 'VbzyPDXdSIA3VP8Oi98jXMR4Cc8wd72EvHplzMPqISthFmFbbvMJWVzSPTUc', '2017-04-09 11:52:37', '2017-04-18 09:48:27', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table timf.userstimfs
@@ -7834,9 +7974,9 @@ CREATE TABLE IF NOT EXISTS `zone1s` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table timf.zone1s: ~0 rows (approximately)
+-- Dumping data for table timf.zone1s: ~2 rows (approximately)
 DELETE FROM `zone1s`;
 /*!40000 ALTER TABLE `zone1s` DISABLE KEYS */;
 INSERT INTO `zone1s` (`id`, `name`, `Zone1Name`, `SomitiName`, `SomitiAddress`, `SomitiCode`, `SamitiOpenDate`, `SamitiEndDate`, `BranchId`, `BranchDivisionId`, `BranchDistrictId`, `BranchThanaId`, `BranchUnionId`, `BranchPostOfficeId`, `BranchWardId`, `created_at`, `updated_at`) VALUES
@@ -7872,8 +8012,8 @@ CREATE TABLE IF NOT EXISTS `zones` (
 DELETE FROM `zones`;
 /*!40000 ALTER TABLE `zones` DISABLE KEYS */;
 INSERT INTO `zones` (`id`, `name`, `ZoneDivisionOfficeId`, `ZoneName`, `ZoneEmail`, `ZoneCode`, `ZoneAddress`, `ZoneMobileNo`, `ZoneRoadNo`, `ZoneThanaId`, `ZoneDistrictId`, `ZoneUnionId`, `ZonePostOfficeId`, `ZoneWardId`, `ZoneDivisionId`, `unitprice`, `created_at`, `updated_at`) VALUES
-	(1, NULL, 1, 'Bogra', 'dfgfd@fdgdfgj.cfg', '2001', 'Bogra', '0123456789', '1', 330, 18, NULL, 0, 1, 5, 0.00, '2017-04-15 06:03:51', '2017-04-15 06:03:51'),
-	(2, NULL, 1, 'Pabna', 'dfgfd@fdgdfgj.cfg', '2002', 'Rongpur', '0123456789', '1', 444, 32, NULL, 0, 1, 6, 0.00, '2017-04-15 06:04:59', '2017-04-15 06:04:59');
+	(1, NULL, 1, 'Bogra Zone', 'dfgfd@fdgdfgj.cfg', '2001', 'TIMF, টিসিবি-১, ৩য় তলা,টিএমএসএস ফাউন্ডেশন অফিস, ঠেঙ্গামারা, বগুড়া। ', '0123456789', '1', 330, 18, 1, 0, 1, 5, 0.00, '2017-04-15 06:03:51', '2017-04-19 04:30:44'),
+	(2, NULL, 1, 'Joypurhat Zone', '', '2002', 'Joypurhat', '', '1', 341, 19, 1, 0, 1, 5, 0.00, '2017-04-15 06:04:59', '2017-04-19 04:32:45');
 /*!40000 ALTER TABLE `zones` ENABLE KEYS */;
 
 -- Dumping structure for table timf.zones_feb_1

@@ -80,7 +80,7 @@
         <?php $i = 1;
         $j = 0;
         ?>
-        @foreach($DistrictInfo as $key=>$area)
+        @foreach($areas as $key=>$area)
             <tr>
                 <td align="center">{{$i++}}</td>
                 <td>{{$area->AreaName}}</td>

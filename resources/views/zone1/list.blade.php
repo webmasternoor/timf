@@ -71,11 +71,12 @@
         <tbody>
         <?php $i = 1;?>
         @foreach($zone1s as $key=>$zone1)
+            <?php $branchdata = \App\Brn::find($zone1->BranchId);?>
             <tr>
                 <td align="center">{{$i++}}</td>
                 <td>{{$zone1->SomitiName}}</td>
                 <td>{{$zone1->SomitiCode}}</td>
-                <td>{{$zone1->BranchId}}</td>
+                <td>{{$branchdata->BranchName}}</td>
                 <td>{{$zone1->SamitiOpenDate}}</td>
                 <td>{{$zone1->SamitiEndDate}}</td>
                 <td style="text-align: center">
