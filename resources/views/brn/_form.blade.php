@@ -35,6 +35,13 @@
                 <span id="BranchCode-error" class="help-block"></span>
             </div>
         </div>
+        <div class="form-group required col-md-3" id="form-OpeningDate-error">
+            {!! Form::label("OpeningDate","শাখা শুরুর তারিখ",["class"=>"control-label col-md-12"]) !!}
+            <div class="col-md-12">
+                {!! Form::date("OpeningDate",null,["class"=>"form-control required","id"=>"focus"]) !!}
+                <span id="OpeningDate-error" class="help-block"></span>
+            </div>
+        </div>
         <div class="form-group required col-md-6" id="form-BranchMobileNo-error">
             {!! Form::label("BranchMobileNo","মোবাইল নং",["class"=>"control-label test col-md-12"]) !!}
             <div class="col-md-12">

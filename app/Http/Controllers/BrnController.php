@@ -85,6 +85,7 @@ class BrnController extends Controller
         $brn->AreaId = Input::get('AreaId');
         $brn->BranchName = Input::get('BranchName');
         $brn->BranchCode = Input::get('BranchCode');
+        $brn->OpeningDate = Input::get('OpeningDate');
         $brn->BranchAddress = Input::get('BranchAddress');
         $brn->BranchMobileNo = Input::get('BranchMobileNo');
         $brn->BranchEmail = Input::get('BranchEmail');
@@ -131,6 +132,7 @@ class BrnController extends Controller
         $brn->AreaId = Input::get('AreaId');
         $brn->BranchName = Input::get('BranchName');
         $brn->BranchCode = Input::get('BranchCode');
+        $brn->OpeningDate = Input::get('OpeningDate');
         $brn->BranchAddress = Input::get('BranchAddress');
         $brn->BranchMobileNo = Input::get('BranchMobileNo');
         $brn->BranchEmail = Input::get('BranchEmail');
