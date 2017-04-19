@@ -89,15 +89,15 @@
                 <td>{{$brn->BranchAddress}}</td>
                 <td>{{$brn->BranchMobileNo}}</td>
                 <td>{{$brn->BranchEmail}}</td>
-                {{--<td style="text-align: center">--}}
-                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
-                {{--href="javascript:ajaxLoad('brn/update/{{$brn->id}}')">--}}
-                {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                <td style="text-align: center">
+                <a class="btn btn-primary btn-xs" title="Edit"
+                href="javascript:ajaxLoad('brn/update/{{$brn->id}}')">
+                <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
                 {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
                 {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('brn/delete/{{$brn->id}}')">--}}
                 {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-                {{--</td>--}}
+                </td>
             </tr>
         @endforeach
         </tbody>

@@ -102,8 +102,8 @@
                    class="glyphicon  {{ Session::get('survey_field')=='grouppresident'?(Session::get('survey_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}">
                 </i>
             </th>
-            {{--<th width="140px">অনুমোদন</th>--}}
-            {{--<th width="140px">Actions</th>--}}
+            <th width="140px">অনুমোদন</th>
+            <th width="140px">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -142,15 +142,15 @@
                     }
                     ?>
                 </td>
-                {{--<td style="text-align: center">--}}
-                {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
-                {{--href="javascript:ajaxLoad('member/update/{{$member->id}}')">--}}
-                {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                <td style="text-align: center">
+                <a class="btn btn-primary btn-xs" title="Edit"
+                href="javascript:ajaxLoad('member/update/{{$member->id}}')">
+                <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
                 {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
                 {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('member/delete/{{$member->id}}')">--}}
                 {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
                 {{--</a>--}}
-                {{--</td>--}}
+                </td>
             </tr>
         @endforeach
         </tbody>

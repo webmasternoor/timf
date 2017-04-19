@@ -79,9 +79,9 @@
                 <td>{{$zone1->SamitiOpenDate}}</td>
                 <td>{{$zone1->SamitiEndDate}}</td>
                 <td style="text-align: center">
-                    {{--<a class="btn btn-primary btn-xs" title="Edit"--}}
-                    {{--href="javascript:ajaxLoad('zone1/update/{{$zone1->id}}')">--}}
-                    {{--<i class="glyphicon glyphicon-edit"></i> আপডেট</a>--}}
+                    <a class="btn btn-primary btn-xs" title="Edit"
+                    href="javascript:ajaxLoad('zone1/update/{{$zone1->id}}')">
+                    <i class="glyphicon glyphicon-edit"></i> আপডেট</a>
                     {{--<a class="btn btn-danger btn-xs" title="Delete"--}}
                     {{--href="javascript:if(confirm('Are you sure want to delete?')) ajaxLoad('zone1/delete/{{$zone1->id}}')">--}}
                     {{--<i class="glyphicon glyphicon-trash"></i> ডিলিট--}}
